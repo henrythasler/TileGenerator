@@ -172,8 +172,8 @@
         "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream')\n    OR landuse IN ('reservoir', 'basin')) AS data",
         "key_field": "",
         "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1163941.37,6094980.62,1258227.4,6199310.62",
+        "extent_cache": "dynamic",
+        "extent": "",
         "dbname": "mering",
         "user": "postgres"
       },
