@@ -1,0 +1,218 @@
+{
+  "bounds": [
+    10.676,
+    48.0694,
+    11.261,
+    48.4105
+  ],
+  "center": [
+    10.9678,
+    48.2603,
+    11
+  ],
+  "format": "png8",
+  "interactivity": false,
+  "minzoom": 0,
+  "maxzoom": 18,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "defines.mms",
+    "nature.mms",
+    "manmade.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "polygon",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        83.6664731
+      ],
+      "id": "detailled",
+      "class": "land",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/land_polygons.shp"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "detailled"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        83.6664731
+      ],
+      "id": "simple",
+      "class": "land",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/simplified_land_polygons.shp"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "simple"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"leisure\" IN ('park', 'playground', 'pitch', 'golf_course')\n    OR landuse IN ('recreation_ground', 'grass', 'cemetery')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "grassland",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "grassland"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wood', 'scrub')\n    OR landuse IN ('forest')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "forest",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "forest"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wetland')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "swamp",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "swamp"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        10.021982332562127,
+        47.77287245017829,
+        11.802761858118293,
+        48.692338384365485
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, waterway AS type, name\n  FROM planet_osm_line\n  WHERE waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-1', '-2') OR layer IS NULL)) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "waterway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "waterway"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream')\n    OR landuse IN ('reservoir', 'basin')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1163941.37,6094980.62,1258227.4,6199310.62",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "lakes",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "lakes"
+    },
+    {
+      "geometry": "unknown",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('glacier')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "glacier",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "glacier"
+    }
+  ],
+  "scale": 1,
+  "metatile": 2,
+  "name": "",
+  "description": "",
+  "attribution": ""
+}

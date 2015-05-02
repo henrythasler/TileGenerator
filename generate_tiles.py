@@ -119,6 +119,7 @@ class RenderThread:
                 empty = " Empty Tile "
             self.printLock.acquire()
             print name, ":", z, x, y, exists, empty
+#			print self.q
             self.printLock.release()
             self.q.task_done()
 
@@ -222,7 +223,12 @@ if __name__ == "__main__":
 
     # Mering
     bbox=(10.8884,48.2147,11.0842,48.3516)
+    
+    # Grossvenediger
+    bbox=(12.030029296875, 47.094435436165931, 12.6068115234375, 47.465236224383617)
     minZoom = 6
     maxZoom = 14
-    render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom, "Mering")
+    render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom, "CycleMap")
+
+	
    

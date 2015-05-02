@@ -7,4 +7,12 @@
 # -d   dbname
 # -C   cache size
 # -S   style-file
-osm2pgsql --slim -U postgres -d mering -c -S osm2pgsql.style /media/henry/Tools/map/data/extract.osm.pbf
+
+
+psql -U postgres -c "create database alps;"
+psql -U postgres -d alps -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
+psql -U postgres -d alps -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
+
+#osm2pgsql --slim -G -U postgres -d mering -c -S osm2pgsql.style /media/henry/Tools/map/data/extract.osm.pbf
+osm2pgsql --slim -G -U postgres -d alps -c -S osm2pgsql.style /media/henry/Tools/map/data/extract.osm.pbf
+#osm2pgsql --slim -G -U postgres -d osm -c -S osm2pgsql.style /media/henry/Tools/map/data/germany_south.osm.pbf
