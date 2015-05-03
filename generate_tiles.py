@@ -222,10 +222,13 @@ if __name__ == "__main__":
 #    render_tiles(bbox, mapfile, tile_dir, 0, 5, "World")
 
     # Mering
-    bbox=(10.8884,48.2147,11.0842,48.3516)
+#    bbox=(10.8884,48.2147,11.0842,48.3516)
+
+    # Augsburg
+    bbox=(10.5523681640625, 48.000949575530228, 11.2335205078125, 48.45288728338134)
     
     # Grossvenediger
-    bbox=(12.030029296875, 47.094435436165931, 12.6068115234375, 47.465236224383617)
+#    bbox=(12.030029296875, 47.094435436165931, 12.6068115234375, 47.465236224383617)
     minZoom = 6
     maxZoom = 14
     render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom, "CycleMap")

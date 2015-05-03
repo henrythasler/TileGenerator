@@ -43,80 +43,137 @@
     </Datasource>
   </Layer>
 
+<Style name="residental" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <PolygonSymbolizer fill-opacity="0.55" fill="#cccccc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <PolygonSymbolizer fill-opacity="1" fill="#cccccc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <PolygonSymbolizer fill-opacity="0.5" fill="#cccccc" />
+  </Rule>
+</Style>
+<Layer name="residental"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>residental</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, way_area AS area
+  FROM planet_osm_polygon
+  WHERE landuse IN ('residential', 'commercial', 'retail')) AS data]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="industrial" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#d4bdb6" fill-opacity="1" />
+  </Rule>
+</Style>
+<Layer name="industrial"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>industrial</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, way_area AS area, name
+  FROM planet_osm_polygon
+  WHERE aeroway IN ('aerodrome')
+    OR landuse IN ('industrial')) AS data]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
 <Style name="grassland" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonSymbolizer fill="#99cc33" fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
   </Rule>
   <Rule>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <PolygonSymbolizer fill-opacity="0.25" />
+    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
   </Rule>
 </Style>
 <Layer name="grassland"
@@ -132,7 +189,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[alps]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -142,119 +199,143 @@
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt;= 5000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 1000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonSymbolizer fill="#b0d090" />
+    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
   </Rule>
 </Style>
 <Layer name="forest"
@@ -270,7 +351,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[alps]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -280,168 +361,168 @@
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill-opacity="0.2" />
+    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="0.2" />
+    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill-opacity="0.2" />
+    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="0.2" />
+    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonSymbolizer fill="#339966" fill-opacity="0.2" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <PolygonSymbolizer fill-opacity="0.2" />
+    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
 </Style>
@@ -457,7 +538,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[alps]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -504,70 +585,82 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'canal')</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
   </Rule>
   <Rule>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" />
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" stroke-width="0" />
   </Rule>
   <Rule>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke="#90b0c0" stroke-width="0" />
@@ -585,7 +678,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[alps]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -595,119 +688,143 @@
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt;= 5000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 1000)</Filter>
+    <PolygonSymbolizer fill-opacity="0" fill="#90b0c0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonSymbolizer fill="#90b0c0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#90b0c0" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <PolygonSymbolizer fill-opacity="0" fill="#90b0c0" />
   </Rule>
 </Style>
 <Layer name="lakes"
@@ -724,7 +841,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[alps]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -735,168 +852,168 @@
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
     <LineSymbolizer stroke-width="1" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
     <LineSymbolizer stroke-width="0.75" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <LineSymbolizer stroke="#add8e6" stroke-width="0.5" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <LineSymbolizer stroke-width="0.5" stroke="#add8e6" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
     <LineSymbolizer stroke-width="1" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
     <LineSymbolizer stroke-width="0.75" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <LineSymbolizer stroke="#add8e6" stroke-width="0.5" />
-    <PolygonSymbolizer fill-opacity="0.5" />
+    <LineSymbolizer stroke="#add8e6" stroke-width="0" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
     <LineSymbolizer stroke-width="1" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <LineSymbolizer stroke="#add8e6" stroke-width="0.5" />
-    <PolygonSymbolizer fill-opacity="0.5" />
+    <LineSymbolizer stroke="#add8e6" stroke-width="0" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <LineSymbolizer stroke="#add8e6" stroke-width="0.5" />
-    <PolygonSymbolizer fill-opacity="0.5" />
+    <LineSymbolizer stroke="#add8e6" stroke-width="0" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
     <LineSymbolizer stroke-width="2.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <LineSymbolizer stroke="#add8e6" stroke-width="0.5" />
-    <PolygonSymbolizer fill-opacity="0.5" />
+    <LineSymbolizer stroke="#add8e6" stroke-width="0" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <LineSymbolizer stroke-width="2.5" stroke="#add8e6" />
-    <PolygonSymbolizer fill="#ffffff" fill-opacity="0.5" />
+    <PolygonSymbolizer fill-opacity="0.5" fill="#ffffff" />
   </Rule>
   <Rule>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <LineSymbolizer stroke="#add8e6" stroke-width="0.5" />
-    <PolygonSymbolizer fill-opacity="0.5" />
+    <LineSymbolizer stroke="#add8e6" stroke-width="0" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="0" />
   </Rule>
 </Style>
 <Layer name="glacier"
@@ -911,7 +1028,183 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[alps]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="hillshading" filter-mode="first">
+  <Rule>
+    <RasterSymbolizer opacity="0.5" scaling="bilinear" comp-op="multiply" />
+  </Rule>
+</Style>
+<Layer name="hillshading"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>hillshading</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/hillshading.tif]]></Parameter>
+       <Parameter name="type"><![CDATA[gdal]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="peaks" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([name] != null) and ([ele] != null)</Filter>
+    <MarkersSymbolizer width="6" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" placement="point" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" dy="6" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([name] != null) and ([ele] != null)</Filter>
+    <MarkersSymbolizer width="5" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([name] != null) and ([ele] != null)</Filter>
+    <MarkersSymbolizer width="3" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([name] != null) and ([ele] = null)</Filter>
+    <MarkersSymbolizer width="6" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" placement="point" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" dy="6" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([name] != null) and ([ele] = null)</Filter>
+    <MarkersSymbolizer width="5" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([name] != null) and ([ele] = null)</Filter>
+    <MarkersSymbolizer width="3" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([name] != null)</Filter>
+    <MarkersSymbolizer width="5" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([name] != null)</Filter>
+    <MarkersSymbolizer width="3" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([name] != null)</Filter>
+    <MarkersSymbolizer width="6" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MarkersSymbolizer width="5" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MarkersSymbolizer width="3" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MarkersSymbolizer width="6" file="img/triangle.svg" fill="#000000" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+</Style>
+<Layer name="peaks"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>peaks</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, name, ele
+  FROM planet_osm_point
+  WHERE "natural" IN ('peak')) as DATA]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="contour" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([elev].match('.*00'))</Filter>
+    <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
+    <TextSymbolizer size="9" face-name="Verdana Regular" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[elev]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([elev].match('.*00'))</Filter>
+    <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
+  </Rule>
+</Style>
+<Layer name="contour"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>contour</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/contour/srtm3-3785-contour.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="contourhigh" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([elev].match('.*00'))</Filter>
+    <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
+    <TextSymbolizer size="9" face-name="Verdana Regular" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[elev]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
+  </Rule>
+</Style>
+<Layer name="contourhigh"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>contourhigh</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/contourhigh/srtm3-3785-contour-high.shp]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="buildings" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="0" />
+    <PolygonSymbolizer fill-opacity="1" fill="#444444" />
+  </Rule>
+</Style>
+<Layer name="buildings"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>buildings</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[( SELECT way, "building" AS type,  way_area AS area
+  FROM planet_osm_polygon
+  WHERE building NOT IN ('0','false', 'no')
+  ORDER BY ST_YMin(ST_Envelope(way)) DESC
+) AS data]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>

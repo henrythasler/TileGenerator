@@ -18,7 +18,8 @@
   "Stylesheet": [
     "defines.mms",
     "nature.mms",
-    "manmade.mss"
+    "manmade.mss",
+    "dem.mss"
   ],
   "Layer": [
     {
@@ -58,6 +59,56 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "simple"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE landuse IN ('residential', 'commercial', 'retail')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "residental",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "residental"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE aeroway IN ('aerodrome')\n    OR landuse IN ('industrial')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "industrial",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "industrial"
     },
     {
       "geometry": "polygon",
@@ -208,6 +259,113 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "glacier"
+    },
+    {
+      "geometry": "raster",
+      "extent": [
+        7.999861111111121,
+        45.999956725347296,
+        13.000259213497094,
+        48.000138888888905
+      ],
+      "id": "hillshading",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm3-3785-hs.tif"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "hillshading"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        10.021982332562127,
+        47.82641598049901,
+        11.415255683839185,
+        48.57078695908121
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, name, ele\n  FROM planet_osm_point\n  WHERE \"natural\" IN ('peak')) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "peaks",
+      "class": "text",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "peaks"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        7.999861111111121,
+        45.999956725347296,
+        13.000259213497094,
+        48.000138888888905
+      ],
+      "id": "contour",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm3-3785-contour.shp"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "contour"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        7.999861111111121,
+        45.999956725347296,
+        13.000259213497094,
+        48.000138888888905
+      ],
+      "id": "contourhigh",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm3-3785-contour-high.shp"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "contourhigh"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        10.45586322490015,
+        47.92857587359462,
+        11.302849043179666,
+        48.552751482855626
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, \"building\" AS type,  way_area AS area\n  FROM planet_osm_polygon\n  WHERE building NOT IN ('0','false', 'no')\n  ORDER BY ST_YMin(ST_Envelope(way)) DESC\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "buildings",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "buildings"
     }
   ],
   "scale": 1,
