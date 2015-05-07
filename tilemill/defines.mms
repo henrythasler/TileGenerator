@@ -10,6 +10,9 @@
 @grey:              #ccc;
 @industrial:        #d4bdb6;
 
+@motorway:          #ee9900;
+@primary:           #ffcc99;
+
 @text_halo:         fadeout(white, 50%);
 
 @water_text: fadeout(darken(#666699, 15%),20%);
@@ -33,4 +36,7 @@
 @mono_bold: "Ubuntu Mono Bold";
 @mono_bold_italic: "Ubuntu Mono Bold Italic";
 @mono_italic: "Ubuntu Mono Italic";
+
+
+
 

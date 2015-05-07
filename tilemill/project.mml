@@ -19,7 +19,9 @@
     "defines.mms",
     "nature.mms",
     "manmade.mss",
-    "dem.mss"
+    "dem.mss",
+    "poi.mss",
+    "roads.mss"
   ],
   "Layer": [
     {
@@ -366,6 +368,84 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "buildings"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        10.021982332562127,
+        47.77287245017829,
+        11.802761858118293,
+        48.692338384365485
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, z_order\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres",
+        "id": "railway",
+        "project": "TileGenerator",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "railway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "railway"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        10.021982332562127,
+        47.77287245017829,
+        11.802761858118293,
+        48.692338384365485
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, tunnel\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'trunk') AND oneway IN ('yes'))\n OR highway IN ('motorway_link')\n\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "motorway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "motorway"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        10.021982332562127,
+        47.77287245017829,
+        11.802761858118293,
+        48.692338384365485
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, tunnel\n  FROM planet_osm_line\n  WHERE highway IN ('primary', 'primary_link', 'trunk_link') \n  OR (oneway IS NULL AND highway IN('trunk'))\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "primary",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "primary"
     }
   ],
   "scale": 1,

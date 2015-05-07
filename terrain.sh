@@ -11,7 +11,7 @@ ymax=48
 
 echo -n "removing old files"
 rm $demfolder/*.tif
-rm $shadefolder/*
+rm $shadefolder/$combined*
 
 echo -n "converting hgt"
 for ((x=$xmin;x<=$xmax;x++)) do
@@ -26,28 +26,28 @@ for ((x=$xmin;x<=$xmax;x++)) do
   done
 done
 
-echo -n "merging GeoTIFF"
+echo "merging GeoTIFF"
 gdal_merge.py $demfolder/*.tif -o $shadefolder/$combined.tif
 
-echo -n "Re-projecting: "
-gdalwarp -s_srs EPSG:4326 -t_srs EPSG:3785 -r bilinear $shadefolder/$combined.tif $shadefolder/$combined-3785.tif
+echo "Re-projecting: "
+gdalwarp -srcnodata -32768 -dstnodata none -s_srs EPSG:4326 -t_srs EPSG:3785 -r bilinear $shadefolder/$combined.tif $shadefolder/$combined-3785.tif
 
-echo -n "Generating hill shading: "
+echo "Generating hill shading: "
 gdaldem hillshade -z 3 -alt 45 -combined -compute_edges -co compress=lzw $shadefolder/$combined-3785.tif $shadefolder/$combined-3785-hs.tif
 
-echo -n "and overviews: "
+echo "and overviews: "
 gdaladdo -r average $shadefolder/$combined-3785-hs.tif 2 4 8 16 32
 
-echo -n "Generating slope files: "
+echo "Generating slope files: "
 #gdaldem slope $shadefolder/$combined-3785.tif $shadefolder/$combined-3785-slope.tif
 
-echo -n "Translating to 0-90..."
+echo "Translating to 0-90..."
 #gdal_translate -ot Byte -scale 0 90 $shadefolder/$combined-3785-slope.tif $shadefolder/$combined-3785-slope-scale.tif
 
 echo "and overviews."
 #gdaladdo -r average $shadefolder/$combined-3785-slope-scale.tif 2 4 8 16 32
 
-echo -n Translating DEM...
+echo Translating DEM...
 #gdal_translate -ot Byte -scale -10 2000 $shadefolder/$combined-3785.tif $shadefolder/$combined-3785-scale.tif
 
 echo and overviews.
