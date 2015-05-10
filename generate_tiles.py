@@ -229,8 +229,12 @@ if __name__ == "__main__":
     
     # Grossvenediger
 #    bbox=(12.030029296875, 47.094435436165931, 12.6068115234375, 47.465236224383617)
+
+    # Ulm, Augsburg, Muenchen, Starnberger See
+#    bbox=(9.832763671875, 47.7226969026681, 12.06298828125, 48.511146022547344)
+
     minZoom = 6
-    maxZoom = 14
+    maxZoom = 15
     render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom, "CycleMap")
 
 	

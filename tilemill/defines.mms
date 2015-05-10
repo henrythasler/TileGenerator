@@ -8,12 +8,17 @@
 @lightblue:         #add8e6;
 @darkgrey: 			#444;
 @grey:              #ccc;
+@runway:            #666;
 @industrial:        #d4bdb6;
+@track:             #885b03;
+@shiproute:         #1111aa;
 
 @motorway:          #ee9900;
 @primary:           #ffcc99;
+@secondary:         #ffff99;
 
 @text_halo:         fadeout(white, 50%);
+@text_halo_strong:  fadeout(white, 20%);
 
 @water_text: fadeout(darken(#666699, 15%),20%);
 @contour_text: fadeout(darken(#7f3300, 15%),20%);

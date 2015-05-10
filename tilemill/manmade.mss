@@ -23,8 +23,15 @@
   polygon-opacity: 1;
 }
 
+#military {
+  polygon-pattern-file:url(img/stripes-red.png);
+  polygon-pattern-opacity: 0.2;
+  line-width: 0.2;
+  line-color: red;
+}
+
 // to-do: improve SQL query to merge nearby lines
-#railway[zoom>=8] {
+#railway[zoom>=10] {
   ::line {
     line-width: 0.5;
     [zoom>=9][zoom<11] {
@@ -33,22 +40,58 @@
     [zoom>=11][zoom<12] {
       line-width: 1;
     }
-    [zoom>=12][zoom<=14] {
-      line-width: 3;
+    [zoom>=12][zoom<13] {
+      line-width: 2.5;
+    }
+    [zoom>=13][zoom<=14] {
+      line-width: 3.5;
     }
     [zoom>14] {
-      line-width: 4;
+      line-width: 4.5;
     }
     line-color: @darkgrey;
   }
   ::dash[zoom>=12] {
     line-color: white;
-    line-width: 2;
-    line-dasharray: 10, 10;
+    line-width: 1.2;
+    line-dasharray: 9, 9;
+    [zoom>=13][zoom<=14] {
+      line-width: 2;
+      line-dasharray: 13, 13;
+    }
     [zoom>14] {
       line-width: 2.5;
-      line-dasharray: 16, 16;
+      line-dasharray: 18, 16;
     }  
     
   }
+}
+
+.power[zoom>=14] {
+  ::lines {
+    line-width:0.5;
+    line-color:black;
+  }
+  ::tower {
+    marker-file: url(img/square.svg);
+    marker-width:3;
+    marker-fill:black;
+//    marker-allow-overlap:true;
+//    marker-ignore-placement:true;
+  }	  
+}
+
+
+
+
+#runway[zoom>=10] {
+  ::line{
+    line-width: 12;
+  	line-color:@runway;
+  }
+  ::dash{
+    line-color: white;
+    line-width: 2;
+    line-dasharray: 9, 9;
+  }  
 }
