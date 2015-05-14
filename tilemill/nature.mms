@@ -84,7 +84,7 @@ Map {
   [zoom>=10][zoom<12][area>=50000] {
     polygon-opacity: 1;
   }  
-  [zoom>=12][zoom<14][area>=5000] {
+  [zoom>=12][zoom<14][area>=2000] {
     polygon-opacity: 1;
   }  
   [zoom>=14][zoom<15][area>=1000] {
@@ -176,4 +176,14 @@ Map {
     polygon-opacity: 0.5;  
     line-width: 2.5;
   }
+}
+
+#waterway_labels[length>5000] {
+  text-size: 9;
+  text-name:'[name]';
+  text-face-name:@sans_bold_italic;
+  text-placement:line;
+  text-fill:@water_text;
+  text-halo-fill: fadeout(white, 60%);
+  text-halo-radius:1.5;   
 }

@@ -142,7 +142,8 @@
         line-color:black;
         line-width: 0;
         [zoom>=12][zoom<13][length>50] {
-          line-width: 2;
+          line-color:grey;
+          line-width: 1;
         }
         [zoom>=13][zoom<14] {
           line-width: 3;
@@ -172,7 +173,8 @@
           }  
         }
         [zoom>=12][zoom<13][length>300]{
-          line-width: 2;
+          line-color:grey;
+          line-width: 1;
         }
         [zoom>=13][zoom<14][length>200] {
           line-width: 2.5;
@@ -193,7 +195,7 @@
     line-width: 0;
    
 	// Zufahrten und Wirtschaftswege
-    [zoom>=12] {
+    [zoom>=13] {
       [type='service'],
       {
         line-color:white;
@@ -214,7 +216,7 @@
 	}    
     
 	// sonstige Straßen
-    [zoom>=12] {
+    [zoom>=13] {
       [type='road'],
       [type='unclassified'],
       [type='residential'],
@@ -231,7 +233,7 @@
           line-width: 2;
         }
         [zoom>=14][zoom<15] {
-          line-width: 2.5;
+          line-width: 2.2;
         }
         [zoom>=15]{
           line-width: 4;
@@ -246,7 +248,7 @@
         line-color: white;
         line-width: 1.8;
         [zoom>=11][zoom<12] {
-          line-width: 2.5;
+          line-width: 2.2;
         }
         [zoom>=12][zoom<14] {
           line-width: 2.8;
@@ -269,7 +271,7 @@
           line-width: 1.8;
         }
         [zoom>=11][zoom<12] {
-          line-width: 2.5;
+          line-width: 2.2;
         }
         [zoom>=12][zoom<14] {
           line-width: 3;
@@ -405,3 +407,33 @@
   [zoom>=13][zoom<14] {line-width:0.8;line-dasharray: 5,5;}
   [zoom>=14]{line-width:1;line-dasharray: 6,6;}
 }
+
+
+#test {
+  line-width:10;
+  line-color:#168;
+}
+
+
+#cycleroute[zoom>=12] {
+  line-width:4;
+  line-color:blue;
+  line-opacity: 0.25;
+  [zoom>=13][zoom<14] {line-opacity: 0.2; line-width:6;}
+  [zoom>=14][zoom<15] {line-opacity: 0.15; line-width:9;}
+  [zoom>14] {line-opacity: 0.15; line-width:12;}
+}
+
+#cycleroute_labels[zoom>=14] {
+  text-size: 9;
+  text-character-spacing: 0.8;
+  text-min-distance: 500;
+  text-spacing: 500;
+  text-name:'[route_name]';
+  text-face-name:@sans;
+  text-placement:line;
+  text-fill:fadeout(darken(blue, 30%),20%);
+  text-halo-fill: fadeout(white, 40%);
+  text-halo-radius:1.5; 
+}
+

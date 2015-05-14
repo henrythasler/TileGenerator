@@ -226,6 +226,9 @@ if __name__ == "__main__":
 
     # Augsburg
     bbox=(10.5523681640625, 48.000949575530228, 11.2335205078125, 48.45288728338134)
+
+	# Donauwoerth
+#    bbox=(10.546875000000012, 48.458351882808657, 11.249999999999993, 48.922499263758255)
     
     # Grossvenediger
 #    bbox=(12.030029296875, 47.094435436165931, 12.6068115234375, 47.465236224383617)
@@ -233,8 +236,8 @@ if __name__ == "__main__":
     # Ulm, Augsburg, Muenchen, Starnberger See
 #    bbox=(9.832763671875, 47.7226969026681, 12.06298828125, 48.511146022547344)
 
-    minZoom = 6
-    maxZoom = 15
+    minZoom = 8
+    maxZoom = 14
     render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom, "CycleMap")
 
 	
