@@ -1,6 +1,6 @@
 Map {
   background-color:@water;
-//  buffer-size: 0;
+  buffer-size: 256;
 }
 
 #simple[zoom>=0][zoom<10],
@@ -178,7 +178,7 @@ Map {
   }
 }
 
-#waterway_labels[length>5000] {
+#waterway_label[length>5000] {
   text-size: 9;
   text-name:'[name]';
   text-face-name:@sans_bold_italic;
@@ -186,4 +186,73 @@ Map {
   text-fill:@water_text;
   text-halo-fill: fadeout(white, 60%);
   text-halo-radius:1.5;   
+}
+
+#lakes_label[zoom>=10] {
+  [zoom>=10][zoom<11][area>=100000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@water_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=11][zoom<12][area>=10000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@water_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=12][zoom<13][area>=1000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@water_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=13][zoom<14][area>=100000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@water_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=14][zoom<15][area>=10000]{
+    text-size: 9;
+    text-name:[name] + '\n' + [ele];
+    text-face-name:@sans_bold_italic;
+    text-fill:@water_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=15][area>=1000]{
+    text-size: 9;
+    text-name:[name] + '\n' + [ele];
+    text-face-name:@sans_bold_italic;
+    text-fill:@water_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
 }

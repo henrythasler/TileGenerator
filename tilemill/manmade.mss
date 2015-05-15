@@ -84,7 +84,7 @@
     line-width:0.5;
     line-color:black;
   }
-  ::tower {
+  ::mast {
     marker-file: url(img/square.svg);
     marker-width:3;
     marker-fill:black;
@@ -92,9 +92,6 @@
 //    marker-ignore-placement:true;
   }	  
 }
-
-
-
 
 #runway[zoom>=10] {
   [zoom>=10][zoom<12][length>1500] {
@@ -158,3 +155,14 @@
   }  
     
 }
+
+
+
+#tower[zoom>=14] {
+  marker-file: url(img/turm.png);
+}
+
+#church[zoom>=14] {
+  marker-file: url(img/church.png);
+}
+

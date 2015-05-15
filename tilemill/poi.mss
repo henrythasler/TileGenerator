@@ -1,8 +1,8 @@
 #peaks[zoom>=12] {
   marker-file: url(img/triangle.svg);
   marker-fill:black;
-  marker-allow-overlap:true;
-  marker-ignore-placement:true;
+//marker-allow-overlap:true;
+//marker-ignore-placement:true;
   [zoom >=12][zoom<13] {  
 	marker-width:3;
   }  
@@ -11,30 +11,18 @@
   }  
   [zoom >=14] {
 	marker-width:6;
-    [name != null]{
-      [ele = null] {
-      text-size: 9;
-      text-character-spacing: 0.8;
-      text-name:[name];
-      text-face-name:@sans_bold_italic;
-      text-placement:point;
-      text-fill:@peak_text;
-      text-halo-fill: @text_halo;
-      text-halo-radius:1.5;  
-      text-dy: 6; 
-      }  
-      [ele != null] {
-      text-size: 9;
-      text-character-spacing: 0.8;
-      text-name:[name] + '\n' + [ele];
-      text-face-name:@sans_bold_italic;
-      text-placement:point;
-      text-fill:@peak_text;
-      text-halo-fill: @text_halo;
-      text-halo-radius:1.5;  
-      text-dy: 6;
-      }  
-    }  
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name] + '\n' + [ele];
+    text-face-name:@sans_bold_italic;
+    text-placement-type: simple;
+    text-placements: "N,S,E,W,NE,SE,NW,SW";
+    text-dy: 6;
+    text-dx: 10;
+    text-min-padding: 10;
+    text-fill:@peak_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;  
   }  
 }
 
@@ -125,7 +113,7 @@
       [zoom>=11][zoom<12] {text-size: 7;}
       [zoom>=12][zoom<13] {text-size: 8; text-dy: 10; text-dx: 10;}
       [zoom>=13][zoom<14] {text-size: 10; text-dy: 20; text-dx: 20;}
-      [zoom>=14]{text-size: 14; text-dy: 30; text-dx: 30;}
+      [zoom>=14]{text-size: 12; text-dy: 30; text-dx: 30;}
       text-character-spacing: 0.8;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;
@@ -147,8 +135,31 @@
       text-halo-radius:1.5;
       text-wrap-width: 50;
       text-wrap-before: true;
+//	  text-min-padding: 10;
       text-placement-type: simple;
       text-placements: "N,S,E,W,NE,SE,NW,SW";
     }  
   }  
+}
+
+#restaurant[zoom>=12] {
+  marker-file: url(img/sjjb/food_restaurant.n.32.png);
+  marker-width: 6;
+  [zoom>=13][zoom<14] {marker-width: 9;}
+  [zoom>=14]{
+    marker-width: 14;
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-placement-type: simple;
+    text-placements: "S,N,E,W,NE,SE,NW,SW";
+    text-dy: 10; 
+    text-dx: 10;
+    text-fill:@restaurant_text;
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;  
+  }
 }

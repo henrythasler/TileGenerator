@@ -9,9 +9,9 @@
   line-width:0.5;
   line-opacity: 0.25;  
   line-color:@contour;
+  
   [elev =~ ".*00"][zoom >=14] {
     line-opacity: 0.5;  
-    
     text-size: 9;
   	text-name:'[elev]';
   	text-face-name:@sans;
@@ -19,8 +19,8 @@
   	text-fill:@contour_text;
   	text-halo-fill: fadeout(white, 80%);
   	text-halo-radius:1.5;
-    
   }
+  
 }
 
 
@@ -31,7 +31,6 @@
   line-color:@contour;
   [elev =~ ".*00"][zoom >=14] {
     line-opacity: 0.5;  
-    
     text-size: 9;
   	text-name:'[elev]';
   	text-face-name:@sans;

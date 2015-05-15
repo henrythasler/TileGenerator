@@ -22,6 +22,7 @@
 
 @water_text: fadeout(darken(#666699, 15%),20%);
 @contour_text: fadeout(darken(#7f3300, 15%),20%);
+@restaurant_text: fadeout(darken(brown, 20%),20%);
 @peak_text: fadeout(black,20%);
 
 

@@ -352,6 +352,8 @@
 
 #track[zoom>=12] {
   ::outer[zoom>=14] {
+    line-cap: round;
+    line-join: round;  
     line-color: fadeout(white, 60%);
     [bicycle='yes']{line-color: fadeout(green, 80%);}
     [bicycle='no']{line-color: fadeout(red, 80%);}
@@ -372,9 +374,10 @@
   }
 }
 
-// to-do: add mtb:scale marker
 #path[zoom>=12] {
   ::outer[zoom>=14] {
+    line-cap: round;
+    line-join: round;  
     line-color: fadeout(white, 60%);
     [bicycle='yes']{line-color: fadeout(green, 80%);}
     [bicycle='no']{line-color: fadeout(red, 80%);}
@@ -387,6 +390,13 @@
     line-width:0.75;
   }
   line-color:black;
+
+  ::marker[zoom>=14] {
+    [mtbscale>=3]{marker-line-width: 0; marker-width: 6;marker-fill: black;}
+    [mtbscale=2]{marker-line-width: 0; marker-width: 6;marker-fill: red;}
+    [mtbscale>=0][mtbscale<2]{marker-line-width: 0; marker-width: 6;marker-fill: blue;}
+  }  
+
 }
 
 #cycleway[zoom>=12] {
