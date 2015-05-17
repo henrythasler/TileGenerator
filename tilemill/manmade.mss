@@ -1,3 +1,55 @@
+#admin {
+  line-width: 0.5;
+  line-opacity: 0.5;
+  line-color:#811181;
+  [zoom>=2][zoom<4] {line-width: 1;}
+  [zoom>=4][zoom<6] {line-width: 2;}
+  [zoom>=6][zoom<8] {line-width: 3;}
+  [zoom>=8] {line-width: 4;}
+}
+
+#admin_claim {
+  line-width:0.5;
+  line-color:#811181;
+  line-dasharray: 2, 2;  
+}
+
+#countries[zoom<=6] {
+  text-face-name: @sans_bold;
+  text-fill:#444;
+  text-size:8;
+  text-transform:uppercase;
+  text-halo-fill:@text_halo_strong;
+  text-halo-radius:1.5;
+  text-line-spacing:1;
+  text-wrap-width:20;
+  text-name:"''"; /* hackish? */
+  
+  [ScaleRank<2][zoom=2] {
+    text-name: "[ABBREV]";
+  }
+  [ScaleRank<3][zoom=3] {
+    text-name: "[ABBREV]";
+    text-size:9;
+  }
+  [ScaleRank<4][zoom=4] {
+    text-name: "[NAME]";
+    text-size:10;
+  }
+  [ScaleRank<5][zoom=5] {
+    text-name: "[NAME]";
+    text-size:11;
+    text-character-spacing:1;
+    text-line-spacing:1;
+  }
+  [ScaleRank<9][zoom>5] {
+    text-name: "[NAME]";
+    text-size:12;
+    text-character-spacing:2;
+    text-line-spacing:2;
+  }
+}
+
 #buildings[zoom>=14] {
   line-width: 0;
   polygon-opacity: 1;
@@ -23,11 +75,66 @@
   polygon-opacity: 1;
 }
 
-#military {
+#industrial_label[zoom>=14] {
+  [zoom>=14][zoom<15][area>=10000]{
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@industry_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=15][area>=1000]{
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@industry_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+}
+
+#military[zoom>=8] {
   polygon-pattern-file:url(img/stripes-red.png);
   polygon-pattern-opacity: 0.2;
   line-width: 0.2;
   line-color: red;
+}
+
+
+#military_label[zoom>=14] {
+  [zoom>=14][zoom<15][area>=10000]{
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@industry_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=15][area>=1000]{
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@industry_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
 }
 
 // to-do: improve SQL query to merge nearby lines
@@ -153,16 +260,30 @@
   [zoom>=14]{
     line-width:6;
   }  
-    
 }
 
 
-
-#tower[zoom>=14] {
-  marker-file: url(img/turm.png);
-}
-
-#church[zoom>=14] {
-  marker-file: url(img/church.png);
+#aerialway[zoom>=12] {
+  ::line {
+    line-width:1;
+    [zoom>=13][zoom<14] {line-width:1.4;}
+    [zoom>=14] {line-width:1.8;}
+    line-color: black;
+    line-dasharray: 6, 3;
+    [type='goods'][zoom>=14] {line-width:1; line-dasharray: 4, 2;}
+    [type='goods'][zoom<14] {line-width:0;}
+  } 
+  ::text[type!='goods'][zoom>=14] {
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold;
+    text-placement:line;
+    text-horizontal-alignment: middle;
+    text-spacing: 100;
+    text-fill:@peak_text;
+    text-halo-fill: @text_halo_strong;
+    text-halo-radius:1.5;      
+  }  
 }
 

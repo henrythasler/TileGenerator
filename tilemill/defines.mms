@@ -17,10 +17,12 @@
 @primary:           #ffcc99;
 @secondary:         #ffff99;
 
+@text_halo_weak:    fadeout(white, 80%);
 @text_halo:         fadeout(white, 50%);
 @text_halo_strong:  fadeout(white, 20%);
 
 @water_text: fadeout(darken(#666699, 15%),20%);
+@industry_text: darken(#996666, 15%);
 @contour_text: fadeout(darken(#7f3300, 15%),20%);
 @restaurant_text: fadeout(darken(brown, 20%),20%);
 @peak_text: fadeout(black,20%);

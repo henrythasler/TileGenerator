@@ -129,7 +129,7 @@
       text-face-name:@sans;
       text-size: 0;
       [zoom>=13][zoom<14] {text-size: 9; text-dy: 10; text-dx: 10;}
-      [zoom>=14] {text-size: 10; text-dy: 30; text-dx: 30;}
+      [zoom>=14] {text-size: 10; text-dy: 20; text-dx: 20;}
       text-character-spacing: 0.8;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;
@@ -145,12 +145,13 @@
 #restaurant[zoom>=12] {
   marker-file: url(img/sjjb/food_restaurant.n.32.png);
   marker-width: 6;
+  marker-clip: false;
   [zoom>=13][zoom<14] {marker-width: 9;}
   [zoom>=14]{
     marker-width: 14;
     text-size: 9;
     text-character-spacing: 0.8;
-    text-name:[name];
+    text-name:[name] + '\n' + [ele];
     text-face-name:@sans_bold_italic;
     text-placement-type: simple;
     text-placements: "S,N,E,W,NE,SE,NW,SW";
@@ -159,7 +160,61 @@
     text-fill:@restaurant_text;
     text-wrap-width: 50;
     text-wrap-before: true;
-    text-halo-fill: @text_halo;
+    text-halo-fill: @text_halo_strong;
     text-halo-radius:1.5;  
   }
+}
+
+#tower[zoom>=14] {
+  marker-file: url(img/turm.png);
+}
+
+#church[zoom>=14] {
+  marker-file: url(img/church.png);
+}
+
+#parking[zoom>=14] {
+  marker-file: url(img/sjjb/transport_parking.n.32.png);
+  marker-width: 8;
+  marker-placement: interior;
+  marker-clip: false;
+  marker-allow-overlap:true;
+  marker-ignore-placement:true;
+}
+
+#tourism[zoom>=14] {
+  [type='viewpoint'] {
+    marker-file: url(img/sjjb/tourist_view_point.p.32.png);
+    marker-width: 12;
+    marker-clip: false;
+  }  
+  [type='information'] {
+    marker-file: url(img/sjjb/amenity_information.glow.32.png);
+    marker-width: 13;
+    marker-clip: false;
+  }  
+}
+
+#shop[zoom>=12] {
+  [type='supermarket'][zoom>=14] {
+    marker-file: url(img/supermarket.32.png);
+    marker-width: 14;
+    marker-clip: false;
+  }  
+  [type='bicycle'] {
+    [zoom>=12][zoom<13] { marker-fill:#f0f; marker-width: 5; marker-opacity: 0.8; marker-line-width: 0;}
+    [zoom>=13][zoom<14] { marker-file: url(img/bicycle.32.png); marker-width: 9;}
+    [zoom>=14] { marker-file: url(img/bicycle.32.png); marker-width: 14;}
+    marker-clip: false;
+  }  
+}
+
+
+
+#shelter[zoom>=12] {
+  marker-file: url(img/alpine_hut.png);
+  marker-clip: false;
+  marker-width: 12;
+  [zoom>=12][zoom<13] {marker-width: 6;}
+  [zoom>=13][zoom<14] {marker-width: 9;}
 }

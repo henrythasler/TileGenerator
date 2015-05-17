@@ -25,7 +25,7 @@ Map {
   }  
 }
 
-#forest {
+#forest[zoom>6] {
   polygon-opacity: 0;  
   polygon-fill: @forest;
   [zoom<8][area>=1000000] {
@@ -48,7 +48,7 @@ Map {
   }
 }
 
-#swamp {
+#swamp[zoom>6] {
   polygon-opacity: 0.0;
   polygon-pattern-file:url(img/wetland.png);
   polygon-fill: @swamp;
@@ -72,10 +72,24 @@ Map {
   }
 }
 
+#10mlakes[ScaleRank<3][zoom=2],
+#10mlakes[ScaleRank<4][zoom=3],
+#10mlakes[ScaleRank<5][zoom=4],
+#10mlakes[ScaleRank<6][zoom=5],
+#10mlakes[zoom>=6][zoom<8]{
+  polygon-fill:@water;
+}
+
 #lakes {
   polygon-opacity: 0.0;
   polygon-fill: @water;
-  [zoom<8][area>=1000000] {
+  [zoom>=5][zoom<6][area>=200000000] {
+    polygon-opacity: 1;
+  }  
+  [zoom>=6][zoom<7][area>=20000000] {
+    polygon-opacity: 1;
+  }  
+  [zoom>=7][zoom<8][area>=2000000] {
     polygon-opacity: 1;
   }  
   [zoom>=8][zoom<10][area>=200000] {
@@ -100,7 +114,12 @@ Map {
   line-join: round;  
   line-color: @water;
   line-width: 0;
-  [zoom>=6][zoom<8] {
+  [zoom>=6][zoom<7] {
+   	[type='river'],[type='canal']{
+  	  line-width: 0.5;
+    }  
+  }  
+  [zoom>=7][zoom<8] {
    	[type='river'],[type='canal']{
   	  line-width: 1;
     }  
@@ -147,7 +166,7 @@ Map {
   }
 }
 
-#glacier {
+#glacier{
   line-color: @lightblue;  
   polygon-fill: @white;
   line-width: 0;
@@ -178,7 +197,7 @@ Map {
   }
 }
 
-#waterway_label[length>5000] {
+#waterway_label[zoom>=12][length>200] {
   text-size: 9;
   text-name:'[name]';
   text-face-name:@sans_bold_italic;
@@ -256,3 +275,7 @@ Map {
     text-placement: interior;
   }  
 }
+
+
+
+
