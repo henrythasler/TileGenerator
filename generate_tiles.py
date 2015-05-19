@@ -3,13 +3,15 @@ from math import pi,cos,sin,log,exp,atan
 from subprocess import call
 import sys, os
 from Queue import Queue
+import argparse
 
 import threading
 
-try:
-    import mapnik2 as mapnik
-except:
-    import mapnik
+#try:
+#    import mapnik2 as mapnik
+#except:
+#    import mapnik
+import mapnik
 
 DEG_TO_RAD = pi/180
 RAD_TO_DEG = 180/pi
@@ -118,7 +120,7 @@ class RenderThread:
             if bytes == 103:
                 empty = " Empty Tile "
             self.printLock.acquire()
-            print name, ":", z, x, y, exists, empty
+            print name, ":", z, x, y, exists, empty, self.q.qsize()
 #			print self.q
             self.printLock.release()
             self.q.task_done()
@@ -191,15 +193,19 @@ def render_tiles(bbox, mapfile, tile_dir, minZoom=1,maxZoom=18, name="unknown", 
 
 
 if __name__ == "__main__":
-    home = os.environ['HOME']
-    try:
-        mapfile = os.environ['MAPNIK_MAP_FILE']
-    except KeyError:
-        mapfile = "./mycyclemap.xml"
-    try:
-        tile_dir = os.environ['MAPNIK_TILE_DIR']
-    except KeyError:
-        tile_dir = "./tiles/"
+  
+    parser = argparse.ArgumentParser(description='GileGenerator by Henry Thasler')
+    parser.add_argument("--zmin", type=int, help="min zoom", required=True)
+    parser.add_argument("--zmax", type=int, help="max zoom",required=True)
+    parser.add_argument("--left", type=float, help="left (MIN_LON)",required=True)
+    parser.add_argument("--bottom", type=float, help="bottom (MIN_LAT)",required=True)
+    parser.add_argument("--right", type=float, help="right (MAX_LON)",required=True)
+    parser.add_argument("--top", type=float, help="top (MAX_LAT)",required=True)
+    args = parser.parse_args()
+    
+    ## show values ##
+    mapfile = "./mycyclemap.xml"
+    tile_dir = "./tiles/"
 
     if not tile_dir.endswith('/'):
         tile_dir = tile_dir + '/'
@@ -252,17 +258,20 @@ if __name__ == "__main__":
     # Ulm, Augsburg, Muenchen, Starnberger See
 #    bbox=(9.832763671875, 47.7226969026681, 12.06298828125, 48.511146022547344)
 
+    
     # Augsburg, Muenchen, Walchenee
-    bbox=(10.5633544921875, 47.5264746577327, 11.93939208984375, 48.44924389032873)
-    minZoom = 15
-    maxZoom = 15
+#    bbox=(10.5633544921875, 47.5264746577327, 11.93939208984375, 48.44924389032873)
+#    minZoom = args.zmin
+#    maxZoom = args.zmax
  
  
     # Ulm, Ingolstadt, Innsbruck, Chiemsee z=8
     #bbox=(9.854736328125, 47.047668640460834, 12.6397705078125, 48.9152)
 
-
-    render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom, "CycleMap")
+    bbox=(args.left, args.bottom+0.001, args.right-0.001, args.top)
+    print ("Bounding Box: %s" % (bbox,) )
+    print ("Zoom: {}-{}".format(args.zmin, args.zmax) )
+    render_tiles(bbox, mapfile, tile_dir, args.zmin, args.zmax, "CycleMap")
 
 	
    

@@ -633,16 +633,13 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, z_order\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
+        "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
         "extent": "",
         "dbname": "mering",
-        "user": "postgres",
-        "id": "railway",
-        "project": "TileGenerator",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+        "user": "postgres"
       },
       "id": "railway",
       "class": "",
@@ -812,6 +809,31 @@
       ],
       "Datasource": {
         "type": "postgis",
+        "table": "(\nSELECT way\n  FROM planet_osm_polygon\n  WHERE amenity IN ('shelter')\nUNION\nSELECT way\n  FROM planet_osm_point\n  WHERE amenity IN ('shelter')\n) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "shelter",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "shelter"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        10.009132651075024,
+        47.24704833475714,
+        11.444648020946405,
+        48.15139885336001
+      ],
+      "Datasource": {
+        "type": "postgis",
         "table": "(SELECT way\n  FROM planet_osm_point\n  WHERE power IN ('tower', 'station', 'sub_station')\n) as DATA",
         "key_field": "",
         "geometry_field": "",
@@ -826,56 +848,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "mast"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        10.021982332562127,
-        47.82641598049901,
-        11.415255683839185,
-        48.57078695908121
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way\n  FROM planet_osm_point\n  WHERE \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian')\n) as data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "church",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "church"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        10.021982332562127,
-        47.82641598049901,
-        11.415255683839185,
-        48.57078695908121
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way\n  FROM planet_osm_point\n  WHERE \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna')\n) as data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "tower",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "tower"
     },
     {
       "geometry": "point",
@@ -1232,14 +1204,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.009132651075024,
-        47.24704833475714,
-        11.444648020946405,
-        48.15139885336001
+        10.021982332562127,
+        47.82641598049901,
+        11.415255683839185,
+        48.57078695908121
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way\n  FROM planet_osm_polygon\n  WHERE amenity IN ('shelter')\nUNION\nSELECT way\n  FROM planet_osm_point\n  WHERE amenity IN ('shelter')\n) as data",
+        "table": "(SELECT way\n  FROM planet_osm_point\n  WHERE \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna')\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1247,12 +1219,57 @@
         "dbname": "mering",
         "user": "postgres"
       },
-      "id": "shelter",
+      "id": "tower",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "shelter"
+      "name": "tower"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        10.021982332562127,
+        47.82641598049901,
+        11.415255683839185,
+        48.57078695908121
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way\n  FROM planet_osm_point\n  WHERE \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian')\n) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "church",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "church"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        7.999861111111121,
+        45.99976557799623,
+        13.000390429652775,
+        49.000416666666666
+      ],
+      "id": "contour_label",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm1-3785-contour.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "contour_label",
+      "status": "off"
     }
   ],
   "scale": 1,

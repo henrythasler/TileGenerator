@@ -17,7 +17,7 @@
     [type='motorway'],
     [type='trunk'][oneway='yes'] {
       [zoom>=8][zoom<9] {
-        line-width: 2.5;
+        line-width: 3;
         [type='motorway_link'] {
           line-width: 0;
         }
@@ -64,7 +64,7 @@
       [type='trunk'][oneway!='yes'],
       [type='primary'],[type='primary_link'], [type='trunk_link'] {
         line-color:black;
-        line-width: 1.7;
+        line-width: 3;
         [zoom>=9][zoom<10] {
           line-width: 3;
         }
@@ -86,10 +86,10 @@
       }  
     }  
 	// Landstraßen
-    [zoom>=8] {
+    [zoom>=9] {
       [type='secondary'],[type='secondary_link']{
         line-color:black;
-        line-width: 1.5;
+        line-width: 2.5;
         [zoom>=9][zoom<10] {
           line-width: 2.5;
         }
@@ -263,7 +263,7 @@
     }  
     
 	// Landstraßen
-    [zoom>=8] {
+    [zoom>=9] {
       [type='secondary'],[type='secondary_link']{
         line-color: @secondary;
         line-width: 1;
@@ -290,7 +290,7 @@
       [type='trunk'][oneway!='yes'],
       [type='primary'],[type='primary_link'], [type='trunk_link'] {
         line-color: @primary;
-        line-width: 1;
+        line-width: 1.8;
         [zoom>=9][zoom<11] {
           line-width: 2;
         }
@@ -315,9 +315,9 @@
     [type='trunk'][oneway='yes'] {
       line-color: @motorway;
       [zoom>=7][zoom<11] {
-        line-width: 2;
+        line-width: 1.8;
         [type='motorway_link'] {
-          line-width: 1;
+          line-width: 0;
         }
       }
       [zoom>=11][zoom<12] {
@@ -361,6 +361,7 @@
   }  
   ::inner {
     line-color:@track;
+    [zoom<=12] {line-color:#753701;}
     line-width:0.5;
     [zoom>=13] {line-width:1;}
     line-dasharray: 4,2;

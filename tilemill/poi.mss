@@ -16,7 +16,7 @@
     text-name:[name] + '\n' + [ele];
     text-face-name:@sans_bold_italic;
     text-placement-type: simple;
-    text-placements: "N,S,E,W,NE,SE,NW,SW";
+    text-placements: "S,N,E,W,NE,SE,NW,SW";
     text-dy: 6;
     text-dx: 10;
     text-min-padding: 10;
@@ -53,13 +53,16 @@
     text-character-spacing: 0.8;
     text-name:[name];
     text-face-name:@sans;
-    text-placement:point;
+    text-placement-type: simple;
+    text-placements: "S,N,E,W,NE,SE,NW,SW";
+    text-dy: 6;
+    text-dx: 10;
+    text-min-padding: 10;
     text-fill:@peak_text;
     text-halo-fill: @text_halo_strong;
     text-halo-radius:1.5;  
 	text-wrap-width: 50;
     text-wrap-before: true;
-    text-dy: 6; 
   }  
 }
 
@@ -167,10 +170,13 @@
 
 #tower[zoom>=14] {
   marker-file: url(img/turm.png);
+  marker-allow-overlap:true;
 }
 
 #church[zoom>=14] {
   marker-file: url(img/church.png);
+  marker-allow-overlap:true;
+//  marker-ignore-placement:true;
 }
 
 #parking[zoom>=14] {
@@ -179,7 +185,7 @@
   marker-placement: interior;
   marker-clip: false;
   marker-allow-overlap:true;
-  marker-ignore-placement:true;
+//  marker-ignore-placement:true;
 }
 
 #tourism[zoom>=14] {
@@ -212,9 +218,9 @@
 
 
 #shelter[zoom>=12] {
-  marker-file: url(img/alpine_hut.png);
+  marker-file: url(img/shelter.svg);
   marker-clip: false;
-  marker-width: 12;
+  marker-width: 10;
   [zoom>=12][zoom<13] {marker-width: 6;}
-  [zoom>=13][zoom<14] {marker-width: 9;}
+  [zoom>=13][zoom<14] {marker-width: 8;}
 }

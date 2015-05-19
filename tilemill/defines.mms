@@ -49,3 +49,14 @@
 
 
 
+
+
+#ne10mbathymetry10k {
+  polygon-fill:blue;
+}
+
+
+#ne10mbathymetry9k {
+  polygon-opacity:1;
+  polygon-fill:#ae8;
+}

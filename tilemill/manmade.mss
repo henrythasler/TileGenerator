@@ -140,13 +140,8 @@
 // to-do: improve SQL query to merge nearby lines
 #railway[zoom>=10] {
   ::line {
-    line-width: 0.5;
-    [zoom>=9][zoom<11] {
-      line-width: 0.8;
-    }
-    [zoom>=11][zoom<12] {
-      line-width: 1;
-    }
+    line-width: 1.8;
+    line-color: @darkgrey;
     [zoom>=12][zoom<13] {
       line-width: 2.5;
     }
@@ -156,23 +151,9 @@
     [zoom>14] {
       line-width: 4.5;
     }
-    line-color: @darkgrey;
   }
-  ::fill[zoom>=12] {
+  ::dash[zoom>=13] {
     line-color: white;
-    line-width: 1.2;
-//    line-dasharray: 9, 9;
-    [zoom>=13][zoom<=14] {
-      line-width: 2;
-//      line-dasharray: 13, 13;
-    }
-    [zoom>14] {
-      line-width: 2.5;
-//      line-dasharray: 18, 16;
-    }  
-  }  
-  ::dash[zoom>=12] {
-    line-color: black;
     line-width: 1.2;
     line-dasharray: 9, 9;
     [zoom>=13][zoom<=14] {
