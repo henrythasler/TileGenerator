@@ -85,6 +85,7 @@ node,way   route        text         linear
 node,way   service      text         linear
 node,way   shop         text         polygon
 node,way   sport        text         polygon
+node,way   station      text         linear
 node,way   surface      text         linear
 node,way   toll         text         linear
 node,way   tourism      text         polygon

@@ -76,7 +76,7 @@
 }
 
 #industrial_label[zoom>=14] {
-  [zoom>=14][zoom<15][area>=10000]{
+  [zoom>=14][zoom<15][area>=50000]{
     text-size: 9;
     text-character-spacing: 0.8;
     text-name:[name];
@@ -88,7 +88,7 @@
     text-wrap-before: true;
     text-placement: interior;
   }  
-  [zoom>=15][area>=1000]{
+  [zoom>=15][area>=10000]{
     text-size: 9;
     text-character-spacing: 0.8;
     text-name:[name];
@@ -111,7 +111,7 @@
 
 
 #military_label[zoom>=14] {
-  [zoom>=14][zoom<15][area>=10000]{
+  [zoom>=14][zoom<15][area>=50000]{
     text-size: 9;
     text-character-spacing: 0.8;
     text-name:[name];
@@ -123,7 +123,7 @@
     text-wrap-before: true;
     text-placement: interior;
   }  
-  [zoom>=15][area>=1000]{
+  [zoom>=15][area>=10000]{
     text-size: 9;
     text-character-spacing: 0.8;
     text-name:[name];
@@ -142,6 +142,7 @@
   ::line {
     line-width: 1.8;
     line-color: @darkgrey;
+    [tunnel='yes'] {line-dasharray: 9, 9;}
     [zoom>=12][zoom<13] {
       line-width: 2.5;
     }
@@ -268,3 +269,10 @@
   }  
 }
 
+
+
+#fence[zoom>=14] {
+  line-color:@darkgrey;
+  line-width:1.5;
+  line-dasharray: 6, 3, 3, 3;
+}

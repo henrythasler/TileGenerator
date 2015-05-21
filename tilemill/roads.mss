@@ -448,3 +448,26 @@
   text-halo-radius:1.5; 
 }
 
+#road_shields[zoom>=10][reflen<=5] {
+  shield-name: "[ref]";
+  shield-size: 9;
+  shield-face-name: @sans_bold;
+  shield-fill: white;
+  shield-avoid-edges: true;
+  shield-clip: false;
+  shield-file: url(img/shield-3.blue.svg);
+  [type='motorway'] {
+    [reflen>=4][reflen<5] {shield-file: url(img/shield-4.blue.svg);}
+    [reflen>=5][reflen<6] {shield-file: url(img/shield-5.blue.svg);}
+  }
+  [type='primary'],[type='trunk'] {
+    shield-fill: black;
+	shield-file: url(img/shield-3.yellow.svg);
+    [reflen>=4][reflen<5] {shield-file: url(img/shield-4.yellow.svg);}
+    [reflen>=5][reflen<6] {shield-file: url(img/shield-5.yellow.svg);}
+  }
+  [zoom>=10][zoom<12] {shield-min-distance: 100;}
+  [zoom>=12][zoom<14] {shield-min-distance: 160;}
+  [zoom>=14] {shield-min-distance: 200;}
+}
+

@@ -92,15 +92,15 @@
     ::label[zoom>=9][zoom<=14]{
       text-name: [name];
       text-size: 0;
-      [zoom>=9][zoom<10] {text-size: 7;}
-      [zoom>=10][zoom<11] {text-size: 8; text-dy: 10; text-dx: 10;}
+      text-face-name:@sans_bold;
+      text-halo-fill: @text_halo_strong;
+      [zoom>=9][zoom<10] {text-size: 8; text-face-name:@sans;}
+      [zoom>=10][zoom<11] {text-size: 9; text-dy: 10; text-dx: 10; text-face-name:@sans;}
       [zoom>=11][zoom<12] {text-size: 9; text-dy: 30; text-dx: 30;}
       [zoom>=12][zoom<13] {text-size: 10; text-dy: 20; text-dx: 20;}
       [zoom>=13][zoom<14] {text-size: 12; text-dy: 60; text-dx: 60;}
       [zoom>=14] {text-size: 14; text-dy: 100; text-dx: 100;}
       text-character-spacing: 0.8;
-      text-face-name:@sans_bold;
-      text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;
       text-wrap-width: 50;
       text-wrap-before: true;
@@ -113,8 +113,8 @@
       text-name: [name];
       text-face-name:@sans;
       text-size: 0;
-      [zoom>=11][zoom<12] {text-size: 7;}
-      [zoom>=12][zoom<13] {text-size: 8; text-dy: 10; text-dx: 10;}
+      [zoom>=11][zoom<12] {text-size: 8;}
+      [zoom>=12][zoom<13] {text-size: 9; text-dy: 10; text-dx: 10;}
       [zoom>=13][zoom<14] {text-size: 10; text-dy: 20; text-dx: 20;}
       [zoom>=14]{text-size: 12; text-dy: 30; text-dx: 30;}
       text-character-spacing: 0.8;
@@ -146,12 +146,15 @@
 }
 
 #restaurant[zoom>=12] {
-  marker-file: url(img/sjjb/food_restaurant.n.32.png);
-  marker-width: 6;
-  marker-clip: false;
-  [zoom>=13][zoom<14] {marker-width: 9;}
-  [zoom>=14]{
-    marker-width: 14;
+  ::marker {
+    marker-file: url(img/sjjb/food_restaurant.n.32.png);
+    marker-width: 6;
+    marker-clip: false;
+//	marker-allow-overlap:true;
+    [zoom>=13][zoom<14] {marker-width: 9;}
+    [zoom>=14] {marker-width: 14;}
+  }  
+  ::label [zoom>=14]{  
     text-size: 9;
     text-character-spacing: 0.8;
     text-name:[name] + '\n' + [ele];

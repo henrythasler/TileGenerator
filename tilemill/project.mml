@@ -576,6 +576,31 @@
     {
       "geometry": "linestring",
       "extent": [
+        10.38460481414501,
+        47.629869593066154,
+        12.107837094790613,
+        48.64628686781149
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, ST_Perimeter(way)::integer as boundary\n  FROM planet_osm_polygon\n  WHERE barrier IN ('fence') AND (ST_Perimeter(way)::integer > 400)\nUNION\nSELECT way, ST_Perimeter(way)::integer as boundary\n  FROM planet_osm_line\n  WHERE barrier IN ('fence') AND (ST_Length(way)::integer > 400)\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "fence",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "fence"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
         8.203923441367223,
         47.02519599340731,
         13.96351455547553,
@@ -626,14 +651,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        8.203923441367223,
-        47.02519599340731,
-        13.96351455547553,
-        48.35182628382521
+        10.38460481414501,
+        47.629869593066154,
+        12.107837094790613,
+        48.64628686781149
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
+        "table": "(SELECT way, tunnel\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'subway')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -800,6 +825,56 @@
       "name": "lines"
     },
     {
+      "geometry": "linestring",
+      "extent": [
+        10.38460481414501,
+        47.629869593066154,
+        12.107837094790613,
+        48.64628686781149
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, ref, CHAR_LENGTH(ref) AS reflen\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'trunk', 'primary')) AND (bridge IS NULL OR bridge NOT IN('yes')) AND ref IS NOT NULL) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "road_shields",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "road_shields"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        10.009132651075024,
+        47.24704833475714,
+        11.444648020946405,
+        48.15139885336001
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, name, ele\n  FROM planet_osm_polygon\n  WHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut'))\nUNION\nSELECT way, name, ele\n  FROM planet_osm_point\n  WHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut'))\n) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "restaurant",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "restaurant"
+    },
+    {
       "geometry": "point",
       "extent": [
         10.009132651075024,
@@ -852,14 +927,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.021982332562127,
-        47.82641598049901,
-        11.415255683839185,
-        48.57078695908121
+        10.492001909791108,
+        47.629869593066154,
+        12.107837094790613,
+        48.54725818531375
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT ref, way, name\n  FROM planet_osm_point\n  WHERE railway IN ('station', 'halt')\n) as DATA",
+        "table": "(SELECT way, name\n  FROM planet_osm_point\n  WHERE railway IN ('station', 'halt')\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -873,31 +948,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "station"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        10.009132651075024,
-        47.24704833475714,
-        11.444648020946405,
-        48.15139885336001
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(\nSELECT way, name, ele\n  FROM planet_osm_polygon\n  WHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut'))\nUNION\nSELECT way, name, ele\n  FROM planet_osm_point\n  WHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut'))\n) as data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "restaurant",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "restaurant"
     },
     {
       "geometry": "point",
@@ -974,6 +1024,81 @@
       "advanced": {},
       "name": "waterway_label_old",
       "status": "off"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        9.854336847777645,
+        47.23996886995563,
+        12.208300633747763,
+        48.07708147900186
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"leisure\" IN ('park', 'playground', 'pitch', 'golf_course')\n    OR landuse IN ('recreation_ground', 'grass', 'cemetery')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "grassland_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "grassland_label"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        9.854336847777645,
+        47.23996886995563,
+        12.208300633747763,
+        48.07708147900186
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wetland')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "swamp_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "swamp_label"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        9.854336847777645,
+        47.23996886995563,
+        12.208300633747763,
+        48.07708147900186
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wood', 'scrub')\n    OR landuse IN ('forest')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "forest_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "forest_label"
     },
     {
       "geometry": "polygon",

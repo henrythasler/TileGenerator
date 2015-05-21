@@ -152,6 +152,8 @@ def render_tiles(bbox, mapfile, tile_dir, minZoom=1,maxZoom=18, name="unknown", 
     for z in range(minZoom,maxZoom + 1):
         px0 = gprj.fromLLtoPixel(ll0,z)
         px1 = gprj.fromLLtoPixel(ll1,z)
+        
+        print "rendering ",((int(px1[0]/256.0)+1 - int(px0[0]/256.0)) * (int(px1[1]/256.0)+1-int(px0[1]/256.0))), " Tiles at z=",z
 
         # check if we have directories in place
         zoom = "%s" % z
@@ -268,7 +270,7 @@ if __name__ == "__main__":
     # Ulm, Ingolstadt, Innsbruck, Chiemsee z=8
     #bbox=(9.854736328125, 47.047668640460834, 12.6397705078125, 48.9152)
 
-    bbox=(args.left, args.bottom+0.001, args.right-0.001, args.top)
+    bbox=(args.left+0.001, args.bottom+0.001, args.right-0.001, args.top-0.001)
     print ("Bounding Box: %s" % (bbox,) )
     print ("Zoom: {}-{}".format(args.zmin, args.zmax) )
     render_tiles(bbox, mapfile, tile_dir, args.zmin, args.zmax, "CycleMap")

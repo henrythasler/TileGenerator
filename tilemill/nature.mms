@@ -25,6 +25,53 @@ Map {
   }  
 }
 
+#grassland_label[zoom>=12] {
+  [zoom>=12][zoom<13][area>=10000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=13][zoom<14][area>=1000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=14][zoom<15][area>=100000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=15][area>=10000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+}
+
 #forest[zoom>6] {
   polygon-opacity: 0;  
   polygon-fill: @forest;
@@ -48,6 +95,54 @@ Map {
   }
 }
 
+#forest_label[zoom>=12] {
+  [zoom>=12][zoom<13][area>=10000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=13][zoom<14][area>=1000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=14][zoom<15][area>=100000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=15][area>=10000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+}
+
+
 #swamp[zoom>6] {
   polygon-opacity: 0.0;
   polygon-pattern-file:url(img/wetland.png);
@@ -70,6 +165,54 @@ Map {
   [zoom>=15]{
 	polygon-opacity: 0.2;
   }
+}
+
+
+#swamp_label[zoom>=12] {
+  [zoom>=12][zoom<13][area>=10000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=13][zoom<14][area>=1000000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=14][zoom<15][area>=100000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
+  [zoom>=15][area>=10000]{
+    text-size: 9;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-fill:@forest_text;
+    text-halo-fill: @text_halo;
+    text-halo-radius:1.5;   
+    text-wrap-width: 50;
+    text-wrap-before: true;
+    text-placement: interior;
+  }  
 }
 
 #10mlakes[ScaleRank<3][zoom=2],
