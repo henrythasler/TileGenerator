@@ -141,15 +141,17 @@
 #railway[zoom>=10] {
   ::line {
     line-width: 1.8;
-    line-color: @darkgrey;
+    line-color: @runway;
     [tunnel='yes'] {line-dasharray: 9, 9;}
     [zoom>=12][zoom<13] {
       line-width: 2.5;
     }
     [zoom>=13][zoom<=14] {
+      line-color: @darkgrey;
       line-width: 3.5;
     }
     [zoom>14] {
+      line-color: @darkgrey;
       line-width: 4.5;
     }
   }
@@ -272,7 +274,7 @@
 
 
 #fence[zoom>=14] {
-  line-color:@darkgrey;
-  line-width:1.5;
+  line-color:black;
+  line-width: 1;
   line-dasharray: 6, 3, 3, 3;
 }

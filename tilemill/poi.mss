@@ -145,11 +145,13 @@
   }  
 }
 
+
 #restaurant[zoom>=12] {
   ::marker {
     marker-file: url(img/sjjb/food_restaurant.n.32.png);
     marker-width: 6;
     marker-clip: false;
+    marker-ignore-placement:true;
 //	marker-allow-overlap:true;
     [zoom>=13][zoom<14] {marker-width: 9;}
     [zoom>=14] {marker-width: 14;}
@@ -182,15 +184,29 @@
 //  marker-ignore-placement:true;
 }
 
+
 #parking[zoom>=14] {
   marker-file: url(img/sjjb/transport_parking.n.32.png);
-  marker-width: 8;
+  marker-width: 9;
   marker-placement: interior;
   marker-clip: false;
-  marker-allow-overlap:true;
+//  marker-allow-overlap:true;
 //  marker-ignore-placement:true;
 }
 
+/*
+#parking[zoom>=14] {
+  shield-name: "";
+  shield-face-name: @sans_bold;
+  shield-size: 9;
+  shield-transform: 'scale(0.3)';
+  shield-avoid-edges: true;
+  shield-clip: false;
+  shield-file: url(img/sjjb/transport_parking.n.32.png);
+  shield-min-distance: 120;
+  shield-spacing: 120;
+}
+*/
 #tourism[zoom>=14] {
   [type='viewpoint'] {
     marker-file: url(img/sjjb/tourist_view_point.p.32.png);

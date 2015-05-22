@@ -348,7 +348,18 @@
   }
 }
 
-
+.label[zoom>=15] {
+  text-size: 9;
+  text-character-spacing: 0.8;
+  text-name:'[name]';
+  text-face-name:@sans;
+  text-placement:line;
+  text-horizontal-alignment: middle;
+  text-spacing: 100;
+  text-fill:@peak_text;
+  text-halo-fill: @text_halo_strong;
+  text-halo-radius:1;
+}  
 
 #track[zoom>=12] {
   ::outer[zoom>=14] {

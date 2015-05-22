@@ -71,7 +71,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -95,7 +95,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -189,7 +189,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -357,7 +357,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -550,7 +550,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -702,7 +702,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -969,7 +969,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1113,7 +1113,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1300,7 +1300,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1325,7 +1325,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1588,7 +1588,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1684,24 +1684,47 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -1730,24 +1753,24 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -1771,29 +1794,6 @@
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -2061,71 +2061,71 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="1.8" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="6" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="1.8" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="6" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -2201,24 +2201,47 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -2247,29 +2270,6 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'living_street')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
@@ -2293,24 +2293,24 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -2711,70 +2711,6 @@
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
   </Rule>
@@ -2834,70 +2770,6 @@
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -2967,6 +2839,70 @@
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'living_street') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
   </Rule>
@@ -3026,6 +2962,70 @@
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -3189,129 +3189,65 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -3381,65 +3317,129 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -4385,7 +4385,7 @@
     <StyleName>tunnel-inner</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT way, highway AS type, tracktype, tunnel, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length 
+       <Parameter name="table"><![CDATA[(SELECT way, highway AS type, name, tracktype, tunnel, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length 
 FROM planet_osm_line
   WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND tunnel IN('yes')
  ORDER BY z_order
@@ -4394,7 +4394,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -4433,7 +4433,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -4566,7 +4566,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -4632,7 +4632,7 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="id"><![CDATA[path]]></Parameter>
        <Parameter name="project"><![CDATA[TileGenerator]]></Parameter>
@@ -4640,6 +4640,40 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     </Datasource>
   </Layer>
 
+<Style name="fence" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#000000" stroke-width="1" stroke-dasharray="6, 3, 3, 3" />
+  </Rule>
+</Style>
+<Layer name="fence"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>fence</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, ST_Perimeter(way)::integer as boundary
+  FROM planet_osm_polygon
+  WHERE barrier IN ('fence') AND (ST_Perimeter(way)::integer > 400)
+UNION
+SELECT way, ST_Perimeter(way)::integer as boundary
+  FROM planet_osm_line
+  WHERE barrier IN ('fence') AND (ST_Length(way)::integer > 400)
+) AS data]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="roads" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Regular" placement="line" horizontal-alignment="middle" spacing="100" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+</Style>
 <Style name="roads-inner" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -4731,24 +4765,47 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -4777,24 +4834,24 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -4818,29 +4875,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -5108,71 +5142,71 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="1.8" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="6" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="1.8" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="6" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -5248,24 +5282,47 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -5294,29 +5351,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'living_street')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
@@ -5340,24 +5374,24 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -5758,70 +5792,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
   </Rule>
@@ -5881,70 +5851,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -6014,6 +5920,70 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'living_street') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
   </Rule>
@@ -6073,6 +6043,70 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -6236,129 +6270,65 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -6428,65 +6398,129 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -7430,9 +7464,10 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>roads-outer</StyleName>
     <StyleName>roads-inner</StyleName>
+    <StyleName>roads</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT way, highway AS type, tunnel, tracktype, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length, 
+       <Parameter name="table"><![CDATA[(SELECT way, highway AS type, name, tunnel, tracktype, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length, 
   CASE 
  WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90
  WHEN highway IN ('trunk', 'trunk_link') THEN 100
@@ -7452,7 +7487,7 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -7460,36 +7495,36 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
 <Style name="track-inner" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([tracktype] = 'grade4')</Filter>
+    <Filter>([tracktype] = 'grade5')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke-width="1.5" stroke="#885b03" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([tracktype] = 'grade4')</Filter>
+    <Filter>([tracktype] = 'grade5')</Filter>
     <LineSymbolizer stroke-dasharray="1.5, 1.5" stroke-width="1" stroke="#885b03" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([tracktype] = 'grade4')</Filter>
+    <Filter>([tracktype] = 'grade5')</Filter>
     <LineSymbolizer stroke-dasharray="1.5, 1.5" stroke="#753701" stroke-width="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([tracktype] = 'grade5')</Filter>
+    <Filter>([tracktype] = 'grade4')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke-width="1.5" stroke="#885b03" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([tracktype] = 'grade5')</Filter>
+    <Filter>([tracktype] = 'grade4')</Filter>
     <LineSymbolizer stroke-dasharray="1.5, 1.5" stroke-width="1" stroke="#885b03" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([tracktype] = 'grade5')</Filter>
+    <Filter>([tracktype] = 'grade4')</Filter>
     <LineSymbolizer stroke-dasharray="1.5, 1.5" stroke="#753701" stroke-width="0.5" />
   </Rule>
   <Rule>
@@ -7537,7 +7572,7 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -7558,43 +7593,43 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.5" stroke-dasharray="9, 9" stroke="#444444" />
+    <LineSymbolizer stroke="#444444" stroke-width="3.5" stroke-dasharray="9, 9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="2.5" stroke-dasharray="9, 9" stroke="#444444" />
+    <LineSymbolizer stroke-width="2.5" stroke-dasharray="9, 9" stroke="#666666" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="4.5" stroke-dasharray="9, 9" stroke="#444444" />
+    <LineSymbolizer stroke="#444444" stroke-width="4.5" stroke-dasharray="9, 9" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="9, 9" stroke-width="1.8" stroke="#444444" />
+    <LineSymbolizer stroke-dasharray="9, 9" stroke-width="1.8" stroke="#666666" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="3.5" stroke="#444444" />
+    <LineSymbolizer stroke="#444444" stroke-width="3.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="2.5" stroke="#444444" />
+    <LineSymbolizer stroke-width="2.5" stroke="#666666" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <LineSymbolizer stroke-width="4.5" stroke="#444444" />
+    <LineSymbolizer stroke="#444444" stroke-width="4.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="1.8" stroke="#444444" />
+    <LineSymbolizer stroke-width="1.8" stroke="#666666" />
   </Rule>
 </Style>
 <Layer name="railway"
@@ -7605,13 +7640,13 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT way, tunnel
   FROM planet_osm_line
-  WHERE (railway NOT IN ('abandoned', 'disused', 'razed')) AND (service IS NULL OR service NOT IN('yard'))
+  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'subway')) AND (service IS NULL OR service NOT IN('yard'))
 ) as DATA]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -7707,24 +7742,47 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -7753,24 +7811,24 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -7794,29 +7852,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -8084,71 +8119,71 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="1.8" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-width="6" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([type] = 'secondary_link')</Filter>
+    <Filter>([type] = 'secondary')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="1.8" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-width="6" stroke="#ffff99" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([type] = 'secondary')</Filter>
+    <Filter>([type] = 'secondary_link')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -8224,24 +8259,47 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'road')</Filter>
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
+    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -8270,29 +8328,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'road')</Filter>
-    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'living_street')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
@@ -8316,24 +8351,24 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="2.2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="4" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0" />
   </Rule>
   <Rule>
@@ -8734,70 +8769,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
   </Rule>
@@ -8857,70 +8828,6 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'road') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke="#808080" stroke-width="1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -8990,6 +8897,70 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'unclassified') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'living_street') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
   </Rule>
@@ -9049,6 +9020,70 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'living_street') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" stroke-dasharray="3, 3" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50) and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke="#808080" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'residential') and ([length] &gt; 50)</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -9212,129 +9247,65 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'living_street')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#000000" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
-    <LineSymbolizer stroke="#000000" stroke-width="0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'pedestrian')</Filter>
+    <Filter>([type] = 'unclassified')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -9404,65 +9375,129 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified') and ([tunnel] = 'yes')</Filter>
+    <Filter>([type] = 'pedestrian') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="3.2" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke-width="5" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'unclassified')</Filter>
+    <Filter>([type] = 'pedestrian')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="3, 3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="3, 3" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 4" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-dasharray="2, 2" stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([type] = 'living_street') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="3.2" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#000000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
+    <LineSymbolizer stroke="#000000" stroke-width="0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'living_street')</Filter>
     <LineSymbolizer stroke="#000000" stroke-width="0" />
   </Rule>
   <Rule>
@@ -10408,7 +10443,7 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
     <StyleName>bridges-inner</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT way, highway AS type, tracktype, tunnel, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length,
+       <Parameter name="table"><![CDATA[(SELECT way, highway AS type, name, tracktype, tunnel, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length,
   CASE 
  WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90
  WHEN highway IN ('trunk', 'trunk_link') THEN 100
@@ -10428,7 +10463,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10445,7 +10480,7 @@ WHERE route='bicycle' group by ref) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10482,7 +10517,7 @@ WHERE route='bicycle') as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[913256.58,5946187.67,1554411.33,6165587.06]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10517,7 +10552,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10570,7 +10605,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10601,7 +10636,184 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="road_shields" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'trunk') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="160" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'trunk') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="100" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'trunk') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="200" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'primary') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="160" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'primary') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="100" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'primary') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="200" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'trunk') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="160" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'trunk') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="100" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([type] = 'trunk') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="200" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'primary') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="160" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'primary') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="100" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([type] = 'primary') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="200" fill="#000000" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'motorway') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="160" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'motorway') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="100" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'motorway') and ([reflen] &gt;= 5)</Filter>
+    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="200" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'motorway') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="160" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'motorway') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="100" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([type] = 'motorway') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
+    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="200" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'primary')</Filter>
+    <ShieldSymbolizer minimum-distance="160" fill="#000000" file="img/shield-3.yellow.svg" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'primary')</Filter>
+    <ShieldSymbolizer minimum-distance="100" fill="#000000" file="img/shield-3.yellow.svg" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'primary')</Filter>
+    <ShieldSymbolizer minimum-distance="200" fill="#000000" file="img/shield-3.yellow.svg" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'trunk')</Filter>
+    <ShieldSymbolizer minimum-distance="160" fill="#000000" file="img/shield-3.yellow.svg" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'trunk')</Filter>
+    <ShieldSymbolizer minimum-distance="100" fill="#000000" file="img/shield-3.yellow.svg" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'trunk')</Filter>
+    <ShieldSymbolizer minimum-distance="200" fill="#000000" file="img/shield-3.yellow.svg" size="9" face-name="Verdana Bold" avoid-edges="true" clip="false" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5)</Filter>
+    <ShieldSymbolizer minimum-distance="160" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([reflen] &lt;= 5)</Filter>
+    <ShieldSymbolizer minimum-distance="100" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([reflen] &lt;= 5)</Filter>
+    <ShieldSymbolizer minimum-distance="200" size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <Filter>([reflen] &lt;= 5) and ([type] = 'motorway')</Filter>
+    <ShieldSymbolizer size="9" face-name="Verdana Bold" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" ><![CDATA[[ref]]]></ShieldSymbolizer>
+  </Rule>
+</Style>
+<Layer name="road_shields"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>road_shields</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, highway AS type, ref, CHAR_LENGTH(ref) AS reflen
+  FROM planet_osm_line
+  WHERE (highway IN ('motorway', 'trunk', 'primary')) AND (bridge IS NULL OR bridge NOT IN('yes')) AND ref IS NOT NULL) as DATA]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10616,16 +10828,16 @@ OR bicycle IN('designated')
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <MarkersSymbolizer width="9" file="img/sjjb/food_restaurant.n.32.png" clip="false" />
+    <MarkersSymbolizer width="9" file="img/sjjb/food_restaurant.n.32.png" clip="false" ignore-placement="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MarkersSymbolizer width="14" file="img/sjjb/food_restaurant.n.32.png" clip="false" />
+    <MarkersSymbolizer width="14" file="img/sjjb/food_restaurant.n.32.png" clip="false" ignore-placement="true" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <MarkersSymbolizer file="img/sjjb/food_restaurant.n.32.png" width="6" clip="false" />
+    <MarkersSymbolizer file="img/sjjb/food_restaurant.n.32.png" width="6" clip="false" ignore-placement="true" />
   </Rule>
 </Style>
 <Layer name="restaurant"
@@ -10647,7 +10859,7 @@ SELECT way, name, ele
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10686,7 +10898,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10717,7 +10929,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10770,7 +10982,7 @@ SELECT way
     <StyleName>station-label</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT ref, way, name
+       <Parameter name="table"><![CDATA[(SELECT way, name
   FROM planet_osm_point
   WHERE railway IN ('station', 'halt')
 ) as DATA]]></Parameter>
@@ -10778,7 +10990,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10786,7 +10998,7 @@ SELECT way
 <Style name="parking" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MarkersSymbolizer file="img/sjjb/transport_parking.n.32.png" width="8" placement="interior" clip="false" allow-overlap="true" />
+    <MarkersSymbolizer file="img/sjjb/transport_parking.n.32.png" width="9" placement="interior" clip="false" />
   </Rule>
 </Style>
 <Layer name="parking"
@@ -10805,9 +11017,9 @@ SELECT way
 ) as data]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
-       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[1114211.55,5982492.29,1274012.39,6132079.27]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10841,7 +11053,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10862,7 +11074,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -10938,7 +11150,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11013,7 +11225,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11089,7 +11301,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11202,12 +11414,12 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000)</Filter>
+    <Filter>([area] &gt;= 20000)</Filter>
     <TextSymbolizer size="9" face-name="Verdana Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 10000)</Filter>
+    <Filter>([area] &gt;= 20000)</Filter>
     <TextSymbolizer size="9" face-name="Verdana Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -11230,7 +11442,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11253,7 +11465,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11270,7 +11482,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL group by route_name) as data]]>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11292,7 +11504,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11301,17 +11513,17 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000)</Filter>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 1000)</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
@@ -11328,7 +11540,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11337,17 +11549,17 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000)</Filter>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 1000)</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
@@ -11364,7 +11576,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11394,7 +11606,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11441,7 +11653,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11451,37 +11663,37 @@ SELECT way, shop as type
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="12" dy="60" dx="60" character-spacing="0.8" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" dy="60" dx="60" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="10" dy="20" dx="20" character-spacing="0.8" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" dy="20" dx="20" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="9" dy="30" dx="30" character-spacing="0.8" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" dy="30" dx="30" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="8" dy="10" dx="10" character-spacing="0.8" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Verdana Regular" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="7" character-spacing="0.8" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="8" face-name="Verdana Regular" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="14" dy="100" dx="100" character-spacing="0.8" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="14" dy="100" dx="100" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
@@ -11568,13 +11780,13 @@ SELECT way, shop as type
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="8" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="7" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="8" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -11591,13 +11803,13 @@ SELECT way, shop as type
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="8" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="7" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="8" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -11641,7 +11853,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11665,7 +11877,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -11689,7 +11901,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[test]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>

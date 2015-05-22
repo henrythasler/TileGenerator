@@ -395,7 +395,7 @@ Map {
     text-wrap-before: true;
     text-placement: interior;
   }  
-  [zoom>=14][zoom<15][area>=10000]{
+  [zoom>=14][zoom<15][area>=20000]{
     text-size: 9;
     text-name:[name] + '\n' + [ele];
     text-face-name:@sans_bold_italic;

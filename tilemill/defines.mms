@@ -45,19 +45,3 @@
 @mono_bold: "Ubuntu Mono Bold";
 @mono_bold_italic: "Ubuntu Mono Bold Italic";
 @mono_italic: "Ubuntu Mono Italic";
-
-
-
-
-
-
-
-#ne10mbathymetry10k {
-  polygon-fill:blue;
-}
-
-
-#ne10mbathymetry9k {
-  polygon-opacity:1;
-  polygon-fill:#ae8;
-}

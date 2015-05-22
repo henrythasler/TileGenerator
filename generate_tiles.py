@@ -270,7 +270,7 @@ if __name__ == "__main__":
     # Ulm, Ingolstadt, Innsbruck, Chiemsee z=8
     #bbox=(9.854736328125, 47.047668640460834, 12.6397705078125, 48.9152)
 
-    bbox=(args.left+0.001, args.bottom+0.001, args.right-0.001, args.top-0.001)
+    bbox=(args.left+0.002, args.bottom+0.002, args.right-0.002, args.top-0.002)
     print ("Bounding Box: %s" % (bbox,) )
     print ("Zoom: {}-{}".format(args.zmin, args.zmax) )
     render_tiles(bbox, mapfile, tile_dir, args.zmin, args.zmax, "CycleMap")
