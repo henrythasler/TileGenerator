@@ -413,11 +413,13 @@
 
 #cycleway[zoom>=12] {
 //  line-offset: 2;
+  line-cap: round;
+  line-join: round;    
   line-width:0.7;
-  line-dasharray: 4,2;
+  line-dasharray: 4,3;
   line-color:blue;
-  [zoom>=13][zoom<14] {line-width:1.5;line-dasharray: 5,3;}
-  [zoom>=14] {line-width:2;line-dasharray: 6,4;}
+  [zoom>=13][zoom<14] {line-width:1.5;line-dasharray: 5,4;}
+  [zoom>=14] {line-width:2;line-dasharray: 6,5;}
 }
 
 #shiproute[zoom>=10] {
@@ -459,7 +461,7 @@
   text-halo-radius:1.5; 
 }
 
-#road_shields[zoom>=10][reflen<=5] {
+#road_shields[zoom>=9][reflen<=5] {
   shield-name: "[ref]";
   shield-size: 9;
   shield-face-name: @sans_bold;
@@ -477,8 +479,8 @@
     [reflen>=4][reflen<5] {shield-file: url(img/shield-4.yellow.svg);}
     [reflen>=5][reflen<6] {shield-file: url(img/shield-5.yellow.svg);}
   }
-  [zoom>=10][zoom<12] {shield-min-distance: 100;}
-  [zoom>=12][zoom<14] {shield-min-distance: 160;}
-  [zoom>=14] {shield-min-distance: 200;}
+  [zoom<12] {shield-min-distance: 150;}
+  [zoom>=12][zoom<14] {shield-min-distance: 200;}
+  [zoom>=14] {shield-min-distance: 150;}
 }
 

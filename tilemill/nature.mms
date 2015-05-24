@@ -3,7 +3,7 @@ Map {
   buffer-size: 256;
 }
 
-#simple[zoom>=0][zoom<10],
+#simple[zoom>=7][zoom<10],
 #detailled[zoom>=10]{
   polygon-fill:@land;
 }
@@ -220,7 +220,7 @@ Map {
 #10mlakes[ScaleRank<5][zoom=4],
 #10mlakes[ScaleRank<6][zoom=5],
 #10mlakes[zoom>=6][zoom<8]{
-  polygon-fill:@water;
+  polygon-fill:@water_global;
 }
 
 #lakes {
@@ -228,12 +228,15 @@ Map {
   polygon-fill: @water;
   [zoom>=5][zoom<6][area>=200000000] {
     polygon-opacity: 1;
+    polygon-fill:@water_global;
   }  
   [zoom>=6][zoom<7][area>=20000000] {
     polygon-opacity: 1;
+    polygon-fill:@water_global;
   }  
   [zoom>=7][zoom<8][area>=2000000] {
     polygon-opacity: 1;
+    polygon-fill:@water_global;
   }  
   [zoom>=8][zoom<10][area>=200000] {
     polygon-opacity: 1;
@@ -418,7 +421,3 @@ Map {
     text-placement: interior;
   }  
 }
-
-
-
-

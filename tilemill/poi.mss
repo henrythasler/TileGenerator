@@ -68,7 +68,7 @@
 
 
 
-#towns {
+#towns[zoom>=8] {
   [place='city'] {
     ::label[zoom<=12] {
       text-name: [name];
@@ -82,7 +82,7 @@
       text-face-name:@sans_bold;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;
-      text-wrap-width: 50;
+      text-wrap-width: 100;
       text-wrap-before: true;
       text-placement-type: simple;
       text-placements: "N,S,E,W,NE,SE,NW,SW";
@@ -102,7 +102,7 @@
       [zoom>=14] {text-size: 14; text-dy: 100; text-dx: 100;}
       text-character-spacing: 0.8;
       text-halo-radius:1.5;
-      text-wrap-width: 50;
+      text-wrap-width: 100;
       text-wrap-before: true;
       text-placement-type: simple;
       text-placements: "N,S,E,W,NE,SE,NW,SW";
@@ -120,7 +120,7 @@
       text-character-spacing: 0.8;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;
-      text-wrap-width: 50;
+      text-wrap-width: 100;
       text-wrap-before: true;
       text-placement-type: simple;
       text-placements: "N,S,E,W,NE,SE,NW,SW";
@@ -136,7 +136,7 @@
       text-character-spacing: 0.8;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;
-      text-wrap-width: 50;
+      text-wrap-width: 100;
       text-wrap-before: true;
 //	  text-min-padding: 10;
       text-placement-type: simple;
@@ -166,7 +166,7 @@
     text-dy: 10; 
     text-dx: 10;
     text-fill:@restaurant_text;
-    text-wrap-width: 50;
+    text-wrap-width: 100;
     text-wrap-before: true;
     text-halo-fill: @text_halo_strong;
     text-halo-radius:1.5;  

@@ -4,7 +4,7 @@ shadefolder=data/hillshade
 combined=srtm1
 
 xmin=8
-xmax=12
+xmax=13
 ymin=46
 ymax=48
 
@@ -30,7 +30,7 @@ for ((x=$xmin;x<=$xmax;x++)) do
 done
 
 echo "merging GeoTIFF"
-gdal_merge.py $demfolder/*.tif -o $shadefolder/$combined.tif
+gdal_merge.py -co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -co PREDICTOR=2 $demfolder/*.tif -o $shadefolder/$combined.tif
 
 echo "Re-projecting: "
 #gdalwarp -srcnodata -32768 -dstnodata none -s_srs EPSG:4326 -t_srs EPSG:3785 -r bilinear $shadefolder/$combined.tif $shadefolder/$combined-3785.tif

@@ -3,9 +3,9 @@
   line-opacity: 0.5;
   line-color:#811181;
   [zoom>=2][zoom<4] {line-width: 1;}
-  [zoom>=4][zoom<6] {line-width: 2;}
-  [zoom>=6][zoom<8] {line-width: 3;}
-  [zoom>=8] {line-width: 4;}
+  [zoom>=4][zoom<6] {line-width: 1.5;}
+  [zoom>=6][zoom<8] {line-width: 2;}
+  [zoom>=8] {line-width: 3;}
 }
 
 #admin_claim {
