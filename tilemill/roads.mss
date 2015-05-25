@@ -1,5 +1,7 @@
 .roads[zoom>=4] {
   ::outer {
+    [bridge!='yes'] {line-cap: round;}
+    line-join: round;  
   	line-color:black;
     line-width: 0;
     [tunnel='yes'][zoom>=8]{ 
@@ -42,18 +44,21 @@
       }
       [zoom>=12][zoom<14] {
         line-width: 6;
+        [bridge='yes'][length>200] {line-width: 8;}
         [type='motorway_link'] {
           line-width: 3;
         }
       }
       [zoom>=14][zoom<15] {
         line-width: 8;
+        [bridge='yes'][length>100] {line-width: 10;}
         [type='motorway_link'] {
           line-width: 5;
         }
       }
       [zoom>=15]{
         line-width: 10;
+        [bridge='yes'][length>80] {line-width: 14;}
         [type='motorway_link'] {
           line-width: 6;
         }

@@ -139,16 +139,19 @@
 
 // to-do: improve SQL query to merge nearby lines
 #railway[zoom>=10] {
-  ::line {
+  ::line{
     line-width: 1.8;
     line-color: @runway;
     [tunnel='yes'] {line-dasharray: 9, 9;}
+    [type='tram'],[type='subway'] {line-width: 0;}
     [zoom>=12][zoom<13] {
       line-width: 2.5;
+      [type='tram'],[type='subway'] {line-width: 0;}
     }
     [zoom>=13][zoom<=14] {
       line-color: @darkgrey;
       line-width: 3.5;
+      [type='tram'],[type='subway'] {line-width: 2;}
     }
     [zoom>14] {
       line-color: @darkgrey;
@@ -159,9 +162,11 @@
     line-color: white;
     line-width: 1.2;
     line-dasharray: 9, 9;
+    [type='tram'],[type='subway'] {line-width: 0;}
     [zoom>=13][zoom<=14] {
       line-width: 2;
       line-dasharray: 13, 13;
+      [type='tram'],[type='subway'] {line-width: 0;}
     }
     [zoom>14] {
       line-width: 2.5;

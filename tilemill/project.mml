@@ -514,14 +514,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.021982332562127,
-        47.774777370500765,
-        11.802761858118293,
-        48.692338384365485
+        10.546875319258492,
+        47.989922670267056,
+        11.249998190574479,
+        48.458351464858225
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length \nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND tunnel IN('yes')\n ORDER BY z_order\n) as DATA",
+        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length \nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND tunnel IN('yes')\n ORDER BY z_order\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -642,14 +642,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.021982332562127,
-        47.774777370500765,
-        11.802761858118293,
-        48.692338384365485
+        10.546875319258492,
+        47.989922670267056,
+        11.249998190574479,
+        48.458351464858225
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway AS type, name, tunnel, tracktype, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length, \n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND (bridge IS NULL OR bridge NOT IN('yes'))\n ORDER BY prio DESC\n) as DATA",
+        "table": "(SELECT way, highway AS type, name, tunnel, bridge, tracktype, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length, \n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND (bridge IS NULL OR bridge NOT IN('yes'))\n ORDER BY prio DESC\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -692,14 +692,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.38460481414501,
-        47.629869593066154,
-        12.107837094790613,
-        48.64628686781149
+        10.546875319258492,
+        47.989922670267056,
+        11.249998190574479,
+        48.458351464858225
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, tunnel\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'subway')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
+        "table": "(\nSELECT way, tunnel, railway as type\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -717,14 +717,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.021982332562127,
-        47.774777370500765,
-        11.802761858118293,
-        48.692338384365485
+        10.546875319258492,
+        47.989922670267056,
+        11.249998190574479,
+        48.458351464858225
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length,\n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND bridge IN('yes')\n ORDER BY prio DESC\n) as DATA",
+        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length,\n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND bridge IN('yes')\n ORDER BY prio DESC\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -968,14 +968,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.492001909791108,
-        47.629869593066154,
-        12.107837094790613,
-        48.54725818531375
+        10.546957155780875,
+        47.98992868234326,
+        11.249989476916223,
+        48.45834348206731
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name\n  FROM planet_osm_point\n  WHERE railway IN ('station', 'halt')\n) as DATA",
+        "table": "(\nSELECT way, name, railway as type\n  FROM planet_osm_point\n  WHERE railway IN ('station', 'halt', 'tram_stop')\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1295,14 +1295,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.009132651075024,
-        47.24704833475714,
-        11.444648020946405,
-        48.15139885336001
+        10.546957155780875,
+        47.98992868234326,
+        11.249989476916223,
+        48.45834348206731
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, tourism as type\n  FROM planet_osm_point\n  WHERE tourism IN ('viewpoint', 'information')\n) as data",
+        "table": "(\nSELECT way, tourism as type, name\n  FROM planet_osm_polygon\n  WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium')\nUNION\nSELECT way, tourism as type, name\n  FROM planet_osm_point\n  WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium')\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1438,8 +1438,8 @@
       "status": "off"
     }
   ],
-  "scale": 2,
-  "metatile": 8,
+  "scale": 1,
+  "metatile": 4,
   "name": "",
   "description": "",
   "attribution": "",

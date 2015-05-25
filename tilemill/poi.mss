@@ -28,41 +28,56 @@
 
 
 #station[zoom>=12] {
-  ::outer {
-    marker-file: url(img/square.svg);
-    marker-width:1;
-    [zoom>=12][zoom<14] {marker-width:5;}
-    [zoom>=14] {marker-width:7;}
-    marker-fill:black;
-    marker-allow-overlap:true;
-    marker-ignore-placement:true;
-  }  
-  ::inner {
-    marker-file: url(img/square.svg);
-    marker-width:3;
-    [zoom>=12][zoom<14] {marker-width:3;}
-    [zoom>=14] {marker-width:5;}
-    marker-fill:red;
-    marker-allow-overlap:true;
-    marker-ignore-placement:true;
+  ::marker {
+    [type='tram_stop'][zoom>=14] {
+      marker-file: url(img/station.red.svg);
+      marker-width:5;  
+      [zoom>=15] {marker-width:7;}
+    }
+    [type='station'],[type='halt'] {
+      marker-file: url(img/station.red.svg);
+      marker-allow-overlap:true;
+      marker-ignore-placement:true;
+      marker-width:5;  
+      [zoom>=14][zoom<15] {marker-width:7;}
+      [zoom>=15] {marker-width:9;}
+    }  
   }  
   ::label[name != null][zoom>=12] {
-    text-size: 8;
-    [zoom>=13][zoom<14] {text-size:9;}
-    [zoom>=14] {text-size:10;}
-    text-character-spacing: 0.8;
-    text-name:[name];
-    text-face-name:@sans;
-    text-placement-type: simple;
-    text-placements: "S,N,E,W,NE,SE,NW,SW";
-    text-dy: 6;
-    text-dx: 10;
-    text-min-padding: 10;
-    text-fill:@peak_text;
-    text-halo-fill: @text_halo_strong;
-    text-halo-radius:1.5;  
-	text-wrap-width: 50;
-    text-wrap-before: true;
+    [type='tram_stop'][zoom>=15] {
+      text-size:9;
+      text-character-spacing: 0.8;
+      text-name:[name];
+      text-face-name:@sans;
+      text-placement-type: simple;
+      text-placements: "S,N,E,W,NE,SE,NW,SW";
+      text-dy: 6;
+      text-dx: 10;
+      text-min-padding: 10;
+      text-fill:@peak_text;
+      text-halo-fill: @text_halo_strong;
+      text-halo-radius:1.5;  
+      text-wrap-width: 100;
+      text-wrap-before: true;
+    }
+    [type='station'],[type='halt'] {
+      text-size:8;
+      text-character-spacing: 0.8;
+      text-name:[name];
+      text-face-name:@sans;
+      text-placement-type: simple;
+      text-placements: "S,N,E,W,NE,SE,NW,SW";
+      text-dy: 6;
+      text-dx: 10;
+      text-min-padding: 10;
+      text-fill:@peak_text;
+      text-halo-fill: @text_halo_strong;
+      text-halo-radius:1.5;  
+      text-wrap-width:100;
+      text-wrap-before: true;
+      [zoom>=13][zoom<14] {text-size:9;}
+      [zoom>=14] {text-size:10;}
+    }  
   }  
 }
 
@@ -151,7 +166,7 @@
     marker-file: url(img/sjjb/food_restaurant.n.32.png);
     marker-width: 6;
     marker-clip: false;
-    marker-ignore-placement:true;
+//    marker-ignore-placement:true;
 //	marker-allow-overlap:true;
     [zoom>=13][zoom<14] {marker-width: 9;}
     [zoom>=14] {marker-width: 14;}
@@ -186,38 +201,40 @@
 
 
 #parking[zoom>=14] {
-  marker-file: url(img/sjjb/transport_parking.n.32.png);
+  marker-file: url(img/parking.svg);
   marker-width: 9;
   marker-placement: interior;
   marker-clip: false;
-//  marker-allow-overlap:true;
-//  marker-ignore-placement:true;
+  marker-allow-overlap:true;
 }
 
-/*
-#parking[zoom>=14] {
-  shield-name: "";
-  shield-face-name: @sans_bold;
-  shield-size: 9;
-  shield-transform: 'scale(0.3)';
-  shield-avoid-edges: true;
-  shield-clip: false;
-  shield-file: url(img/sjjb/transport_parking.n.32.png);
-  shield-min-distance: 120;
-  shield-spacing: 120;
-}
-*/
 #tourism[zoom>=14] {
   [type='viewpoint'] {
     marker-file: url(img/sjjb/tourist_view_point.p.32.png);
     marker-width: 12;
     marker-clip: false;
   }  
-  [type='information'] {
+  [type='information']{
     marker-file: url(img/sjjb/amenity_information.glow.32.png);
     marker-width: 13;
     marker-clip: false;
   }  
+  [type='zoo'],[type='aquarium'] {
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-placement-type: simple;
+    text-placements: "S,N,E,W,NE,SE,NW,SW";
+    text-dy: 10; 
+    text-dx: 10;
+    text-fill:@forest_text;
+    text-wrap-width: 100;
+    text-wrap-before: true;
+    text-halo-fill: @text_halo_strong;
+    text-halo-radius:1.5;  
+  }  
+  
 }
 
 #shop[zoom>=12] {
