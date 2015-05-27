@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Map[]>
-<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#7babcd" buffer-size="256" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#7babcd" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
 
 <Parameters>
   <Parameter name="bounds">10.676,48.0694,11.261,48.4105</Parameter>
@@ -10,7 +10,7 @@
   <Parameter name="interactivity_fields"></Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="maxzoom">18</Parameter>
-  <Parameter name="scale">1</Parameter>
+  <Parameter name="scale">2</Parameter>
   <Parameter name="metatile">4</Parameter>
   <Parameter name="legend"><![CDATA[<!-- This legend uses Unicode box-drawing characters to approxmate line styles. -->
 <span style='color:#ee9900'>━</span> Motorways <br />
@@ -114,7 +114,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -138,7 +138,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -232,7 +232,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -400,7 +400,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -593,7 +593,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -745,7 +745,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1012,7 +1012,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1156,7 +1156,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1343,14 +1343,47 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="military" filter-mode="first">
   <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 5000)</Filter>
+    <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 5000)</Filter>
+    <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
     <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
   </Rule>
@@ -1360,7 +1393,7 @@
     <StyleName>military</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT way
+       <Parameter name="table"><![CDATA[(SELECT way, way_area AS area
   FROM planet_osm_polygon
   WHERE landuse IN ('military')
     OR military IN ('danger_area')) AS data]]></Parameter>
@@ -1368,7 +1401,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1631,7 +1664,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -7291,7 +7324,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -7330,7 +7363,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -7463,7 +7496,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -7529,7 +7562,7 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="id"><![CDATA[path]]></Parameter>
        <Parameter name="project"><![CDATA[TileGenerator]]></Parameter>
@@ -7560,7 +7593,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -13238,7 +13271,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -13323,7 +13356,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -13332,23 +13365,23 @@ SELECT way, ST_Perimeter(way)::integer as boundary
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'tram')</Filter>
+    <Filter>([type] = 'subway')</Filter>
     <LineSymbolizer stroke-width="0" stroke-dasharray="13, 13" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'tram')</Filter>
+    <Filter>([type] = 'subway')</Filter>
     <LineSymbolizer stroke-width="2.5" stroke-dasharray="18, 16" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'subway')</Filter>
+    <Filter>([type] = 'tram')</Filter>
     <LineSymbolizer stroke-width="0" stroke-dasharray="13, 13" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'subway')</Filter>
+    <Filter>([type] = 'tram')</Filter>
     <LineSymbolizer stroke-width="2.5" stroke-dasharray="18, 16" stroke="#ffffff" />
   </Rule>
   <Rule>
@@ -13365,52 +13398,6 @@ SELECT way, ST_Perimeter(way)::integer as boundary
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#444444" stroke-dasharray="9, 9" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="0" stroke-dasharray="9, 9" stroke="#666666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke="#444444" stroke-width="4.5" stroke-dasharray="9, 9" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="0" stroke-dasharray="9, 9" stroke="#666666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'tram')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#444444" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'tram')</Filter>
-    <LineSymbolizer stroke-width="0" stroke="#666666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'tram')</Filter>
-    <LineSymbolizer stroke="#444444" stroke-width="4.5" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'tram')</Filter>
-    <LineSymbolizer stroke-width="0" stroke="#666666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'subway') and ([tunnel] = 'yes')</Filter>
     <LineSymbolizer stroke-width="2" stroke="#444444" stroke-dasharray="9, 9" />
   </Rule>
@@ -13452,6 +13439,52 @@ SELECT way, ST_Perimeter(way)::integer as boundary
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'subway')</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#666666" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#444444" stroke-dasharray="9, 9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="0" stroke-dasharray="9, 9" stroke="#666666" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke="#444444" stroke-width="4.5" stroke-dasharray="9, 9" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'tram') and ([tunnel] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="0" stroke-dasharray="9, 9" stroke="#666666" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'tram')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#444444" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'tram')</Filter>
+    <LineSymbolizer stroke-width="0" stroke="#666666" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([type] = 'tram')</Filter>
+    <LineSymbolizer stroke="#444444" stroke-width="4.5" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([type] = 'tram')</Filter>
     <LineSymbolizer stroke-width="0" stroke="#666666" />
   </Rule>
   <Rule>
@@ -13512,7 +13545,7 @@ SELECT way, tunnel, railway as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19183,7 +19216,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19200,7 +19233,7 @@ WHERE route='bicycle' group by ref) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19237,7 +19270,7 @@ WHERE route='bicycle') as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[913256.58,5946187.67,1554411.33,6165587.06]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19246,16 +19279,16 @@ WHERE route='bicycle') as data]]></Parameter>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <LineSymbolizer stroke-width="1.5" stroke-dasharray="5, 4" stroke-linecap="round" stroke-linejoin="round" stroke="#0000ff" />
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="5, 5" stroke-linecap="round" stroke-linejoin="round" stroke="#0000ff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <LineSymbolizer stroke-width="2" stroke-dasharray="6, 5" stroke-linecap="round" stroke-linejoin="round" stroke="#0000ff" />
+    <LineSymbolizer stroke-width="2" stroke-dasharray="6, 6" stroke-linecap="round" stroke-linejoin="round" stroke="#0000ff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7" stroke-dasharray="4, 3" stroke="#0000ff" />
+    <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-width="0.7" stroke-dasharray="4, 4" stroke="#0000ff" />
   </Rule>
 </Style>
 <Layer name="cycleway"
@@ -19272,7 +19305,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19325,7 +19358,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19356,7 +19389,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19533,7 +19566,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19579,7 +19612,7 @@ SELECT way, name, ele
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19618,7 +19651,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19649,7 +19682,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19658,41 +19691,41 @@ SELECT way
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([name] != null) and ([type] = 'station')</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Regular" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([name] != null) and ([type] = 'halt')</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="#000080" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([name] != null) and ([type] = 'station')</Filter>
-    <TextSymbolizer size="10" character-spacing="0.8" face-name="Verdana Regular" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([name] != null) and ([type] = 'halt')</Filter>
+    <TextSymbolizer size="10" character-spacing="0.8" face-name="Verdana Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="#000080" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([name] != null) and ([type] = 'station')</Filter>
-    <TextSymbolizer size="8" character-spacing="0.8" face-name="Verdana Regular" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([name] != null) and ([type] = 'halt')</Filter>
+    <TextSymbolizer size="8" character-spacing="0.8" face-name="Verdana Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="#000080" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([name] != null) and ([type] = 'halt')</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Regular" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([name] != null) and ([type] = 'station')</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="#000080" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([name] != null) and ([type] = 'halt')</Filter>
-    <TextSymbolizer size="10" character-spacing="0.8" face-name="Verdana Regular" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([name] != null) and ([type] = 'station')</Filter>
+    <TextSymbolizer size="10" character-spacing="0.8" face-name="Verdana Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="#000080" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([name] != null) and ([type] = 'halt')</Filter>
-    <TextSymbolizer size="8" character-spacing="0.8" face-name="Verdana Regular" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([name] != null) and ([type] = 'station')</Filter>
+    <TextSymbolizer size="8" character-spacing="0.8" face-name="Verdana Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="#000080" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([name] != null) and ([type] = 'tram_stop')</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Regular" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Verdana Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="6" dx="10" minimum-padding="10" fill="#000080" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Style name="station-marker" filter-mode="first">
@@ -19703,15 +19736,21 @@ SELECT way
     <MarkersSymbolizer width="7" file="img/station.red.svg" allow-overlap="true" ignore-placement="true" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'station')</Filter>
+    <MarkersSymbolizer width="5" file="img/station.red.svg" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([type] = 'station')</Filter>
     <MarkersSymbolizer width="9" file="img/station.red.svg" allow-overlap="true" ignore-placement="true" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'station')</Filter>
-    <MarkersSymbolizer file="img/station.red.svg" allow-overlap="true" ignore-placement="true" width="5" />
+    <MarkersSymbolizer file="img/station.red.svg" allow-overlap="true" ignore-placement="true" width="4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -19720,15 +19759,21 @@ SELECT way
     <MarkersSymbolizer width="7" file="img/station.red.svg" allow-overlap="true" ignore-placement="true" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'halt')</Filter>
+    <MarkersSymbolizer width="5" file="img/station.red.svg" allow-overlap="true" ignore-placement="true" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([type] = 'halt')</Filter>
     <MarkersSymbolizer width="9" file="img/station.red.svg" allow-overlap="true" ignore-placement="true" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'halt')</Filter>
-    <MarkersSymbolizer file="img/station.red.svg" allow-overlap="true" ignore-placement="true" width="5" />
+    <MarkersSymbolizer file="img/station.red.svg" allow-overlap="true" ignore-placement="true" width="4" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -19749,7 +19794,7 @@ SELECT way
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="table"><![CDATA[(
-SELECT way, name, railway as type
+SELECT ST_SnapToGrid(ST_Centroid(way),50) as way, name, railway as type
   FROM planet_osm_point
   WHERE railway IN ('station', 'halt', 'tram_stop')
 ) as DATA]]></Parameter>
@@ -19757,7 +19802,7 @@ SELECT way, name, railway as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19765,7 +19810,7 @@ SELECT way, name, railway as type
 <Style name="parking" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MarkersSymbolizer file="img/parking.svg" width="9" placement="interior" clip="false" allow-overlap="true" />
+    <MarkersSymbolizer file="img/parking.svg" width="9" clip="false" allow-overlap="true" />
   </Rule>
 </Style>
 <Layer name="parking"
@@ -19774,11 +19819,11 @@ SELECT way, name, railway as type
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="table"><![CDATA[(
-SELECT way
+SELECT ST_SnapToGrid(ST_Centroid(way), 100) as way
   FROM planet_osm_polygon
   WHERE amenity IN ('parking')
 UNION
-SELECT way
+SELECT ST_SnapToGrid(way, 100) as way
   FROM planet_osm_point
   WHERE amenity IN ('parking')
 ) as data]]></Parameter>
@@ -19786,7 +19831,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19820,7 +19865,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19841,7 +19886,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19917,7 +19962,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -19992,7 +20037,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20068,7 +20113,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20209,7 +20254,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20232,7 +20277,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20249,7 +20294,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL group by route_name) as data]]>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20271,7 +20316,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20307,7 +20352,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20343,7 +20388,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20388,7 +20433,7 @@ SELECT way, tourism as type, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20435,12 +20480,60 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="towns-label" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="10" dy="20" dx="20" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="8" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="12" dy="30" dx="30" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="10" dy="20" dx="20" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="8" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="12" dy="30" dx="30" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
@@ -20472,12 +20565,6 @@ SELECT way, shop as type
     <TextSymbolizer size="8" face-name="Verdana Regular" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="14" dy="100" dx="100" face-name="Verdana Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'city') and ([pop] &gt; 250000)</Filter>
@@ -20523,52 +20610,6 @@ SELECT way, shop as type
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([place] = 'hamlet')</Filter>
     <TextSymbolizer size="10" dy="20" dx="20" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="10" dy="20" dx="20" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="9" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="8" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="12" dy="30" dx="30" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="10" dy="20" dx="20" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="9" dy="10" dx="10" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="8" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="12" dy="30" dx="30" face-name="Verdana Regular" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -20602,7 +20643,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20610,7 +20651,7 @@ SELECT way, shop as type
 <Style name="tower" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MarkersSymbolizer file="img/turm.png" allow-overlap="true" />
+    <MarkersSymbolizer file="img/tower.svg" allow-overlap="true" />
   </Rule>
 </Style>
 <Layer name="tower"
@@ -20626,7 +20667,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -20634,7 +20675,7 @@ SELECT way, shop as type
 <Style name="church" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MarkersSymbolizer file="img/church.png" allow-overlap="true" />
+    <MarkersSymbolizer file="img/church.svg" allow-overlap="true" />
   </Rule>
 </Style>
 <Layer name="church"
@@ -20650,7 +20691,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>

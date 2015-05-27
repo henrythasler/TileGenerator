@@ -27,7 +27,7 @@
 }
 
 
-#station[zoom>=12] {
+#station[zoom>=11] {
   ::marker {
     [type='tram_stop'][zoom>=14] {
       marker-file: url(img/station.red.svg);
@@ -38,7 +38,8 @@
       marker-file: url(img/station.red.svg);
       marker-allow-overlap:true;
       marker-ignore-placement:true;
-      marker-width:5;  
+      marker-width:4;  
+      [zoom>=12][zoom<14] {marker-width:5;}
       [zoom>=14][zoom<15] {marker-width:7;}
       [zoom>=15] {marker-width:9;}
     }  
@@ -48,13 +49,13 @@
       text-size:9;
       text-character-spacing: 0.8;
       text-name:[name];
-      text-face-name:@sans;
+      text-face-name:@sans_italic;
       text-placement-type: simple;
       text-placements: "S,N,E,W,NE,SE,NW,SW";
       text-dy: 6;
       text-dx: 10;
       text-min-padding: 10;
-      text-fill:@peak_text;
+      text-fill:@station_text;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;  
       text-wrap-width: 100;
@@ -62,21 +63,22 @@
     }
     [type='station'],[type='halt'] {
       text-size:8;
+      [zoom>=13][zoom<14] {text-size:9;}
+      [zoom>=14] {text-size:10;}
       text-character-spacing: 0.8;
       text-name:[name];
-      text-face-name:@sans;
+      text-face-name:@sans_italic;
+//      [zoom>=13] {text-face-name:@sans_bold_italic;}
       text-placement-type: simple;
       text-placements: "S,N,E,W,NE,SE,NW,SW";
       text-dy: 6;
       text-dx: 10;
       text-min-padding: 10;
-      text-fill:@peak_text;
+      text-fill:@station_text;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:1.5;  
       text-wrap-width:100;
       text-wrap-before: true;
-      [zoom>=13][zoom<14] {text-size:9;}
-      [zoom>=14] {text-size:10;}
     }  
   }  
 }
@@ -104,7 +106,7 @@
     }  
   }
   [place='town'] {
-    ::label[zoom>=9][zoom<=14]{
+    ::label[zoom>=9][zoom<=13]{
       text-name: [name];
       text-size: 0;
       text-face-name:@sans_bold;
@@ -124,7 +126,7 @@
     }  
   }
   [place='village'],[place='suburb'] {
-    ::label[zoom>=11]{
+    ::label[zoom>=11][zoom<=14]{
       text-name: [name];
       text-face-name:@sans;
       text-size: 0;
@@ -189,21 +191,19 @@
 }
 
 #tower[zoom>=14] {
-  marker-file: url(img/turm.png);
+  marker-file: url(img/tower.svg);
   marker-allow-overlap:true;
 }
 
 #church[zoom>=14] {
-  marker-file: url(img/church.png);
+  marker-file: url(img/church.svg);
   marker-allow-overlap:true;
-//  marker-ignore-placement:true;
 }
 
 
 #parking[zoom>=14] {
   marker-file: url(img/parking.svg);
   marker-width: 9;
-  marker-placement: interior;
   marker-clip: false;
   marker-allow-overlap:true;
 }

@@ -421,10 +421,10 @@
   line-cap: round;
   line-join: round;    
   line-width:0.7;
-  line-dasharray: 4,3;
+  line-dasharray: 4,4;
   line-color:blue;
-  [zoom>=13][zoom<14] {line-width:1.5;line-dasharray: 5,4;}
-  [zoom>=14] {line-width:2;line-dasharray: 6,5;}
+  [zoom>=13][zoom<14] {line-width:1.5;line-dasharray: 5,5;}
+  [zoom>=14] {line-width:2;line-dasharray: 6,6;}
 }
 
 #shiproute[zoom>=10] {

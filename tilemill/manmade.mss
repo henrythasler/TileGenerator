@@ -103,10 +103,24 @@
 }
 
 #military[zoom>=8] {
-  polygon-pattern-file:url(img/stripes-red.png);
-  polygon-pattern-opacity: 0.2;
-  line-width: 0.2;
-  line-color: red;
+  [zoom>=8][zoom<12][area>=200000] {
+    polygon-pattern-file:url(img/stripes-red.png);
+    polygon-pattern-opacity: 0.2;
+    line-width: 0.2;
+    line-color: red;
+  }  
+  [zoom>=12][zoom<14][area>=5000] {
+    polygon-pattern-file:url(img/stripes-red.png);
+    polygon-pattern-opacity: 0.2;
+    line-width: 0.2;
+    line-color: red;
+  }  
+  [zoom>=14]{
+    polygon-pattern-file:url(img/stripes-red.png);
+    polygon-pattern-opacity: 0.2;
+    line-width: 0.2;
+    line-color: red;
+  }
 }
 
 

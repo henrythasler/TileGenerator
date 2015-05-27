@@ -1,6 +1,6 @@
 Map {
   background-color:@water;
-  buffer-size: 256;
+//  buffer-size: 512;
 }
 
 #simple[zoom>=7][zoom<10],

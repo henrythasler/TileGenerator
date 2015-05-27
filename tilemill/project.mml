@@ -350,14 +350,14 @@
     {
       "geometry": "polygon",
       "extent": [
-        9.854336847777645,
-        47.23996886995563,
-        12.208300633747763,
-        48.07708147900186
+        10.898437743063297,
+        47.75410356795742,
+        11.249999268552818,
+        48.458350869127614
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way\n  FROM planet_osm_polygon\n  WHERE landuse IN ('military')\n    OR military IN ('danger_area')) AS data",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE landuse IN ('military')\n    OR military IN ('danger_area')) AS data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -692,8 +692,8 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.546875319258492,
-        47.989922670267056,
+        10.898437473568713,
+        47.754098192804314,
         11.249998190574479,
         48.458351464858225
       ],
@@ -968,14 +968,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.546957155780875,
-        47.98992868234326,
+        10.898440258346094,
+        47.75410175610814,
         11.249989476916223,
-        48.45834348206731
+        48.45834324377504
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way, name, railway as type\n  FROM planet_osm_point\n  WHERE railway IN ('station', 'halt', 'tram_stop')\n) as DATA",
+        "table": "(\nSELECT ST_SnapToGrid(ST_Centroid(way),50) as way, name, railway as type\n  FROM planet_osm_point\n  WHERE railway IN ('station', 'halt', 'tram_stop')\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -993,14 +993,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.021982332562127,
-        47.82641598049901,
-        11.415255683839185,
-        48.55641457871264
+        10.898440258346094,
+        47.75410175610814,
+        11.249989476916223,
+        48.45834324377504
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way\n  FROM planet_osm_polygon\n  WHERE amenity IN ('parking')\nUNION\nSELECT way\n  FROM planet_osm_point\n  WHERE amenity IN ('parking')\n) as data",
+        "table": "(\nSELECT ST_SnapToGrid(ST_Centroid(way), 100) as way\n  FROM planet_osm_polygon\n  WHERE amenity IN ('parking')\nUNION\nSELECT ST_SnapToGrid(way, 100) as way\n  FROM planet_osm_point\n  WHERE amenity IN ('parking')\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1438,7 +1438,7 @@
       "status": "off"
     }
   ],
-  "scale": 1,
+  "scale": 2,
   "metatile": 4,
   "name": "",
   "description": "",
