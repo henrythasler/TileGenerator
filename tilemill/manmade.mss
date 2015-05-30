@@ -1,4 +1,5 @@
-#admin {
+#admin_global[zoom<=8],
+#admin_local[zoom>=9]{
   line-width: 0.5;
   line-opacity: 0.5;
   line-color:#811181;

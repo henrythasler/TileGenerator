@@ -8,16 +8,36 @@
 # -C   cache size
 # -S   style-file
 
+#src="/media/henry/Tools/map/data/slice.osm.pbf"
+#dbname="mering"
+
+src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
+dbname="world"
+
+
+psql -U postgres -c "DROP DATABASE IF EXISTS $dbname;"
+psql -U postgres -c "COMMIT;"
+psql -U postgres -c "CREATE DATABASE $dbname;"
+psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
+psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
+osm2pgsql -C 10000 -G -U postgres -d $dbname -c -S osm2pgsql.style $src
+psql -U postgres -d $dbname -f postprocessing.sql
+
 
 #psql -U postgres -c "create database south;"
 #psql -U postgres -d south -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
 #psql -U postgres -d south -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
 #osm2pgsql -C 10000 -G -U postgres -d south -c -S osm2pgsql.style /media/ramdisk/germany_south.osm.pbf
 
-psql -U postgres -c "create database mering;"
-psql -U postgres -d mering -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
-psql -U postgres -d mering -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
-osm2pgsql -C 10000 -G -U postgres -d mering -c -S osm2pgsql.style /media/henry/Tools/map/data/slice.osm.pbf
+#psql -U postgres -c "create database world;"
+#psql -U postgres -d world -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
+#psql -U postgres -d world -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
+#osm2pgsql -C 10000 -G -U postgres -d world -c -S osm2pgsql.style /media/henry/Tools/map/data/planet_130422-filter.osm.pbf
+
+#psql -U postgres -c "create database mering;"
+#psql -U postgres -d mering -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
+#psql -U postgres -d mering -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
+#osm2pgsql -C 10000 -G -U postgres -d mering -c -S osm2pgsql.style /media/henry/Tools/map/data/slice.osm.pbf
 
 #psql -U postgres -c "create database empty;"
 #psql -U postgres -d empty -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
@@ -43,3 +63,4 @@ osm2pgsql -C 10000 -G -U postgres -d mering -c -S osm2pgsql.style /media/henry/T
 
 # Append
 #osm2pgsql --slim -G -U postgres -d mering -S osm2pgsql.style /media/henry/Tools/map/data/extract.osm.pbf
+

@@ -44,21 +44,21 @@
       }
       [zoom>=12][zoom<14] {
         line-width: 6;
-        [bridge='yes'][length>200] {line-width: 8;}
+//        [bridge='yes'][length>200] {line-width: 8;}
         [type='motorway_link'] {
           line-width: 3;
         }
       }
       [zoom>=14][zoom<15] {
         line-width: 8;
-        [bridge='yes'][length>100] {line-width: 10;}
+//        [bridge='yes'][length>100] {line-width: 10;}
         [type='motorway_link'] {
           line-width: 5;
         }
       }
       [zoom>=15]{
         line-width: 10;
-        [bridge='yes'][length>80] {line-width: 14;}
+//        [bridge='yes'][length>80] {line-width: 14;}
         [type='motorway_link'] {
           line-width: 6;
         }
@@ -489,3 +489,15 @@
   [zoom>=14] {shield-min-distance: 150;}
 }
 
+
+
+#exits[zoom>=14]{
+  shield-name: "[ref]";
+  shield-size: 9;
+  shield-face-name: @sans_bold;
+  shield-fill: white;
+  shield-avoid-edges: true;
+  shield-clip: false;
+  shield-file: url(img/circle.blue.svg);
+//  shield-transform: 'scale(1.2)'
+}

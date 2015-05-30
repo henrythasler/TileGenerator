@@ -34,7 +34,7 @@
       marker-width:5;  
       [zoom>=15] {marker-width:7;}
     }
-    [type='station'],[type='halt'] {
+    [type='station'][subway!='yes'],[type='halt'] {
       marker-file: url(img/station.red.svg);
       marker-allow-overlap:true;
       marker-ignore-placement:true;
@@ -43,9 +43,15 @@
       [zoom>=14][zoom<15] {marker-width:7;}
       [zoom>=15] {marker-width:9;}
     }  
+    [type='station'][subway='yes'][zoom>=14]{
+      marker-file: url(img/subway.svg);
+      marker-allow-overlap:true;
+      marker-ignore-placement:true;
+      marker-width:9;  
+    }  
   }  
   ::label[name != null][zoom>=12] {
-    [type='tram_stop'][zoom>=15] {
+    [type='tram_stop'][zoom>=15],[type='station'][subway='yes'][zoom>=15]{
       text-size:9;
       text-character-spacing: 0.8;
       text-name:[name];
@@ -61,7 +67,7 @@
       text-wrap-width: 100;
       text-wrap-before: true;
     }
-    [type='station'],[type='halt'] {
+    [type='station'][subway!='yes'],[type='halt'] {
       text-size:8;
       [zoom>=13][zoom<14] {text-size:9;}
       [zoom>=14] {text-size:10;}
@@ -163,7 +169,8 @@
 }
 
 
-#restaurant[zoom>=12] {
+#restaurant_low[zoom>=12][zoom<=13],
+#restaurant_high[zoom>=14]{
   ::marker {
     marker-file: url(img/sjjb/food_restaurant.n.32.png);
     marker-width: 6;
@@ -259,4 +266,33 @@
   marker-width: 10;
   [zoom>=12][zoom<13] {marker-width: 6;}
   [zoom>=13][zoom<14] {marker-width: 8;}
+}
+
+#cities[zoom<=7] {
+  ::marker{
+    marker-line-width: 1;
+    marker-width: 7;
+    marker-height: 7;
+    marker-fill: white;
+    [pop>=1000000] {marker-file: url(img/square.white.svg);}
+    [pop>=5000000] {marker-width: 10; marker-height: 10;}
+  }
+  ::label[pop>500000]{
+    text-name: [name];
+    text-size: 0;
+    [zoom<6][pop>500000]{text-size: 8; text-dy: 10; text-dx: 10;}
+    [zoom>=6][zoom<8][pop>250000]{text-size: 8; text-dy: 10; text-dx: 10;}
+    [zoom>=8][zoom<10] {text-size: 10; text-dy: 10; text-dx: 10;}
+    [zoom>=10][zoom<12] {text-size: 12; text-dy: 30; text-dx: 30;}
+    [zoom>=12][zoom<13] {text-size: 16; text-dy: 100; text-dx: 100;}
+    text-character-spacing: 0.8;
+    text-face-name:@sans;
+    [capital='yes'] {text-face-name:@sans_bold;}
+    text-halo-fill: @text_halo_strong;
+    text-halo-radius:1.5;
+    text-wrap-width: 100;
+    text-wrap-before: true;
+    text-placement-type: simple;
+    text-placements: "N,S,E,W,NE,SE,NW,SW";
+  }
 }

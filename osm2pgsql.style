@@ -59,6 +59,8 @@ node,way   highway      text         linear
 node,way   historic     text         polygon
 node,way   horse        text         linear
 node,way   intermittent text         linear
+node,way   int_name     text         linear
+node       is_capital   text         linear
 node,way   junction     text         linear
 node,way   landuse      text         polygon
 node,way   layer        text         linear
