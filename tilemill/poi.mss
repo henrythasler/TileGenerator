@@ -173,6 +173,9 @@
 #restaurant_high[zoom>=14]{
   ::marker {
     marker-file: url(img/sjjb/food_restaurant.n.32.png);
+    [type='hotel'] {marker-file: url(img/hotel.32.png);}
+    [type='pub'],[type='biergarten'] {marker-file: url(img/sjjb/food_pub.n.32.png);}
+    [type='bar'] {marker-file: url(img/sjjb/food_bar.n.32.png);}
     marker-width: 6;
     marker-clip: false;
 //    marker-ignore-placement:true;
@@ -241,20 +244,25 @@
     text-halo-fill: @text_halo_strong;
     text-halo-radius:1.5;  
   }  
-  
+  [type='playground']{
+    marker-file: url(img/playground.32.png);
+    marker-width: 9;
+    marker-clip: false;
+    marker-allow-overlap:true;
+  }  
 }
 
-#shop[zoom>=12] {
+#shop[zoom>=13] {
   [type='supermarket'][zoom>=14] {
     marker-file: url(img/supermarket.32.png);
     marker-width: 14;
     marker-clip: false;
   }  
   [type='bicycle'] {
-    [zoom>=12][zoom<13] { marker-fill:#f0f; marker-width: 5; marker-opacity: 0.8; marker-line-width: 0;}
-    [zoom>=13][zoom<14] { marker-file: url(img/bicycle.32.png); marker-width: 9;}
-    [zoom>=14] { marker-file: url(img/bicycle.32.png); marker-width: 14;}
+    marker-file: url(img/bicycle.32.png); 
+    marker-width: 9;
     marker-clip: false;
+    [zoom>=14] {marker-width: 14;}
   }  
 }
 
@@ -269,15 +277,44 @@
 }
 
 #cities[zoom<=7] {
+  
   ::marker{
     marker-line-width: 1;
     marker-width: 7;
     marker-height: 7;
     marker-fill: white;
+//    marker-ignore-placement: true;
     [pop>=1000000] {marker-file: url(img/square.white.svg);}
     [pop>=5000000] {marker-width: 10; marker-height: 10;}
   }
-  ::label[pop>500000]{
+  
+  ::label{
+    shield-name: "[name]";
+    shield-character-spacing: 0.8;
+    shield-size: 12;
+    shield-face-name: @sans;
+    shield-halo-fill: @text_halo_strong;
+    shield-halo-radius:1.5;
+    shield-clip: false;
+    shield-text-dy: -7;
+    shield-placement: point;
+    shield-dy: -5;
+    shield-file: url(img/line.svg);
+    shield-transform: "scale([strlen]*0.65,1)";
+    shield-comp-op: dst;
+    [capital='yes'] {shield-comp-op: src;}
+  }
+/*  
+  ::label[pop>5000000]{
+    shield-name: "[name]";
+    shield-size: 9;
+    shield-character-spacing: 0.8;
+    shield-face-name: @sans_bold;
+    shield-fill: white;
+    shield-avoid-edges: true;
+    shield-clip: false;
+    shield-file: url(img/circle.blue.svg);    
+  
     text-name: [name];
     text-size: 0;
     [zoom<6][pop>500000]{text-size: 8; text-dy: 10; text-dx: 10;}
@@ -285,14 +322,16 @@
     [zoom>=8][zoom<10] {text-size: 10; text-dy: 10; text-dx: 10;}
     [zoom>=10][zoom<12] {text-size: 12; text-dy: 30; text-dx: 30;}
     [zoom>=12][zoom<13] {text-size: 16; text-dy: 100; text-dx: 100;}
-    text-character-spacing: 0.8;
+    
     text-face-name:@sans;
     [capital='yes'] {text-face-name:@sans_bold;}
     text-halo-fill: @text_halo_strong;
     text-halo-radius:1.5;
     text-wrap-width: 100;
     text-wrap-before: true;
+    text-character-spacing: 0.8;
     text-placement-type: simple;
     text-placements: "N,S,E,W,NE,SE,NW,SW";
   }
+*/
 }

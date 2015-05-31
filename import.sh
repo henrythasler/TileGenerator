@@ -8,11 +8,14 @@
 # -C   cache size
 # -S   style-file
 
+src="/media/henry/Tools/map/data/germany_north.osm.pbf"
+dbname="north"
+
 #src="/media/henry/Tools/map/data/slice.osm.pbf"
 #dbname="mering"
 
-src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
-dbname="world"
+#src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
+#dbname="world"
 
 
 psql -U postgres -c "DROP DATABASE IF EXISTS $dbname;"
@@ -20,7 +23,7 @@ psql -U postgres -c "COMMIT;"
 psql -U postgres -c "CREATE DATABASE $dbname;"
 psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
 psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
-osm2pgsql -C 10000 -G -U postgres -d $dbname -c -S osm2pgsql.style $src
+osm2pgsql -C 12000 -G -U postgres -d $dbname -c -S osm2pgsql.style $src
 psql -U postgres -d $dbname -f postprocessing.sql
 
 

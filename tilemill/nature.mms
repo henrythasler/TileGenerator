@@ -1,8 +1,3 @@
-Map {
-  background-color:@water;
-//  buffer-size: 512;
-}
-
 #simple[zoom>=7][zoom<10],
 #detailled[zoom>=10]{
   polygon-fill:@land;

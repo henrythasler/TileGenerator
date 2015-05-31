@@ -153,7 +153,7 @@
 }
 
 // to-do: improve SQL query to merge nearby lines
-#railway[zoom>=10] {
+#railway[zoom>=10][type!='subway'] {
   ::line{
     line-width: 1.8;
     line-color: @runway;
@@ -294,7 +294,9 @@
 
 
 #fence[zoom>=14] {
-  line-color:black;
-  line-width: 1;
-  line-dasharray: 6, 3, 3, 3;
+  line-join: round;  
+  line-cap: round;
+  line-color: @darkgrey;
+  line-width: 1.5;
+  line-dasharray: 6, 3, 0.5, 3;
 }

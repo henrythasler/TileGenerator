@@ -976,7 +976,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele\nFROM\n(\nSELECT ST_SnapToGrid(way, 300) as snapped, way, name, ele\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 300) as snapped, ST_Centroid(way) as way, name, ele\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut')) \n) as tmp\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 300) as snapped, way, name, ele, amenity, tourism\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 300) as snapped, ST_Centroid(way) as way, name, ele, amenity, tourism\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1001,7 +1001,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele\nFROM\n(\nSELECT ST_SnapToGrid(way, 500) as snapped, way, name, ele\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 500) as snapped, ST_Centroid(way) as way, name, ele\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut')) \n) as tmp\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 500) as snapped, way, name, ele, tourism, amenity\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 500) as snapped, ST_Centroid(way) as way, name, ele, tourism, amenity\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1422,14 +1422,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.546957155780875,
-        47.98992868234326,
-        11.249989476916223,
-        48.45834348206731
+        10.780334615692594,
+        48.2205619577195,
+        11.0680353567917,
+        48.42874384059794
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way, tourism as type, name\n  FROM planet_osm_polygon\n  WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium')\nUNION\nSELECT way, tourism as type, name\n  FROM planet_osm_point\n  WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium')\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, CASE WHEN leisure = 'playground' THEN leisure ELSE tourism END as type, name\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name\nFROM planet_osm_point\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium') OR leisure = 'playground'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name\nFROM planet_osm_polygon\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium') OR leisure = 'playground'\n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1472,10 +1472,10 @@
     {
       "geometry": "point",
       "extent": [
-        10.009132651075024,
-        47.24704833475714,
-        11.444648020946405,
-        48.15139885336001
+        10.780389143430337,
+        48.22061618323483,
+        11.068029517742351,
+        48.42870294963172
       ],
       "Datasource": {
         "type": "postgis",
@@ -1504,7 +1504,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way, name, capital, ele, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\n  FROM planet_osm_point\n  WHERE place = 'city' AND name IS NOT NULL AND (CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END) > 500000\n  ORDER BY pop DESC\n  LIMIT 400\n) AS data",
+        "table": "(\nSELECT way, capital, ele, CHAR_LENGTH(name) AS strlen, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop, CASE WHEN int_name IS NOT NULL THEN int_name ELSE name END as name\n  FROM planet_osm_point\n  WHERE place = 'city' AND name IS NOT NULL AND (CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END) > 500000\n  ORDER BY pop DESC\n  LIMIT 400\n) AS data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -1517,7 +1517,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cities"
+      "name": "cities",
+      "status": "off"
     },
     {
       "geometry": "point",
@@ -1590,10 +1591,10 @@
       "status": "off"
     }
   ],
-  "scale": 1,
+  "scale": 2,
   "metatile": 4,
   "name": "",
   "description": "",
   "attribution": "",
-  "legend": "<!-- This legend uses Unicode box-drawing characters to approxmate line styles. -->\n<span style='color:#ee9900'>━</span> Motorways <br />\n<span style='color:#885b03'>┉</span> Bike paths <br />\n<span style='color:#7babcd'>▉</span> Water"
+  "legend": "<!-- This legend uses Unicode box-drawing characters to approxmate line styles. -->\n<span style='color:#7babcd'>▉</span> Water\n<span style='color:#b0d090'>▉</span> Forest\n<span style='color:#dee9ba'>▉</span> Grass"
 }

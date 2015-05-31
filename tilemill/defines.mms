@@ -32,11 +32,27 @@
 @peak_text:         fadeout(black,20%);
 @station_text:      #000080;
 
+
+/* directory to load fonts from in addition to the system directories */
+Map {
+  font-directory: url(./fonts); 
+  background-color:@water;
+//  buffer-size: 512;
+}
+
+@sans_lt:           "Open Sans Regular";
+@sans_lt_italic:    "Open Sans Italic";
+@sans:              "Open Sans Semibold";
+@sans_italic:       "Open Sans Semibold Italic";
+@sans_bold:         "Open Sans Bold";
+@sans_bold_italic:  "Open Sans Bold Italic";
+
+/*
 @sans_bold: "Verdana Bold";
 @sans_bold_italic: "Verdana Bold Italic";
 @sans_italic: "Verdana Italic";
 @sans: "Verdana Regular";
-
+*/
 /*
 @sans: "DejaVu Sans Book";
 @sans_bold: "DejaVu Sans Bold";
