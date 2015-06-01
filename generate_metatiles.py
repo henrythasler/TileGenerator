@@ -8,8 +8,9 @@ from Queue import Queue
 import argparse
 
 import threading
-
 import mapnik
+import sqlite3 as sqlite
+#import apsw
 
 DEG_TO_RAD = pi/180
 RAD_TO_DEG = 180/pi
@@ -58,20 +59,24 @@ class GoogleProjection:
          return (f,h)
 
 
-
 class RenderThread:
-    def __init__(self, tile_dir, mapfile, q, printLock, maxZoom, scale_factor):
+    def __init__(self, tile_dir, tile_db, mapfile, q, printLock, maxZoom, scale_factor):
         self.tile_dir = tile_dir
+        self.tile_db = tile_db
         self.scale_factor = scale_factor
         self.q = q
         self.m = mapnik.Map(TILE_SIZE, TILE_SIZE)
         self.printLock = printLock
+#        self.db = None
+        
         # Load style XML
         mapnik.load_map(self.m, mapfile, True)
         # Obtain <Map> projection
         self.prj = mapnik.Projection(self.m.srs)
         # Projects between tile pixel co-ordinates and LatLong (EPSG:4326)
         self.tileproj = GoogleProjection(maxZoom+1)
+        
+#        sql=MultiThreadOK(self.tile_dir+self.tile_db)
 
 
     def render_tile(self, x, y, z, m_size):
@@ -101,41 +106,48 @@ class RenderThread:
 #        im.save(os.path.join(tile_dir, '%s-%s-%s.%s' % (z, x, y, 'png')), 'png256')
         self.printLock.acquire()
         print '%s %s %s' % (z, x, y)
-        self.printLock.release()
-        
         for dx in xrange(0, m_size):
-            dir_uri = os.path.join(tile_dir, '%s' % z, '%s' % (x+dx))
-#            print "writing to", dir_uri
-            # Make tile directory
-            if not os.path.isdir(dir_uri):
-                # Some processes may do this in one time (FS handle this but get exception)
-                # handle this exception faster than multiprocess lock mechanism
-                os.mkdir(dir_uri)
-
             for dy in xrange(0, m_size):
-                ## Calculate full one current tile uri
-                tile_uri = os.path.join(dir_uri, '%s.%s' % ((y+dy), 'png'))
-                # View one tile from metatile and save here
-                im.view(dx*TILE_SIZE, dy*TILE_SIZE, TILE_SIZE, TILE_SIZE).save(tile_uri, 'png256')
-                
-        
-
+                image = im.view(dx*TILE_SIZE, dy*TILE_SIZE, TILE_SIZE, TILE_SIZE).tostring('png256')
+                self.cur.execute("INSERT OR REPLACE INTO tiles(image, x, y, z, s) VALUES (?, ?, ?, ?, ?)", (sqlite.Binary(image),x+dx,y+dy,17-z,0) )
+        self.db.commit()
+        self.printLock.release()
 
     def loop(self):
-        while True:
-            #Fetch a tile from the queue and render it
-            r = self.q.get()
-            if (r == None):
+        try:
+            self.db = sqlite.connect(self.tile_dir+self.tile_db)
+            self.cur = self.db.cursor()    
+            self.cur.execute('SELECT SQLITE_VERSION()')
+            data = self.cur.fetchone()
+            self.printLock.acquire()
+            print "SQLite version: %s" % data                
+            self.printLock.release()
+            while True:
+                #Fetch a tile from the queue and render it
+                r = self.q.get()
+                if (r == None):
+                    self.q.task_done()
+                    break
+                else:
+                    (name, x, y, z, ms) = r
+
+                self.render_tile(x, y, z, ms)
                 self.q.task_done()
-                break
-            else:
-                (name, x, y, z, ms) = r
-
-            self.render_tile(x, y, z, ms)
+        except sqlite.Error, e:
+            self.printLock.acquire()
+            print "Error %s:" % e.args[0]
+            self.printLock.release()
             self.q.task_done()
+        finally:
+            if self.db:
+                self.printLock.acquire()
+                print "Closing sqlite"
+                self.printLock.release()
+                self.db.close()
+#            self.q.task_done()    
 
 
-def render_tiles(bbox, mapfile, tile_dir, minZoom=1,maxZoom=18, scale_factor=1.0, name="unknown", num_threads=NUM_THREADS, tms_scheme=False):
+def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_factor=1.0, name="unknown", num_threads=NUM_THREADS, tms_scheme=False):
 #    print "render_tiles(",bbox, mapfile, tile_dir, minZoom,maxZoom, name,")"
 
     # Launch rendering threads
@@ -143,14 +155,11 @@ def render_tiles(bbox, mapfile, tile_dir, minZoom=1,maxZoom=18, scale_factor=1.0
     printLock = threading.Lock()
     renderers = {}
     for i in range(num_threads):
-        renderer = RenderThread(tile_dir, mapfile, queue, printLock, maxZoom, scale_factor)
+        renderer = RenderThread(tile_dir, tile_db, mapfile, queue, printLock, maxZoom, scale_factor)
         render_thread = threading.Thread(target=renderer.loop)
         render_thread.start()
         #print "Started render thread %s" % render_thread.getName()
         renderers[i] = render_thread
-
-    if not os.path.isdir(tile_dir):
-         os.mkdir(tile_dir)
 
     gprj = GoogleProjection(maxZoom+1) 
     LLtoPx = gprj.fromLLtoPixel
@@ -175,11 +184,6 @@ def render_tiles(bbox, mapfile, tile_dir, minZoom=1,maxZoom=18, scale_factor=1.0
         
 #        print "rendering ",((int(px1[0]/256.0)+1 - int(px0[0]/256.0)) * (int(px1[1]/256.0)+1-int(px0[1]/256.0))), " Tiles at z=",z
 
-        # check if we have directories in place
-        zoom = "%s" % z
-        if not os.path.isdir(tile_dir + zoom):
-            os.mkdir(tile_dir + zoom)
-
         for mx in xrange(int(px[z][0][0]/TILE_SIZE), int(px[z][1][0]/TILE_SIZE)+1, meta_size[z]):
             # Validate x co-ordinate
             if (mx < 0) or (mx >= 2**z):
@@ -191,37 +195,6 @@ def render_tiles(bbox, mapfile, tile_dir, minZoom=1,maxZoom=18, scale_factor=1.0
                 # Submit tile to be rendered into the queue
                 t = (name, mx, my, z, meta_size[z])
                 queue.put(t)
-
-
-        ## check if we have directories in place
-        #zoom = "%s" % z
-        #if not os.path.isdir(tile_dir + zoom):
-            #os.mkdir(tile_dir + zoom)
-            
-        #for x in range(int(px0[0]/256.0),int(px1[0]/256.0)+1):
-            ## Validate x co-ordinate
-            #if (x < 0) or (x >= 2**z):
-                #continue
-            ## check if we have directories in place
-            #str_x = "%s" % x
-            #if not os.path.isdir(tile_dir + zoom + '/' + str_x):
-                #os.mkdir(tile_dir + zoom + '/' + str_x)
-            #for y in range(int(px0[1]/256.0),int(px1[1]/256.0)+1):
-                ## Validate x co-ordinate
-                #if (y < 0) or (y >= 2**z):
-                    #continue
-                ## flip y to match OSGEO TMS spec
-                #if tms_scheme:
-                    #str_y = "%s" % ((2**z-1) - y)
-                #else:
-                    #str_y = "%s" % y
-                #tile_uri = tile_dir + zoom + '/' + str_x + '/' + str_y + '.png'
-                ## Submit tile to be rendered into the queue
-                #t = (name, tile_uri, x, y, z)
-                #try:
-                    #queue.put(t)
-                #except KeyboardInterrupt:
-                    #raise SystemExit("Ctrl-c detected, exiting...")
 
     # Signal render threads to exit by sending empty request to queue
     for i in range(num_threads):
@@ -245,6 +218,7 @@ if __name__ == "__main__":
     parser.add_argument("--scale", type=float, help="scale_factor=2", default=1.0)
     parser.add_argument("--mapfile", help="mapnik XML file", default="./mycyclemap.xml")
     parser.add_argument("--tiledir", help="tile output directory", default="./tiles/")
+    parser.add_argument("--tileddb", help="tile database", default="tiles.sqlitedb")
     args = parser.parse_args()
     
     ## show values ##
@@ -319,7 +293,7 @@ if __name__ == "__main__":
     print ("Zoom: {}-{}".format(minZoom, maxZoom) )
     print ("Scale: {}".format(args.scale) )
     
-    render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom, args.scale, "CycleMap")
+    render_tiles(bbox, mapfile, tile_dir, args.tileddb, minZoom, maxZoom, args.scale, "CycleMap")
 
 	
    
