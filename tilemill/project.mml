@@ -254,6 +254,25 @@
       "name": "waterway"
     },
     {
+      "geometry": "linestring",
+      "extent": [
+        -164.90347246002037,
+        -52.157728773964294,
+        177.5203567006342,
+        75.79348379113986
+      ],
+      "id": "10mrivers",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_rivers_lake_centerlines.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "10mrivers"
+    },
+    {
       "geometry": "polygon",
       "extent": [
         9.854336847777645,
@@ -742,10 +761,10 @@
     {
       "geometry": "linestring",
       "extent": [
-        11.273346662450141,
-        48.01519034983687,
-        11.77184759525672,
-        48.26628286439526
+        10.195317297198578,
+        47.63578476839365,
+        10.371093343788099,
+        47.754092636465714
       ],
       "Datasource": {
         "type": "postgis",
@@ -767,18 +786,18 @@
     {
       "geometry": "linestring",
       "extent": [
-        11.273346662450141,
-        48.01519034983687,
-        11.77184759525672,
-        48.26628286439526
+        10.195317297198578,
+        47.63578476839365,
+        10.371093343788099,
+        47.754092636465714
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length,\n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND bridge IN('yes') AND (layer >= '2')\n ORDER BY prio DESC\n) as DATA",
+        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, st_length(st_transform(way,4326)::geography)::integer as length,\n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND bridge IN('yes') AND (layer >= '2')\n ORDER BY prio DESC\n) as DATA",
         "key_field": "",
         "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1254943.21,6109382.34,1310436.08,6151269.7",
+        "extent_cache": "dynamic",
+        "extent": "",
         "dbname": "mering",
         "user": "postgres"
       },
@@ -1319,6 +1338,31 @@
       "name": "waterway_label"
     },
     {
+      "geometry": "polygon",
+      "extent": [
+        10.542069512151508,
+        47.09958203683166,
+        11.076276950365854,
+        47.490295858939525
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('glacier') AND name IS NOT NULL\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "glacier_label",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "glacier_label"
+    },
+    {
       "geometry": "linestring",
       "extent": [
         8.203923441367223,
@@ -1512,12 +1556,12 @@
         "dbname": "world",
         "user": "postgres"
       },
-      "id": "cities",
+      "id": "cities_osm",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cities",
+      "name": "cities_osm",
       "status": "off"
     },
     {
@@ -1589,9 +1633,28 @@
       "advanced": {},
       "name": "contour_label",
       "status": "off"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -179.58997888396897,
+        -85.051,
+        179.38330358817018,
+        82.48332318035943
+      ],
+      "id": "cities",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_populated_places.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "cities"
     }
   ],
-  "scale": 2,
+  "scale": 1,
   "metatile": 4,
   "name": "",
   "description": "",

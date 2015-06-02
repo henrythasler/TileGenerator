@@ -1,6 +1,6 @@
-.roads[zoom>=4] {
+.roads[zoom>=7] {
   ::outer {
-    [bridge!='yes'] {line-cap: round;}
+    [bridge!='yes'][tunnel!='yes'] {line-cap: round;}
     line-join: round;  
   	line-color:black;
     line-width: 0;
@@ -10,7 +10,7 @@
         line-dasharray: 3,3;
       }  
       [zoom>=14] {
-        line-dasharray: 4,4;
+        line-dasharray: 6,6;
       } 
     }
     
@@ -192,7 +192,6 @@
         }
       }  
 	}    
-    
   }
   ::inner {  
     line-cap: round;

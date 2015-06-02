@@ -115,12 +115,19 @@ class RenderThread:
 
     def loop(self):
         try:
+            self.printLock.acquire()
             self.db = sqlite.connect(self.tile_dir+self.tile_db)
             self.cur = self.db.cursor()    
-            self.cur.execute('SELECT SQLITE_VERSION()')
-            data = self.cur.fetchone()
-            self.printLock.acquire()
-            print "SQLite version: %s" % data                
+#            self.cur.execute('SELECT SQLITE_VERSION()')
+            self.cur.execute('CREATE TABLE IF NOT EXISTS tiles (x int, y int, z int, s int, image blob, PRIMARY KEY (x,y,z,s))')
+            self.cur.execute('CREATE TABLE IF NOT EXISTS info (minzoom TEXT, maxzoom TEXT)')
+            self.cur.execute('CREATE TABLE IF NOT EXISTS android_metadata (locale TEXT)')
+            self.cur.execute('CREATE INDEX IF NOT EXISTS IND on tiles(x, y, z, s)')
+#            self.cur.execute("INSERT OR REPLACE INTO info(minzoom, maxzoom) VALUES (?, ?)", ('2', '17') )
+#            self.cur.execute("INSERT OR REPLACE INTO android_metadata(locale) VALUES (?)", ('en_US') )
+ #           data = self.cur.fetchone()
+#            self.printLock.acquire()
+#            print "SQLite version: %s" % data                
             self.printLock.release()
             while True:
                 #Fetch a tile from the queue and render it
@@ -140,9 +147,6 @@ class RenderThread:
             self.q.task_done()
         finally:
             if self.db:
-                self.printLock.acquire()
-                print "Closing sqlite"
-                self.printLock.release()
                 self.db.close()
 #            self.q.task_done()    
 
@@ -181,7 +185,7 @@ def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_f
     for z in range(minZoom,maxZoom + 1):
         px0 = gprj.fromLLtoPixel(ll0,z)
         px1 = gprj.fromLLtoPixel(ll1,z)
-        
+
 #        print "rendering ",((int(px1[0]/256.0)+1 - int(px0[0]/256.0)) * (int(px1[1]/256.0)+1-int(px0[1]/256.0))), " Tiles at z=",z
 
         for mx in xrange(int(px[z][0][0]/TILE_SIZE), int(px[z][1][0]/TILE_SIZE)+1, meta_size[z]):

@@ -276,62 +276,55 @@
   [zoom>=13][zoom<14] {marker-width: 8;}
 }
 
-#cities[zoom<=7] {
-  
-  ::marker{
-    marker-line-width: 1;
-    marker-width: 7;
-    marker-height: 7;
-    marker-fill: white;
-//    marker-ignore-placement: true;
-    [pop>=1000000] {marker-file: url(img/square.white.svg);}
-    [pop>=5000000] {marker-width: 10; marker-height: 10;}
-  }
-  
-  ::label{
-    shield-name: "[name]";
-    shield-character-spacing: 0.8;
-    shield-size: 12;
-    shield-face-name: @sans;
-    shield-halo-fill: @text_halo_strong;
-    shield-halo-radius:1.5;
-    shield-clip: false;
-    shield-text-dy: -7;
-    shield-placement: point;
-    shield-dy: -5;
-    shield-file: url(img/line.svg);
-    shield-transform: "scale([strlen]*0.65,1)";
-    shield-comp-op: dst;
-    [capital='yes'] {shield-comp-op: src;}
-  }
-/*  
-  ::label[pop>5000000]{
-    shield-name: "[name]";
-    shield-size: 9;
-    shield-character-spacing: 0.8;
-    shield-face-name: @sans_bold;
-    shield-fill: white;
-    shield-avoid-edges: true;
-    shield-clip: false;
-    shield-file: url(img/circle.blue.svg);    
-  
-    text-name: [name];
-    text-size: 0;
-    [zoom<6][pop>500000]{text-size: 8; text-dy: 10; text-dx: 10;}
-    [zoom>=6][zoom<8][pop>250000]{text-size: 8; text-dy: 10; text-dx: 10;}
-    [zoom>=8][zoom<10] {text-size: 10; text-dy: 10; text-dx: 10;}
-    [zoom>=10][zoom<12] {text-size: 12; text-dy: 30; text-dx: 30;}
-    [zoom>=12][zoom<13] {text-size: 16; text-dy: 100; text-dx: 100;}
-    
-    text-face-name:@sans;
-    [capital='yes'] {text-face-name:@sans_bold;}
-    text-halo-fill: @text_halo_strong;
-    text-halo-radius:1.5;
-    text-wrap-width: 100;
-    text-wrap-before: true;
-    text-character-spacing: 0.8;
-    text-placement-type: simple;
-    text-placements: "N,S,E,W,NE,SE,NW,SW";
-  }
-*/
+#cities[zoom<=7]{
+  ::capitals[ADM0CAP=1] {
+    [zoom=3][SCALERANK<=2],
+    [zoom=4][SCALERANK<=3],
+    [zoom=5][SCALERANK<=4],
+    [zoom=6][SCALERANK<=5],
+    [zoom>=7] {
+      marker-file: url(img/star.white.svg);
+      marker-width:8;
+      
+      text-name: [NAME];
+      text-face-name:@sans;
+      text-size: 8;
+      [zoom=5] {text-size: 9;}
+      [zoom=6] {text-size: 11; text-face-name:@sans_bold;}
+      [zoom>=7] {text-size: 13; text-face-name:@sans_bold;}
+      text-halo-fill: @text_halo_strong;
+      text-halo-radius:1.5;
+      text-wrap-width: 100;
+      text-wrap-before: true;
+      text-character-spacing: 0.8;
+      text-placement-type: simple;
+      text-placements: "N,S,E,W,NE,SE,NW,SW";
+      text-dy: 6; 
+      text-dx: 6;
+    }  
+  }  
+  ::major[ADM0CAP!=1] {
+    [zoom=5][SCALERANK<=3],
+    [zoom=6][SCALERANK<=6],
+    [zoom>=7] {
+      marker-width:6;
+      marker-line-width: 1;
+      marker-fill: white;
+      
+      text-name: [NAME];
+      text-face-name:@sans;
+      text-size: 8;
+      [zoom=6] {text-size: 9;}
+      [zoom>=7] {text-size: 10;}
+      text-halo-fill: @text_halo_strong;
+      text-halo-radius:1.5;
+      text-wrap-width: 100;
+      text-wrap-before: true;
+      text-character-spacing: 0.8;
+      text-placement-type: simple;
+      text-placements: "N,S,E,W,NE,SE,NW,SW";
+      text-dy: 6; 
+      text-dx: 6;
+    }  
+  }  
 }

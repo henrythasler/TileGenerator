@@ -1,5 +1,7 @@
-#admin_global[zoom<=8],
+#admin_global[zoom>=1][zoom<=8],
 #admin_local[zoom>=9]{
+  line-join: round;  
+  line-cap: round;
   line-width: 0.5;
   line-opacity: 0.5;
   line-color:#811181;
@@ -9,13 +11,13 @@
   [zoom>=8] {line-width: 3;}
 }
 
-#admin_claim {
-  line-width:0.5;
+#admin_claim[zoom>=5][zoom<=8]{
+  line-width:1;
   line-color:#811181;
   line-dasharray: 2, 2;  
 }
 
-#countries[zoom<=6] {
+#countries[zoom>=2][zoom<=6] {
   text-face-name: @sans_bold;
   text-fill:#444;
   text-size:8;
@@ -104,7 +106,13 @@
 }
 
 #military[zoom>=8] {
-  [zoom>=8][zoom<12][area>=200000] {
+  [zoom>=8][zoom<10][area>=2000000] {
+    polygon-pattern-file:url(img/stripes-red.png);
+    polygon-pattern-opacity: 0.2;
+    line-width: 0.2;
+    line-color: red;
+  }  
+  [zoom>=10][zoom<12][area>=500000] {
     polygon-pattern-file:url(img/stripes-red.png);
     polygon-pattern-opacity: 0.2;
     line-width: 0.2;
@@ -157,35 +165,41 @@
   ::line{
     line-width: 1.8;
     line-color: @runway;
-    [tunnel='yes'] {line-dasharray: 9, 9;}
+    [tunnel='yes'] {line-dasharray: 2, 4; line-cap: round;}
     [type='tram'],[type='subway'] {line-width: 0;}
     [zoom>=12][zoom<13] {
       line-width: 2.5;
       [type='tram'],[type='subway'] {line-width: 0;}
+      [tunnel='yes'] {line-dasharray: 4, 6;}
     }
     [zoom>=13][zoom<=14] {
       line-color: @darkgrey;
       line-width: 3.5;
       [type='tram'],[type='subway'] {line-width: 2;}
+      [tunnel='yes'] {line-dasharray: 6, 8;}
     }
     [zoom>14] {
       line-color: @darkgrey;
       line-width: 4.5;
+      [tunnel='yes'] {line-dasharray: 10, 12;}
     }
   }
-  ::dash[zoom>=13] {
+  ::dash[zoom>=13][tunnel!='yes'] {
     line-color: white;
     line-width: 1.2;
     line-dasharray: 9, 9;
+    [tunnel='yes'] {line-dasharray: 6, 4;}
     [type='tram'],[type='subway'] {line-width: 0;}
     [zoom>=13][zoom<=14] {
       line-width: 2;
       line-dasharray: 13, 13;
+      [tunnel='yes'] {line-dasharray: 6, 4;}
       [type='tram'],[type='subway'] {line-width: 0;}
     }
     [zoom>14] {
       line-width: 2.5;
       line-dasharray: 18, 16;
+      [tunnel='yes'] {line-dasharray: 6, 4;}
     }  
   }
 }
