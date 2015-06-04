@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # references: https://github.com/CIV-Che/Mapnik-utils
 
-from math import pi,cos,sin,log,exp,atan
+from math import pi,cos,sin,log,exp,atan,ceil, floor
 from subprocess import call
 import sys, os, inspect
 from Queue import Queue
@@ -20,8 +20,8 @@ from progressbar import AnimatedMarker, Bar, BouncingBar, Counter, ETA, \
     FormatLabel, Percentage, ProgressBar, ReverseBar, RotatingMarker, \
     SimpleProgress, Timer, FileTransferSpeed
 
-# 0=no; 1=all
-DEBUG_LEVEL = 1
+# 0=off; 1=debug; 2=trace
+DEBUG_LEVEL = 0
 
 DEG_TO_RAD = pi/180
 RAD_TO_DEG = 180/pi
@@ -35,7 +35,7 @@ BUF_SIZE = 1024
 
 SQ = 1.3 # Criteria of squared polygon
 
-# FIXME
+# FIXME: do not use globals
 tiles_to_render = 0;
 tiles_rendered = 0;
 tiles_at_zoom = {};
@@ -118,6 +118,11 @@ class RenderThread:
 
         ## Bounding box for the tile
         bbox = mapnik.Box2d(c0.x,c0.y, c1.x,c1.y)
+        if DEBUG_LEVEL:
+            self.printLock.acquire()
+            print "rendering z=", z, "x=",x,"y=",y,"p0=",p0,"p1=",p1,"l0=",l0,"l1=",l1,"bbox=", bbox
+            self.printLock.release()
+
         self.m.resize(m_size*TILE_SIZE, m_size*TILE_SIZE)
         self.m.zoom_to_box(bbox)
         self.m.buffer_size = BUF_SIZE  #Default is 128
@@ -133,6 +138,9 @@ class RenderThread:
         for dx in xrange(0, m_size):
             for dy in xrange(0, m_size):
                 image = im.view(dx*TILE_SIZE, dy*TILE_SIZE, TILE_SIZE, TILE_SIZE).tostring('png256')
+                if DEBUG_LEVEL >= 2:
+                    print "Tile: x=",dx*TILE_SIZE, "y=", dy*TILE_SIZE
+                
                 self.cur.execute("INSERT OR REPLACE INTO tiles(image, x, y, z, s) VALUES (?, ?, ?, ?, ?)", (sqlite.Binary(image),x+dx,y+dy,17-z,0) )
         self.db.commit()
 
@@ -140,7 +148,7 @@ class RenderThread:
         time_elapsed = time.time()-start;
         tiles_rendered += m_size*m_size
         if DEBUG_LEVEL:
-          print 'z=%s x=%s y=%s chunk=%s rendered=%s (%s%%) in %s seconds' % (z, x, y, m_size*m_size, tiles_rendered, float(tiles_rendered)/float(tiles_to_render)*100, time_elapsed)
+          print 'z=%s x=%s y=%s metasize=%s chunk=%s rendered=%s (%s%%) in %s seconds' % (z, x, y, m_size, m_size*m_size, tiles_rendered, float(tiles_rendered)/float(tiles_to_render)*100, time_elapsed)
         else:
           self.pbar.update(tiles_rendered)
 
@@ -202,21 +210,39 @@ def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_f
     
     # Calculate optimal size of metatile
     px = [[LLtoPx(ll0,z), LLtoPx(ll1,z)] for z in xrange(0, maxZoom+1)]
+
+#    for z in range(0,maxZoom + 1):
+#      px[z] = ((px[z][0][0], px[z][0][1]-1), (px[z][1][0], px[z][1][1]-1))
+
+    if DEBUG_LEVEL:
+      print "px=", px
+    
     min_max = 1 if (max(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1]))/min(abs(px[z][0][0]-px[z][1][0]), 
                 abs(px[z][0][1]-px[z][1][1]))) < SQ else 0
-
+    if DEBUG_LEVEL:
+      print "min_max=", min_max
+    
+    
     # Calculate size of metatile for all zoom levels
+#    if min_max:
+#        meta_size = [int(min(META_SIZE, max(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1]))/TILE_SIZE+1) or 1) for z in xrange(0, maxZoom+1)]
+#    else:
+#        meta_size = [int(min(META_SIZE, min(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1]))/TILE_SIZE+1) or 1) for z in xrange(0, maxZoom+1)]
+
     if min_max:
-        meta_size = [int(min(META_SIZE, max(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1]))/TILE_SIZE+1) or 1) for z in xrange(0, maxZoom+1)]
+        meta_size = [int(min(META_SIZE, ceil(float(max(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1])))/TILE_SIZE)) or 1) for z in xrange(0, maxZoom+1)]
     else:
-        meta_size = [int(min(META_SIZE, min(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1]))/TILE_SIZE+1) or 1) for z in xrange(0, maxZoom+1)]
+        meta_size = [int(min(META_SIZE, ceil(float(min(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1])))/TILE_SIZE)) or 1) for z in xrange(0, maxZoom+1)]
+
 
     ## calculate amount of tiles to render
     for z in range(minZoom,maxZoom + 1):
-        tiles_at_zoom[z] = (int(px[z][1][0]/TILE_SIZE)+1 - int(px[z][0][0]/TILE_SIZE)) * (int(px[z][1][1]/TILE_SIZE)+1 - int(px[z][0][1]/TILE_SIZE))
+        tiles_at_zoom[z] = int(ceil(px[z][1][0]/TILE_SIZE - px[z][0][0]/TILE_SIZE)) * int(ceil(px[z][1][1]/TILE_SIZE - px[z][0][1]/TILE_SIZE))
+#        tiles_at_zoom[z] = (int(px[z][1][0]/TILE_SIZE)+1 - int(px[z][0][0]/TILE_SIZE)) * (int(px[z][1][1]/TILE_SIZE)+1 - int(px[z][0][1]/TILE_SIZE))
+#        tiles_at_zoom[z] = (int(px[z][1][0]/TILE_SIZE)+0 - int(px[z][0][0]/TILE_SIZE)) * (int(px[z][1][1]/TILE_SIZE)+0 - int(px[z][0][1]/TILE_SIZE))
         tiles_to_render += tiles_at_zoom[z]
         if DEBUG_LEVEL:
-            print "Tiles at z=",z, ": ",tiles_at_zoom[z]
+            print "Tiles at z=",z, ": ",tiles_at_zoom[z], "pixel=", px[z][0][0], px[z][0][1], px[z][1][0], px[z][1][1], "meta=",meta_size[z]
 
     print "Tiles:", tiles_to_render
 
@@ -238,11 +264,14 @@ def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_f
         px0 = gprj.fromLLtoPixel(ll0,z)
         px1 = gprj.fromLLtoPixel(ll1,z)
 
-        for mx in xrange(int(px[z][0][0]/TILE_SIZE), int(px[z][1][0]/TILE_SIZE)+1, meta_size[z]):
+        for mx in xrange(int(floor(px[z][0][0]/TILE_SIZE)), int(ceil(px[z][1][0]/TILE_SIZE)), meta_size[z]):
             # Validate x co-ordinate
+#            print "mx=",mx
             if (mx < 0) or (mx >= 2**z):
                 continue
-            for my in xrange(int(px[z][0][1]/TILE_SIZE),int(px[z][1][1]/TILE_SIZE)+1, meta_size[z]):
+            for my in xrange(int(floor(px[z][0][1]/TILE_SIZE)),int(ceil(px[z][1][1]/TILE_SIZE)), meta_size[z]):
+#                print "my=",my
+#            for my in xrange(int(px[z][0][1]/TILE_SIZE),int(px[z][1][1]/TILE_SIZE)+1, meta_size[z]):
                 # Validate x co-ordinate
                 if (my < 0) or (my >= 2**z):
                     continue
@@ -264,17 +293,18 @@ def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_f
 
 if __name__ == "__main__":
   
-    parser = argparse.ArgumentParser(description='TileGenerator by Henry Thasler')
-    parser.add_argument("--zmin", type=int, help="min zoom", required=True)
-    parser.add_argument("--zmax", type=int, help="max zoom",required=True)
-    parser.add_argument("--left", type=float, help="left (MIN_LON)",required=True)
-    parser.add_argument("--bottom", type=float, help="bottom (MIN_LAT)",required=True)
-    parser.add_argument("--right", type=float, help="right (MAX_LON)",required=True)
-    parser.add_argument("--top", type=float, help="top (MAX_LAT)",required=True)
-    parser.add_argument("--scale", type=float, help="scale_factor=2", default=1.0)
-    parser.add_argument("--mapfile", help="mapnik XML file", default="./mycyclemap.xml")
-    parser.add_argument("--tiledir", help="tile output directory", default="./tiles/")
-    parser.add_argument("--tileddb", help="tile database", default="tiles.sqlitedb")
+    # Argument can be -3.032E-8, so: http://stackoverflow.com/questions/9025204/python-argparse-issue-with-optional-arguments-which-are-negative-numbers
+    parser = argparse.ArgumentParser(description='TileGenerator by Henry Thasler', prefix_chars='@')
+    parser.add_argument("@zmin", type=int, help="min zoom", required=True)
+    parser.add_argument("@zmax", type=int, help="max zoom",required=True)
+    parser.add_argument("@left", type=float, help="left (MIN_LON)",required=True)
+    parser.add_argument("@bottom", type=float, help="bottom (MIN_LAT)",required=True)
+    parser.add_argument("@right", type=float, help="right (MAX_LON)",required=True)
+    parser.add_argument("@top", type=float, help="top (MAX_LAT)",required=True)
+    parser.add_argument("@scale", type=float, help="scale_factor=2", default=1.0)
+    parser.add_argument("@mapfile", help="mapnik XML file", default="./mycyclemap.xml")
+    parser.add_argument("@tiledir", help="tile output directory", default="./tiles/")
+    parser.add_argument("@tileddb", help="tile database", default="tiles.sqlitedb")
     args = parser.parse_args()
     
     ## show values ##
@@ -357,10 +387,12 @@ if __name__ == "__main__":
     
     padding=0.5/(1.7**(minZoom+maxZoom)) + float(minZoom)/100. - float(maxZoom)/300.
 #    padding=float(minZoom)/float(maxZoom)/20.
-#    padding=0
+    padding=0
     if DEBUG_LEVEL:
       print "padding:", padding
     bbox=(left,bottom+padding, right-padding, top)
+
+    bbox=(args.left, args.bottom, args.right, args.top)
     
     print ("Bounding Box: %s" % (bbox,) )
     print ("Zoom: {}-{}".format(minZoom, maxZoom) )
