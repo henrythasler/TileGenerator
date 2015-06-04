@@ -3,14 +3,25 @@
 
 from math import pi,cos,sin,log,exp,atan
 from subprocess import call
-import sys, os
+import sys, os, inspect
 from Queue import Queue
 import argparse
 
 import threading
 import mapnik
 import sqlite3 as sqlite
-#import apsw
+import time
+
+cmd_subfolder = os.path.realpath(os.path.abspath(os.path.split(inspect.getfile( inspect.currentframe() ))[0]) + "/docs/progressbar-2.3")
+if cmd_subfolder not in sys.path:
+  sys.path.insert(0, cmd_subfolder)
+  
+from progressbar import AnimatedMarker, Bar, BouncingBar, Counter, ETA, \
+    FormatLabel, Percentage, ProgressBar, ReverseBar, RotatingMarker, \
+    SimpleProgress, Timer, FileTransferSpeed
+
+# 0=no; 1=all
+DEBUG_LEVEL = 1
 
 DEG_TO_RAD = pi/180
 RAD_TO_DEG = 180/pi
@@ -23,6 +34,12 @@ META_SIZE = 16
 BUF_SIZE = 1024
 
 SQ = 1.3 # Criteria of squared polygon
+
+# FIXME
+tiles_to_render = 0;
+tiles_rendered = 0;
+tiles_at_zoom = {};
+
 
 def minmax (a,b,c):
     a = max(a,b)
@@ -60,11 +77,12 @@ class GoogleProjection:
 
 
 class RenderThread:
-    def __init__(self, tile_dir, tile_db, mapfile, q, printLock, maxZoom, scale_factor):
+    def __init__(self, tile_dir, tile_db, mapfile, q, printLock, maxZoom, scale_factor, pbar):
         self.tile_dir = tile_dir
         self.tile_db = tile_db
         self.scale_factor = scale_factor
         self.q = q
+        self.pbar = pbar
         self.m = mapnik.Map(TILE_SIZE, TILE_SIZE)
         self.printLock = printLock
 #        self.db = None
@@ -80,7 +98,12 @@ class RenderThread:
 
 
     def render_tile(self, x, y, z, m_size):
+        global tiles_to_render
+        global tiles_rendered
 
+        ## time render process
+        start = time.time();
+        
         ## Calculate pixel positions of bottom-left & top-right
         p0 = (x*TILE_SIZE, (y+m_size)*TILE_SIZE)
         p1 = ((x+m_size)*TILE_SIZE, y*TILE_SIZE)
@@ -102,15 +125,25 @@ class RenderThread:
         # Render image with default Agg renderer
         im = mapnik.Image(m_size*TILE_SIZE, m_size*TILE_SIZE)
         mapnik.render(self.m, im, self.scale_factor)
+
+        # perform disk and screen I/O in lock section
+        self.printLock.acquire()
         
 #        im.save(os.path.join(tile_dir, '%s-%s-%s.%s' % (z, x, y, 'png')), 'png256')
-        self.printLock.acquire()
-        print '%s %s %s' % (z, x, y)
         for dx in xrange(0, m_size):
             for dy in xrange(0, m_size):
                 image = im.view(dx*TILE_SIZE, dy*TILE_SIZE, TILE_SIZE, TILE_SIZE).tostring('png256')
                 self.cur.execute("INSERT OR REPLACE INTO tiles(image, x, y, z, s) VALUES (?, ?, ?, ?, ?)", (sqlite.Binary(image),x+dx,y+dy,17-z,0) )
         self.db.commit()
+
+        ## evaluate timing and render progress
+        time_elapsed = time.time()-start;
+        tiles_rendered += m_size*m_size
+        if DEBUG_LEVEL:
+          print 'z=%s x=%s y=%s chunk=%s rendered=%s (%s%%) in %s seconds' % (z, x, y, m_size*m_size, tiles_rendered, float(tiles_rendered)/float(tiles_to_render)*100, time_elapsed)
+        else:
+          self.pbar.update(tiles_rendered)
+
         self.printLock.release()
 
     def loop(self):
@@ -153,18 +186,14 @@ class RenderThread:
 
 def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_factor=1.0, name="unknown", num_threads=NUM_THREADS, tms_scheme=False):
 #    print "render_tiles(",bbox, mapfile, tile_dir, minZoom,maxZoom, name,")"
+    global tiles_to_render;
+    global tiles_at_zoom;
 
     # Launch rendering threads
     queue = Queue(32)
     printLock = threading.Lock()
     renderers = {}
-    for i in range(num_threads):
-        renderer = RenderThread(tile_dir, tile_db, mapfile, queue, printLock, maxZoom, scale_factor)
-        render_thread = threading.Thread(target=renderer.loop)
-        render_thread.start()
-        #print "Started render thread %s" % render_thread.getName()
-        renderers[i] = render_thread
-
+    
     gprj = GoogleProjection(maxZoom+1) 
     LLtoPx = gprj.fromLLtoPixel
 
@@ -181,12 +210,33 @@ def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_f
         meta_size = [int(min(META_SIZE, max(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1]))/TILE_SIZE+1) or 1) for z in xrange(0, maxZoom+1)]
     else:
         meta_size = [int(min(META_SIZE, min(abs(px[z][0][0]-px[z][1][0]),abs(px[z][0][1]-px[z][1][1]))/TILE_SIZE+1) or 1) for z in xrange(0, maxZoom+1)]
+
+    ## calculate amount of tiles to render
+    for z in range(minZoom,maxZoom + 1):
+        tiles_at_zoom[z] = (int(px[z][1][0]/TILE_SIZE)+1 - int(px[z][0][0]/TILE_SIZE)) * (int(px[z][1][1]/TILE_SIZE)+1 - int(px[z][0][1]/TILE_SIZE))
+        tiles_to_render += tiles_at_zoom[z]
+        if DEBUG_LEVEL:
+            print "Tiles at z=",z, ": ",tiles_at_zoom[z]
+
+    print "Tiles:", tiles_to_render
+
+    # start rendering and progress bar so tasks in queue will execute
+    widgets = ['Rendering: ', Percentage(), ' ',Bar(marker='.',left='[',right=']'), ' ', ETA()]
+    
+    
+    pbar = ProgressBar(widgets=widgets, maxval=tiles_to_render)
+
+    if not DEBUG_LEVEL:    
+        pbar.start()
+    
+    for i in range(num_threads):
+        renderer = RenderThread(tile_dir, tile_db, mapfile, queue, printLock, maxZoom, scale_factor, pbar)
+        renderers[i] = threading.Thread(target=renderer.loop)
+        renderers[i].start()
     
     for z in range(minZoom,maxZoom + 1):
         px0 = gprj.fromLLtoPixel(ll0,z)
         px1 = gprj.fromLLtoPixel(ll1,z)
-
-#        print "rendering ",((int(px1[0]/256.0)+1 - int(px0[0]/256.0)) * (int(px1[1]/256.0)+1-int(px0[1]/256.0))), " Tiles at z=",z
 
         for mx in xrange(int(px[z][0][0]/TILE_SIZE), int(px[z][1][0]/TILE_SIZE)+1, meta_size[z]):
             # Validate x co-ordinate
@@ -207,7 +257,9 @@ def render_tiles(bbox, mapfile, tile_dir, tile_db, minZoom=1,maxZoom=18, scale_f
     queue.join()
     for i in range(num_threads):
         renderers[i].join()
-
+    
+    if not DEBUG_LEVEL:
+        pbar.finish()
 
 
 if __name__ == "__main__":
@@ -290,8 +342,25 @@ if __name__ == "__main__":
    
     # Ulm, Ingolstadt, Innsbruck, Chiemsee z=8
     #bbox=(9.854736328125, 47.047668640460834, 12.6397705078125, 48.9152)
-    padding=0.1/(1.5**minZoom)
-    bbox=(args.left+padding, args.bottom+padding, args.right-padding, args.top-padding)
+    
+    
+    bbox=(args.left, args.bottom, args.right, args.top)
+    if DEBUG_LEVEL:
+      print ("Original Bounding Box: %s" % (bbox,) )
+
+    # workaround for mobac
+    left = minmax(args.left, -179.99, 179.99)
+    bottom = minmax(args.bottom, -84.99, 84.99)
+    right = minmax(args.right, -179.2, 179.2)
+    top = minmax(args.top, -85.05, 85.05)
+#    bbox=(left, bottom, right, top)
+    
+    padding=0.5/(1.7**(minZoom+maxZoom)) + float(minZoom)/100. - float(maxZoom)/300.
+#    padding=float(minZoom)/float(maxZoom)/20.
+#    padding=0
+    if DEBUG_LEVEL:
+      print "padding:", padding
+    bbox=(left,bottom+padding, right-padding, top)
     
     print ("Bounding Box: %s" % (bbox,) )
     print ("Zoom: {}-{}".format(minZoom, maxZoom) )
