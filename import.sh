@@ -12,7 +12,8 @@
 #dbname="middle"
 
 src="/media/henry/Tools/map/data/slice.osm.pbf"
-dbname="mering"
+#dbname="mering"
+dbname="empty"
 
 #src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
 #dbname="world"

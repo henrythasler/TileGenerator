@@ -204,41 +204,16 @@
       "name": "forest"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        9.854336847777645,
-        47.23996886995563,
-        12.208300633747763,
-        48.07708147900186
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wetland')) AS data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "swamp",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "swamp"
-    },
-    {
       "geometry": "linestring",
       "extent": [
-        8.203923441367223,
-        47.02519599340731,
-        13.96351455547553,
-        48.35182628382521
+        10.898437743063297,
+        47.75410356795742,
+        11.249999268552818,
+        48.458350869127614
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, waterway AS type, name\n  FROM planet_osm_line\n  WHERE waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-1', '-2') OR layer IS NULL)) as DATA",
+        "table": "(\nSELECT way, waterway AS type, name\n  FROM planet_osm_line\n  WHERE waterway IN ('riverbank', 'river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-1', '-2') OR layer IS NULL)\n  UNION\n  SELECT way, waterway AS type, name\n  FROM planet_osm_polygon\n  WHERE waterway IN ('riverbank')\n) as DATA\n",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -275,14 +250,14 @@
     {
       "geometry": "polygon",
       "extent": [
-        9.854336847777645,
-        47.23996886995563,
-        12.208300633747763,
-        48.07708147900186
+        10.898437743063297,
+        47.75410356795742,
+        11.249999268552818,
+        48.458350869127614
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream')\n    OR landuse IN ('reservoir', 'basin')) AS data",
+        "table": "(\nSELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR landuse IN ('reservoir', 'basin')\n   OR waterway IN ('pond')\n) AS data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -315,6 +290,31 @@
       "srs": "",
       "advanced": {},
       "name": "10mlakes"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        9.854336847777645,
+        47.23996886995563,
+        12.208300633747763,
+        48.07708147900186
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wetland')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "swamp",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "swamp"
     },
     {
       "geometry": "linestring",
@@ -409,6 +409,44 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "hillshading"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        85.051
+      ],
+      "id": "ne10mgeographiclines",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_geographic_lines.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "ne10mgeographiclines"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -166.532487587878,
+        -55.11212400026874,
+        178.41907902319156,
+        71.17768427804648
+      ],
+      "id": "ne10mroads",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_roads.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "ne10mroads"
     },
     {
       "geometry": "linestring",
@@ -736,10 +774,36 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.898437473568713,
-        47.754098192804314,
-        11.249998190574479,
-        48.458351464858225
+        10.758365057778052,
+        48.07670263667117,
+        11.080397432742581,
+        48.448788372956706
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, type, tunnel\nFROM\n(\nSELECT ST_SnapToGrid(way, 1000) as snapped, way, railway as type, tunnel\nFROM planet_osm_line\nWHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction')) AND (service IS NULL OR service NOT IN('yard')) \n) as tmp\n) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1197615.72,6119624.92,1233464.2,6181844.65",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "railway_snapped",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "railway_snapped",
+      "status": "off"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        10.758362722158314,
+        48.07670335690641,
+        11.080397432742581,
+        48.448788253788145
       ],
       "Datasource": {
         "type": "postgis",
@@ -1541,6 +1605,25 @@
     {
       "geometry": "point",
       "extent": [
+        -179.58997888396897,
+        -85.051,
+        179.38330358817018,
+        82.48332318035943
+      ],
+      "id": "cities",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_populated_places.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "cities"
+    },
+    {
+      "geometry": "point",
+      "extent": [
         -179.99999979528073,
         -68.7677385929139,
         179.19788572375828,
@@ -1633,28 +1716,9 @@
       "advanced": {},
       "name": "contour_label",
       "status": "off"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -179.58997888396897,
-        -85.051,
-        179.38330358817018,
-        82.48332318035943
-      ],
-      "id": "cities",
-      "class": "",
-      "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_populated_places.shp"
-      },
-      "layer": null,
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "cities"
     }
   ],
-  "scale": 1,
+  "scale": 2,
   "metatile": 4,
   "name": "",
   "description": "",

@@ -135,18 +135,18 @@ class RenderThread:
         self.printLock.acquire()
         
 #        im.save(os.path.join(tile_dir, '%s-%s-%s.%s' % (z, x, y, 'png')), 'png256')
-        for dx in xrange(0, m_size):
-            for dy in xrange(0, m_size):
-                image = im.view(dx*TILE_SIZE, dy*TILE_SIZE, TILE_SIZE, TILE_SIZE).tostring('png256')
+        for dx in xrange(x, min(x+m_size, (2**z))):
+            for dy in xrange(y, min(y+m_size, (2**z))):
+                image = im.view((dx-x)*TILE_SIZE, (dy-y)*TILE_SIZE, TILE_SIZE, TILE_SIZE).tostring('png256')
                 if DEBUG_LEVEL >= 2:
-                    print "Tile: x=",dx*TILE_SIZE, "y=", dy*TILE_SIZE
-                
-                self.cur.execute("INSERT OR REPLACE INTO tiles(image, x, y, z, s) VALUES (?, ?, ?, ?, ?)", (sqlite.Binary(image),x+dx,y+dy,17-z,0) )
+                    print "Tile: x=",dx, "y=", dy
+                tiles_rendered+=1
+                self.cur.execute("INSERT OR REPLACE INTO tiles(image, x, y, z, s) VALUES (?, ?, ?, ?, ?)", (sqlite.Binary(image),dx,dy,17-z,0) )
         self.db.commit()
 
         ## evaluate timing and render progress
         time_elapsed = time.time()-start;
-        tiles_rendered += m_size*m_size
+##        tiles_rendered += m_size*m_size
         if DEBUG_LEVEL:
           print 'z=%s x=%s y=%s metasize=%s chunk=%s rendered=%s (%s%%) in %s seconds' % (z, x, y, m_size, m_size*m_size, tiles_rendered, float(tiles_rendered)/float(tiles_to_render)*100, time_elapsed)
         else:
@@ -375,25 +375,6 @@ if __name__ == "__main__":
     
     
     bbox=(args.left, args.bottom, args.right, args.top)
-    if DEBUG_LEVEL:
-      print ("Original Bounding Box: %s" % (bbox,) )
-
-    # workaround for mobac
-    left = minmax(args.left, -179.99, 179.99)
-    bottom = minmax(args.bottom, -84.99, 84.99)
-    right = minmax(args.right, -179.2, 179.2)
-    top = minmax(args.top, -85.05, 85.05)
-#    bbox=(left, bottom, right, top)
-    
-    padding=0.5/(1.7**(minZoom+maxZoom)) + float(minZoom)/100. - float(maxZoom)/300.
-#    padding=float(minZoom)/float(maxZoom)/20.
-    padding=0
-    if DEBUG_LEVEL:
-      print "padding:", padding
-    bbox=(left,bottom+padding, right-padding, top)
-
-    bbox=(args.left, args.bottom, args.right, args.top)
-    
     print ("Bounding Box: %s" % (bbox,) )
     print ("Zoom: {}-{}".format(minZoom, maxZoom) )
     print ("Scale: {}".format(args.scale) )

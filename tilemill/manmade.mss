@@ -19,7 +19,7 @@
 
 #countries[zoom>=2][zoom<=6] {
   text-face-name: @sans_bold;
-  text-fill:#444;
+  text-fill:@darkgrey;
   text-size:8;
   text-transform:uppercase;
   text-halo-fill:@text_halo_strong;

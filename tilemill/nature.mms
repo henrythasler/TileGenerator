@@ -216,47 +216,56 @@
 #10mlakes[ScaleRank<8][zoom=5],
 #10mlakes[zoom>=6][zoom<8]{
   polygon-fill:@water_global;
+  line-width: 0.5;
+  line-color:@river;
 }
 
 #lakes[zoom>=5][zoom<6][area>=200000000],
 #lakes[zoom>=6][zoom<7][area>=20000000],
-#lakes[zoom>=7][zoom<8][area>=2000000] {
+#lakes[zoom>=7][zoom<8][area>=10000000] {
   polygon-fill:@water_global;
-}  
-#lakes[zoom>=8][zoom<10][area>=200000],
-#lakes[zoom>=10][zoom<12][area>=50000],
+  line-width: 0.5;
+  line-color:@river;
+}
+
+#lakes[zoom>=8][zoom<10][area>=2000000],
+#lakes[zoom>=10][zoom<11][area>=500000],
+#lakes[zoom>=11][zoom<12][area>=50000],
 #lakes[zoom>=12][zoom<14][area>=2000],
 #lakes[zoom>=14][zoom<15][area>=1000],
 #lakes[zoom>=15] {
   polygon-fill: @water;
+  line-width: 0.5;
+  line-color:@river;
 }  
 
 
-#10mrivers[zoom>=2][zoom<8] {
+#10mrivers[zoom>=2][zoom<=8] {
   line-width: 0;
-  line-color:@water_global;
+  line-color:@river;
   [zoom=2] {
-    [scalerank<4] {line-width: 1;}
+    [scalerank<4] {line-width: 0.5;}
   }
   [zoom=3] {
-    [scalerank<4] {line-width: 1.5;}
+    [scalerank<4] {line-width: 0.8;}
   }
   [zoom=4] {
-    [scalerank<4] {line-width: 2;}
-    [scalerank>=4][scalerank<7] {line-width: 1;}
+    [scalerank<4] {line-width: 1;}
+    [scalerank>=4][scalerank<7] {line-width: 0.8;}
   }
   [zoom=5]{
-    [scalerank<4] {line-width: 3;}
-    [scalerank>=4][scalerank<7] {line-width: 2;}
+    [scalerank<4] {line-width: 1.2;}
+    [scalerank>=4][scalerank<7] {line-width: 1;}
   }
   [zoom=6]{
-    [scalerank<4] {line-width: 3;}
-    [scalerank>=4][scalerank<7] {line-width: 2;}
+    [scalerank<4] {line-width: 1.8;}
+    [scalerank>=4][scalerank<7] {line-width: 1.4;}
     [scalerank>=7] {line-width: 1;}
   }
-  [zoom=7]{
+  [zoom>=7][zoom<=8]{
     [scalerank<4] {
-      line-width: 3.5;
+      line-width: 2;
+      
       text-size: 9;
       text-name:'[name]';
       text-face-name:@sans_bold_italic;
@@ -266,7 +275,8 @@
       text-halo-radius:1.5;         
     }
     [scalerank>=4][scalerank<7] {
-      line-width: 3;
+      line-width: 1.5;
+      
       text-size: 9;
       text-name:'[name]';
       text-face-name:@sans_bold_italic;
@@ -275,65 +285,62 @@
       text-halo-fill: fadeout(white, 60%);
       text-halo-radius:1.5;         
     }
-    [scalerank>=7] {line-width: 2;}
+    [scalerank>=7] {line-width: 1;}
   }
 }
 
-#waterway[zoom>=8]{
-  line-cap: round;
-  line-join: round;  
-  line-color: @water;
-  line-width: 0;
-  [zoom>=6][zoom<7] {
-   	[type='river'],[type='canal']{
-  	  line-width: 0.5;
+#waterway[zoom>=9]{
+  ::line{
+    line-cap: round;
+    line-join: round;  
+    line-color:@river;
+    line-width: 0;
+    [zoom>=9][zoom<10]{
+      [type='river'],[type='canal']{
+        line-width: 1;
+      }  
     }  
-  }  
-  [zoom>=7][zoom<8] {
-   	[type='river'],[type='canal']{
-  	  line-width: 1;
+    [zoom>=10][zoom<12]{
+      [type='river'],[type='canal']{
+        line-width: 1;
+      }  
     }  
-  }  
-  [zoom>=8][zoom<10]{
-   	[type='river'],[type='canal']{
-  	  line-width: 1;
+    [zoom>=12][zoom<14]{
+      [type='river'],[type='canal']{
+        line-width: 2;
+      }
+     [type='stream'] {
+        line-width: 1;
+      }
     }  
+    [zoom>=14][zoom<15] {
+      [type='river'],[type='canal']{
+        line-width: 2.5;
+      }  
+     [type='stream']{
+        line-width: 1.3;
+      }
+     [type='ditch']{
+        line-width: 0.8;
+      }
+    }
+    [zoom>=15]{
+      [type='river'],[type='canal']{
+        line-width: 3;
+      }
+     [type='stream']{
+        line-width: 2;
+      }
+     [type='ditch']{
+        line-width: 1;
+      }
+    }
   }  
-  [zoom>=10][zoom<12]{
-   	[type='river'],[type='canal']{
-  	  line-width: 1;
-    }  
+  ::riverbank[type='riverbank']{
+    polygon-fill: @water;
+    line-width: 0.5;
+    line-color:@river;
   }  
-  [zoom>=12][zoom<14]{
-   	[type='river'],[type='canal']{
-  	  line-width: 2;
-    }
-   [type='stream'] {
-  	  line-width: 1;
-    }
-  }  
-  [zoom>=14][zoom<15] {
-   	[type='river'],[type='canal']{
-  	  line-width: 3;
-    }  
-   [type='stream']{
-  	  line-width: 2;
-    }
-   [type='ditch']{
-  	  line-width: 1;
-    }
-  }
-  [zoom>=15]{
-   	[type='river'],[type='canal']{
-  	  line-width: 4;
-    }
-   [type='stream']{
-  	  line-width: 3;
-    }
-   [type='ditch']{
-  	  line-width: 2;
-    }
-  }
 }
 
 

@@ -1,4 +1,4 @@
-.roads[zoom>=7] {
+.roads[zoom>=8] {
   ::outer {
     [bridge!='yes'][tunnel!='yes'] {line-cap: round;}
     line-join: round;  
@@ -500,3 +500,51 @@
   shield-file: url(img/circle.blue.svg);
 //  shield-transform: 'scale(1.2)'
 }
+
+
+// Major
+#ne10mroads["type"='Major Highway'][zoom>=5][zoom<=7] {
+  ::outer {
+    line-join: round;  
+    line-color:black;
+    line-width: 3;
+    [zoom=5] {line-width: 0.8; line-color:@darkgrey;}
+    [zoom=6] {line-width: 2; line-color:@darkgrey;}
+  }  
+  ::inner[zoom>=6] {
+    line-join: round;  
+    line-color:@motorway;
+    line-width: 1.8;
+    [zoom=6] {line-width: 1;}
+  }  
+}
+
+// Secondary
+#ne10mroads[scalerank<7]["type"='Secondary Highway'][zoom>=6][zoom<=7],
+#ne10mroads["type"='Beltway'][zoom>=6][zoom<=7] {
+  ::outer {
+    line-join: round;  
+    line-color:black;
+    line-width: 2;
+    [zoom=6] {line-width: 0.8; line-color:@darkgrey;}
+  }  
+  ::inner[zoom>=7] {
+    line-join: round;  
+    line-color:@primary;
+    line-width: 1.2;
+  }  
+}
+
+// Roads
+#ne10mroads[scalerank<7]["type"='Road'][zoom=7]{
+  line-width: 0.8; line-color:@darkgrey;
+}
+
+// Ferries
+#ne10mroads["type"='Ferry Route'][scalerank<=8][zoom>=5][zoom<=7],
+#ne10mroads["type"='Ferry Route'][zoom>=8]{
+  line-color:@shiproute;
+  line-width:0.8;
+  line-dasharray: 5,5;
+  [zoom>=6]{line-width:1;line-dasharray: 6,6;}
+}  

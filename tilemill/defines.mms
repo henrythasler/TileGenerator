@@ -2,6 +2,7 @@
 @water_global:      #72abd4;
 @water:             #7babcd;
 
+@river:             #1f83bc;
 @forest:            #b0d090;
 @land:              #f6f4e7;
 @grass:             #dee9ba;
@@ -64,6 +65,8 @@ Map {
 @mono_bold: "Ubuntu Mono Bold";
 @mono_bold_italic: "Ubuntu Mono Bold Italic";
 @mono_italic: "Ubuntu Mono Italic";
+
+
 
 
 

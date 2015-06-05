@@ -65,5 +65,23 @@
   }
 }
 
+#ne10mgeographiclines[zoom>=2][zoom<=7] {
+  line-width:0.8;
+  line-color:@darkgrey;
+  line-dasharray: 8, 8;  
+
+  text-size: 11;
+  [zoom>=2][zoom<=3] {text-size: 8;}
+  [zoom>=4][zoom<=5] {text-size: 9;}
+  [zoom=6] {text-size: 10;}
+  text-character-spacing: 0.8;
+  text-name:'[name]';
+  text-face-name:@sans_italic;
+  text-placement:line;
+  text-fill:@peak_text;
+  text-halo-fill: @text_halo_weak;
+  text-halo-radius:1.5;
+  text-dy: 7;
+}
 
 
