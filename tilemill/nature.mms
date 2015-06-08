@@ -236,6 +236,7 @@
 #lakes[zoom>=15] {
   polygon-fill: @water;
   line-width: 0.5;
+  line-offset: -0.25;
   line-color:@river;
 }  
 

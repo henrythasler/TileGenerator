@@ -133,31 +133,25 @@
 }
 
 
-#military_label[zoom>=14] {
-  [zoom>=14][zoom<15][area>=50000]{
-    text-size: 9;
-    text-character-spacing: 0.8;
-    text-name:[name];
-    text-face-name:@sans_bold_italic;
-    text-fill:@industry_text;
-    text-halo-fill: @text_halo;
-    text-halo-radius:1.5;   
-    text-wrap-width: 50;
-    text-wrap-before: true;
-    text-placement: interior;
-  }  
-  [zoom>=15][area>=10000]{
-    text-size: 9;
-    text-character-spacing: 0.8;
-    text-name:[name];
-    text-face-name:@sans_bold_italic;
-    text-fill:@industry_text;
-    text-halo-fill: @text_halo;
-    text-halo-radius:1.5;   
-    text-wrap-width: 50;
-    text-wrap-before: true;
-    text-placement: interior;
-  }  
+#military_label[zoom>=11][zoom<12][area>=200000000],
+#military_label[zoom>=12][zoom<14][area>=20000000],
+#military_label[zoom>=14][zoom<15][area>=50000],
+#military_label[zoom>=15][area>=10000]{
+  text-size: 9;
+  text-character-spacing: 0.8;
+  text-name:[name];
+  text-face-name:@sans_bold_italic;
+  text-fill:@industry_text;
+  text-halo-fill: @text_halo;
+  text-halo-radius:1.5;   
+  text-wrap-width: 50;
+  text-wrap-before: true;
+  text-placement: interior;
+  text-placement-type: simple;
+  text-placements: "S,N,E,W,NE,SE,NW,SW";
+  text-dy: 20;
+  text-dx: 20;
+  
 }
 
 // to-do: improve SQL query to merge nearby lines

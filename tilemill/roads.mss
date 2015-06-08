@@ -407,7 +407,7 @@
   [zoom>=15]{line-opacity: 1;line-width:1.5;}
   line-color:black;
 
-  ::marker[zoom>=14] {
+  ::marker[zoom>=14][length>100] {
     [mtbscale>=3]{marker-line-width: 0; marker-width: 6;marker-fill: black;}
     [mtbscale=2]{marker-line-width: 0; marker-width: 6;marker-fill: red;}
     [mtbscale>=0][mtbscale<2]{marker-line-width: 0; marker-width: 6;marker-fill: blue;}

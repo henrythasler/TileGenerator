@@ -1,8 +1,8 @@
 //@water:             #90B0C0;
 @water_global:      #72abd4;
 @water:             #7babcd;
-
 @river:             #1f83bc;
+
 @forest:            #b0d090;
 @land:              #f6f4e7;
 @grass:             #dee9ba;
@@ -19,6 +19,7 @@
 
 @motorway:          #ee9900;
 @primary:           #ffcc99;
+//@primary:           #f0ca99;
 @secondary:         #ffff99;
 
 @text_halo_weak:    fadeout(white, 80%);
@@ -28,6 +29,7 @@
 @forest_text:       fadeout(darken(#669966, 15%),20%);
 @water_text:        fadeout(darken(#666699, 15%),20%);
 @industry_text:     darken(#996666, 15%);
+@military_text:     #996666;
 @contour_text:      fadeout(darken(#7f3300, 15%),20%);
 @restaurant_text:   fadeout(darken(brown, 20%),20%);
 @peak_text:         fadeout(black,20%);

@@ -8,12 +8,15 @@
 # -C   cache size
 # -S   style-file
 
-#src="/media/ramdisk/germany_middle.osm.pbf"
-#dbname="middle"
+#src="/media/ramdisk/germany_south.osm.pbf"
+#dbname="south"
+
+#src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
+#dbname="testset"
 
 src="/media/henry/Tools/map/data/slice.osm.pbf"
-#dbname="mering"
-dbname="empty"
+dbname="mering"
+#dbname="empty"
 
 #src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
 #dbname="world"

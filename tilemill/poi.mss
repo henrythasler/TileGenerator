@@ -200,12 +200,12 @@
   }
 }
 
-#tower[zoom>=14] {
+#landmark[zoom>=14][type='tower'] {
   marker-file: url(img/tower.svg);
   marker-allow-overlap:true;
 }
 
-#church[zoom>=14] {
+#landmark[zoom>=14][type='church'] {
   marker-file: url(img/church.svg);
   marker-allow-overlap:true;
 }
@@ -213,6 +213,7 @@
 
 #parking[zoom>=14] {
   marker-file: url(img/parking.svg);
+  [type='multi-storey'],[type='underground'] {marker-file: url(img/parking.garage.svg);}
   marker-width: 9;
   marker-clip: false;
   marker-allow-overlap:true;

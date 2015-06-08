@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.627417"
-     inkscape:cx="13.568901"
-     inkscape:cy="7.7883691"
+     inkscape:zoom="45.254834"
+     inkscape:cx="1.648223"
+     inkscape:cy="5.7454815"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -36,9 +36,7 @@
      inkscape:window-height="1151"
      inkscape:window-x="0"
      inkscape:window-y="25"
-     inkscape:window-maximized="1"
-     showguides="true"
-     inkscape:guide-bbox="true">
+     inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
        id="grid2985" />
@@ -60,11 +58,12 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffe800;fill-opacity:1;stroke:#000000;stroke-width:0.84158736;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       id="rect3887"
-       width="27.158413"
-       height="10.158413"
-       x="0.42079368"
-       y="1041.783" />
+       style="fill:#f0ca00;fill-opacity:1;stroke:#000000;stroke-width:0.82720309;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3037"
+       width="25.172798"
+       height="9.1727972"
+       x="0.41360155"
+       y="1042.7758"
+       ry="1.1465997" />
   </g>
 </svg>

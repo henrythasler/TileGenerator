@@ -6,7 +6,7 @@
 # settings
 osmconvertpath="/media/Linux-Data/henry/Apps/osm"
 path="/media/henry/Tools/map/data"
-read -p "Enter source file: " -e -i $path/europe-latest.osm.pbf source_file
+read -p "Enter source file: " -e -i $path/germany_south.osm.pbf source_file
 read -p "Enter target file: " -e -i $path/slice.osm.pbf target_file
 
 # info
