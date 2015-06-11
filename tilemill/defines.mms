@@ -16,6 +16,7 @@
 @industrial:        #d4bdb6;
 @track:             #885b03;
 @shiproute:         #1111aa;
+@admin:             #838;
 
 @motorway:          #ee9900;
 @primary:           #ffcc99;

@@ -306,7 +306,15 @@
         line-width: 1;
       }  
     }  
-    [zoom>=12][zoom<14]{
+    [zoom>=12][zoom<13]{
+      [type='river'],[type='canal']{
+        line-width: 1.5;
+      }
+     [type='stream'] {
+        line-width: 0.5;
+      }
+    }  
+    [zoom>=13][zoom<14]{
       [type='river'],[type='canal']{
         line-width: 2;
       }

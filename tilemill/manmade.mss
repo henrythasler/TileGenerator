@@ -3,13 +3,44 @@
   line-join: round;  
   line-cap: round;
   line-width: 0.5;
-  line-opacity: 0.5;
-  line-color:#811181;
+  line-opacity: 0.6;
+  line-color:@admin;
   [zoom>=2][zoom<4] {line-width: 1;}
-  [zoom>=4][zoom<6] {line-width: 1.5;}
-  [zoom>=6][zoom<8] {line-width: 2;}
-  [zoom>=8] {line-width: 3;}
+  [zoom>=4][zoom<6] {line-width: 2;}
+  [zoom>=6][zoom<8] {line-width: 3;}
+  [zoom>=8] {line-width: 4;}
+//  line-dasharray: 18, 18;  
 }
+
+#ne10mstates[zoom>=4][zoom<8][scalerank<3],
+#ne10mstates[zoom>=6][zoom<10][scalerank<4]{
+  line-join: round;  
+  line-cap: round;
+  line-width: 0.5;
+  line-opacity: 0.6;
+  line-color:@admin;
+  [zoom>=5][zoom<6] {line-width: 1;} 
+  [zoom>=6][zoom<8] {line-width: 1.5;} 
+  [zoom>=8] {line-width: 2;}  
+}
+
+//#ne10mstates_label[zoom=6][scalerank<3],
+#ne10mstates_label[zoom=7][scalerank<4]{
+  text-face-name: @sans_bold;
+  text-fill:@darkgrey;
+  text-size:12;
+  text-transform:uppercase;
+  text-halo-fill:@text_halo_strong;
+  text-halo-radius:1.5;
+  text-line-spacing:1;
+  text-wrap-width:20;
+  text-name:"[name]";
+  text-placement: interior;
+  text-placement-type: simple;
+  text-placements: "S,N,E,W,NE,SE,NW,SW";
+  text-dy: 20;
+  text-dx: 20;  
+}  
 
 #admin_claim[zoom>=5][zoom<=8]{
   line-width:1;
@@ -51,6 +82,11 @@
     text-character-spacing:2;
     text-line-spacing:2;
   }
+  text-placement: interior;
+  text-placement-type: simple;
+  text-placements: "S,N,E,W,NE,SE,NW,SW";
+  [zoom<=4] {text-dy: 10; text-dx: 10;}
+  [zoom>=5] {text-dy: 20; text-dx: 20;}
 }
 
 #buildings[zoom>=14] {
@@ -308,3 +344,5 @@
   line-width: 1.5;
   line-dasharray: 6, 3, 0.5, 3;
 }
+
+

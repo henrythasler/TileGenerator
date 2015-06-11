@@ -477,7 +477,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT \nDISTINCT ON(way)   \nway, name \nFROM planet_osm_line \nWHERE boundary = 'administrative' AND admin_level = '2' \nORDER BY way \n) AS data",
+        "table": "(\nSELECT way\nFROM borders\n) AS data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -491,6 +491,25 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "admin_local"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -139.0602066219999,
+        -49.25087001999992,
+        178.448622268,
+        81.12853131600008
+      ],
+      "id": "ne10mstates",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_admin_1_states_provinces_lines_shp.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "ne10mstates"
     },
     {
       "geometry": "linestring",
@@ -510,6 +529,25 @@
       "srs": "",
       "advanced": {},
       "name": "admin_claim"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.9999999999999,
+        -85.051,
+        180,
+        83.63410065300012
+      ],
+      "id": "ne10mstates_label",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_admin_1_states_provinces.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "ne10mstates_label"
     },
     {
       "geometry": "point",
@@ -1052,14 +1090,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.780334615692594,
-        48.2205619577195,
-        11.0680353567917,
-        48.42874384059794
+        11.363216638756255,
+        47.39665006943147,
+        11.453486724689915,
+        47.467991939951354
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 300) as snapped, way, name, ele, amenity, tourism\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 300) as snapped, ST_Centroid(way) as way, name, ele, amenity, tourism\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 300) as snapped, way, name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 300) as snapped, ST_Centroid(way) as way, name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\nORDER BY snapped, prio\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1077,14 +1115,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.780334615692594,
-        48.2205619577195,
-        11.0680353567917,
-        48.42874384059794
+        11.363216638756255,
+        47.39665006943147,
+        11.453486724689915,
+        47.467991939951354
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 500) as snapped, way, name, ele, tourism, amenity\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 500) as snapped, ST_Centroid(way) as way, name, ele, tourism, amenity\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 500) as snapped, way, name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 500) as snapped, ST_Centroid(way) as way, name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\nORDER BY snapped, prio\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1719,7 +1757,7 @@
       "status": "off"
     }
   ],
-  "scale": 2,
+  "scale": 1,
   "metatile": 4,
   "name": "",
   "description": "",
