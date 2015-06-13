@@ -206,14 +206,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.898437743063297,
-        47.75410356795742,
-        11.249999268552818,
-        48.458350869127614
+        10.640949141599698,
+        47.347228687051604,
+        11.065975430013685,
+        47.66307504458383
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way, waterway AS type, name\n  FROM planet_osm_line\n  WHERE waterway IN ('riverbank', 'river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-1', '-2') OR layer IS NULL)\n  UNION\n  SELECT way, waterway AS type, name\n  FROM planet_osm_polygon\n  WHERE waterway IN ('riverbank')\n) as DATA\n",
+        "table": "(\nSELECT way, waterway AS type, name\n  FROM planet_osm_line\n  WHERE waterway IN ('riverbank', 'river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-2') OR layer IS NULL)\n  UNION\n  SELECT way, waterway AS type, name\n  FROM planet_osm_polygon\n  WHERE waterway IN ('riverbank')\n) as DATA\n",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -394,15 +394,15 @@
     {
       "geometry": "raster",
       "extent": [
-        7.999861111111121,
-        45.99976557799622,
-        13.000390429652777,
-        49.00041666666667
+        4.999999999999994,
+        45.00011804472311,
+        14.999929020487118,
+        54.999999999114166
       ],
       "id": "hillshading",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm1-3785-hs.tif"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-hs.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -413,40 +413,21 @@
     {
       "geometry": "linestring",
       "extent": [
-        -180,
-        -85.051,
-        180,
-        85.051
+        -58.43035640499922,
+        1.469730529939656,
+        97.0361747642425,
+        48.12060394321222
       ],
-      "id": "ne10mgeographiclines",
+      "id": "admin_claim",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_geographic_lines.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/10m-admin-0-boundary-lines-claims.shp"
       },
       "layer": null,
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "ne10mgeographiclines"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -166.532487587878,
-        -55.11212400026874,
-        178.41907902319156,
-        71.17768427804648
-      ],
-      "id": "ne10mroads",
-      "class": "",
-      "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_roads.shp"
-      },
-      "layer": null,
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "ne10mroads"
+      "name": "admin_claim"
     },
     {
       "geometry": "linestring",
@@ -495,6 +476,44 @@
     {
       "geometry": "linestring",
       "extent": [
+        -180,
+        -85.051,
+        180,
+        85.051
+      ],
+      "id": "ne10mgeographiclines",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_geographic_lines.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "ne10mgeographiclines"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -166.532487587878,
+        -55.11212400026874,
+        178.41907902319156,
+        71.17768427804648
+      ],
+      "id": "ne10mroads",
+      "class": "",
+      "Datasource": {
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_roads.shp"
+      },
+      "layer": null,
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "ne10mroads"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
         -139.0602066219999,
         -49.25087001999992,
         178.448622268,
@@ -510,25 +529,6 @@
       "srs": "",
       "advanced": {},
       "name": "ne10mstates"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        -58.43035640499922,
-        1.469730529939656,
-        97.0361747642425,
-        48.12060394321222
-      ],
-      "id": "admin_claim",
-      "class": "",
-      "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/10m-admin-0-boundary-lines-claims.shp"
-      },
-      "layer": null,
-      "srs-name": "autodetect",
-      "srs": "",
-      "advanced": {},
-      "name": "admin_claim"
     },
     {
       "geometry": "polygon",
@@ -571,15 +571,15 @@
     {
       "geometry": "linestring",
       "extent": [
-        7.999861111111121,
-        45.99976557799622,
-        13.000390429652777,
-        49.00041666666667
+        4.999999999999994,
+        45.00011804472309,
+        14.999929020487118,
+        54.999999999114166
       ],
       "id": "contour",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm1-3785-contour.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-contour-low.shp"
       },
       "layer": null,
       "srs-name": "900913",
@@ -590,15 +590,15 @@
     {
       "geometry": "linestring",
       "extent": [
-        7.999861111111121,
-        45.99976557799622,
-        13.000390429652777,
-        49.00041666666667
+        4.999999999999994,
+        45.00011804472309,
+        14.999929020487118,
+        54.999999999114166
       ],
       "id": "contourhigh",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm1-3785-contour-high.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-contour-med.shp"
       },
       "layer": null,
       "srs-name": "900913",
@@ -838,14 +838,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        11.314544928515845,
-        47.06497749411427,
-        11.723781888506975,
-        47.32253396708304
+        10.14759196210999,
+        47.24031748339878,
+        10.440100306946647,
+        47.44573596306163
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way, tunnel, railway as type\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular')) AND (service IS NULL OR service NOT IN('yard'))\n) as DATA",
+        "table": "(\nSELECT way, tunnel, railway as type\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular')) AND (service IS NULL OR service NOT IN('yard')) AND attraction IS NULL\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -989,14 +989,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        11.314544928515845,
-        47.06497749411427,
-        11.723781888506975,
-        47.32253396708304
+        10.14759196210999,
+        47.24031748339878,
+        10.440100306946647,
+        47.44573596306163
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, aerialway as type\n  FROM planet_osm_line\n  WHERE aerialway IN ('cable_car', 'chairlift', 'gondola', 'chair_lift', 'mixed_lift', 'goods') \n OR railway = 'funicular'\n) as DATA",
+        "table": "(SELECT way, name, \nCASE WHEN attraction = 'summer_toboggan' THEN 'toboggan' \nELSE aerialway END as type\n  FROM planet_osm_line\n  WHERE aerialway IN ('cable_car', 'chairlift', 'gondola', 'chair_lift', 'mixed_lift', 'goods') \n OR railway = 'funicular' OR attraction = 'summer_toboggan'\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1417,14 +1417,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        8.203923441367223,
-        47.02519599340731,
-        13.96351455547553,
-        48.35182628382521
+        10.640945368675506,
+        47.347198375934155,
+        11.065977226644252,
+        47.66307135405018
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(select way, name, st_length(st_transform(way,4326)::geography)::integer as length from planet_osm_line where waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-1', '-2') OR layer IS NULL) AND name IS NOT NULL \n) as data",
+        "table": "(\nSELECT way, name, st_length(st_transform(way,4326)::geography)::integer as length, waterway as type FROM planet_osm_line \nWHERE waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-2') OR layer IS NULL) AND name IS NOT NULL \n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1757,7 +1757,7 @@
       "status": "off"
     }
   ],
-  "scale": 1,
+  "scale": 2,
   "metatile": 4,
   "name": "",
   "description": "",

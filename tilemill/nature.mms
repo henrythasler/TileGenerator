@@ -353,7 +353,20 @@
 }
 
 
-#glacier{
+#waterway_label[zoom>=12][length>200][type='river'],
+#waterway_label[zoom>=12][length>200][type='canal'],
+#waterway_label[zoom>=14][length>200][type='stream'],
+#waterway_label[zoom>=14][length>200][type='ditch']{
+  text-size: 9;
+  text-name:'[name]';
+  text-face-name:@sans_bold_italic;
+  text-placement:line;
+  text-fill:@water_text;
+  text-halo-fill: fadeout(white, 60%);
+  text-halo-radius:1.5;   
+}
+
+#glacier[zoom>=7]{
   line-color: @lightblue;  
   polygon-fill: @white;
   line-width: 0;
@@ -453,15 +466,6 @@
   }  
 }
 
-#waterway_label[zoom>=12][length>200] {
-  text-size: 9;
-  text-name:'[name]';
-  text-face-name:@sans_bold_italic;
-  text-placement:line;
-  text-fill:@water_text;
-  text-halo-fill: fadeout(white, 60%);
-  text-halo-radius:1.5;   
-}
 
 #lakes_label[zoom>=10] {
   [zoom>=10][zoom<11][area>=100000000]{

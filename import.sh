@@ -8,21 +8,21 @@
 # -C   cache size
 # -S   style-file
 
-#src="/media/ramdisk/germany_south.osm.pbf"
-#dbname="south"
+src="/media/ramdisk/germany_south.osm.pbf"
+dbname="south"
 
 #src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
 #dbname="testset"
 
-src="/media/henry/Tools/map/data/slice.osm.pbf"
-dbname="mering"
+#src="/media/henry/Tools/map/data/slice.osm.pbf"
+#dbname="mering"
 #dbname="empty"
 
 #src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
 #dbname="world"
 
 #param="--slim --drop -C 12000 -G -v --number-processes 2"
-param="-C 10000 -G -v --number-processes 2"
+param="-C 10000 -G -v --number-processes 4"
 
 
 psql -U postgres -c "DROP DATABASE IF EXISTS $dbname;"
