@@ -13,9 +13,12 @@ combined=eudem
 
 #options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=LZW -co PREDICTOR=2"
 
+# http://www.gdal.org/frmt_gtiff.html
 # -33% filesize; +23% conversion time
 options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=3"    
+
 hs_options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2"
+mergeoptions="-tr 20 20"
 
 echo "removing old files"
 rm $shadefolder/$combined*
@@ -24,7 +27,7 @@ echo "merging GeoTIFF"
 gdal_merge.py $options -o $shadefolder/$combined.tif $demfolder/*.tif 
 
 echo "Re-projecting: "
-gdalwarp -s_srs $demdatum -t_srs EPSG:3785 -r bilinear $options $shadefolder/$combined.tif $shadefolder/$combined-3785.tif
+gdalwarp -s_srs $demdatum -t_srs EPSG:3785 -r bilinear $mergeoptions $options $shadefolder/$combined.tif $shadefolder/$combined-3785.tif
 
 
 echo "Merging overlay"

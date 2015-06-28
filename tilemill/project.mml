@@ -634,14 +634,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.546875319258492,
-        47.989922670267056,
-        11.249998190574479,
-        48.458351464858225
+        10.838699417343236,
+        48.20911687426532,
+        11.127770987565908,
+        48.36811065919477
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length \nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND tunnel IN('yes')\n ORDER BY z_order\n) as DATA",
+        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length \nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND (tunnel IN('yes') OR (layer::integer<0))\n ORDER BY z_order\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -654,7 +654,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "tunnel"
+      "name": "tunnel",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -762,14 +763,14 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.816384636865006,
-        48.11270359471463,
-        11.007951269518781,
-        48.31356947514071
+        10.838699417343236,
+        48.20911687426532,
+        11.127770987565908,
+        48.36811065919477
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway AS type, name, tunnel, bridge, tracktype, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length, \n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') AND (service IS NULL OR service NOT IN ('parking_aisle')) OR (highway IN ('track') AND tracktype IN ('grade1'))) AND (bridge IS NULL OR bridge NOT IN('yes'))\n ORDER BY prio DESC\n) as DATA",
+        "table": "(SELECT way, highway AS type, name, tunnel, bridge, tracktype, oneway, st_length(st_transform(way,4326)::geography)::integer as length, \n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') AND (service IS NULL OR service NOT IN ('parking_aisle')) OR (highway IN ('track') AND tracktype IN ('grade1'))) \nAND (bridge IS NULL OR bridge NOT IN('yes'))\n--AND (tunnel IS NULL OR tunnel NOT IN('yes'))\n ORDER BY prio DESC\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1037,31 +1038,6 @@
       "name": "lines"
     },
     {
-      "geometry": "linestring",
-      "extent": [
-        10.38460481414501,
-        47.629869593066154,
-        12.107837094790613,
-        48.64628686781149
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, highway AS type, ref, CHAR_LENGTH(ref) AS reflen\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'trunk', 'primary')) AND (bridge IS NULL OR bridge NOT IN('yes')) AND ref IS NOT NULL) as DATA",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "road_shields",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "road_shields"
-    },
-    {
       "geometry": "point",
       "extent": [
         10.898440258346094,
@@ -1166,14 +1142,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.009132651075024,
-        47.24704833475714,
-        11.444648020946405,
-        48.15139885336001
+        14.182567749361263,
+        50.89167144875968,
+        14.271798933668839,
+        50.92765588901827
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT way\n  FROM planet_osm_polygon\n  WHERE amenity IN ('shelter')\nUNION\nSELECT way\n  FROM planet_osm_point\n  WHERE amenity IN ('shelter')\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway\nFROM\n(\nSELECT ST_SnapToGrid(way, 500) as snapped, way\nFROM planet_osm_point\nWHERE amenity='shelter'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 500) as snapped, ST_Centroid(way) as way\nFROM planet_osm_polygon\nWHERE amenity='shelter'\n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1266,14 +1242,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.021982332562127,
-        47.82641598049901,
-        11.415255683839185,
-        48.57078695908121
+        14.182578978302315,
+        50.891712870640426,
+        14.271868283608775,
+        50.9277994794381
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, ele\n  FROM planet_osm_point\n  WHERE \"natural\" IN ('peak')) as DATA",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele\nFROM\n(\nSELECT ST_SnapToGrid(way, 400) as snapped, way, name, ele\nFROM planet_osm_point\nWHERE \"natural\" = 'peak'\n) as tmp\n) as DATA\n\n",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1313,6 +1289,31 @@
       "advanced": {},
       "name": "waterway_label_old",
       "status": "off"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        10.38460481414501,
+        47.629869593066154,
+        12.107837094790613,
+        48.64628686781149
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, ref, CHAR_LENGTH(ref) AS reflen\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'trunk', 'primary')) AND (bridge IS NULL OR bridge NOT IN('yes')) AND ref IS NOT NULL) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "road_shields",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "road_shields"
     },
     {
       "geometry": "polygon",
@@ -1568,14 +1569,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.780334615692594,
-        48.2205619577195,
-        11.0680353567917,
-        48.42874384059794
+        10.41229843704996,
+        48.3808818906083,
+        11.09343522145018,
+        48.430111642342354
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, CASE WHEN leisure = 'playground' THEN leisure ELSE tourism END as type, name\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name\nFROM planet_osm_point\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium') OR leisure = 'playground'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name\nFROM planet_osm_polygon\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium') OR leisure = 'playground'\n) as tmp\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, CASE WHEN leisure = 'playground' THEN leisure ELSE tourism END as type, name\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name\nFROM planet_osm_point\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction') OR leisure = 'playground'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name\nFROM planet_osm_polygon\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction') OR leisure = 'playground'\n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",

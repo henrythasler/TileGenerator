@@ -375,8 +375,8 @@
     line-width:6;
   }  
   ::inner {
-    line-color:@track;
-    [zoom<=12] {line-color:#753701;}
+    line-color:@track_light;
+    [zoom<=13] {line-color:@track_dark;}
     line-width:0.5;
     [zoom>=13] {line-width:1;}
     line-dasharray: 4,2;
@@ -437,12 +437,6 @@
 }
 
 
-#test {
-  line-width:10;
-  line-color:#168;
-}
-
-
 #cycleroute[zoom>=12] {
   line-width:4;
   line-color:blue;
@@ -468,7 +462,7 @@
 #road_shields[zoom>=9][reflen<=5] {
   shield-name: "[ref]";
   shield-size: 9;
-  shield-face-name: @sans_bold;
+  shield-face-name: @sans;
   shield-fill: white;
   shield-avoid-edges: true;
   shield-clip: false;

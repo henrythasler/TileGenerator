@@ -14,7 +14,9 @@
 @grey:              #ccc;
 @runway:            #666;
 @industrial:        #d4bdb6;
-@track:             #885b03;
+@track_light:       #885b03;
+@track_dark:        #753701;
+
 @shiproute:         #1111aa;
 @admin:             #838;
 

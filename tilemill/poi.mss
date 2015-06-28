@@ -230,6 +230,21 @@
     marker-width: 13;
     marker-clip: false;
   }  
+  [type='attraction'] {
+    text-size: 9;
+    text-character-spacing: 0.8;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-placement-type: simple;
+    text-placements: "S,N,E,W,NE,SE,NW,SW";
+    text-dy: 10; 
+    text-dx: 10;
+    text-fill:@restaurant_text;
+    text-wrap-width: 100;
+    text-wrap-before: true;
+    text-halo-fill: @text_halo_strong;
+    text-halo-radius:1.5;  
+  }  
   [type='zoo'],[type='aquarium'] {
     text-size: 9;
     text-character-spacing: 0.8;

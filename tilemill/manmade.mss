@@ -46,7 +46,7 @@
 
 #admin_claim[zoom>=5][zoom<=8]{
   line-width:1;
-  line-color:#811181;
+  line-color:@admin;
   line-dasharray: 2, 2;  
 }
 
@@ -214,9 +214,10 @@
       line-color: @darkgrey;
       line-width: 4.5;
       [tunnel='yes'] {line-dasharray: 10, 12;}
+      [type='tram'] {line-width: 2;}
     }
   }
-  ::dash[zoom>=13][tunnel!='yes'] {
+  ::dash[zoom>=13][tunnel!='yes'][type!='tram'] {
     line-color: white;
     line-width: 1.2;
     line-dasharray: 9, 9;
