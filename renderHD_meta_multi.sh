@@ -12,13 +12,16 @@ printf -v top "%.8f" "$1"
 
 #echo $left $bottom $right $top
 
+#      --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD/" \
+
+
 cd /media/Linux-Data/henry/Apps/TileGenerator
-time python generate_meta_multiprocess.py \
+time python generateMetaQueue.py \
       --bbox $left $bottom $right $top \
       --zooms $5 $6 \
       --mapfile mycyclemap.xml \
       --scale 2.0 \
-      --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD/" \
+      --sqlitedb "/media/henry/Tools/map/tiles/MyCycleMapHD/tilesHD.sqlitedb" \
       --threads 4 \
       --debug 2
 

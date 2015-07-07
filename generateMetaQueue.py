@@ -22,10 +22,10 @@ import multiprocessing
 import threading
 
 import argparse
-from base64 import decodestring
 
 import mapnik
 
+MULTIPROCESSING = False # True=multiprocessing; False=treading
 
 DEG_TO_RAD = pi/180
 RAD_TO_DEG = 180/pi
@@ -288,6 +288,8 @@ class WriterThread:
             #Fetch a tile from the queue and save it
             item = self.q.get()
             if (item == None):
+                self.writer.commit()
+                self.writer.close()
                 self.q.task_done()
                 break
             else:
@@ -313,8 +315,10 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
     renderers = {}
     for i in range(num_threads):
         renderer = RenderThread(writer, mapfile, renderQueue, lock)
-#        render_thread = multiprocessing.Process(target=renderer.loop)
-        render_thread = threading.Thread(target=renderer.loop)
+        if MULTIPROCESSING:
+          render_thread = multiprocessing.Process(target=renderer.loop)
+        else:
+          render_thread = threading.Thread(target=renderer.loop)
         render_thread.start()
         renderers[i] = render_thread
 
@@ -460,26 +464,28 @@ if __name__ == "__main__":
     print ("Scale: {}".format(options.scale) )
     
     # setup queue to be used as a transfer pipeline from the render processes to the writer
-    writerQueue = multiprocessing.JoinableQueue(32)
+    writerQueue = multiprocessing.JoinableQueue(META_SIZE*META_SIZE)
     
     # setup a lock for parts that only one process can execute (e.g. access the same file, print to screen)
-    lock = multiprocessing.Lock()       # multiprocessing
-#    lock = threading.Lock()        # threading
+    if MULTIPROCESSING:
+      lock = multiprocessing.Lock()       # multiprocessing
+    else:
+      lock = threading.Lock()        # threading
 
     writer = WriterThread(options, writerQueue, lock)
-    writer_thread = threading.Thread(target=writer.loop)
+    if MULTIPROCESSING:
+      writer_thread = multiprocessing.Process(target=writer.loop) # multiprocessing
+    else:  
+      writer_thread = threading.Thread(target=writer.loop)        # threading
     writer_thread.start()
     
-#    render_tiles(options.bbox, options.zooms, mapfile, writer, lock, num_threads=options.threads, scale=options.scale, debug=options.debug)
     render_tiles(options.bbox, options.zooms, mapfile, writerQueue, lock, num_threads=options.threads, scale=options.scale, debug=options.debug)
     
     writerQueue.put(None)
     # wait for pending rendering jobs to complete
     writerQueue.join()
-    writer_thread.join()    
-    
-#    writer.close() 
-    
+    writer_thread.join()
+
     
     
     

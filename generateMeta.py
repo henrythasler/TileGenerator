@@ -15,9 +15,15 @@ from math import pi,cos,sin,log,exp,atan,floor,ceil,sqrt
 from subprocess import call
 import sys, os
 
-import argparse
+import sqlite3 as sqlite
 
+from Queue import Queue
 import multiprocessing
+import threading
+
+import argparse
+from base64 import decodestring
+
 import mapnik
 
 
@@ -27,8 +33,8 @@ RAD_TO_DEG = 180/pi
 # Map defines
 TILE_SIZE = 256
 
-# Size of one metatile edge (square). The unit is tiles. 8 means one metatile contains up to 256 regular tiles. 8x8=256
-META_SIZE = 8
+# Size of one metatile edge (square). The unit is tiles. 8 means one metatile contains up to 64 regular tiles. 8x8=64
+META_SIZE = 16
 
 # amount of pixels the metatile is increased on each edge
 BUF_SIZE = 1024
@@ -72,6 +78,7 @@ class GoogleProjection:
          return (f,h)
 
 
+
 class FileWriter:
     def __init__(self, tile_dir):
         self.tile_dir = tile_dir
@@ -92,14 +99,18 @@ class FileWriter:
     def exists(self, x, y, z):
         return os.path.isfile(self.tile_uri(x, y, z))
 
-    def write(self, x, y, z, image):
+    def write(self, x, y, z, imagestring):
         uri = self.tile_uri(x, y, z)
         try:
             os.makedirs(os.path.dirname(uri))
         except OSError:
             pass
+          
         image.save(uri, 'png256')
-
+        
+    def commit(self):
+        pass
+        
     def need_image(self):
         return True
 
@@ -108,6 +119,54 @@ class FileWriter:
 
     def close(self):
         pass
+
+
+class SQLiteDBWriter:
+    def __init__(self, database):
+        self.database = database
+        try:
+          self.db = sqlite.connect(self.database)
+          self.cur = self.db.cursor()    
+          self.cur.execute('CREATE TABLE IF NOT EXISTS tiles (x int, y int, z int, s int, image blob, PRIMARY KEY (x,y,z,s))')
+          self.cur.execute('CREATE TABLE IF NOT EXISTS info (minzoom TEXT, maxzoom TEXT)')
+          self.cur.execute('CREATE TABLE IF NOT EXISTS android_metadata (locale TEXT)')
+          self.cur.execute('CREATE INDEX IF NOT EXISTS IND on tiles(x, y, z, s)')
+        except sqlite.Error, e:
+            print "SQLiteDBWriter Error %s:" % e.args[0]
+
+    def __str__(self):
+        return "SQLiteDBWriter({0})".format(self.database)
+
+    def write_poly(self, poly):
+        pass
+
+    def tile_uri(self, x, y, z):
+        pass
+
+    def exists(self, x, y, z):
+        pass
+
+    def write(self, x, y, z, image):
+        if self.db:
+          try:          
+            self.cur.execute("INSERT OR REPLACE INTO tiles(image, x, y, z, s) VALUES (?, ?, ?, ?, ?)", (sqlite.Binary(image.tostring('png256')),x,y,17-z,0) )
+          except sqlite.Error, e:
+            print "SQLiteDBWriter Error %s:" % e.args[0]
+
+    def commit(self):
+      if self.db:
+        self.db.commit()
+
+    def need_image(self):
+        return True
+
+    def multithreading(self):
+        return False
+
+    def close(self):
+        if self.db:
+            self.cur.close()
+            self.db.close()
 
 
 class RenderThread:
@@ -158,7 +217,7 @@ class RenderThread:
         
         # save metatile for debug purposes only
 #        metaimage.save("/media/henry/Tools/map/tiles/MyCycleMapHD/" + "%s"%z + "-" + "%s" % (p0[0]/TILE_SIZE) + "-" + "%s" % (p1[1]/TILE_SIZE)+".png", 'png256')
-        
+
         for my in range(0, metaheight):
           for mx in range(0, metawidth):
             tile = metaimage.view(mx*TILE_SIZE, my*TILE_SIZE, TILE_SIZE, TILE_SIZE)
@@ -167,7 +226,23 @@ class RenderThread:
               print "Tile: x=",p0[0]/TILE_SIZE+mx, "y=", p1[1]/TILE_SIZE+my, "z=", z
               self.lock.release()    
               
-            self.writer.write(p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile)
+            item = (p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile)  
+
+            if self.writer.multithreading:
+              self.writer.write(p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile)
+            else:
+              self.lock.acquire()
+              self.writer.write(p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile)
+              self.lock.release()
+
+              
+        # commit batch if required (SQLite-db)      
+        if self.writer.multithreading:
+          self.writer.commit()
+        else:
+          self.lock.acquire()
+          self.writer.commit()
+          self.lock.release()
 
 
     def loop(self):
@@ -186,18 +261,15 @@ class RenderThread:
 
 
 
-def render_tiles(bbox, zooms, mapfile, writer, num_threads=NUM_THREADS, scale=1, debug=0):
+def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, scale=1, debug=0):
   
     # setup queue to be used as a transfer pipeline to the render processes
-    queue = multiprocessing.JoinableQueue(32)
-    
-    # setup a lock for parts that only one process can execute (e.g. access the same file, print to screen)
-    lock = multiprocessing.Lock()
+    renderQueue = multiprocessing.JoinableQueue(32)
 
     # Launch render processes
     renderers = {}
     for i in range(num_threads):
-        renderer = RenderThread(writer, mapfile, queue, lock)
+        renderer = RenderThread(writer, mapfile, renderQueue, lock)
         render_thread = multiprocessing.Process(target=renderer.loop)
         render_thread.start()
         renderers[i] = render_thread
@@ -298,19 +370,21 @@ def render_tiles(bbox, zooms, mapfile, writer, num_threads=NUM_THREADS, scale=1,
             print "x=",x," y=",y," metawidth=",metawidth, "metaheight=",metaheight, " metatile=",metatile
             
           # add metatile to rendering queue  
-          queue.put(metatile)
+          renderQueue.put(metatile)
 
     # Signal render threads to exit by sending empty request to queue
     for i in range(num_threads):
-        queue.put(None)
+        renderQueue.put(None)
     # wait for pending rendering jobs to complete
-    queue.join()
+    renderQueue.join()
     for i in range(num_threads):
         renderers[i].join()
 
 
 
 if __name__ == "__main__":
+  
+    mapfile = "mycyclemap.xml"
 
     parser = argparse.ArgumentParser(description='TileGenerator by Henry Thasler')
     apg_input = parser.add_argument_group('Input')
@@ -320,10 +394,11 @@ if __name__ == "__main__":
     apg_output.add_argument('-z', '--zooms', type=int, nargs=2, metavar=('zmin', 'zmax'), help='range of zoom levels to render (default: 6 12)', default=(6, 12))
     apg_output.add_argument("--tiledir", help="tile output directory")
     apg_output.add_argument("--sqlitedb", help="tile database", default="tiles.sqlitedb")
+    apg_output.add_argument("--sqlitetype", help="type of sqlite-database", default="osmand")
   
     apg_other = parser.add_argument_group('Settings')
     apg_other.add_argument('--scale', type=float, help="scale_factor=2", default=1.0)
-    apg_other.add_argument('--mapfile', help='style file for mapnik (default: {0})'.format(mapfile), default="mycyclemap.xml")
+    apg_other.add_argument('--mapfile', help='style file for mapnik (default: {0})'.format(mapfile), default=mapfile)
     apg_other.add_argument('--threads', type=int, metavar='N', help='number of threads (default: 2)', default=2)
     apg_other.add_argument('--debug', type=int, help='print debug information; 0=off, 1=info, 2=debug, 3=details (default: 0)', default=0)
 
@@ -334,25 +409,29 @@ if __name__ == "__main__":
         parser.print_help()
         sys.exit()    
     
-    # writer
+    mapfile = options.mapfile
+    
     if options.tiledir:
         writer = FileWriter(options.tiledir) 
     elif options.sqlitedb:
-        writer = SQLiteDBWriter(options.mbtiles, options.name)
+        writer = SQLiteDBWriter(options.sqlitedb)
     else:
-        writer = FileWriter(os.getcwd() + '/tiles')
-    
-    
-    mapfile = options.mapfile
-    tile_dir = options.tiledir
-
-    if not tile_dir.endswith('/'):
-        tile_dir = tile_dir + '/'
+        writer = FileWriter(os.getcwd() + '/tiles')    
         
     print ("Bounding Box: %s" % (options.bbox,) )
     print ("Zoom: {}-{}".format(options.zooms[0], options.zooms[1]) )
     print ("Scale: {}".format(options.scale) )
     
-    render_tiles(options.bbox, options.zooms, mapfile, writer, num_threads=options.threads, scale=options.scale, debug=options.debug)
- 
+    # setup a lock for parts that only one process can execute (e.g. access the same file, print to screen)
+    lock = multiprocessing.Lock()       # multiprocessing
+    
+    render_tiles(options.bbox, options.zooms, mapfile, writer, lock, num_threads=options.threads, scale=options.scale, debug=options.debug)
+    writer.close() 
+    
+    
+    
+    
+    
+    
+    
     
