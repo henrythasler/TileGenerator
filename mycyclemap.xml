@@ -1592,7 +1592,7 @@ SELECT way, way_area AS area, name
 <Style name="hillshading" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <RasterSymbolizer opacity="0.6" scaling="bilinear" comp-op="multiply" />
+    <RasterSymbolizer opacity="0.5" scaling="bilinear" comp-op="multiply" />
   </Rule>
 </Style>
 <Layer name="hillshading"

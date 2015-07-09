@@ -172,6 +172,65 @@ class SQLiteDBWriter:
             self.db.close()
 
 
+
+class WriterThread:
+    def __init__(self, options, q, lock):
+        self.q = q
+        self.lock = lock
+        self.options = options
+        self.tilecounter = {'sum':0, 'count':0}
+        
+    def loop(self):
+
+        if self.options.tiledir:
+            tiledir = self.options.tiledir
+            if not tiledir.endswith('/'):
+                tiledir = tiledir + '/'
+            self.writer = FileWriter(tiledir) 
+        elif self.options.sqlitedb:
+            self.writer = SQLiteDBWriter(self.options.sqlitedb)
+        else:
+            self.writer = FileWriter(os.getcwd() + '/tiles')
+
+
+        while True:
+            #Fetch a tile from the queue and save it
+            item = self.q.get()
+            if (item == None):
+                self.writer.commit()
+                self.writer.close()
+                self.q.task_done()
+                break
+            else:
+                (cmd, x, y, z, image) = item
+
+            if cmd == 'write':
+              self.tilecounter['count']+=1    
+              if self.writer.multithreading:
+                self.writer.write(x, y, z, image)
+              else:
+                self.lock.acquire()
+                self.writer.write(x, y, z, image)
+                self.lock.release()
+                
+            elif cmd == 'commit':
+              if self.writer.multithreading:
+                self.writer.commit()
+              else:
+                self.lock.acquire()
+                self.writer.commit()
+                self.lock.release()
+                
+              self.lock.acquire()
+              print "{:.2%}".format(float(self.tilecounter['count'])/self.tilecounter['sum'])
+              self.lock.release()
+              
+            elif cmd == 'sum':
+              self.tilecounter['sum'] = x
+            self.q.task_done()
+
+
+
 class RenderThread:
     def __init__(self, writer, mapfile, q, lock):
         self.writer = writer
@@ -229,25 +288,12 @@ class RenderThread:
               print "Tile: x=",p0[0]/TILE_SIZE+mx, "y=", p1[1]/TILE_SIZE+my, "z=", z
               self.lock.release()    
               
-            item = (p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile.tostring('png256'))  
+            item = ('write', p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile.tostring('png256'))  
             self.writer.put(item)  
 
-            #if self.writer.multithreading:
-              #self.writer.write(p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile)
-            #else:
-              #self.lock.acquire()
-              #self.writer.write(p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile)
-              #self.lock.release()
-
-              
-        ## commit batch if required (SQLite-db)      
-        #if self.writer.multithreading:
-          #self.writer.commit()
-        #else:
-          #self.lock.acquire()
-          #self.writer.commit()
-          #self.lock.release()
-
+        # commit batch if required (SQLite-db)  
+        item = ('commit', None, None, None, None)  
+        self.writer.put(item)  
 
     def loop(self):
         
@@ -261,47 +307,6 @@ class RenderThread:
                 (z, scale, p0, p1, metawidth, metaheight, debug) = metatile
 
             self.render_tile(z, scale, p0, p1, metawidth, metaheight, debug)
-            self.q.task_done()
-
-
-
-class WriterThread:
-    def __init__(self, options, q, lock):
-        self.q = q
-        self.lock = lock
-        self.options = options
-        
-    def loop(self):
-
-        if self.options.tiledir:
-            tiledir = self.options.tiledir
-            if not tiledir.endswith('/'):
-                tiledir = tiledir + '/'
-            self.writer = FileWriter(tiledir) 
-        elif self.options.sqlitedb:
-            self.writer = SQLiteDBWriter(self.options.sqlitedb)
-        else:
-            self.writer = FileWriter(os.getcwd() + '/tiles')
-
-
-        while True:
-            #Fetch a tile from the queue and save it
-            item = self.q.get()
-            if (item == None):
-                self.writer.commit()
-                self.writer.close()
-                self.q.task_done()
-                break
-            else:
-                (x, y, z, image) = item
-
-            if self.writer.multithreading:
-              self.writer.write(x, y, z, image)
-            else:
-              self.lock.acquire()
-              self.writer.write(x, y, z, image)
-              self.lock.release()
-
             self.q.task_done()
 
 
@@ -377,6 +382,10 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
 
     if debug:
       print "tileData['sum']: ", tileData['sum']
+      
+    # transfer tile count to writer thread  
+    item = ('sum', tileData['sum'], None, None, None)  
+    writer.put(item)  
 
     # loop over tiles in every zoom level and render metatiles
     for z in range(zooms[0], zooms[1]+1):
