@@ -23,7 +23,7 @@ time python generateMetaQueue.py \
       --scale 2.0 \
       --sqlitedb "/media/henry/Tools/map/tiles/MyCycleMapHD/tilesHD.sqlitedb" \
       --threads 4 \
-      --debug 2
+      --debug 0
 
 # wait for user input after completion
 echo -e "\nPress <Enter> to exit."

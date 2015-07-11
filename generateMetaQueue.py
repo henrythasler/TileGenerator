@@ -13,6 +13,8 @@
 #!/usr/bin/env python
 from math import pi,cos,sin,log,exp,atan,floor,ceil,sqrt
 from subprocess import call
+from datetime import datetime, timedelta
+
 import sys, os
 
 import sqlite3 as sqlite
@@ -77,7 +79,25 @@ class GoogleProjection:
          h = RAD_TO_DEG * ( 2 * atan(exp(g)) - 0.5 * pi)
          return (f,h)
 
-
+class MinimalProgressBar:
+    def __init__(self, maxValue, width=50):
+      self.maxValue = maxValue
+      self.width = width
+      self.startTime = datetime.now()
+      
+    def setMax(self, maxValue):
+      self.maxValue = maxValue
+      
+    def update(self, value):
+      percentage = float(value)/self.maxValue
+      dots = '.' * int(percentage * self.width)
+      spaces = ' ' * (self.width - len(dots))
+      delta = datetime.now()-self.startTime
+      elapsed = float(delta.microseconds + delta.seconds*1000000 + delta.days*24*60*60*1000000)/1000000
+      eta = int(elapsed/max(percentage,0.01) - elapsed)
+      hms = "{:02}:{:02}:{:02}".format(eta/3600, (eta/60)%60, eta%60)
+      sys.stdout.write("\r[{}] {:6.2%} eta {}".format(dots + spaces, percentage, hms))
+      sys.stdout.flush()
 
 class FileWriter:
     def __init__(self, tile_dir):
@@ -171,7 +191,8 @@ class SQLiteDBWriter:
             self.cur.close()
             self.db.close()
 
-
+class Command:
+    write, commit, sum = range(3)
 
 class WriterThread:
     def __init__(self, options, q, lock):
@@ -192,6 +213,8 @@ class WriterThread:
         else:
             self.writer = FileWriter(os.getcwd() + '/tiles')
 
+        consoleWidth = int(os.popen('stty size', 'r').read().split()[1])
+        self.progressBar = MinimalProgressBar(0, consoleWidth-25)
 
         while True:
             #Fetch a tile from the queue and save it
@@ -204,29 +227,19 @@ class WriterThread:
             else:
                 (cmd, x, y, z, image) = item
 
-            if cmd == 'write':
+            if cmd == Command.write:
+              self.writer.write(x, y, z, image)
               self.tilecounter['count']+=1    
-              if self.writer.multithreading:
-                self.writer.write(x, y, z, image)
-              else:
-                self.lock.acquire()
-                self.writer.write(x, y, z, image)
-                self.lock.release()
+              self.progressBar.update(self.tilecounter['count'])
                 
-            elif cmd == 'commit':
-              if self.writer.multithreading:
-                self.writer.commit()
-              else:
-                self.lock.acquire()
-                self.writer.commit()
-                self.lock.release()
-                
-              self.lock.acquire()
-              print "{:.2%}".format(float(self.tilecounter['count'])/self.tilecounter['sum'])
-              self.lock.release()
+            elif cmd == Command.commit:
+              self.writer.commit()
+              self.progressBar.update(self.tilecounter['count'])
               
-            elif cmd == 'sum':
+            elif cmd == Command.sum:
               self.tilecounter['sum'] = x
+              self.progressBar.setMax(self.tilecounter['sum'])
+              self.progressBar.update(self.tilecounter['count'])
             self.q.task_done()
 
 
@@ -288,11 +301,11 @@ class RenderThread:
               print "Tile: x=",p0[0]/TILE_SIZE+mx, "y=", p1[1]/TILE_SIZE+my, "z=", z
               self.lock.release()    
               
-            item = ('write', p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile.tostring('png256'))  
+            item = (Command.write, p0[0]/TILE_SIZE+mx, p1[1]/TILE_SIZE+my, z, tile.tostring('png256'))  
             self.writer.put(item)  
 
         # commit batch if required (SQLite-db)  
-        item = ('commit', None, None, None, None)  
+        item = (Command.commit, None, None, None, None)  
         self.writer.put(item)  
 
     def loop(self):
@@ -315,6 +328,8 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
   
     # setup queue to be used as a transfer pipeline to the render processes
     renderQueue = multiprocessing.JoinableQueue(32)
+
+    print "Setting up maps. Please wait...\n"
 
     # Launch render processes
     renderers = {}
@@ -384,7 +399,7 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
       print "tileData['sum']: ", tileData['sum']
       
     # transfer tile count to writer thread  
-    item = ('sum', tileData['sum'], None, None, None)  
+    item = (Command.sum, tileData['sum'], None, None, None)  
     writer.put(item)  
 
     # loop over tiles in every zoom level and render metatiles
@@ -470,7 +485,7 @@ if __name__ == "__main__":
         
     print ("Bounding Box: %s" % (options.bbox,) )
     print ("Zoom: {}-{}".format(options.zooms[0], options.zooms[1]) )
-    print ("Scale: {}".format(options.scale) )
+    print ("Scale: {}\n".format(options.scale) )
     
     # setup queue to be used as a transfer pipeline from the render processes to the writer
     writerQueue = multiprocessing.JoinableQueue(META_SIZE*META_SIZE)
