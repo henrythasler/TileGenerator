@@ -536,4 +536,7 @@
   }  
 }
 
-
+#beach[zoom>=13] {
+  polygon-opacity:1;
+  polygon-fill:@beach;
+}

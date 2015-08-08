@@ -1,16 +1,11 @@
-######################
-# (c) Henry Thasler
-#
-# References
-#
-# http://svn.openstreetmap.org/applications/rendering/mapnik/
-# http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/
-#
-#
-#
-
-
 #!/usr/bin/env python
+
+"""
+Python script to generate map tiles with mapnik using metatiles and multiprocessing/threading for improved performance
+(c) Henry Thasler
+based on other scripts from http://svn.openstreetmap.org/applications/rendering/mapnik/
+"""
+
 from math import pi,cos,sin,log,exp,atan,floor,ceil,sqrt
 from subprocess import call
 from datetime import datetime, timedelta
@@ -329,7 +324,7 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
     # setup queue to be used as a transfer pipeline to the render processes
     renderQueue = multiprocessing.JoinableQueue(32)
 
-    print "Setting up maps. Please wait...\n"
+    print "Setting up maps. Please wait..."
 
     # Launch render processes
     renderers = {}
@@ -395,8 +390,7 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
         print "metaData at z=", z, ": ", metaData[z]
         print ""
 
-    if debug:
-      print "tileData['sum']: ", tileData['sum']
+    print "Tiles to render: ", tileData['sum'], "\n"
       
     # transfer tile count to writer thread  
     item = (Command.sum, tileData['sum'], None, None, None)  

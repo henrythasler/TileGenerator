@@ -109,7 +109,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -133,7 +133,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -227,7 +227,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -383,7 +383,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -538,7 +538,7 @@ SELECT way, waterway AS type, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -647,8 +647,8 @@ SELECT way, waterway AS type, name
 
 <Style name="lakes" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -661,13 +661,6 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
@@ -675,8 +668,15 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -709,8 +709,8 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -723,13 +723,6 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 20000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
@@ -737,8 +730,15 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt;= 20000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -764,8 +764,8 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -778,13 +778,6 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
@@ -792,8 +785,15 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -812,8 +812,8 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 2000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -821,13 +821,6 @@ SELECT way, waterway AS type, name
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 2000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 2000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -840,8 +833,15 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([area] &gt;= 2000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 2000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -849,6 +849,20 @@ SELECT way, waterway AS type, name
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 2000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 500000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 500000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
@@ -860,13 +874,6 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 500000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 500000)</Filter>
@@ -874,15 +881,15 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 500000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 500000)</Filter>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
@@ -901,28 +908,21 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 2000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 2000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -968,12 +968,19 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="10mlakes" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([ScaleRank] &lt; 5)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
+  </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
@@ -991,13 +998,6 @@ SELECT way, way_area AS area, name
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 5)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([ScaleRank] &lt; 5)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
@@ -1010,6 +1010,13 @@ SELECT way, way_area AS area, name
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <Filter>([ScaleRank] &lt; 6)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([ScaleRank] &lt; 6)</Filter>
@@ -1033,7 +1040,7 @@ SELECT way, way_area AS area, name
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 6)</Filter>
+    <Filter>([ScaleRank] &lt; 7)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
@@ -1054,20 +1061,13 @@ SELECT way, way_area AS area, name
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 7)</Filter>
+    <Filter>([ScaleRank] &lt; 8)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 8)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([ScaleRank] &lt; 8)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
@@ -1085,6 +1085,31 @@ SELECT way, way_area AS area, name
     <Datasource>
        <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/10mlakes/10m-lakes.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="beach" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <PolygonSymbolizer fill-opacity="1" fill="#ffe88b" />
+  </Rule>
+</Style>
+<Layer name="beach"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>beach</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(
+SELECT way, way_area AS area
+  FROM planet_osm_polygon
+  WHERE "natural"='beach' AND (surface='sand' OR surface IS NULL)
+) AS data]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -1262,7 +1287,37 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="weir" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="6" stroke-dasharray="1.5, 1.5" stroke-linejoin="round" stroke="rgba(71, 71, 107, 0.8)" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <LineSymbolizer stroke-dasharray="1, 1" stroke-linejoin="round" stroke-width="4" stroke="rgba(71, 71, 107, 0.8)" />
+  </Rule>
+</Style>
+<Layer name="weir"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>weir</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(
+SELECT way
+  FROM planet_osm_line
+  WHERE waterway = 'weir'
+) as DATA]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[1212673.44,6141944.79,1228189.94,6170302.61]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1306,7 +1361,7 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1499,7 +1554,7 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1584,7 +1639,7 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1599,7 +1654,7 @@ SELECT way, way_area AS area, name
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshading</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/hillshading.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/hillshading.vrt]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -2058,7 +2113,7 @@ FROM borders
   </Rule>
 </Style>
 <Layer name="contour"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  srs="+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378137 +b=6378137 +units=m +no_defs">
     <StyleName>contour</StyleName>
     <Datasource>
        <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/contour/eudem-3785-contour-low.shp]]></Parameter>
@@ -2108,7 +2163,7 @@ FROM borders
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5553,7 +5608,41 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="pier" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="1.5" stroke="#666666" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <LineSymbolizer stroke="#666666" stroke-width="1" />
+  </Rule>
+</Style>
+<Layer name="pier"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>pier</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(
+SELECT way
+FROM planet_osm_line
+WHERE man_made='pier' AND (access<>'private' OR access IS NULL)
+UNION
+SELECT way
+FROM planet_osm_polygon
+WHERE man_made='pier' AND (access<>'private' OR access IS NULL)
+) as data]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5592,7 +5681,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5725,7 +5814,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5753,7 +5842,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5825,7 +5914,7 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="id"><![CDATA[path]]></Parameter>
        <Parameter name="project"><![CDATA[TileGenerator]]></Parameter>
@@ -9292,7 +9381,7 @@ AND (bridge IS NULL OR bridge NOT IN('yes'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -9377,7 +9466,7 @@ AND (bridge IS NULL OR bridge NOT IN('yes'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -9403,7 +9492,7 @@ WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'constructio
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[1197615.72,6119624.92,1233464.2,6181844.65]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -9530,7 +9619,7 @@ SELECT way, tunnel, railway as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -12985,7 +13074,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16440,7 +16529,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16457,7 +16546,7 @@ WHERE route='bicycle' group by ref) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16499,7 +16588,7 @@ FROM cycleroutes
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16534,7 +16623,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16550,23 +16639,23 @@ OR bicycle IN('designated')
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'toboggan')</Filter>
+    <Filter>([type] = 'goods')</Filter>
     <LineSymbolizer stroke-width="0" stroke="#000000" stroke-dasharray="6, 3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([type] = 'toboggan')</Filter>
+    <Filter>([type] = 'goods')</Filter>
     <LineSymbolizer stroke-width="1" stroke-dasharray="4, 2" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'goods')</Filter>
+    <Filter>([type] = 'toboggan')</Filter>
     <LineSymbolizer stroke-width="0" stroke="#000000" stroke-dasharray="6, 3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([type] = 'goods')</Filter>
+    <Filter>([type] = 'toboggan')</Filter>
     <LineSymbolizer stroke-width="1" stroke-dasharray="4, 2" stroke="#000000" />
   </Rule>
   <Rule>
@@ -16601,7 +16690,7 @@ ELSE aerialway END as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16632,7 +16721,7 @@ ELSE aerialway END as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16657,7 +16746,7 @@ ELSE aerialway END as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16726,7 +16815,7 @@ ORDER BY snapped, prio
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16822,7 +16911,7 @@ ORDER BY snapped, prio
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16846,7 +16935,7 @@ SELECT way, name, ele
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16891,7 +16980,7 @@ WHERE amenity='shelter'
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16922,7 +17011,7 @@ WHERE amenity='shelter'
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17052,7 +17141,7 @@ SELECT ST_SnapToGrid(ST_Centroid(way),50) as way, name, railway as type, subway
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17097,7 +17186,7 @@ WHERE amenity='parking' AND (access<>'private' OR access IS NULL)
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17141,7 +17230,7 @@ WHERE "natural" = 'peak'
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17162,7 +17251,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17339,7 +17428,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17415,7 +17504,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17490,7 +17579,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17566,7 +17655,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17707,15 +17796,15 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="waterway_label" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <Filter>([length] &gt; 200) and ([type] = 'canal')</Filter>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([length] &gt; 200) and ([type] = 'stream')</Filter>
     <TextSymbolizer size="9" face-name="Open Sans Bold Italic" placement="line" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.4)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -17729,8 +17818,8 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
     <TextSymbolizer size="9" face-name="Open Sans Bold Italic" placement="line" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.4)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([length] &gt; 200) and ([type] = 'stream')</Filter>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <Filter>([length] &gt; 200) and ([type] = 'canal')</Filter>
     <TextSymbolizer size="9" face-name="Open Sans Bold Italic" placement="line" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.4)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
@@ -17747,7 +17836,7 @@ WHERE waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17888,7 +17977,7 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17905,7 +17994,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL group by route_name) as data]]>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17927,7 +18016,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17963,18 +18052,12 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="military_label" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
@@ -17988,19 +18071,25 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000000)</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -18039,7 +18128,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18100,7 +18189,7 @@ WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction') O
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18141,7 +18230,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18304,7 +18393,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18507,7 +18596,7 @@ SELECT way, capital, ele, CHAR_LENGTH(name) AS strlen,
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18558,7 +18647,7 @@ OR "man_made" IN ('mast', 'tower', 'communications_tower', 'antenna')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mering]]></Parameter>
+       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18568,7 +18657,7 @@ OR "man_made" IN ('mast', 'tower', 'communications_tower', 'antenna')
   srs="+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378137 +b=6378137 +units=m +no_defs">
     
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/contour_label/srtm1-3785-contour.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/contour_label/eudem-3785-contour-med.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>

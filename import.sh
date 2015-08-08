@@ -27,7 +27,7 @@ dbname="mering"
 #dbname="world"
 
 #param="--slim --drop -C 12000 -G -v --number-processes 2"
-#param="-C 10000 -G -v --number-processes 2"
+param="-C 10000 -G -v --number-processes 2"
 
 
 psql -U postgres -c "DROP DATABASE IF EXISTS $dbname;"

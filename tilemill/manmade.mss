@@ -298,6 +298,11 @@
   }  
 }
 
+#pier[zoom>=14] {
+  line-color:@runway;
+  line-width:1;
+  [zoom>=15]{line-width:1.5;}
+}
 
 #taxiway[zoom>=11] {
   line-width:1;
@@ -338,8 +343,6 @@
   }  
 }
 
-
-
 #fence[zoom>=14] {
   line-join: round;  
   line-cap: round;
@@ -348,4 +351,11 @@
   line-dasharray: 6, 3, 0.5, 3;
 }
 
+#weir[zoom>=14]{
+  line-dasharray: 1,1;
+  line-join: round;  
+  line-width: 4;  
+  [zoom>=15] {line-width: 6; line-dasharray: 1.5,1.5;}
+  line-color:@water_text;
+}
 

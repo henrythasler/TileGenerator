@@ -16,6 +16,7 @@
 @industrial:        #d4bdb6;
 @track_light:       #885b03;
 @track_dark:        #753701;
+@beach:             #ffe88b;
 
 @shiproute:         #1111aa;
 @admin:             #838;
@@ -70,8 +71,3 @@ Map {
 @mono_bold: "Ubuntu Mono Bold";
 @mono_bold_italic: "Ubuntu Mono Bold Italic";
 @mono_italic: "Ubuntu Mono Italic";
-
-
-
-
-

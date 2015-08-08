@@ -206,10 +206,10 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.640949141599698,
-        47.347228687051604,
-        11.065975430013685,
-        47.66307504458383
+        10.8936315766302,
+        48.21049255289001,
+        11.033015972744755,
+        48.37996968079345
       ],
       "Datasource": {
         "type": "postgis",
@@ -294,6 +294,31 @@
     {
       "geometry": "polygon",
       "extent": [
+        2.724045877672332,
+        39.10686906116614,
+        3.314555316150396,
+        39.51887342686869
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\"='beach' AND (surface='sand' OR surface IS NULL)\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "beach",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "beach"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
         9.854336847777645,
         47.23996886995563,
         12.208300633747763,
@@ -315,6 +340,31 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "swamp"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        10.893630857977973,
+        48.21049123589595,
+        11.03301794903838,
+        48.379969382468516
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way\n  FROM planet_osm_line\n  WHERE waterway = 'weir'\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1212673.44,6141944.79,1228189.94,6170302.61",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "weir",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "weir"
     },
     {
       "geometry": "linestring",
@@ -394,15 +444,15 @@
     {
       "geometry": "raster",
       "extent": [
-        4.999999999999994,
-        45.00011804472311,
-        14.999929020487118,
+        0,
+        35.00015012848412,
+        17.362896216616,
         54.999999999114166
       ],
       "id": "hillshading",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-hs.tif"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eu/eudem-3785.vrt"
       },
       "layer": null,
       "srs-name": "900913",
@@ -574,16 +624,16 @@
         4.999999999999994,
         45.00011804472309,
         14.999929020487118,
-        54.999999999114166
+        54.999999999114145
       ],
       "id": "contour",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-contour-low.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eu/eudem-3785-contour-low.shp"
       },
       "layer": null,
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "autodetect",
+      "srs": "",
       "advanced": {},
       "name": "contour"
     },
@@ -656,6 +706,31 @@
       "advanced": {},
       "name": "tunnel",
       "status": "off"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        11.266154660453953,
+        47.81914853917253,
+        11.360892427621653,
+        47.998650866037046
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way\nFROM planet_osm_line\nWHERE man_made='pier' AND (access<>'private' OR access IS NULL)\nUNION\nSELECT way\nFROM planet_osm_polygon\nWHERE man_made='pier' AND (access<>'private' OR access IS NULL)\n) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "pier",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "pier"
     },
     {
       "geometry": "linestring",
@@ -1740,15 +1815,15 @@
     {
       "geometry": "linestring",
       "extent": [
-        7.999861111111121,
-        45.99976557799623,
-        13.000390429652775,
-        49.000416666666666
+        0,
+        0,
+        0,
+        0
       ],
       "id": "contour_label",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/srtm1-3785-contour.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-contour-med.shp"
       },
       "layer": null,
       "srs-name": "autodetect",
