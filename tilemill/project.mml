@@ -452,7 +452,7 @@
       "id": "hillshading",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eu/eudem-3785.vrt"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eu/eudem-3785-hs.vrt"
       },
       "layer": null,
       "srs-name": "900913",
@@ -621,40 +621,77 @@
     {
       "geometry": "linestring",
       "extent": [
-        4.999999999999994,
-        45.00011804472309,
-        14.999929020487118,
-        54.999999999114145
+        0.00015792382694821184,
+        38.6257978445557,
+        4.327217152785491,
+        39.999878889011526
       ],
-      "id": "contour",
-      "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eu/eudem-3785-contour-low.shp"
+        "type": "postgis",
+        "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n  WHERE (ele%50) = 0\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "contours",
+        "user": "postgres"
       },
-      "layer": null,
-      "srs-name": "autodetect",
-      "srs": "",
+      "id": "contours_low",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "contour"
+      "name": "contours_low"
     },
     {
       "geometry": "linestring",
       "extent": [
-        4.999999999999994,
-        45.00011804472309,
-        14.999929020487118,
-        54.999999999114166
+        0.00015792382694821184,
+        38.6257978445557,
+        4.327217152785491,
+        39.999878889011526
       ],
-      "id": "contourhigh",
-      "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-contour-med.shp"
+        "type": "postgis",
+        "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n  WHERE (ele%20) = 0\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "contours",
+        "user": "postgres"
       },
-      "layer": null,
+      "id": "contours_med",
+      "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "contourhigh"
+      "name": "contours_med"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        0.00015792382694821184,
+        38.6257978445557,
+        4.327217152785491,
+        39.999878889011526
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "contours",
+        "user": "postgres"
+      },
+      "id": "contours_high",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "contours_high"
     },
     {
       "geometry": "polygon",
@@ -1644,14 +1681,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.41229843704996,
-        48.3808818906083,
-        11.09343522145018,
-        48.430111642342354
+        10.567823043537345,
+        47.84291547196694,
+        10.685231952856485,
+        48.07047168458805
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, CASE WHEN leisure = 'playground' THEN leisure ELSE tourism END as type, name\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name\nFROM planet_osm_point\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction') OR leisure = 'playground'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name\nFROM planet_osm_polygon\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction') OR leisure = 'playground'\n) as tmp\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, CASE WHEN leisure = 'playground' THEN leisure ELSE tourism END as type, name\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name\nFROM planet_osm_point\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure = 'playground'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name\nFROM planet_osm_polygon\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure = 'playground'\n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",

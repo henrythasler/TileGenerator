@@ -109,7 +109,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -133,85 +133,66 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="grassland" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill="#dee9ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
+    <PolygonSymbolizer fill="#dee9ba" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000)</Filter>
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonSymbolizer fill-opacity="1" fill="#dee9ba" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <PolygonSymbolizer fill-opacity="0" fill="#dee9ba" />
+    <PolygonSymbolizer fill="#dee9ba" />
   </Rule>
 </Style>
 <Layer name="grassland"
@@ -227,147 +208,95 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="forest" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonSymbolizer fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill="#b0d090" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonSymbolizer fill-opacity="1" fill="#b0d090" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <PolygonSymbolizer fill-opacity="0" fill="#b0d090" />
+    <PolygonSymbolizer fill="#b0d090" />
   </Rule>
 </Style>
 <Layer name="forest"
@@ -383,7 +312,7 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -446,71 +375,71 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#1f83bc" />
   </Rule>
   <Rule>
@@ -538,7 +467,7 @@ SELECT way, waterway AS type, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -647,20 +576,6 @@ SELECT way, waterway AS type, name
 
 <Style name="lakes" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
@@ -680,6 +595,27 @@ SELECT way, waterway AS type, name
     <Filter>([area] &gt;= 200000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000000)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
@@ -696,29 +632,8 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000000)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 20000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 20000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
@@ -742,6 +657,27 @@ SELECT way, waterway AS type, name
     <Filter>([area] &gt;= 20000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 20000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 20000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([area] &gt;= 20000000)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
@@ -751,29 +687,8 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([area] &gt;= 20000000)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
@@ -799,6 +714,20 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
@@ -808,20 +737,6 @@ SELECT way, waterway AS type, name
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 2000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 2000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
@@ -847,22 +762,22 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 2000000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 500000)</Filter>
+    <Filter>([area] &gt;= 2000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 500000)</Filter>
+    <Filter>([area] &gt;= 2000000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 2000000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
@@ -881,8 +796,29 @@ SELECT way, waterway AS type, name
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 500000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 500000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 500000)</Filter>
+    <PolygonSymbolizer fill="#7babcd" />
+    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
   </Rule>
@@ -896,13 +832,6 @@ SELECT way, waterway AS type, name
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill="#7babcd" />
-    <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
     <PolygonSymbolizer fill="#7babcd" />
     <LineSymbolizer stroke-width="0.5" offset="-0.25" stroke="#1f83bc" />
@@ -968,36 +897,15 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="10mlakes" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 5)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 5)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 5)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
     <Filter>([ScaleRank] &lt; 5)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
@@ -1010,15 +918,43 @@ SELECT way, way_area AS area, name
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([ScaleRank] &lt; 5)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 6)</Filter>
+    <Filter>([ScaleRank] &lt; 5)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([ScaleRank] &lt; 5)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
+    <Filter>([ScaleRank] &lt; 6)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([ScaleRank] &lt; 6)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([ScaleRank] &lt; 6)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
@@ -1031,20 +967,6 @@ SELECT way, way_area AS area, name
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 6)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000000</MaxScaleDenominator>
-    <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 7)</Filter>
-    <PolygonSymbolizer fill="#72abd4" />
-    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([ScaleRank] &lt; 7)</Filter>
@@ -1061,13 +983,20 @@ SELECT way, way_area AS area, name
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
-    <Filter>([ScaleRank] &lt; 8)</Filter>
+    <Filter>([ScaleRank] &lt; 7)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([ScaleRank] &lt; 8)</Filter>
+    <PolygonSymbolizer fill="#72abd4" />
+    <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([ScaleRank] &lt; 8)</Filter>
     <PolygonSymbolizer fill="#72abd4" />
     <LineSymbolizer stroke-width="0.5" stroke="#1f83bc" />
@@ -1090,6 +1019,34 @@ SELECT way, way_area AS area, name
 
 <Style name="beach" filter-mode="first">
   <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt;= 100000)</Filter>
+    <PolygonSymbolizer fill-opacity="1" fill="#ffe88b" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([area] &gt;= 100000)</Filter>
+    <PolygonSymbolizer fill-opacity="1" fill="#ffe88b" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 100000)</Filter>
+    <PolygonSymbolizer fill-opacity="1" fill="#ffe88b" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000)</Filter>
+    <PolygonSymbolizer fill-opacity="1" fill="#ffe88b" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 10000)</Filter>
+    <PolygonSymbolizer fill-opacity="1" fill="#ffe88b" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <PolygonSymbolizer fill-opacity="1" fill="#ffe88b" />
   </Rule>
@@ -1108,170 +1065,109 @@ SELECT way, way_area AS area
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="swamp" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
+    <Filter>([area] &gt;= 200000)</Filter>
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
     <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000)</Filter>
     <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 200000)</Filter>
     <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
-    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
+    <Filter>([area] &gt;= 200000)</Filter>
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 200000)</Filter>
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 50000)</Filter>
+    <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([area] &gt;= 50000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 5000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
+    <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000)</Filter>
-    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <PolygonPatternSymbolizer file="img/wetland.png" />
     <PolygonSymbolizer fill-opacity="0.2" fill="#339966" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <PolygonSymbolizer fill-opacity="0" fill="#339966" />
     <PolygonPatternSymbolizer file="img/wetland.png" />
   </Rule>
 </Style>
@@ -1287,7 +1183,7 @@ SELECT way, way_area AS area
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1317,7 +1213,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[1212673.44,6141944.79,1228189.94,6170302.61]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1361,7 +1257,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -1554,19 +1450,12 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="military" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 2000000)</Filter>
-    <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
-    <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
-  </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
@@ -1582,21 +1471,28 @@ SELECT way
     <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 2000000)</Filter>
+    <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
+    <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([area] &gt;= 2000000)</Filter>
     <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
     <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 500000)</Filter>
     <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
     <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 500000)</Filter>
     <PolygonPatternSymbolizer file="img/stripes-red.png" opacity="0.2" />
     <LineSymbolizer stroke-width="0.2" stroke="#ff0000" />
@@ -1639,7 +1535,7 @@ SELECT way
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -2098,47 +1994,99 @@ FROM borders
     </Datasource>
   </Layer>
 
-<Style name="contour" filter-mode="first">
+<Style name="contours_low" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([elev].match('.*00'))</Filter>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([ele].match('.*00'))</Filter>
     <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
-    <TextSymbolizer size="9" face-name="Open Sans Semibold" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[elev]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Semibold" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
   </Rule>
 </Style>
-<Layer name="contour"
-  srs="+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +a=6378137 +b=6378137 +units=m +no_defs">
-    <StyleName>contour</StyleName>
+<Layer name="contours_low"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>contours_low</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/contour/eudem-3785-contour-low.shp]]></Parameter>
-       <Parameter name="type"><![CDATA[shape]]></Parameter>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(
+SELECT way, ele
+  FROM planet_osm_line
+  WHERE (ele%50) = 0
+) as DATA]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="contourhigh" filter-mode="first">
+<Style name="contours_med" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([ele].match('.*00'))</Filter>
+    <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
+    <TextSymbolizer size="9" face-name="Open Sans Semibold" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
+  </Rule>
+</Style>
+<Layer name="contours_med"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>contours_med</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(
+SELECT way, ele
+  FROM planet_osm_line
+  WHERE (ele%20) = 0
+) as DATA]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="contours_high" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([elev].match('.*00'))</Filter>
+    <Filter>([ele].match('.*00'))</Filter>
     <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
-    <TextSymbolizer size="9" face-name="Open Sans Semibold" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[elev]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Semibold" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
   </Rule>
 </Style>
-<Layer name="contourhigh"
+<Layer name="contours_high"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>contourhigh</StyleName>
+    <StyleName>contours_high</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/contourhigh/eudem-3785-contour-med.shp]]></Parameter>
-       <Parameter name="type"><![CDATA[shape]]></Parameter>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(
+SELECT way, ele
+  FROM planet_osm_line
+) as DATA]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="dbname"><![CDATA[contours]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -2163,7 +2111,7 @@ FROM borders
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5608,7 +5556,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5642,7 +5590,7 @@ WHERE man_made='pier' AND (access<>'private' OR access IS NULL)
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5681,7 +5629,7 @@ WHERE man_made='pier' AND (access<>'private' OR access IS NULL)
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5814,7 +5762,7 @@ WHERE man_made='pier' AND (access<>'private' OR access IS NULL)
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5842,7 +5790,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -5914,7 +5862,7 @@ AND (bicycle IS NULL OR bicycle NOT IN('designated'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
        <Parameter name="id"><![CDATA[path]]></Parameter>
        <Parameter name="project"><![CDATA[TileGenerator]]></Parameter>
@@ -9381,7 +9329,7 @@ AND (bridge IS NULL OR bridge NOT IN('yes'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -9466,7 +9414,7 @@ AND (bridge IS NULL OR bridge NOT IN('yes'))
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -9492,7 +9440,7 @@ WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'constructio
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[1197615.72,6119624.92,1233464.2,6181844.65]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -9619,7 +9567,7 @@ SELECT way, tunnel, railway as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -13074,7 +13022,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16529,7 +16477,7 @@ FROM planet_osm_line
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16546,7 +16494,7 @@ WHERE route='bicycle' group by ref) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16588,7 +16536,7 @@ FROM cycleroutes
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16623,7 +16571,7 @@ OR bicycle IN('designated')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16690,7 +16638,7 @@ ELSE aerialway END as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16721,7 +16669,7 @@ ELSE aerialway END as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16746,7 +16694,7 @@ ELSE aerialway END as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16765,12 +16713,12 @@ ELSE aerialway END as type
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([type] = 'biergarten')</Filter>
+    <Filter>([type] = 'pub')</Filter>
     <MarkersSymbolizer width="14" file="img/sjjb/food_pub.n.32.png" clip="false" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([type] = 'pub')</Filter>
+    <Filter>([type] = 'biergarten')</Filter>
     <MarkersSymbolizer width="14" file="img/sjjb/food_pub.n.32.png" clip="false" />
   </Rule>
   <Rule>
@@ -16815,7 +16763,7 @@ ORDER BY snapped, prio
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16911,7 +16859,7 @@ ORDER BY snapped, prio
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16935,7 +16883,7 @@ SELECT way, name, ele
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -16980,7 +16928,7 @@ WHERE amenity='shelter'
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17011,7 +16959,7 @@ WHERE amenity='shelter'
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17141,7 +17089,7 @@ SELECT ST_SnapToGrid(ST_Centroid(way),50) as way, name, railway as type, subway
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17186,7 +17134,7 @@ WHERE amenity='parking' AND (access<>'private' OR access IS NULL)
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17230,7 +17178,7 @@ WHERE "natural" = 'peak'
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17251,7 +17199,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17428,67 +17376,67 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="grassland_label" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="grassland_label"
@@ -17504,7 +17452,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17514,57 +17462,57 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="swamp_label"
@@ -17579,7 +17527,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17588,58 +17536,89 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([area] &lt;= 10000000) and ([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &lt;= 10000000) and ([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([area] &lt;= 10000000) and ([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 1000000) and ([area] &lt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 1000000) and ([area] &lt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 1000000) and ([area] &lt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &lt;= 10000000) and ([area] &gt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &lt;= 10000000) and ([area] &gt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 100000) and ([area] &lt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 100000) and ([area] &lt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 100000) and ([area] &lt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 10000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([area] &gt;= 10000) and ([area] &lt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 107, 71, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="forest_label"
@@ -17655,131 +17634,131 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="lakes_label" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([area] &gt;= 100000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([area] &gt;= 100000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 100000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 100000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <Filter>([area] &gt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([area] &gt;= 1000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 100000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 20000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 20000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 1000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]+'\n'+[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="lakes_label"
@@ -17796,7 +17775,7 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17808,8 +17787,8 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
     <TextSymbolizer size="9" face-name="Open Sans Bold Italic" placement="line" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.4)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([length] &gt; 200) and ([type] = 'ditch')</Filter>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <Filter>([length] &gt; 200) and ([type] = 'canal')</Filter>
     <TextSymbolizer size="9" face-name="Open Sans Bold Italic" placement="line" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.4)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -17818,8 +17797,8 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
     <TextSymbolizer size="9" face-name="Open Sans Bold Italic" placement="line" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.4)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <Filter>([length] &gt; 200) and ([type] = 'canal')</Filter>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([length] &gt; 200) and ([type] = 'ditch')</Filter>
     <TextSymbolizer size="9" face-name="Open Sans Bold Italic" placement="line" fill="rgba(71, 71, 107, 0.8)" halo-fill="rgba(255, 255, 255, 0.4)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
@@ -17836,131 +17815,71 @@ WHERE waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="glacier_label" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([area] &gt;= 10000000)</Filter>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 10000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 1000000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 100000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 20000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 20000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([area] &gt;= 1000)</Filter>
-    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" face-name="Open Sans Bold Italic" fill="#7babcd" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="glacier_label"
@@ -17977,7 +17896,7 @@ SELECT way, way_area AS area, name
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -17994,7 +17913,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL group by route_name) as data]]>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18016,7 +17935,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18026,17 +17945,17 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="industrial_label"
@@ -18052,67 +17971,67 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="military_label" filter-mode="first">
   <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 200000000)</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 200000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 200000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([area] &gt;= 20000000)</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([area] &gt;= 20000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 20000000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 50000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([area] &gt;= 10000)</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="50" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" fill="#6b4747" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="20" dx="20" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="military_label"
@@ -18128,7 +18047,7 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18141,13 +18060,18 @@ WHERE route='bicycle' AND route_name IS NOT NULL) as data]]></Parameter>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([type] = 'aquarium')</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="10" dx="10" fill="rgba(71, 107, 71, 0.8)" wrap-width="100" wrap-before="true" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([type] = 'zoo')</Filter>
     <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="10" dx="10" fill="rgba(71, 107, 71, 0.8)" wrap-width="100" wrap-before="true" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <Filter>([type] = 'aquarium')</Filter>
-    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="10" dx="10" fill="rgba(71, 107, 71, 0.8)" wrap-width="100" wrap-before="true" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([type] = 'theme_park')</Filter>
+    <TextSymbolizer size="9" character-spacing="0.8" face-name="Open Sans Bold Italic" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="10" dx="10" fill="rgba(84, 21, 21, 0.8)" wrap-width="100" wrap-before="true" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -18178,18 +18102,18 @@ FROM
 (
 SELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name
 FROM planet_osm_point
-WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction') OR leisure = 'playground'
+WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure = 'playground'
 UNION
 SELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name
 FROM planet_osm_polygon
-WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction') OR leisure = 'playground'
+WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure = 'playground'
 ) as tmp
 ) as data]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18230,7 +18154,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18239,49 +18163,49 @@ SELECT way, shop as type
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
+    <Filter>([place] = 'suburb')</Filter>
     <TextSymbolizer size="10" dy="20" dx="20" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
+    <Filter>([place] = 'suburb')</Filter>
     <TextSymbolizer size="9" dy="10" dx="10" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
+    <Filter>([place] = 'suburb')</Filter>
     <TextSymbolizer size="8" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([place] = 'village')</Filter>
+    <Filter>([place] = 'suburb')</Filter>
     <TextSymbolizer size="12" dy="30" dx="30" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
+    <Filter>([place] = 'village')</Filter>
     <TextSymbolizer size="10" dy="20" dx="20" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
+    <Filter>([place] = 'village')</Filter>
     <TextSymbolizer size="9" dy="10" dx="10" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
+    <Filter>([place] = 'village')</Filter>
     <TextSymbolizer size="8" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([place] = 'suburb')</Filter>
+    <Filter>([place] = 'village')</Filter>
     <TextSymbolizer size="12" dy="30" dx="30" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -18393,7 +18317,7 @@ SELECT way, shop as type
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18596,7 +18520,7 @@ SELECT way, capital, ele, CHAR_LENGTH(name) AS strlen,
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>
@@ -18647,7 +18571,7 @@ OR "man_made" IN ('mast', 'tower', 'communications_tower', 'antenna')
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
        <Parameter name="extent"><![CDATA[]]></Parameter>
-       <Parameter name="dbname"><![CDATA[mallorca]]></Parameter>
+       <Parameter name="dbname"><![CDATA[south]]></Parameter>
        <Parameter name="user"><![CDATA[postgres]]></Parameter>
     </Datasource>
   </Layer>

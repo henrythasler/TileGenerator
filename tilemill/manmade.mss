@@ -116,60 +116,31 @@
   polygon-opacity: 1;
 }
 
-#industrial_label[zoom>=14] {
-  [zoom>=14][zoom<15][area>=50000]{
-    text-size: 9;
-    text-character-spacing: 0.8;
-    text-name:[name];
-    text-face-name:@sans_bold_italic;
-    text-fill:@industry_text;
-    text-halo-fill: @text_halo;
-    text-halo-radius:1.5;   
-    text-wrap-width: 50;
-    text-wrap-before: true;
-    text-placement: interior;
-  }  
-  [zoom>=15][area>=10000]{
-    text-size: 9;
-    text-character-spacing: 0.8;
-    text-name:[name];
-    text-face-name:@sans_bold_italic;
-    text-fill:@industry_text;
-    text-halo-fill: @text_halo;
-    text-halo-radius:1.5;   
-    text-wrap-width: 50;
-    text-wrap-before: true;
-    text-placement: interior;
-  }  
+#industrial_label[zoom>=14][zoom<15][area>=50000],
+#industrial_label[zoom>=15][area>=10000]
+{
+  text-size: 9;
+  text-character-spacing: 0.8;
+  text-name:[name];
+  text-face-name:@sans_bold_italic;
+  text-fill:@industry_text;
+  text-halo-fill: @text_halo;
+  text-halo-radius:1.5;   
+  text-wrap-width: 100;
+  text-wrap-before: true;
+  text-placement: interior;
 }
 
-#military[zoom>=8] {
-  [zoom>=8][zoom<10][area>=2000000] {
-    polygon-pattern-file:url(img/stripes-red.png);
-    polygon-pattern-opacity: 0.2;
-    line-width: 0.2;
-    line-color: red;
-  }  
-  [zoom>=10][zoom<12][area>=500000] {
-    polygon-pattern-file:url(img/stripes-red.png);
-    polygon-pattern-opacity: 0.2;
-    line-width: 0.2;
-    line-color: red;
-  }  
-  [zoom>=12][zoom<14][area>=5000] {
-    polygon-pattern-file:url(img/stripes-red.png);
-    polygon-pattern-opacity: 0.2;
-    line-width: 0.2;
-    line-color: red;
-  }  
-  [zoom>=14]{
-    polygon-pattern-file:url(img/stripes-red.png);
-    polygon-pattern-opacity: 0.2;
-    line-width: 0.2;
-    line-color: red;
-  }
-}
-
+#military[zoom>=8][zoom<10][area>=2000000],
+#military[zoom>=10][zoom<12][area>=500000],
+#military[zoom>=12][zoom<14][area>=5000],
+#military[zoom>=14]
+{
+  polygon-pattern-file:url(img/stripes-red.png);
+  polygon-pattern-opacity: 0.2;
+  line-width: 0.2;
+  line-color: red;
+}  
 
 #military_label[zoom>=11][zoom<12][area>=200000000],
 #military_label[zoom>=12][zoom<14][area>=20000000],
@@ -182,7 +153,7 @@
   text-fill:@industry_text;
   text-halo-fill: @text_halo;
   text-halo-radius:1.5;   
-  text-wrap-width: 50;
+  text-wrap-width: 100;
   text-wrap-before: true;
   text-placement: interior;
   text-placement-type: simple;

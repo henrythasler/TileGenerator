@@ -1,3 +1,2 @@
 # OsmType  Tag          DataType     Flags
-node,way   ele                  int4                    linear
-way        way_area     real                # This is calculated during import
+node,way   ele                  smallint                    linear
