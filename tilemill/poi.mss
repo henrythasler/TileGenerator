@@ -230,7 +230,7 @@
     marker-width: 13;
     marker-clip: false;
   }  
-  [type='attraction'],[type='theme_park'] {
+  [type='attraction'],[type='theme_park'],[type='water_park'] {
     text-size: 9;
     text-character-spacing: 0.8;
     text-name:[name];

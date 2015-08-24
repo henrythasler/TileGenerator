@@ -542,3 +542,13 @@
   line-dasharray: 5,5;
   [zoom>=6]{line-width:1;line-dasharray: 6,6;}
 }  
+
+#piste[zoom>=15] {
+  line-width:3;
+  line-opacity: 0.5;
+  line-cap: round;
+  line-join: round;  
+  line-color:black;
+  [difficulty=1] {line-color:red;}
+  [difficulty=2] {line-color:blue;}
+}

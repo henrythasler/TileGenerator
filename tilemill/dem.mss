@@ -1,5 +1,5 @@
 #hillshading[zoom>=8] {
-  raster-opacity:0.5;
+  raster-opacity:0.6;
   raster-scaling:bilinear;
   raster-comp-op:multiply;
 }
@@ -16,8 +16,6 @@
 //  raster-comp-op:multiply;
 }
 
-#contours_high[zoom>=15],
-#contours_med[zoom=14],
 #contours_low[zoom=13]{
   line-smooth:1.0;
   line-width:0.5;
@@ -25,65 +23,41 @@
   line-color:@contour;
   [ele =~ ".*00"] {
     line-opacity: 0.5;  
-    text-size: 9;
-  	text-name:'[ele]';
-  	text-face-name:@sans;
-  	text-placement:line;
-  	text-fill:@contour_text;
-  	text-halo-fill: @text_halo_weak;
-  	text-halo-radius:1.5;
-  } 
-}
-/*
-#contour[zoom>=13][zoom<15] {
-  line-smooth:1.0;
-  line-width:0.5;
-  line-opacity: 0.25;  
-  line-color:@contour;
-  [elev =~ ".*00"] {
-    line-opacity: 0.5;  
-    
-    text-size: 9;
-  	text-name:'[elev]';
-  	text-face-name:@sans;
-  	text-placement:line;
-  	text-fill:@contour_text;
-  	text-halo-fill: @text_halo_weak;
-  	text-halo-radius:1.5;
-    
-  } 
-}
-
-
-#contour_label[zoom>=13][zoom<15] {
-  [elev =~ ".*00"] {
-    text-size: 9;
-  	text-name:'[elev]';
-  	text-face-name:@sans;
-  	text-placement:line;
-  	text-fill:@contour_text;
-  	text-halo-fill: @text_halo_weak;
-  	text-halo-radius:1.5;
-  } 
-}
-
-#contourhigh[zoom>=15] {
-  line-smooth:1.0;
-  line-width:0.5;
-  line-opacity: 0.25;  
-  line-color:@contour;
-  [elev =~ ".*00"] {
-    line-opacity: 0.5;  
-    text-size: 9;
-  	text-name:'[elev]';
-  	text-face-name:@sans;
-  	text-placement:line;
-  	text-fill:@contour_text;
-  	text-halo-fill: @text_halo_weak;
-  	text-halo-radius:1.5;
   }
+  [ele =~ ".*500"],[ele =~ ".*000"] {
+    text-size: 9;
+    text-name:'[ele]';
+    text-face-name:@sans;
+    text-placement:line;
+    text-spacing: 200;
+    text-fill:@contour_text;
+    text-halo-fill: @text_halo_weak;
+    text-halo-radius:1.5;
+  } 
 }
-*/
+
+
+#contours_high[zoom>=15],
+#contours_med[zoom=14]{
+  line-smooth:1.0;
+  line-width:0.5;
+  line-opacity: 0.25;  
+  line-color:@contour;
+  [ele =~ ".*00"] {
+    line-opacity: 0.5;  
+    text-size: 9;
+    text-name:'[ele]';
+    text-face-name:@sans;
+    text-placement:line;
+    text-spacing: 400;
+    [zoom>=15] {text-spacing: 300;}
+    text-fill:@contour_text;
+    text-halo-fill: @text_halo_weak;
+    text-halo-radius:1.5;
+  } 
+}
+
+
 
 #ne10mgeographiclines[zoom>=2][zoom<=7] {
   line-width:0.8;

@@ -230,7 +230,7 @@
   text-halo-radius:1.5;   
 }
 
-#glacier[zoom>=7]{
+#glacier[zoom>=8]{
   line-color: @lightblue;  
   polygon-fill: @white;
   line-width: 0;
@@ -285,7 +285,7 @@
 #lakes_label[zoom>=14][zoom<15][area>=20000],
 #lakes_label[zoom>=15][area>=1000] {
   text-size: 9;
-  text-name:[name];
+  text-name:[name] + '\n' + [ele];
   text-face-name:@sans_bold_italic;
   text-fill:@water_text;
   text-halo-fill: @text_halo;

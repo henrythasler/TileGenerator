@@ -76,6 +76,8 @@ node,way   office       text         polygon
 node,way   oneway       text         linear
 node,way   operator     text         linear
 node,way   parking      text         polygon
+node,way   piste:type   text         linear
+node,way   piste:difficulty   text         linear
 node,way   place        text         polygon
 node       poi          text
 node,way   population   text         linear

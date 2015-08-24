@@ -10,7 +10,7 @@ combined=eudem
 overlayfolder=data/dem/austria
 overlayfile=dhm_lamb_10m
 overlaydatum=EPSG:31287
-overlayoptions="-tr 40 40"
+overlayoptions="-tr 35 35"
 
 options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=3"
 hs_options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2"
@@ -43,7 +43,7 @@ echo "Reprojecting" $overlayfile.tif
 echo $shadefolder/$overlayfile-3785.tif >> $shadefolder/$combined-3785.txt
 
 echo "Generating hill shading from" $overlayfile-3785.tif
-#gdaldem hillshade -z 2 -alt 45 -combined -compute_edges -alg ZevenbergenThorne $shadefolder/$overlayfile-3785.tif $shadefolder/$overlayfile-3785-hs.tif
+#gdaldem hillshade -z 2 -alt 45 -combined -compute_edges $shadefolder/$overlayfile-3785.tif $shadefolder/$overlayfile-3785-hs.tif
 
 echo "Generating overviews for" $overlayfile-3785-hs.tif
 #gdaladdo -r average $shadefolder/$overlayfile-3785-hs.tif 2 4 8 16 32
@@ -82,10 +82,10 @@ do
     echo "importing" $base.pbf
     if (($cnt == 0)) ; then
       echo "creating"
-      osm2pgsql -C 10000 --verbose --number-processes 2 --username postgres --database $dbname --create --style $dbname.style $file
+#      osm2pgsql -C 10000 --verbose --number-processes 2 --username postgres --database $dbname --create --style $dbname.style $file
     else 
       echo "appending"
-      osm2pgsql -C 10000 --verbose --number-processes 2 --username postgres --database $dbname --append --style $dbname.style $file
+#      osm2pgsql -C 10000 --verbose --number-processes 2 --username postgres --database $dbname --append --style $dbname.style $file
     fi
     echo ""
     cnt=$(($cnt+1))

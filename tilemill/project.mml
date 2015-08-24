@@ -822,6 +822,31 @@
     {
       "geometry": "linestring",
       "extent": [
+        10.229822755071478,
+        46.90630886210768,
+        10.41468678789585,
+        47.02497033805677
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way,\n  CASE \n WHEN \"piste:difficulty\" IN ('novice', 'easy') THEN 2\n WHEN \"piste:difficulty\"='intermediate' THEN 1\n  ELSE 0\n  END as difficulty\n  FROM planet_osm_line\n  WHERE \"piste:type\" = 'downhill'\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "piste",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "piste"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
         10.38460481414501,
         47.629869593066154,
         12.107837094790613,
@@ -875,10 +900,10 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.838699417343236,
-        48.20911687426532,
-        11.127770987565908,
-        48.36811065919477
+        9.984172781242705,
+        46.883901264103024,
+        10.206971410874047,
+        46.999686981533536
       ],
       "Datasource": {
         "type": "postgis",
@@ -1681,14 +1706,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.567823043537345,
-        47.84291547196694,
-        10.685231952856485,
-        48.07047168458805
+        10.229833085697246,
+        46.90964814793611,
+        10.414694154081179,
+        47.02490916294121
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, CASE WHEN leisure = 'playground' THEN leisure ELSE tourism END as type, name\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name\nFROM planet_osm_point\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure = 'playground'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name\nFROM planet_osm_polygon\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure = 'playground'\n) as tmp\n) as data",
+        "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, CASE WHEN leisure  IN ('playground', 'water_park') THEN leisure ELSE tourism END as type, name\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, leisure, name\nFROM planet_osm_point\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure IN ('playground', 'water_park')\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, leisure, name\nFROM planet_osm_polygon\nWHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', 'theme_park') OR leisure  IN ('playground', 'water_park')\n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",

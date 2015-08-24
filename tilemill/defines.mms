@@ -23,7 +23,6 @@
 
 @motorway:          #ee9900;
 @primary:           #ffcc99;
-//@primary:           #f0ca99;
 @secondary:         #ffff99;
 
 @text_halo_weak:    fadeout(white, 80%);
@@ -44,7 +43,6 @@
 Map {
   font-directory: url(./fonts); 
   background-color:@water;
-//  buffer-size: 512;
 }
 
 @sans_lt:           "Open Sans Regular";
