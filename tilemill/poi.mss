@@ -149,8 +149,8 @@
       text-placements: "N,S,E,W,NE,SE,NW,SW";
     }  
   }  
-  [place='hamlet']{
-    ::label[zoom>=13]{
+  [place='hamlet'][area>=50000]{
+    ::label[zoom>=14]{
       text-name: [name];
       text-face-name:@sans;
       text-size: 0;

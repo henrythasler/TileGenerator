@@ -19,6 +19,10 @@
 #dbname="middle"
 #param="-C 12000 -G -v --number-processes 2"
 
+#src="/media/henry/Tools/map/data/austria-east.osm.pbf"
+#dbname="austria"
+#param="-C 12000 -G -v --number-processes 2"
+
 #src="/media/ramdisk/alps.osm.pbf"
 #dbname="alps"
 #param="-C 12000 -G -v --number-processes 2"
@@ -28,6 +32,7 @@
 #dbname="testset"
 
 src="/media/henry/Tools/map/data/slice.osm.pbf"
+#src="/media/henry/Tools/map/data/mallorca.osm.pbf"
 dbname="mering"
 #dbname="empty"
 param="-C 10000 -G -v --number-processes 2"

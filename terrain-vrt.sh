@@ -1,39 +1,53 @@
 #! /bin/bash
 
+# set source path and properties of dem data
 demfolder=data/dem/eu
 demname=eudem_dem
 demdatum=EPSG:4258
 
+# set target path and name prefix
 shadefolder=data/hillshade/eu
 combined=eudem
 
+# set source path and properties of overlay dem data
 overlayfolder=data/dem/austria
 overlayfile=dhm_lamb_10m
 overlaydatum=EPSG:31287
 overlayoptions="-tr 35 35"
 
+# options for gdal (float)
 options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=3"
+# options for gdal (8bit-rgba)
 hs_options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2"
 
-
+# delete old file list for vrt generation
 rm $shadefolder/$combined-3785.txt
 rm $shadefolder/$combined-3785-hs.txt
  
+# loop over all geo-tiffs in source folder 
 for file in $demfolder/*.tif 
 do
+    # extract filename w/o extension
     base=`basename $file .tif`
-    echo "Reprojecting" $base.tif
-#    gdalwarp -s_srs $demdatum -t_srs EPSG:3785 -dstnodata none -r bilinear -overwrite $options $file $shadefolder/$base-3785.tif
+    echo "processing" $base.tif
+    
+    # reproject source file if not already done
+    if [ ! -f $shadefolder/$base-3785.tif ]
+    then
+      echo "Reprojecting" $base.tif
+      gdalwarp -s_srs $demdatum -t_srs EPSG:3785 -dstnodata none -r bilinear -overwrite $options $file $shadefolder/$base-3785.tif
+    fi
     echo $shadefolder/$base-3785.tif >> $shadefolder/$combined-3785.txt
     
-    echo "Generating hill shading from" $base-3785.tif
-#    rm $shadefolder/$base-3785-hs.tif
-#    gdaldem hillshade -z 3 -alt 45 -combined -alg ZevenbergenThorne -compute_edges $hs_options $shadefolder/$base-3785.tif $shadefolder/$base-3785-hs.tif
-
-    echo "Generating overviews for" $base-3785-hs.tif
-  #  gdaladdo -r average $shadefolder/$base-3785-hs.tif 2 4 8 16 32
-
+    if [ ! -f $shadefolder/$base-3785-hs.tif ]
+    then
+      echo "Generating hill shading from" $base-3785.tif
+      gdaldem hillshade -z 3 -alt 45 -combined -alg ZevenbergenThorne -compute_edges $hs_options $shadefolder/$base-3785.tif $shadefolder/$base-3785-hs.tif
+      echo "Generating overviews for" $base-3785-hs.tif
+      gdaladdo -r average $shadefolder/$base-3785-hs.tif 2 4 8 16 32
+    fi
     echo $shadefolder/$base-3785-hs.tif >> $shadefolder/$combined-3785-hs.txt
+    
     echo ""
 done  
 
@@ -90,6 +104,8 @@ do
     echo ""
     cnt=$(($cnt+1))
 done  
+
+echo "all done"
 
 
 

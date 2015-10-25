@@ -204,6 +204,31 @@
       "name": "forest"
     },
     {
+      "geometry": "polygon",
+      "extent": [
+        2.724045877672332,
+        39.10686906116614,
+        3.314555316150396,
+        39.51887342686869
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\"='beach' AND (surface='sand' OR surface IS NULL)\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "beach",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "beach"
+    },
+    {
       "geometry": "linestring",
       "extent": [
         10.8936315766302,
@@ -290,31 +315,6 @@
       "srs": "",
       "advanced": {},
       "name": "10mlakes"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        2.724045877672332,
-        39.10686906116614,
-        3.314555316150396,
-        39.51887342686869
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(\nSELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\"='beach' AND (surface='sand' OR surface IS NULL)\n) AS data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "beach",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "beach"
     },
     {
       "geometry": "polygon",
@@ -1756,14 +1756,14 @@
     {
       "geometry": "point",
       "extent": [
-        10.780389143430337,
-        48.22061618323483,
-        11.068029517742351,
-        48.42870294963172
+        10.822220182782177,
+        47.744405345143484,
+        11.378401131498311,
+        48.08725228062287
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, ele, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\n  FROM planet_osm_point\n  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL) as DATA",
+        "table": "(\nSELECT way, name, ele,  100000 AS area, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\n  FROM planet_osm_point\n  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL\nUNION\nSELECT way, name, ele,  way_area AS area, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\nFROM planet_osm_polygon\n  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL\n) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
