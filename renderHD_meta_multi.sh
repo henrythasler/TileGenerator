@@ -36,6 +36,7 @@ cd /media/Linux-Data/henry/Apps/TileGenerator
 cp mycyclemap.xml $database.xml
 sed -i 's/mering/'$database'/g' $database.xml
 
+'''
 time python generateMetaQueue.py \
       --bbox $left $bottom $right $top \
       --zooms $5 $6 \
@@ -44,6 +45,16 @@ time python generateMetaQueue.py \
       --sqlitedb "/media/henry/Tools/map/tiles/MyCycleMapHD/tilesHD.sqlitedb" \
       --threads 4 \
       --debug 0
+'''
+
+time python generateMetaQueue.py \
+      --bbox $left $bottom $right $top \
+      --zooms $5 $6 \
+      --mapfile $database.xml \
+      --scale 2.0 \
+      --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD" \
+      --threads 4 \
+      --debug 3
 
 # wait for user input after completion
 rm $database.xml
