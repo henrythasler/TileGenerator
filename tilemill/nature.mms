@@ -74,10 +74,10 @@
   text-placement: interior;
 }
 
-#10mlakes[ScaleRank<5][zoom=2],
-#10mlakes[ScaleRank<6][zoom=3],
-#10mlakes[ScaleRank<7][zoom=4],
-#10mlakes[ScaleRank<8][zoom=5],
+#10mlakes[scalerank<5][zoom=2],
+#10mlakes[scalerank<6][zoom=3],
+#10mlakes[scalerank<7][zoom=4],
+#10mlakes[scalerank<8][zoom=5],
 #10mlakes[zoom>=6][zoom<8]{
   polygon-fill:@water_global;
   line-width: 0.5;

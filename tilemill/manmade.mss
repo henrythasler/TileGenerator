@@ -61,24 +61,24 @@
   text-wrap-width:20;
   text-name:"''"; /* hackish? */
   
-  [ScaleRank<2][zoom=2] {
+  [scalerank<2][zoom=2] {
     text-name: "[ABBREV]";
   }
-  [ScaleRank<3][zoom=3] {
+  [scalerank<3][zoom=3] {
     text-name: "[ABBREV]";
     text-size:9;
   }
-  [ScaleRank<4][zoom=4] {
+  [scalerank<4][zoom=4] {
     text-name: "[NAME]";
     text-size:10;
   }
-  [ScaleRank<5][zoom=5] {
+  [scalerank<5][zoom=5] {
     text-name: "[NAME]";
     text-size:11;
     text-character-spacing:1;
     text-line-spacing:1;
   }
-  [ScaleRank<9][zoom>5] {
+  [scalerank<9][zoom>5] {
     text-name: "[NAME]";
     text-size:12;
     text-character-spacing:2;

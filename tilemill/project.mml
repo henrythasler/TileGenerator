@@ -34,7 +34,7 @@
         179.99999999996396,
         85.051
       ],
-      "id": "bathymetry",
+      "id": "bathymetry_old",
       "class": "",
       "Datasource": {
         "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/dem/global/OB_LR/OB_LR.tif"
@@ -43,7 +43,7 @@
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "bathymetry",
+      "name": "bathymetry_old",
       "status": "off"
     },
     {
@@ -300,15 +300,15 @@
     {
       "geometry": "polygon",
       "extent": [
-        -165.96561893930925,
-        -50.66962481837749,
-        176.0938293028783,
-        81.95527752537254
+        -165.96558168829336,
+        -50.66966651748362,
+        177.1543791606897,
+        81.95520786930868
       ],
       "id": "10mlakes",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/10m-lakes.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_lakes.shp"
       },
       "layer": null,
       "srs-name": "autodetect",
@@ -461,17 +461,17 @@
       "name": "hillshading"
     },
     {
-      "geometry": "linestring",
+      "geometry": "polygon",
       "extent": [
-        -58.43035640499922,
-        1.469730529939656,
-        97.0361747642425,
-        48.12060394321222
+        -171.08653723899988,
+        -59.47275155999992,
+        172.05933856500016,
+        80.83283112200004
       ],
       "id": "admin_claim",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/10m-admin-0-boundary-lines-claims.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_admin_0_disputed_areas.shp"
       },
       "layer": null,
       "srs-name": "autodetect",
@@ -482,15 +482,15 @@
     {
       "geometry": "linestring",
       "extent": [
-        -141.00554866607175,
-        -55.12092376716174,
-        140.977626994236,
-        70.0753103641985
+        -141.00213640665194,
+        -55.11400074012312,
+        145.9401672711012,
+        70.06481924099897
       ],
       "id": "admin_global",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/10m-admin-0-boundary-lines-land.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_50m_admin_0_boundary_lines_land.shp"
       },
       "layer": null,
       "srs-name": "autodetect",
@@ -600,17 +600,17 @@
       "name": "ne10mstates_label"
     },
     {
-      "geometry": "point",
+      "geometry": "polygon",
       "extent": [
-        -177.23111296705954,
-        -80.39243740332425,
-        178.5220789252438,
-        73.97178749749689
+        -179.9999999999999,
+        -85.051,
+        180,
+        83.63410065300012
       ],
       "id": "countries",
       "class": "",
       "Datasource": {
-        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/10m-admin-0-country-points.shp"
+        "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/shp/ne_10m_admin_0_countries.shp"
       },
       "layer": null,
       "srs-name": "autodetect",
@@ -721,10 +721,10 @@
     {
       "geometry": "linestring",
       "extent": [
-        10.838699417343236,
-        48.20911687426532,
-        11.127770987565908,
-        48.36811065919477
+        11.107870609076809,
+        47.56123744380383,
+        11.408614888101331,
+        47.726853893870654
       ],
       "Datasource": {
         "type": "postgis",
@@ -736,12 +736,12 @@
         "dbname": "mering",
         "user": "postgres"
       },
-      "id": "tunnel",
+      "id": "tunnel_old",
       "class": "roads",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "tunnel",
+      "name": "tunnel_old",
       "status": "off"
     },
     {
@@ -1177,10 +1177,10 @@
     {
       "geometry": "point",
       "extent": [
-        10.898440258346094,
-        47.75410175610814,
-        11.249989476916223,
-        48.45834324377504
+        11.110545163172217,
+        47.561371471089885,
+        11.408589825104903,
+        47.72676645651376
       ],
       "Datasource": {
         "type": "postgis",
@@ -1192,12 +1192,12 @@
         "dbname": "mering",
         "user": "postgres"
       },
-      "id": "exits",
+      "id": "exits_old",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "exits",
+      "name": "exits_old",
       "status": "off"
     },
     {
@@ -1815,21 +1815,21 @@
         "dbname": "world",
         "user": "postgres"
       },
-      "id": "cities_osm",
+      "id": "cities_osm_old",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "cities_osm",
+      "name": "cities_osm_old",
       "status": "off"
     },
     {
       "geometry": "point",
       "extent": [
-        10.021982332562127,
-        47.82641598049901,
-        11.415255683839185,
-        48.57078695908121
+        11.110545163172217,
+        47.561371471089885,
+        11.408589825104903,
+        47.72676645651376
       ],
       "Datasource": {
         "type": "postgis",
@@ -1841,12 +1841,12 @@
         "dbname": "mering",
         "user": "postgres"
       },
-      "id": "tower",
+      "id": "tower_old",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "tower",
+      "name": "tower_old",
       "status": "off"
     },
     {
@@ -1877,12 +1877,12 @@
     {
       "geometry": "linestring",
       "extent": [
-        0,
-        0,
-        0,
-        0
+        4.999999999999994,
+        45.00011804472309,
+        14.999929020487118,
+        54.999999999114145
       ],
-      "id": "contour_label",
+      "id": "contour_label_old",
       "class": "",
       "Datasource": {
         "file": "/media/Linux-Data/henry/Apps/TileGenerator/data/hillshade/eudem-3785-contour-med.shp"
@@ -1891,7 +1891,7 @@
       "srs-name": "autodetect",
       "srs": "",
       "advanced": {},
-      "name": "contour_label",
+      "name": "contour_label_old",
       "status": "off"
     }
   ],
