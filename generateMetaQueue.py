@@ -359,8 +359,8 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
       metaData[z]={}
       
       # compute how many tiles need to be rendered at current zoom level
-      tileData[z]['cols'] = int(ceil(px[z][1][0]/TILE_SIZE - px[z][0][0]/TILE_SIZE)) 
-      tileData[z]['rows'] = int(ceil(px[z][1][1]/TILE_SIZE - px[z][0][1]/TILE_SIZE))
+      tileData[z]['cols'] = int(ceil(px[z][1][0]/TILE_SIZE) - floor(px[z][0][0]/TILE_SIZE)) 
+      tileData[z]['rows'] = int(ceil(px[z][1][1]/TILE_SIZE) - floor(px[z][0][1]/TILE_SIZE))
       
       # number of tiles for this zoom level
       tileData[z]['sum'] = tileData[z]['cols'] * tileData[z]['rows']
