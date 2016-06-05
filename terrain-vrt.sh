@@ -9,12 +9,6 @@ demdatum=EPSG:4258
 shadefolder=data/hillshade/eu
 combined=eudem
 
-# set source path and properties of overlay dem data
-overlayfolder=data/dem/austria
-overlayfile=dhm_lamb_10m
-overlaydatum=EPSG:31287
-overlayoptions="-tr 35 35"
-
 # options for gdal (float)
 options="-co BIGTIFF=YES -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=3"
 # options for gdal (8bit-rgba)
@@ -52,6 +46,13 @@ do
 done  
 
 
+# set source path and properties of overlay dem data
+# adding austria
+overlayfolder=data/dem/austria
+overlayfile=dhm_lamb_10m
+overlaydatum=EPSG:31287
+overlayoptions="-tr 35 35"
+
 echo "Reprojecting" $overlayfile.tif
 #gdalwarp -s_srs $overlaydatum -t_srs EPSG:3785 -dstnodata none -r bilinear -overwrite $overlayoptions $options $overlayfolder/$overlayfile.tif $shadefolder/$overlayfile-3785.tif
 echo $shadefolder/$overlayfile-3785.tif >> $shadefolder/$combined-3785.txt
@@ -64,9 +65,34 @@ echo "Generating overviews for" $overlayfile-3785-hs.tif
 
 echo $shadefolder/$overlayfile-3785-hs.tif >> $shadefolder/$combined-3785-hs.txt
 
+
+# adding alto adige
+overlayfolder=data/dem/italy/DTM_5m_asc
+overlayfile=dtm5p0m.asc
+overlaydatum=EPSG:32632
+overlayoptions="-tr 35 35"
+
+echo "Reprojecting" $overlayfile
+gdalwarp -s_srs $overlaydatum -t_srs EPSG:3785 -dstnodata none -r bilinear -overwrite $overlayoptions $options $overlayfolder/$overlayfile $shadefolder/$overlayfile-3785.tif
+echo $shadefolder/$overlayfile-3785.tif >> $shadefolder/$combined-3785.txt
+
+echo "Generating hill shading from" $overlayfile-3785.tif
+gdaldem hillshade -z 2 -alt 45 -combined -compute_edges $shadefolder/$overlayfile-3785.tif $shadefolder/$overlayfile-3785-hs.tif
+#gdaldem hillshade -z 2 -alt 45 -combined -compute_edges data/hillshade/eu/dtm5p0m.asc-3785.tif data/hillshade/eu/dtm5p0m.asc-3785-hs.tif
+
+echo "Generating overviews for" $overlayfile-3785-hs.tif
+gdaladdo -r average $shadefolder/$overlayfile-3785-hs.tif 2 4 8 16 32
+#gdaladdo -r average data/hillshade/eu/dtm5p0m.asc-3785-hs.tif 2 4 8 16 32
+
+echo $shadefolder/$overlayfile-3785-hs.tif >> $shadefolder/$combined-3785-hs.txt
+#echo data/hillshade/eu/dtm5p0m.asc-3785-hs.tif >> data/hillshade/eu/eudem-3785-hs.txt
+
+
+
+# continue processing of whole dataset
 echo "Creating Hillshading VRT"
 gdalbuildvrt -overwrite -resolution highest -srcnodata 0 -input_file_list $shadefolder/$combined-3785-hs.txt $shadefolder/$combined-3785-hs.vrt 
-
+#gdalbuildvrt -overwrite -resolution highest -srcnodata 0 -input_file_list data/hillshade/eu/eudem-3785-hs.txt data/hillshade/eu/eudem-3785-hs.vrt
 
 echo "Creating contours"
 #gdalbuildvrt -overwrite -resolution highest -srcnodata 0 -input_file_list $shadefolder/$combined-3785.txt $shadefolder/$combined-3785.vrt 
