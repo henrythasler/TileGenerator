@@ -15,7 +15,7 @@
 #src="/media/ramdisk/germany-north.osm.pbf"
 #dbname="north"
 
-#src="/media/ramdisk/germany_middle.osm.pbf"
+#src="/media/ramdisk/germany-middle.osm.pbf"
 #dbname="middle"
 #param="-C 12000 -G -v --number-processes 2"
 
@@ -27,15 +27,17 @@
 #dbname="alps"
 #param="-C 12000 -G -v --number-processes 2"
 
-
 #src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
 #dbname="testset"
 
 src="/media/henry/Tools/map/data/slice.osm.pbf"
-#src="/media/henry/Tools/map/data/mallorca.osm.pbf"
 dbname="mering"
 #dbname="empty"
 param="-C 10000 -G -v --number-processes 2"
+
+#src="/media/ramdisk/china-latest.osm.pbf"
+#dbname="china"
+#param="-C 10000 -G -v --number-processes 2"
 
 #src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
 #dbname="world"
