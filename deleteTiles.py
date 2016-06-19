@@ -115,16 +115,14 @@ class FileWriter:
         return os.path.isfile(self.tile_uri(x, y, z))
 
     def write(self, x, y, z, imagestring):
+        pass
+
+    def delete(self, x, y, z):
         uri = self.tile_uri(x, y, z)
         try:
-            os.makedirs(os.path.dirname(uri))
-        except OSError:
-            pass
-          
-        fh = open(uri, "wb")
-        fh.write(imagestring)
-        fh.close()  
-#        image.save(uri, 'png256')
+          os.remove(uri)
+        except:
+          pass
         
     def commit(self):
         pass
