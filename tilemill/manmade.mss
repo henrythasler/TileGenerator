@@ -116,6 +116,8 @@
   polygon-opacity: 1;
 }
 
+#industrial_label[zoom>=12][zoom<13][area>=1000000],
+#industrial_label[zoom>=13][zoom<14][area>=500000],
 #industrial_label[zoom>=14][zoom<15][area>=50000],
 #industrial_label[zoom>=15][area>=10000]
 {

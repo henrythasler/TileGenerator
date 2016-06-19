@@ -44,20 +44,27 @@ Map {
   font-directory: url(./fonts); 
   background-color:@water;
 }
-
+/*
 @sans_lt:           "Open Sans Regular";
 @sans_lt_italic:    "Open Sans Italic";
 @sans:              "Open Sans Semibold";
 @sans_italic:       "Open Sans Semibold Italic";
 @sans_bold:         "Open Sans Bold";
 @sans_bold_italic:  "Open Sans Bold Italic";
-
+*/
 /*
 @sans_bold: "Verdana Bold";
 @sans_bold_italic: "Verdana Bold Italic";
 @sans_italic: "Verdana Italic";
 @sans: "Verdana Regular";
 */
+
+@sans: "Noto Sans Regular", "Noto Sans CJK SC Light", "Noto Naskh Arabic Regular";
+@sans_bold: "Noto Sans Bold", "Noto Sans CJK SC Medium", "Noto Naskh Arabic Bold";
+@sans_bold_italic: "Noto Sans Bold Italic", "Noto Sans CJK SC Medium", "Noto Naskh Arabic Bold";
+@sans_italic: "Noto Sans Italic", "Noto Sans CJK SC Light", "Noto Naskh Arabic Regular";
+
+
 /*
 @sans: "DejaVu Sans Book";
 @sans_bold: "DejaVu Sans Bold";
@@ -69,3 +76,4 @@ Map {
 @mono_bold: "Ubuntu Mono Bold";
 @mono_bold_italic: "Ubuntu Mono Bold Italic";
 @mono_italic: "Ubuntu Mono Italic";
+

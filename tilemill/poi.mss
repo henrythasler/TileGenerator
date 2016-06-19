@@ -172,10 +172,10 @@
 #restaurant_low[zoom>=12][zoom<=13],
 #restaurant_high[zoom>=14]{
   ::marker {
-    marker-file: url(img/sjjb/food_restaurant.n.32.png);
-    [type='hotel'] {marker-file: url(img/hotel.32.png);}
-    [type='pub'],[type='biergarten'] {marker-file: url(img/sjjb/food_pub.n.32.png);}
-    [type='bar'] {marker-file: url(img/sjjb/food_bar.n.32.png);}
+    marker-file: url(img/restaurant.svg);
+    [type='hotel'] {marker-file: url(img/hotel.svg);}
+    [type='pub'],[type='biergarten'] {marker-file: url(img/pub.svg);}
+    [type='bar'] {marker-file: url(img/bar.svg);}
     marker-width: 6;
     marker-clip: false;
 //    marker-ignore-placement:true;
@@ -221,13 +221,13 @@
 
 #tourism[zoom>=14] {
   [type='viewpoint'] {
-    marker-file: url(img/sjjb/tourist_view_point.p.32.png);
+    marker-file: url(img/viewpoint.svg);
     marker-width: 12;
     marker-clip: false;
   }  
   [type='information']{
-    marker-file: url(img/sjjb/amenity_information.glow.32.png);
-    marker-width: 13;
+    marker-file: url(img/information.svg);
+    marker-width: 5;
     marker-clip: false;
   }  
   [type='attraction'],[type='theme_park'],[type='water_park'] {
@@ -261,21 +261,42 @@
     text-halo-radius:1.5;  
   }  
   [type='playground']{
-    marker-file: url(img/playground.32.png);
+    marker-file: url(img/playground.svg);
     marker-width: 9;
     marker-clip: false;
     marker-allow-overlap:true;
-  }  
+  }
+  [type='climbing'] {
+    marker-file: url(img/climbing.svg);
+    marker-width: 9;
+    marker-clip: false;
+    marker-allow-overlap:false;
+    [zoom>=15] {
+      text-size: 9;
+      text-character-spacing: 0.8;
+      text-name:[name];
+      text-face-name:@sans_bold_italic;
+      text-placement-type: simple;
+      text-placements: "S,N,E,W,NE,SE,NW,SW";
+      text-dy: 10; 
+      text-dx: 10;
+      text-fill:@forest_text;
+      text-wrap-width: 100;
+      text-wrap-before: true;
+      text-halo-fill: @text_halo_strong;
+      text-halo-radius:1.5;        
+      }
+    }
 }
 
 #shop[zoom>=13] {
   [type='supermarket'][zoom>=14] {
-    marker-file: url(img/supermarket.32.png);
+    marker-file: url(img/shop2.svg);
     marker-width: 14;
     marker-clip: false;
   }  
   [type='bicycle'] {
-    marker-file: url(img/bicycle.32.png); 
+    marker-file: url(img/bike.svg); 
     marker-width: 9;
     marker-clip: false;
     [zoom>=14] {marker-width: 14;}
@@ -343,4 +364,29 @@
       text-dx: 6;
     }  
   }  
+}
+
+
+#cities_osm[zoom<=7][place='city'] {
+    [zoom=5][population>10000],
+    [zoom=6],
+    [zoom>=7] {
+      marker-width:6;
+      marker-line-width: 1;
+      marker-fill: white;
+      text-name: [name];
+      text-face-name:@sans;
+      text-size: 8;
+      [zoom=6] {text-size: 9;}
+      [zoom>=7] {text-size: 10;}
+      text-halo-fill: @text_halo_strong;
+      text-halo-radius:1.5;
+      text-wrap-width: 100;
+      text-wrap-before: true;
+      text-character-spacing: 0.8;
+      text-placement-type: simple;
+      text-placements: "N,S,E,W,NE,SE,NW,SW";
+      text-dy: 6; 
+      text-dx: 6;
+    }
 }
