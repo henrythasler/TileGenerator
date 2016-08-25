@@ -1,0 +1,132 @@
+{
+  "bounds": [
+    1.2219,
+    43.0923,
+    1.3057,
+    43.1517
+  ],
+  "center": [
+    10.98323822, 
+    48.28136515,
+    12
+  ],
+  "minzoom": 1,
+  "maxzoom": 16,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+  "defines.mss",
+  "nature.mss",
+  "manmade.mss",
+  "dem.mss",
+  "poi.mss",
+  "roads.mss"
+  ],
+  "Layer": [
+    {
+      "Datasource": {
+        "file": "data/shp/simplified_land_polygons.shp",
+        "type": "shape"
+      },
+      "geometry": "polygon",
+      "extent": [
+        -179.99999692067183,
+        -84.96651228427099,
+        179.99999692067183,
+        84.96651228427098
+      ],
+      "id": "simple",
+      "name": "simple",
+      "class": "land",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "file": "data/shp/land_polygons.shp",
+        "type": "shape"
+      },
+      "geometry": "polygon",
+      "extent": [
+        -179.99999692067183,
+        -84.96651228427099,
+        179.99999692067183,
+        84.96651228427098
+      ],
+      "id": "detailled",
+      "name": "detailled",
+      "class": "land",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "srs-name": "900913"
+    },
+    {
+      "Datasource": {
+        "file": "data/shp/ne_10m_populated_places.shp",
+        "type": "shape"
+      },
+      "geometry": "point",
+      "extent": [
+        -179.99999692067183,
+        -84.96651228427099,
+        179.99999692067183,
+        84.96651228427098
+      ],
+      "id": "cities",
+      "name": "cities",
+      "class": "",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs",
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        123.04692495797569,
+        41.508580777624346,
+        124.45307736564963,
+        42.03294477654293
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, tunnel, bridge, tracktype, oneway, st_length(st_transform(way,4326)::geography)::integer as length, \n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') AND (service IS NULL OR service NOT IN ('parking_aisle')) OR (highway IN ('track') AND tracktype IN ('grade1'))) \nAND (bridge IS NULL OR bridge NOT IN('yes'))\n--AND (tunnel IS NULL OR tunnel NOT IN('yes'))\n ORDER BY prio DESC\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres",
+      },
+      "id": "roads",
+      "class": "roads label",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "roads"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        123.05925729969066,
+        41.55224989210597,
+        124.42074996301463,
+        42.03257019104576
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, ele,  100000 AS area, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\n  FROM planet_osm_point\n  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL\nUNION\nSELECT way, name, ele,  way_area AS area, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\nFROM planet_osm_polygon\n  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres",
+      },
+      "id": "towns",
+      "class": "poi",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "towns"
+    },
+  ],
+  "scale": 1,
+  "metatile": 2,
+  "name": "ProjectName"
+}

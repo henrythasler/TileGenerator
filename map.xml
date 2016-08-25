@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#7babcd">
+
+<Parameters>
+  <Parameter name="bounds">-6.5,49.5,2.1,59</Parameter>
+  <Parameter name="center">-2,54,4</Parameter>
+  <Parameter name="format">png8</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">18</Parameter>
+</Parameters>
+
+
+<Style name="simple" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="#f6f4e7" />
+  </Rule>
+</Style>
+<Layer name="simple"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>simple</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/simplified_land_polygons.shp]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="admin_global" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.6" stroke="#883388" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.6" stroke="#883388" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000000</MaxScaleDenominator>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.6" stroke="#883388" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.6" stroke="#883388" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>500000000</MaxScaleDenominator>
+    <MinScaleDenominator>200000000</MinScaleDenominator>
+    <LineSymbolizer stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke-opacity="0.6" stroke="#883388" />
+  </Rule>
+</Style>
+<Layer name="admin_global"
+  srs="+proj=longlat +datum=WGS84 +no_defs">
+    <StyleName>admin_global</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_0_boundary_lines_land.shp]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="towns-label" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <Filter>([place] = 'hamlet') and ([area] &gt;= 50000)</Filter>
+    <TextSymbolizer size="10" dy="20" dx="20" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="10" dy="20" dx="20" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="8" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([place] = 'suburb')</Filter>
+    <TextSymbolizer size="12" dy="30" dx="30" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="10" dy="20" dx="20" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="8" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([place] = 'village')</Filter>
+    <TextSymbolizer size="12" dy="30" dx="30" face-name="Open Sans Semibold" character-spacing="0.8" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([place] = 'town')</Filter>
+    <TextSymbolizer size="12" dy="60" dx="60" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([place] = 'town')</Filter>
+    <TextSymbolizer size="10" dy="20" dx="20" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([place] = 'town')</Filter>
+    <TextSymbolizer size="9" dy="30" dx="30" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([place] = 'town')</Filter>
+    <TextSymbolizer size="9" dy="10" dx="10" face-name="Open Sans Semibold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([place] = 'town')</Filter>
+    <TextSymbolizer size="8" face-name="Open Sans Semibold" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0.8" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([place] = 'city') and ([pop] &gt; 250000)</Filter>
+    <TextSymbolizer size="16" dy="100" dx="100" character-spacing="0.8" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([place] = 'city') and ([pop] &gt; 250000)</Filter>
+    <TextSymbolizer size="12" dy="30" dx="30" character-spacing="0.8" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([place] = 'city') and ([pop] &gt; 250000)</Filter>
+    <TextSymbolizer size="10" dy="10" dx="10" character-spacing="0.8" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([place] = 'city')</Filter>
+    <TextSymbolizer size="16" dy="100" dx="100" character-spacing="0.8" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <Filter>([place] = 'city')</Filter>
+    <TextSymbolizer size="12" dy="30" dx="30" character-spacing="0.8" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([place] = 'city')</Filter>
+    <TextSymbolizer size="10" dy="10" dx="10" character-spacing="0.8" face-name="Open Sans Bold" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="towns"
+  status="off"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>towns-label</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(
+SELECT way, CASE WHEN "name:de" IS NOT NULL THEN "name:de" WHEN "name:en" IS NOT NULL THEN "name:en" ELSE name END as name, ele,  100000 AS area, place, 
+  CASE WHEN population ~E'^\\d+$' THEN population::integer ELSE NULL END as pop
+  FROM planet_osm_point
+  WHERE "place" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL
+UNION
+SELECT way, name, ele,  way_area AS area, place, 
+  CASE WHEN population ~E'^\\d+$' THEN population::integer ELSE NULL END as pop
+FROM planet_osm_polygon
+  WHERE "place" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL
+) as DATA]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
+       <Parameter name="extent"><![CDATA[]]></Parameter>
+       <Parameter name="host"><![CDATA[postgres]]></Parameter>
+       <Parameter name="password"><![CDATA[0000]]></Parameter>
+       <Parameter name="dbname"><![CDATA[postgres]]></Parameter>
+       <Parameter name="user"><![CDATA[postgres]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

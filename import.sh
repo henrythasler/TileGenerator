@@ -14,6 +14,7 @@
 
 #src="/media/ramdisk/germany-north.osm.pbf"
 #dbname="north"
+#param="-C 12000 -G -v --number-processes 2"
 
 #src="/media/ramdisk/germany-middle.osm.pbf"
 #dbname="middle"
@@ -41,6 +42,7 @@ param="-C 10000 -G -v --number-processes 2"
 
 #src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
 #dbname="world"
+#param="-C 10000 -G -v --number-processes 2"
 
 ##param="--slim --drop -C 12000 -G -v --number-processes 2"
 
@@ -48,10 +50,14 @@ param="-C 10000 -G -v --number-processes 2"
 psql -U postgres -c "DROP DATABASE IF EXISTS $dbname;"
 psql -U postgres -c "COMMIT;"
 psql -U postgres -c "CREATE DATABASE $dbname;"
-psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
-psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
-osm2pgsql $param -U postgres -d $dbname -c -S osm2pgsql.style $src
-psql -U postgres -d $dbname -f postprocessing.sql
+
+psql -U postgres -d $dbname -c "CREATE EXTENSION postgis;"
+psql -U postgres -d $dbname -c "CREATE EXTENSION postgis_topology;"
+#psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
+#psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
+
+osm2pgsql $param -U postgres -d $dbname -c -S styles/osm2pgsql.style $src
+psql -U postgres -d $dbname -f postprocessing/cycleroutes.sql
 
 
 #psql -U postgres -c "create database south;"

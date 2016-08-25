@@ -14,7 +14,7 @@ printf -v top "%.8f" "$1"
 
 #     --sqlitedb "/media/henry/Tools/map/tiles/MyCycleMapHD/tilesHD.sqlitedb" \
 
-cd /media/Linux-Data/henry/Apps/TileGenerator
+cd /media/mapdata/henry/TileGenerator
 time python deleteTiles.py \
       --bbox $left $bottom $right $top \
       --zooms $5 $6 \

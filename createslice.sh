@@ -4,7 +4,7 @@
 # Parameters: MAX_LAT MAX_LON MIN_LAT MIN_LON 
 
 # settings
-osmconvertpath="/media/Linux-Data/henry/Apps/osm"
+osmconvertpath="/media/mapdata/henry/osmtools"
 path="/media/henry/Tools/map/data"
 read -p "Enter source file: " -e -i $path/europe-latest.osm.pbf source_file
 read -p "Enter target file: " -e -i $path/slice.osm.pbf target_file

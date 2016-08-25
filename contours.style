@@ -1,2 +1,0 @@
-# OsmType  Tag          DataType     Flags
-node,way   ele                  smallint                    linear

@@ -22,7 +22,7 @@ import argparse
 
 import mapnik
 
-MULTIPROCESSING = False # True=multiprocessing; False=treading
+MULTIPROCESSING = True # True=multiprocessing; False=treading
 
 DEG_TO_RAD = pi/180
 RAD_TO_DEG = 180/pi
@@ -37,7 +37,7 @@ META_SIZE = 16
 BUF_SIZE = 1024
 
 # Default number of rendering threads to spawn, should be roughly equal to number of CPU cores available
-NUM_THREADS = 4
+NUM_THREADS = 1
 
 
 def minmax (a,b,c):

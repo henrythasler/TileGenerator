@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Map[]>
-<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" font-directory="./fonts" background-color="#7babcd" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" font-directory="./fonts" background-color="#7babcd">
 
 <Parameters>
   <Parameter name="bounds">10.676,48.0694,11.261,48.4105</Parameter>
   <Parameter name="center">10.9678,48.2603,11</Parameter>
   <Parameter name="format">png8</Parameter>
-  <Parameter name="interactivity_layer">undefined</Parameter>
-  <Parameter name="interactivity_fields"></Parameter>
   <Parameter name="minzoom">0</Parameter>
-  <Parameter name="maxzoom">18</Parameter>
+  <Parameter name="maxzoom">17</Parameter>
+  <Parameter name="name"><![CDATA[MyCycleMap]]></Parameter>
   <Parameter name="scale">2</Parameter>
-  <Parameter name="metatile">4</Parameter>
+  <Parameter name="metatile">2</Parameter>
   <Parameter name="legend"><![CDATA[<!-- This legend uses Unicode box-drawing characters to approxmate line styles. -->
 <span style='color:#7babcd'>▉</span> Water
 <span style='color:#b0d090'>▉</span> Forest
@@ -43,8 +42,8 @@
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/bathymetry_old.tif]]></Parameter>
-       <Parameter name="type"><![CDATA[gdal]]></Parameter>
+       <Parameter name="file"><![CDATA[data/dem/global/OB_LR/OB_LR.tif]]></Parameter>
+       <Parameter name="type"><![CDATA[raster]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -58,7 +57,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>detailled</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/detailled/land_polygons.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/land_polygons.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -74,7 +73,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>simple</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/simple/simplified_land_polygons.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/simplified_land_polygons.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -89,8 +88,8 @@
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>global_relief</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/global_relief.tif]]></Parameter>
-       <Parameter name="type"><![CDATA[gdal]]></Parameter>
+       <Parameter name="file"><![CDATA[data/dem/global/NE2_HR_LC_SR_W/NE2_HR_LC_SR_W.tif]]></Parameter>
+       <Parameter name="type"><![CDATA[raster]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -632,10 +631,10 @@ SELECT way, waterway AS type
   </Rule>
 </Style>
 <Layer name="10mrivers"
-  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+  srs="+proj=longlat +datum=WGS84 +no_defs">
     <StyleName>10mrivers</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/10mrivers/ne_10m_rivers_lake_centerlines.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_rivers_lake_centerlines.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1078,7 +1077,7 @@ SELECT way, way_area AS area, name
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>10mlakes</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/10mlakes/ne_10m_lakes.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_lakes.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1549,7 +1548,7 @@ SELECT way
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshading</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/hillshading.vrt]]></Parameter>
+       <Parameter name="file"><![CDATA[data/hillshade/eu/eudem-3785-hs.vrt]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1565,7 +1564,7 @@ SELECT way
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>admin_claim</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/admin_claim/ne_10m_admin_0_disputed_areas.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_0_disputed_areas.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1601,7 +1600,7 @@ SELECT way
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>admin_global</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/admin_global/ne_10m_admin_0_boundary_lines_land_2.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_0_boundary_lines_land_2.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1613,6 +1612,7 @@ SELECT way
   </Rule>
 </Style>
 <Layer name="admin_local"
+  status="off"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>admin_local</StyleName>
     <Datasource>
@@ -1635,32 +1635,32 @@ FROM borders
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <LineSymbolizer stroke-width="0.8" stroke="#444444" stroke-dasharray="8, 8" />
-    <TextSymbolizer size="9" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="9" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <LineSymbolizer stroke-width="0.8" stroke="#444444" stroke-dasharray="8, 8" />
-    <TextSymbolizer size="8" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="8" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <LineSymbolizer stroke-width="0.8" stroke="#444444" stroke-dasharray="8, 8" />
-    <TextSymbolizer size="10" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="10" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>3000000</MinScaleDenominator>
     <LineSymbolizer stroke-width="0.8" stroke="#444444" stroke-dasharray="8, 8" />
-    <TextSymbolizer size="11" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="11" character-spacing="0.8" fontset-name="fontset-1" placement="line" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" dy="7" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="ne10mgeographiclines"
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>ne10mgeographiclines</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/ne10mgeographiclines/ne_10m_geographic_lines.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_geographic_lines.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1771,7 +1771,7 @@ FROM borders
     <StyleName>ne10mroads-inner</StyleName>
     <StyleName>ne10mroads</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/ne10mroads/ne_10m_roads.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_roads.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1830,7 +1830,7 @@ FROM borders
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>ne10mstates</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/ne10mstates/ne_10m_admin_1_states_provinces_lines_shp.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_1_states_provinces_lines_shp.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1847,7 +1847,7 @@ FROM borders
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>ne10mstates_label</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/ne10mstates_label/ne_10m_admin_1_states_provinces.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_1_states_provinces.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1988,7 +1988,7 @@ FROM borders
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>countries</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/countries/ne_10m_admin_0_countries.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_0_countries.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1999,28 +1999,28 @@ FROM borders
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([ele].match('.*000')) and ([ele].match('.*00'))</Filter>
     <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
-    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([ele].match('.*000'))</Filter>
     <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
-    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([ele].match('.*500')) and ([ele].match('.*00'))</Filter>
     <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
-    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([ele].match('.*500'))</Filter>
     <LineSymbolizer smooth="1" stroke-width="0.5" stroke-opacity="0.25" stroke="#7f3300" />
-    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="200" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
@@ -2059,7 +2059,7 @@ SELECT way, ele
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([ele].match('.*00'))</Filter>
     <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
-    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="400" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
+    <TextSymbolizer size="9" fontset-name="fontset-3" placement="line" spacing="400" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -2091,7 +2091,7 @@ SELECT way, ele
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([ele].match('.*00'))</Filter>
     <LineSymbolizer stroke-opacity="0.5" smooth="1" stroke-width="0.5" stroke="#7f3300" />
-    <TextSymbolizer spacing="300" size="9" fontset-name="fontset-3" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.19999999999999996)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
+    <TextSymbolizer spacing="300" size="9" fontset-name="fontset-3" placement="line" fill="rgba(51, 20, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.2)" halo-radius="1.5" ><![CDATA[[ele]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
@@ -5897,12 +5897,12 @@ SELECT way, ST_Perimeter(way)::integer as boundary
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([bicycle] = 'no')</Filter>
-    <LineSymbolizer stroke="rgba(255, 0, 0, 0.19999999999999996)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+    <LineSymbolizer stroke="rgba(255, 0, 0, 0.2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([bicycle] = 'yes')</Filter>
-    <LineSymbolizer stroke="rgba(0, 128, 0, 0.19999999999999996)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+    <LineSymbolizer stroke="rgba(0, 128, 0, 0.2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -9453,12 +9453,12 @@ AND (bridge IS NULL OR bridge NOT IN('yes'))
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([bicycle] = 'no')</Filter>
-    <LineSymbolizer stroke="rgba(255, 0, 0, 0.19999999999999996)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+    <LineSymbolizer stroke="rgba(255, 0, 0, 0.2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([bicycle] = 'yes')</Filter>
-    <LineSymbolizer stroke="rgba(0, 128, 0, 0.19999999999999996)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
+    <LineSymbolizer stroke="rgba(0, 128, 0, 0.2)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -17417,11 +17417,6 @@ select ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where water
     <Filter>([reflen] &lt;= 5)</Filter>
     <ShieldSymbolizer minimum-distance="150" size="9" fontset-name="fontset-3" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <Filter>([reflen] &lt;= 5) and ([type] = 'motorway')</Filter>
-    <ShieldSymbolizer size="9" fontset-name="fontset-3" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" ><![CDATA[[ref]]]></ShieldSymbolizer>
-  </Rule>
 </Style>
 <Layer name="road_shields"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
@@ -18380,24 +18375,6 @@ WHERE tourism IN ('viewpoint', 'information', 'zoo', 'aquarium', 'attraction', '
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([place] = 'city') and ([pop] &gt; 500000)</Filter>
-    <TextSymbolizer size="16" dy="100" dx="100" character-spacing="0.8" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>200000</MinScaleDenominator>
-    <Filter>([place] = 'city') and ([pop] &gt; 500000)</Filter>
-    <TextSymbolizer size="12" dy="30" dx="30" character-spacing="0.8" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([place] = 'city') and ([pop] &gt; 500000)</Filter>
-    <TextSymbolizer size="10" dy="10" dx="10" character-spacing="0.8" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'city')</Filter>
     <TextSymbolizer size="16" dy="100" dx="100" character-spacing="0.8" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="1.5" wrap-width="100" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
@@ -18591,11 +18568,11 @@ FROM planet_osm_polygon
   </Rule>
 </Style>
 <Layer name="cities"
-  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+  srs="+proj=longlat +datum=WGS84 +no_defs">
     <StyleName>cities-capitals</StyleName>
     <StyleName>cities-major</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/cities/ne_10m_populated_places.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_populated_places.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -18639,10 +18616,10 @@ FROM planet_osm_polygon
 </Style>
 <Layer name="cities_osm"
   status="off"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>cities_osm</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/media/Linux-Data/henry/Apps/TileGenerator/tilemill/layers/cities_osm/places.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/places.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
