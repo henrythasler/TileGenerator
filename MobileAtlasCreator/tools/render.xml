@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
  <ExternalTool>
-    <name>generate HD-Tiles</name>
-	<command>exo-open --launch TerminalEmulator /media/Linux-Data/henry/Apps/TileGenerator/renderHD.sh</command>
+    <name>render HD Tiles</name>
+	<command>exo-open --launch TerminalEmulator /media/mapdata/henry/TileGenerator/render.sh</command>
 	<parameters>MAX_LAT MAX_LON MIN_LAT MIN_LON MIN_ZOOM MAX_ZOOM MAPSOURCE_NAME MAPSOURCE_DISPLAYNAME NAME_EDITBOX</parameters>    
 	<debug>false</debug>
 </ExternalTool>
