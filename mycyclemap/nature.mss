@@ -31,6 +31,8 @@
 #forest[zoom>=14][zoom<15][area>=1000], 
 #forest[zoom>=15] {
   polygon-fill: @forest;
+  line-width: 0.1;
+  line-color:@forest;  
 }
 
 #forest_label[zoom>=12][zoom<13][area>=10000000],
@@ -301,4 +303,58 @@
 {
   polygon-opacity:1;
   polygon-fill:@beach;
+}
+
+
+#nature_reserve[zoom>=8][zoom<10][area>=80000000],
+#nature_reserve[zoom>=10][zoom<12][area>=20000000],
+#nature_reserve[zoom>=12][zoom<13][area>=200000],
+#nature_reserve[zoom>=13][zoom<14][area>=50000],
+#nature_reserve[zoom>=14]
+{
+  ::outer {
+    line-width: 2;
+    line-opacity: 0.6;
+    line-color: green;
+    line-cap: round;
+    line-join: round;  
+    [zoom<=9] {
+      line-width: 1;
+      }
+    }
+  ::inner {
+    line-width: 8;
+    line-offset: -3;
+    line-opacity: 0.3;
+    line-color: green;
+    line-cap: round;
+    line-join: round;  
+    [zoom<=9] {
+      line-width: 4;
+      line-offset: -1;
+      }
+    [zoom=10] {
+      line-width: 6;
+      line-offset: -2;
+      }
+    }
+}  
+
+#nature_reserve_label[zoom>=8][zoom<10][area>=1200000000],
+#nature_reserve_label[zoom>=10][zoom<12][area>=80000000],
+#nature_reserve_label[zoom>=12][zoom<13][area>=6000000][area<1200000000],
+#nature_reserve_label[zoom>=13][zoom<14][area>=1000000][area<80000000],
+#nature_reserve_label[zoom>=14][area>=10000][area<6000000]
+{
+  text-name: [name];
+  text-size: 9;
+  text-character-spacing: 0.8;
+  text-face-name:@sans_bold_italic;
+  text-fill:green;
+  text-halo-fill: @text_halo;
+  text-halo-radius:1.5;   
+  text-wrap-width: 100;
+  text-wrap-before: true;
+  text-placement: interior;
+  text-placement-type: simple;  
 }

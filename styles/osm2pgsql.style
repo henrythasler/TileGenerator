@@ -55,6 +55,7 @@ node,way   ele          text         linear
 node,way   embankment   text         linear
 node,way   foot         text         linear
 node,way   generator:source    text  linear
+node,way   geological   text         polygon
 node,way   harbour      text         polygon
 node,way   highway      text         linear
 node,way   historic     text         polygon

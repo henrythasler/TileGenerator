@@ -1,4 +1,4 @@
-#simple[zoom<10],
+#simple[zoom>=8][zoom<10],
 #detailled[zoom>=10]{
   polygon-fill:@land;
 }
