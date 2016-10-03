@@ -373,7 +373,7 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "hillshading",
-      "status": "off"
+      "status": "on"
     },
     {
       "geometry": "polygon",
@@ -527,7 +527,7 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "contours_low",
-      "status": "off"
+      "status": "on"
     },
     {
       "geometry": "linestring",
@@ -548,7 +548,7 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "contours_med",
-      "status": "off"
+      "status": "on"
     },
     {
       "geometry": "linestring",
@@ -569,7 +569,7 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "contours_high",
-      "status": "off"
+      "status": "on"
     },
     {
       "geometry": "polygon",
@@ -941,27 +941,6 @@
       "extent": [-180,-85.05112877980659,180,85.05112877980659],      
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, ref\n  FROM planet_osm_point\n  WHERE \"highway\" IN ('motorway_junction')\n) as data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "exits_old",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "exits_old",
-      "status": "off"
-    },
-    {
-      "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
-      "Datasource": {
-        "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 300) as snapped, way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 300) as snapped, ST_Centroid(way) as way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\nORDER BY snapped, prio\n) as data",
         "key_field": "",
         "geometry_field": "",
@@ -1082,6 +1061,26 @@
       "extent": [-180,-85.05112877980659,180,85.05112877980659],      
       "Datasource": {
         "type": "postgis",
+        "table": "(SELECT DISTINCT ON(snapped) way FROM (SELECT ST_SnapToGrid(way, 200) as snapped, way FROM planet_osm_point WHERE highway='bus_stop') as tmp ) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "bus_stop",
+      "class": "poi",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "bus_stop"
+    },
+    {
+      "geometry": "point",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele\nFROM\n(\nSELECT ST_SnapToGrid(way, 400) as snapped, way, name, ele\nFROM planet_osm_point\nWHERE \"natural\" = 'peak'\n) as tmp\n) as DATA\n\n",
         "key_field": "",
         "geometry_field": "",
@@ -1096,27 +1095,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "peaks"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
-      "Datasource": {
-        "type": "postgis",
-        "table": "(\nselect way, name, st_length(st_transform(way,4326)::geography)::integer as length from\n(\nselect ST_LineMerge(ST_Union(way)) as way, name from planet_osm_line where waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-1', '-2') OR layer IS NULL) group by name\n) as merged where name is not null order by length desc\n) as data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "waterway_label_old",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "waterway_label_old",
-      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -1257,27 +1235,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "glacier_label"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT ST_LineMerge(ST_Union(way)) as way, route_name from planet_osm_line \nWHERE route='bicycle' AND route_name IS NOT NULL group by route_name) as data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "cycleroute_labels_old",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "cycleroute_labels_old",
-      "status": "off"
     },
     {
       "geometry": "linestring",

@@ -26,6 +26,12 @@
   }  
 }
 
+#bus_stop[zoom>=15] {
+  marker-file: url(img/bus_stop.svg);
+  marker-width:9;
+  marker-clip: false;
+  marker-allow-overlap:true;
+}
 
 #station[zoom>=11] {
   ::marker {
@@ -88,6 +94,7 @@
     }  
   }  
 }
+
 
 
 

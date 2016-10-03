@@ -1,0 +1,886 @@
+{
+  "bounds": [
+    10.676,
+    48.0694,
+    11.261,
+    48.4105
+  ],
+  "center": [
+    10.9678,
+    48.2603,
+    13
+  ],
+  "format": "png8",
+  "minzoom": 0,
+  "maxzoom": 18,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "defines.mms",
+    "nature.mms",
+    "virtual.mms",
+    "manmade.mms",
+    "routes.mms",
+    "roads.mms",
+    "labels.mms"
+  ],
+  "Layer": [
+    {
+      "geometry": "polygon",
+      "id": "simplified_land_polygons",
+      "name": "simplified_land_polygons",
+      "class": "land",
+      "Datasource": {
+        "type": "shape",
+        "file": "data/shp/simplified_land_polygons.shp"
+      },
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "id": "land_polygons",
+      "name": "land_polygons",
+      "class": "land",
+      "Datasource": {
+        "file": "data/shp/land_polygons.shp",
+        "type": "shape"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "id": "countries",
+      "name": "countries",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/ne_10m_admin_0_countries.shp",
+        "type": "shape"
+      },
+      "layer": null,
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs",
+      "advanced": {},
+      "status": "off",
+    },
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE landuse IN ('residential', 'commercial', 'retail')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "residental",
+      "name": "residental",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way\n  FROM planet_osm_polygon\n  WHERE aeroway IN ('aerodrome')\n    OR landuse IN ('industrial')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+
+      },
+      "id": "industrial",
+      "name": "industrial",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"leisure\" IN ('park', 'playground', 'pitch', 'golf_course')\n    OR landuse IN ('recreation_ground', 'grass', 'cemetery')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "grassland",
+      "name": "grassland",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wood', 'scrub')\n    OR landuse IN ('forest')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "forest",
+      "name": "forest",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\"='beach' AND (surface='sand' OR surface IS NULL)\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "beach",
+      "name": "beach",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, waterway AS type\n  FROM planet_osm_line\n  WHERE waterway IN ('riverbank', 'river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-2') OR layer IS NULL)\n  UNION\n  SELECT way, waterway AS type\n  FROM planet_osm_polygon\n  WHERE waterway IN ('riverbank')\n) as DATA\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "waterway",
+      "name": "waterway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR landuse IN ('reservoir', 'basin')\n   OR waterway IN ('pond')\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "lakes",
+      "name": "lakes",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wetland')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "swamp",
+      "name": "swamp",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way\n  FROM planet_osm_line\n  WHERE waterway = 'weir'\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "weir",
+      "name": "weir",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE route IN ('ferry') \n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "shiproute",
+      "name": "shiproute",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "unknown",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('glacier')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "glacier",
+      "name": "glacier",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE landuse IN ('military')\n    OR military IN ('danger_area')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "military",
+      "name": "military",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, way_area AS area  FROM planet_osm_polygon WHERE leisure IN ('nature_reserve')) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "nature_reserve",
+      "name": "nature_reserve",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "id": "admin_claim",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/ne_10m_admin_0_disputed_areas.shp",
+	      "type": "shape"
+        
+      },
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "name": "admin_claim"
+    },    
+    {
+      "geometry": "linestring",
+      "id": "admin_global",
+      "name": "admin_global",
+      "class": "",
+      "Datasource": {
+        "type": "shape",
+        "file": "data/shp/ne_10m_admin_0_boundary_lines_land.shp"
+      },
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "layer": null,
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "id": "admin_local",
+      "name": "admin_local",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/borders_land.shp",
+	      "type": "shape"
+        
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+    },      
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "id": "ne10mgeographiclines",
+      "name": "ne10mgeographiclines",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/ne_10m_geographic_lines.shp",
+	      "type": "shape"
+        
+      },
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way\nFROM planet_osm_line\nWHERE man_made='pier' AND (access<>'private' OR access IS NULL)\nUNION\nSELECT way\nFROM planet_osm_polygon\nWHERE man_made='pier' AND (access<>'private' OR access IS NULL)\n) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "pier",
+      "name": "pier",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },        
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE aeroway IN ('taxiway') \n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "taxiway",
+      "name": "taxiway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, st_length(st_transform(way,4326)::geography)::integer as length\n  FROM planet_osm_line\n  WHERE aeroway IN ('runway') \n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "runway",
+      "name": "runway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way,\n  CASE \n WHEN \"piste:difficulty\" IN ('novice', 'easy') THEN 2\n WHEN \"piste:difficulty\"='intermediate' THEN 1\n  ELSE 0\n  END as difficulty\n  FROM planet_osm_line\n  WHERE \"piste:type\" = 'downhill'\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "piste",
+      "name": "piste",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, ST_Perimeter(way)::integer as boundary\n  FROM planet_osm_polygon\n  WHERE barrier IN ('fence') AND (ST_Perimeter(way)::integer > 400)\nUNION\nSELECT way, ST_Perimeter(way)::integer as boundary\n  FROM planet_osm_line\n  WHERE barrier IN ('fence') AND (ST_Length(way)::integer > 400)\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "fence",
+      "name": "fence",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },        
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "( SELECT way, \"building\" AS type,  way_area AS area\n  FROM planet_osm_polygon\n  WHERE building NOT IN ('0','false', 'no')\n  ORDER BY ST_YMin(ST_Envelope(way)) DESC\n) AS data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "buildings",
+      "name": "buildings",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT 
+                    way, 
+                    bicycle, 
+                    CASE WHEN \"mtb:scale\"~E'^\\\\d+$' THEN \"mtb:scale\"::integer 
+                     ELSE NULL 
+                    END as mtbscale,
+                    st_length(st_transform(way,4326)::geography)::integer as length
+                    FROM planet_osm_line
+                    WHERE 
+                      highway IN ('path', 'footway', 'steps', 'bridleway')
+                      AND 
+                      (bicycle IS NULL OR bicycle NOT IN('designated'))
+                      AND 
+                      (bridge IS NULL OR bridge NOT IN('yes'))
+                  ) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres",
+        "id": "path",
+        "project": "TileGenerator",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "path",
+      "name": "path",
+      "class": "path",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, tunnel, bridge, tracktype, oneway, st_length(st_transform(way,4326)::geography)::integer as length, \n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') AND (service IS NULL OR service NOT IN ('parking_aisle')) OR (highway IN ('track') AND tracktype IN ('grade1'))) \nAND (bridge IS NULL OR bridge NOT IN('yes'))\n--AND (tunnel IS NULL OR tunnel NOT IN('yes'))\n ORDER BY prio DESC\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "roads",
+      "name": "roads",
+      "class": "roads label",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, tracktype, bicycle\n  FROM planet_osm_line\n  WHERE highway IN ('track') AND (tracktype IS NULL OR tracktype <> 'grade1')\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "track",
+      "name": "track",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, tunnel, railway as type\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND (service IS NULL OR service NOT IN('yard')) AND attraction IS NULL\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "railway",
+      "name": "railway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT 
+                    way, 
+                    bicycle, 
+                    CASE WHEN \"mtb:scale\"~E'^\\\\d+$' THEN \"mtb:scale\"::integer 
+                     ELSE NULL 
+                    END as mtbscale,
+                    st_length(st_transform(way,4326)::geography)::integer as length
+                    FROM planet_osm_line
+                    WHERE 
+                      highway IN ('path', 'footway', 'steps', 'bridleway')
+                      AND 
+                      (bicycle IS NULL OR bicycle NOT IN('designated'))
+                      AND 
+                      (bridge IN('yes'))
+                  ) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres",
+        "id": "path",
+        "project": "TileGenerator",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "path_bridge",
+      "name": "path_bridge",
+      "class": "path",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },       
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT
+                    way,  
+                    highway AS type, 
+                    name, 
+                    tracktype, 
+                    tunnel, 
+                    bridge, 
+                    oneway, 
+                    z_order, 
+                    st_length(st_transform(way,4326)::geography)::integer as length,
+                    CASE 
+                      WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90
+                      WHEN highway IN ('trunk', 'trunk_link') THEN 100
+                      WHEN highway IN ('primary', 'primary_link') THEN 60
+                      WHEN highway IN ('secondary', 'secondary_link') THEN 50
+                      WHEN highway IN ('tertiary', 'tertiary_link') THEN 40
+                      WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1')) THEN 30
+                      ELSE 0 
+                    END as prio
+                    FROM planet_osm_line
+                    WHERE 
+                      (
+                      highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') 
+                        OR 
+                      (highway IN ('track') AND tracktype IN ('grade1'))
+                      ) 
+                      AND bridge IN('yes') AND (layer IS NULL OR layer <= '1')
+                  ORDER BY prio DESC) 
+                  as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "bridges_layer1",
+      "name": "bridges_layer1",
+      "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, st_length(st_transform(way,4326)::geography)::integer as length,\n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND bridge IN('yes') AND (layer >= '2')\n ORDER BY prio DESC\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "bridges_layer2",
+      "name": "bridges_layer2",
+      "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM cycleroutes) as data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "cycleroute",
+      "name": "cycleroute",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way FROM planet_osm_line WHERE highway = 'cycleway' OR bicycle = 'designated') as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "cycleway",
+      "name": "cycleway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, name, \nCASE WHEN attraction = 'summer_toboggan' THEN 'toboggan' \nELSE aerialway END as type\n  FROM planet_osm_line\n  WHERE aerialway IN ('cable_car', 'chairlift', 'gondola', 'chair_lift', 'mixed_lift', 'goods') \n OR railway = 'funicular' OR attraction = 'summer_toboggan'\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "aerialway",
+      "name": "aerialway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "point",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way FROM planet_osm_point WHERE power IN ('tower', 'station', 'sub_station')) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "powermast",
+      "name": "powermast",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way FROM planet_osm_line  WHERE power IN ('line', 'minor_line')) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "powerline",
+      "name": "powerline",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },    
+    {
+      "geometry": "point",
+      "Datasource": {
+        "type": "postgis",
+        "table": "( 
+                  SELECT 
+                    way, 
+                    CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, 
+                    ele,  
+                    100000 AS area, 
+                    place, 
+                    CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop
+                  FROM planet_osm_point 
+                  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL
+                  UNION
+                  SELECT 
+                    way, 
+                    CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, 
+                    ele,  
+                    way_area AS area, 
+                    place, 
+                    CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop
+                  FROM planet_osm_polygon
+                  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL
+                  ) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "id": "towns",
+      "name": "towns",
+      "class": "poi",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+  ]
+}
