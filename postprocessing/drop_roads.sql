@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS planet_osm_roads;
