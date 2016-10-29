@@ -1,19 +1,19 @@
 .roads[zoom>=8] {
   ::outer {
     [bridge!='yes'][tunnel!='yes'] {line-cap: round;}
-    line-join: round;  
+    line-join: round;
   	line-color:black;
     line-width: 0;
-    [tunnel='yes'][zoom>=8]{ 
+    [tunnel='yes'][zoom>=8]{
       line-dasharray: 2,2;
       [zoom>=12][zoom<14] {
         line-dasharray: 3,3;
-      }  
+      }
       [zoom>=14] {
         line-dasharray: 6,6;
-      } 
+      }
     }
-    
+
     // Autobahnen und Bundesstraßen mit baulich getrennten Fahrspuren
     [type='motorway_link'],
     [type='motorway'],
@@ -88,8 +88,8 @@
         [zoom>=15]{
           line-width: 8;
         }
-      }  
-    }  
+      }
+    }
 	// Landstraßen
     [zoom>=9] {
       [type='secondary'],[type='secondary_link']{
@@ -113,8 +113,8 @@
         [zoom>=15]{
           line-width: 7.5;
         }
-      }  
-	}    
+      }
+	}
 	// Kreisstraßen
     [zoom>=10] {
       [type='tertiary'],[type='tertiary_link']{
@@ -132,9 +132,9 @@
         [zoom>=15]{
           line-width: 7.5;
         }
-      }  
-	}    
-    
+      }
+	}
+
 	// sonstige Straßen
     [zoom>=12] {
       [type='road'],
@@ -159,23 +159,23 @@
         [zoom>=15]{
           line-width: 5;
         }
-      }  
-	}    
-    
+      }
+	}
+
 	// Zufahrten und Wirtschaftswege
     [zoom>=12] {
       [type='service'],
       {
         line-color:black;
         line-width: 0;
-        [tunnel='yes']{ 
+        [tunnel='yes']{
           line-dasharray: 2,2;
           [zoom>=12][zoom<14] {
             line-dasharray: 3,3;
-          }  
+          }
           [zoom>=14] {
             line-dasharray: 6,6;
-          }  
+          }
         }
         [zoom>=12][zoom<13][length>300]{
           line-color:grey;
@@ -190,14 +190,14 @@
         [zoom>=15]{
           line-width: 3;
         }
-      }  
-	}    
+      }
+	}
   }
-  ::inner {  
+  ::inner {
     line-cap: round;
-    line-join: round;  
+    line-join: round;
     line-width: 0;
-   
+
 	// Zufahrten und Wirtschaftswege
     [zoom>=13] {
       [type='service'],
@@ -216,9 +216,9 @@
         [zoom>=15]{
           line-width: 2;
         }
-      }  
-	}    
-    
+      }
+	}
+
 	// sonstige Straßen
     [zoom>=13] {
       [type='road'],
@@ -242,10 +242,10 @@
         [zoom>=15]{
           line-width: 4;
         }
-      }  
-	}    
-    
-    
+      }
+	}
+
+
 	// Kreisstraßen
     [zoom>=10] {
       [type='tertiary'],[type='tertiary_link']{
@@ -263,9 +263,9 @@
         [zoom>=15]{
           line-width: 6;
         }
-      }  
-    }  
-    
+      }
+    }
+
 	// Landstraßen
     [zoom>=9] {
       [type='secondary'],[type='secondary_link']{
@@ -286,9 +286,9 @@
         [zoom>=15]{
           line-width: 6;
         }
-      }  
-    }  
-    
+      }
+    }
+
 	// Bundesstraßen
     [zoom>=8] {
       [type='trunk'][oneway!='yes'],
@@ -310,9 +310,9 @@
         [zoom>=15]{
           line-width: 6;
         }
-      }  
-    }  
-    
+      }
+    }
+
     // Autobahnen und Bundesstraßen mit baulich getrennten Fahrspuren
     [type='motorway_link'],
     [type='motorway'],
@@ -363,17 +363,17 @@
   text-fill:@peak_text;
   text-halo-fill: @text_halo_strong;
   text-halo-radius:1;
-}  
+}
 
 #track[zoom>=12] {
   ::outer[zoom>=14] {
     line-cap: round;
-    line-join: round;  
+    line-join: round;
     line-color: fadeout(white, 60%);
     [bicycle='yes']{line-color: fadeout(green, 80%);}
     [bicycle='no']{line-color: fadeout(red, 80%);}
     line-width:6;
-  }  
+  }
   ::inner {
     line-color:@track_light;
     [zoom<=13] {line-color:@track_dark;}
@@ -381,26 +381,26 @@
     [zoom>=13] {line-width:1;}
     line-dasharray: 4,2;
     [tracktype='grade4'],[tracktype='grade5'] {line-dasharray: 1.5,1.5;}
-    
+
     [zoom>=14] {
       line-width:1.5;
       line-dasharray: 6,3;
       [tracktype='grade4'],[tracktype='grade5'] {line-dasharray: 2,2;}
-    }  
+    }
   }
 }
 
 #path[zoom>=13] {
   ::outer[zoom>=14] {
     line-cap: round;
-    line-join: round;  
+    line-join: round;
     line-color: fadeout(white, 60%);
     [bicycle='yes']{line-color: fadeout(green, 80%);}
     [bicycle='no']{line-color: fadeout(red, 80%);}
     line-width:6;
-  }  
+  }
   line-cap: round;
-  line-join: round;  
+  line-join: round;
   line-width:0.75;
   line-opacity: 0.5;
   [zoom>=14][zoom<15] {line-opacity: 1;line-width:1;}
@@ -411,14 +411,14 @@
     [mtbscale>=3]{marker-line-width: 0; marker-width: 6;marker-fill: black;}
     [mtbscale=2]{marker-line-width: 0; marker-width: 6;marker-fill: red;}
     [mtbscale>=0][mtbscale<2]{marker-line-width: 0; marker-width: 6;marker-fill: blue;}
-  }  
+  }
 
 }
 
 #cycleway[zoom>=12] {
 //  line-offset: 2;
   line-cap: round;
-  line-join: round;    
+  line-join: round;
   line-width:0.7;
   line-dasharray: 4,4;
   line-color:blue;
@@ -456,7 +456,7 @@
   text-placement:line;
   text-fill:fadeout(darken(blue, 30%),20%);
   text-halo-fill: fadeout(white, 40%);
-  text-halo-radius:1.5; 
+  text-halo-radius:1.5;
 }
 
 #road_shields[zoom>=9][reflen<=5] {
@@ -499,34 +499,34 @@
 // Major
 #ne10mroads["type"='Major Highway'][zoom>=5][zoom<=7] {
   ::outer {
-    line-join: round;  
+    line-join: round;
     line-color:black;
     line-width: 3;
     [zoom=5] {line-width: 0.8; line-color:@darkgrey;}
     [zoom=6] {line-width: 2; line-color:@darkgrey;}
-  }  
+  }
   ::inner[zoom>=6] {
-    line-join: round;  
+    line-join: round;
     line-color:@motorway;
     line-width: 1.8;
     [zoom=6] {line-width: 1;}
-  }  
+  }
 }
 
 // Secondary
 #ne10mroads[scalerank<7]["type"='Secondary Highway'][zoom>=6][zoom<=7],
 #ne10mroads["type"='Beltway'][zoom>=6][zoom<=7] {
   ::outer {
-    line-join: round;  
+    line-join: round;
     line-color:black;
     line-width: 2;
     [zoom=6] {line-width: 0.8; line-color:@darkgrey;}
-  }  
+  }
   ::inner[zoom>=7] {
-    line-join: round;  
+    line-join: round;
     line-color:@primary;
     line-width: 1.2;
-  }  
+  }
 }
 
 // Roads
@@ -541,13 +541,13 @@
   line-width:0.8;
   line-dasharray: 5,5;
   [zoom>=6]{line-width:1;line-dasharray: 6,6;}
-}  
+}
 
 #piste[zoom>=15] {
   line-width:3;
   line-opacity: 0.5;
   line-cap: round;
-  line-join: round;  
+  line-join: round;
   line-color:black;
   [difficulty=1] {line-color:red;}
   [difficulty=2] {line-color:blue;}

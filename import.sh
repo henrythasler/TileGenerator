@@ -34,7 +34,7 @@
 src="/media/henry/Tools/map/data/slice.osm.pbf"
 dbname="mering"
 #dbname="empty"
-param="-C 10000 -G -v --number-processes 2"
+param="-C 10000 -G -v --number-processes 4 --slim"
 
 #src="/media/ramdisk/china-latest.osm.pbf"
 #dbname="china"
@@ -53,11 +53,13 @@ psql -U postgres -c "CREATE DATABASE $dbname;"
 
 psql -U postgres -d $dbname -c "CREATE EXTENSION postgis;"
 psql -U postgres -d $dbname -c "CREATE EXTENSION postgis_topology;"
-#psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql
-#psql -U postgres -q -d $dbname -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql
+psql -U postgres -d $dbname -c "CREATE EXTENSION postgis_sfcgal;"
 
 osm2pgsql $param -U postgres -d $dbname -c -S styles/osm2pgsql.style $src
 psql -U postgres -d $dbname -f postprocessing/cycleroutes.sql
+psql -U postgres -d $dbname -f postprocessing/drop_roads.sql
+psql -U postgres -d $dbname -f postprocessing/subway.sql
+psql -U postgres -d $dbname -f postprocessing/tram.sql
 
 
 #psql -U postgres -c "create database south;"

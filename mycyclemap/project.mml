@@ -26,7 +26,7 @@
   "Layer": [
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "detailled",
       "class": "land",
       "Datasource": {
@@ -41,13 +41,13 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "simple",
       "class": "land",
       "Datasource": {
         "file": "data/shp/simplified_land_polygons.shp",
 	"type": "shape"
-        
+
       },
       "layer": null,
       "srs-name": "900913",
@@ -57,23 +57,23 @@
     },
     {
       "geometry": "raster",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "global_relief",
       "class": "",
       "Datasource": {
-        "file": "data/dem/global/NE2_HR_LC_SR_W/NE2_HR_LC_SR_W.tif",
+        "file": "data/dem/global/NE2_HR_LC_SR_W/NE2_HR_LC_SR_W-3785.tif",
        	"type": "raster"
 
       },
       "layer": null,
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "global_relief"
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE landuse IN ('residential', 'commercial', 'retail')) AS data",
@@ -93,7 +93,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way\n  FROM planet_osm_polygon\n  WHERE aeroway IN ('aerodrome')\n    OR landuse IN ('industrial')) AS data",
@@ -114,7 +114,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"leisure\" IN ('park', 'playground', 'pitch', 'golf_course')\n    OR landuse IN ('recreation_ground', 'grass', 'cemetery')) AS data",
@@ -134,7 +134,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wood', 'scrub')\n    OR landuse IN ('forest')) AS data",
@@ -154,7 +154,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\"='beach' AND (surface='sand' OR surface IS NULL)\n) AS data",
@@ -174,7 +174,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, waterway AS type\n  FROM planet_osm_line\n  WHERE waterway IN ('riverbank', 'river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-2') OR layer IS NULL)\n  UNION\n  SELECT way, waterway AS type\n  FROM planet_osm_polygon\n  WHERE waterway IN ('riverbank')\n) as DATA\n",
@@ -194,7 +194,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "10mrivers",
       "class": "",
       "Datasource": {
@@ -206,7 +206,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR landuse IN ('reservoir', 'basin')\n   OR waterway IN ('pond')\n) AS data",
@@ -226,13 +226,13 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "10mlakes",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_lakes.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -240,7 +240,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wetland')) AS data",
@@ -260,7 +260,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way\n  FROM planet_osm_line\n  WHERE waterway = 'weir'\n) as DATA",
@@ -280,7 +280,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE route IN ('ferry') \n) as DATA",
@@ -300,7 +300,7 @@
     },
     {
       "geometry": "unknown",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('glacier')) AS data",
@@ -320,7 +320,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area\n  FROM planet_osm_polygon\n  WHERE landuse IN ('military')\n    OR military IN ('danger_area')) AS data",
@@ -340,7 +340,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area  FROM planet_osm_polygon WHERE leisure IN ('nature_reserve')) AS data",
@@ -358,10 +358,10 @@
       "advanced": {},
       "name": "nature_reserve"
     },
-    
+
     {
       "geometry": "raster",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "hillshading",
       "class": "",
       "Datasource": {
@@ -377,13 +377,13 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "admin_claim",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_admin_0_disputed_areas.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -391,13 +391,13 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "admin_global",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_admin_0_boundary_lines_land_2.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -405,7 +405,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way\nFROM borders\n) AS data",
@@ -425,28 +425,28 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "admin_local",
       "class": "",
       "Datasource": {
         "file": "data/shp/borders_land.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "name": "admin_local",
       "status": "off",
-    },    
+    },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "ne10mgeographiclines",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_geographic_lines.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -454,13 +454,13 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "ne10mroads",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_roads.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -468,13 +468,13 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "ne10mstates",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_admin_1_states_provinces_lines_shp.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -482,13 +482,13 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "ne10mstates_label",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_admin_1_states_provinces.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -496,13 +496,13 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "countries",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_admin_0_countries.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -510,7 +510,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n  WHERE (ele%50) = 0\n) as DATA",
@@ -531,7 +531,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n  WHERE (ele%20) = 0\n) as DATA",
@@ -552,7 +552,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n) as DATA",
@@ -573,7 +573,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "( SELECT way, \"building\" AS type,  way_area AS area\n  FROM planet_osm_polygon\n  WHERE building NOT IN ('0','false', 'no')\n  ORDER BY ST_YMin(ST_Envelope(way)) DESC\n) AS data",
@@ -593,7 +593,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way\nFROM planet_osm_line\nWHERE man_made='pier' AND (access<>'private' OR access IS NULL)\nUNION\nSELECT way\nFROM planet_osm_polygon\nWHERE man_made='pier' AND (access<>'private' OR access IS NULL)\n) as data",
@@ -613,7 +613,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE aeroway IN ('taxiway') \n) as DATA",
@@ -633,7 +633,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, st_length(st_transform(way,4326)::geography)::integer as length\n  FROM planet_osm_line\n  WHERE aeroway IN ('runway') \n) as DATA",
@@ -653,7 +653,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way,\n  CASE \n WHEN \"piste:difficulty\" IN ('novice', 'easy') THEN 2\n WHEN \"piste:difficulty\"='intermediate' THEN 1\n  ELSE 0\n  END as difficulty\n  FROM planet_osm_line\n  WHERE \"piste:type\" = 'downhill'\n) as DATA",
@@ -673,7 +673,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, ST_Perimeter(way)::integer as boundary\n  FROM planet_osm_polygon\n  WHERE barrier IN ('fence') AND (ST_Perimeter(way)::integer > 400)\nUNION\nSELECT way, ST_Perimeter(way)::integer as boundary\n  FROM planet_osm_line\n  WHERE barrier IN ('fence') AND (ST_Length(way)::integer > 400)\n) AS data",
@@ -693,7 +693,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, bicycle, \n  CASE WHEN \"mtb:scale\"~E'^\\\\d+$' THEN \"mtb:scale\"::integer ELSE NULL END as mtbscale,\nst_length(st_transform(way,4326)::geography)::integer as length\n  FROM planet_osm_line\n  WHERE highway IN ('path', 'footway', 'steps', 'bridleway') \nAND (bicycle IS NULL OR bicycle NOT IN('designated'))\n) as DATA",
@@ -716,7 +716,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, highway AS type, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, tunnel, bridge, tracktype, oneway, st_length(st_transform(way,4326)::geography)::integer as length, \n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') AND (service IS NULL OR service NOT IN ('parking_aisle')) OR (highway IN ('track') AND tracktype IN ('grade1'))) \nAND (bridge IS NULL OR bridge NOT IN('yes'))\n--AND (tunnel IS NULL OR tunnel NOT IN('yes'))\n ORDER BY prio DESC\n) as DATA",
@@ -736,7 +736,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, highway AS type, tracktype, bicycle\n  FROM planet_osm_line\n  WHERE highway IN ('track') AND (tracktype IS NULL OR tracktype <> 'grade1')\n) as DATA",
@@ -756,7 +756,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, type, tunnel\nFROM\n(\nSELECT ST_SnapToGrid(way, 1000) as snapped, way, railway as type, tunnel\nFROM planet_osm_line\nWHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction')) AND (service IS NULL OR service NOT IN('yard')) \n) as tmp\n) as data",
@@ -777,7 +777,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, tunnel, railway as type\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular')) AND (service IS NULL OR service NOT IN('yard')) AND attraction IS NULL\n) as DATA",
@@ -797,7 +797,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, z_order, st_length(st_transform(way,4326)::geography)::integer as length,\n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND bridge IN('yes') AND (layer IS NULL OR layer <= '1')\n ORDER BY prio DESC\n) as DATA",
@@ -817,7 +817,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, highway AS type, name, tracktype, tunnel, bridge, oneway, st_length(st_transform(way,4326)::geography)::integer as length,\n  CASE \n WHEN highway IN ('motorway', 'motorway_link') OR (highway IN('trunk') AND oneway IN ('yes')) THEN 90\n WHEN highway IN ('trunk', 'trunk_link') THEN 100\n WHEN highway IN ('primary', 'primary_link') THEN 60\n WHEN highway IN ('secondary', 'secondary_link') THEN 50\n WHEN highway IN ('tertiary', 'tertiary_link') THEN 40\n WHEN highway IN ('road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service')\n   OR (highway IN ('track') AND tracktype IN ('grade1'))\n THEN 30\n  ELSE 0\n  END as prio\nFROM planet_osm_line\n  WHERE (highway IN ('motorway', 'motorway_link', 'trunk', 'trunk_link', 'primary',    'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link', 'road', 'unclassified', 'residential', 'pedestrian', 'living_street', 'service') OR (highway IN ('track') AND tracktype IN ('grade1'))) AND bridge IN('yes') AND (layer >= '2')\n ORDER BY prio DESC\n) as DATA",
@@ -837,7 +837,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT ST_LineMerge(ST_Union(way)) as way, ref from planet_osm_line \nWHERE route='bicycle' group by ref) as data",
@@ -858,7 +858,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\n--SELECT way from planet_osm_line \n--WHERE route='bicycle'\nSELECT * \nFROM cycleroutes\n) as data\n",
@@ -878,7 +878,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE highway IN ('cycleway') \nOR bicycle IN('designated')\n) as DATA",
@@ -898,7 +898,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, name, \nCASE WHEN attraction = 'summer_toboggan' THEN 'toboggan' \nELSE aerialway END as type\n  FROM planet_osm_line\n  WHERE aerialway IN ('cable_car', 'chairlift', 'gondola', 'chair_lift', 'mixed_lift', 'goods') \n OR railway = 'funicular' OR attraction = 'summer_toboggan'\n) as DATA",
@@ -918,7 +918,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE power IN ('line', 'minor_line')\n) as DATA",
@@ -938,7 +938,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 300) as snapped, way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 300) as snapped, ST_Centroid(way) as way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\nORDER BY snapped, prio\n) as data",
@@ -958,7 +958,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele, CASE WHEN tourism IN ('alpine_hut', 'hotel') THEN tourism ELSE amenity END as type \nFROM\n(\nSELECT ST_SnapToGrid(way, 500) as snapped, way, name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_point\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 500) as snapped, ST_Centroid(way) as way, name, ele, amenity, tourism,\nCASE WHEN amenity = 'biergarten' THEN 10\nELSE 0\nEND as prio\nFROM planet_osm_polygon\nWHERE (amenity IN ('pub','fast_food','restaurant','bar','biergarten')) OR (tourism IN ('alpine_hut', 'hotel')) \n) as tmp\nORDER BY snapped, prio\n) as data",
@@ -978,7 +978,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway\nFROM\n(\nSELECT ST_SnapToGrid(way, 500) as snapped, way\nFROM planet_osm_point\nWHERE amenity='shelter'\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 500) as snapped, ST_Centroid(way) as way\nFROM planet_osm_polygon\nWHERE amenity='shelter'\n) as tmp\n) as data",
@@ -998,7 +998,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way\n  FROM planet_osm_point\n  WHERE power IN ('tower', 'station', 'sub_station')\n) as DATA",
@@ -1018,7 +1018,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT ST_SnapToGrid(ST_Centroid(way),50) as way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, railway as type, subway\n  FROM planet_osm_point\n  WHERE railway IN ('station', 'halt', 'tram_stop')\n) as DATA",
@@ -1038,7 +1038,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, parking as type\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way, parking\nFROM planet_osm_point\nWHERE amenity='parking' AND (access<>'private' OR access IS NULL)\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, parking\nFROM planet_osm_polygon\nWHERE amenity='parking' AND (access<>'private' OR access IS NULL)\n) as tmp\n) as data",
@@ -1058,7 +1058,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT DISTINCT ON(snapped) way FROM (SELECT ST_SnapToGrid(way, 200) as snapped, way FROM planet_osm_point WHERE highway='bus_stop') as tmp ) as data",
@@ -1078,7 +1078,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, name, ele\nFROM\n(\nSELECT ST_SnapToGrid(way, 400) as snapped, way, name, ele\nFROM planet_osm_point\nWHERE \"natural\" = 'peak'\n) as tmp\n) as DATA\n\n",
@@ -1098,7 +1098,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, highway AS type, ref, CHAR_LENGTH(ref) AS reflen\n  FROM planet_osm_line\n  WHERE (highway IN ('motorway', 'trunk', 'primary')) AND (bridge IS NULL OR bridge NOT IN('yes')) AND ref IS NOT NULL) as DATA",
@@ -1118,7 +1118,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name\n  FROM planet_osm_polygon\n  WHERE \"leisure\" IN ('park', 'playground', 'pitch', 'golf_course')\n    OR landuse IN ('recreation_ground', 'grass', 'cemetery')) AS data",
@@ -1138,7 +1138,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wetland')) AS data",
@@ -1158,7 +1158,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('wood', 'scrub')\n    OR landuse IN ('forest')) AS data",
@@ -1178,7 +1178,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, ele\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('water', 'pond')\n    OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream')\n    OR landuse IN ('reservoir', 'basin')) AS data",
@@ -1198,7 +1198,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, st_length(st_transform(way,4326)::geography)::integer as length, waterway as type FROM planet_osm_line \nWHERE waterway IN ('river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-2') OR layer IS NULL) AND name IS NOT NULL \n) as data",
@@ -1218,7 +1218,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE \"natural\" IN ('glacier') AND name IS NOT NULL\n) AS data",
@@ -1238,7 +1238,7 @@
     },
     {
       "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, route_name from planet_osm_line \nWHERE route='bicycle' AND route_name IS NOT NULL) as data",
@@ -1258,7 +1258,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name\n  FROM planet_osm_polygon\n  WHERE aeroway IN ('aerodrome')\n    OR landuse IN ('industrial')) AS data",
@@ -1278,7 +1278,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area, name\n  FROM planet_osm_polygon\n  WHERE landuse IN ('military')\n    OR military IN ('danger_area')) AS data",
@@ -1298,7 +1298,7 @@
     },
     {
       "geometry": "polygon",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT way, way_area AS area, name FROM planet_osm_polygon WHERE leisure IN ('nature_reserve')) AS data",
@@ -1318,7 +1318,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, shop as type\n  FROM planet_osm_polygon\n  WHERE shop IN ('bicycle', 'supermarket')\nUNION\nSELECT way, shop as type\n  FROM planet_osm_point\n  WHERE shop IN ('bicycle', 'supermarket')\n) as data",
@@ -1338,7 +1338,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(SELECT
@@ -1370,7 +1370,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, CASE WHEN \"name:de\" IS NOT NULL THEN \"name:de\" WHEN \"name:en\" IS NOT NULL THEN \"name:en\" ELSE name END as name, ele,  100000 AS area, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\n  FROM planet_osm_point\n  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL\nUNION\nSELECT way, name, ele,  way_area AS area, place, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop\nFROM planet_osm_polygon\n  WHERE \"place\" IN ('city', 'town', 'village', 'hamlet', 'suburb') AND name IS NOT NULL\n) as DATA",
@@ -1390,13 +1390,13 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "cities",
       "class": "",
       "Datasource": {
         "file": "data/shp/ne_10m_populated_places.shp",
 	"type": "shape"
-        
+
       },
       "srs": "+proj=longlat +datum=WGS84 +no_defs",
       "advanced": {},
@@ -1404,13 +1404,13 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "cities_osm",
       "class": "",
       "Datasource": {
         "file": "data/shp/places.shp",
 	"type": "shape"
-        
+
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
@@ -1419,7 +1419,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, capital, ele, CHAR_LENGTH(name) AS strlen, \n  CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END as pop, CASE WHEN int_name IS NOT NULL THEN int_name ELSE name END as name\n  FROM planet_osm_point\n  WHERE place = 'city' AND name IS NOT NULL AND (CASE WHEN population ~E'^\\\\d+$' THEN population::integer ELSE NULL END) > 500000\n  ORDER BY pop DESC\n  LIMIT 400\n) AS data",
@@ -1440,7 +1440,7 @@
     },
     {
       "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],      
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, type\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way,\n  CASE \n WHEN \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian') THEN 'church'\n WHEN \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna') THEN 'tower'\n  END as type\nFROM planet_osm_point\nWHERE \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian') \nOR \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna')\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way,\n  CASE \n WHEN \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian') THEN 'church'\n WHEN \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna') THEN 'tower'\n  END as type\nFROM planet_osm_polygon\nWHERE \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian')\nOR \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna')\n) as tmp\n) as data",

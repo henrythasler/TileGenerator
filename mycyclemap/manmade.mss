@@ -1,6 +1,6 @@
 #admin_global[zoom>=1][zoom<=8],
 #admin_local[zoom>=9]{
-  line-join: round;  
+  line-join: round;
   line-cap: round;
   line-width: 0.5;
   line-opacity: 0.6;
@@ -9,19 +9,19 @@
   [zoom>=4][zoom<6] {line-width: 1.5;}
   [zoom>=6][zoom<8] {line-width: 2;}
   [zoom>=8] {line-width: 3;}
-//  line-dasharray: 18, 18;  
+//  line-dasharray: 18, 18;
 }
 
 #ne10mstates[zoom>=4][zoom<8][scalerank<3],
 #ne10mstates[zoom>=6][zoom<12][scalerank<4]{
-  line-join: round;  
+  line-join: round;
   line-cap: round;
   line-width: 0.5;
   line-opacity: 0.6;
   line-color:@admin;
   line-dasharray: 6, 3;
-  [zoom>=5][zoom<6] {line-width: 1;} 
-  [zoom>=6][zoom<8] {line-width: 1.5;} 
+  [zoom>=5][zoom<6] {line-width: 1;}
+  [zoom>=6][zoom<8] {line-width: 1.5;}
   [zoom>=8][zoom<9] {line-width: 2; line-dasharray: 8, 4;}
   [zoom>=9]{line-width: 2.5; line-dasharray: 8, 4;}
 }
@@ -41,13 +41,13 @@
   text-placement-type: simple;
   text-placements: "S,N,E,W,NE,SE,NW,SW";
   text-dy: 20;
-  text-dx: 20;  
-}  
+  text-dx: 20;
+}
 
 #admin_claim[zoom>=5][zoom<=8]{
   line-width:1;
   line-color:@admin;
-  line-dasharray: 2, 2;  
+  line-dasharray: 2, 2;
 }
 
 #countries[zoom>=2][zoom<=6] {
@@ -60,7 +60,7 @@
   text-line-spacing:1;
   text-wrap-width:20;
   text-name:"''"; /* hackish? */
-  
+
   [scalerank<2][zoom=2] {
     text-name: "[ABBREV]";
   }
@@ -102,10 +102,10 @@
   polygon-opacity: 0;
   [zoom>=10][zoom<14]{
   	polygon-opacity:1;
-  }  
+  }
   [zoom>=14][zoom<15]{
     polygon-opacity:0.55;
-  }  
+  }
   [zoom>=15] {
     polygon-opacity:0.5;
   }
@@ -127,7 +127,7 @@
   text-face-name:@sans_bold_italic;
   text-fill:@industry_text;
   text-halo-fill: @text_halo;
-  text-halo-radius:1.5;   
+  text-halo-radius:1.5;
   text-wrap-width: 100;
   text-wrap-before: true;
   text-placement: interior;
@@ -142,7 +142,7 @@
   polygon-pattern-opacity: 0.2;
   line-width: 0.2;
   line-color: red;
-}  
+}
 
 #military_label[zoom>=11][zoom<12][area>=200000000],
 #military_label[zoom>=12][zoom<14][area>=20000000],
@@ -154,7 +154,7 @@
   text-face-name:@sans_bold_italic;
   text-fill:@industry_text;
   text-halo-fill: @text_halo;
-  text-halo-radius:1.5;   
+  text-halo-radius:1.5;
   text-wrap-width: 100;
   text-wrap-before: true;
   text-placement: interior;
@@ -162,7 +162,7 @@
   text-placements: "S,N,E,W,NE,SE,NW,SW";
   text-dy: 20;
   text-dx: 20;
-  
+
 }
 
 // to-do: improve SQL query to merge nearby lines
@@ -206,7 +206,7 @@
       line-width: 2.5;
       line-dasharray: 18, 16;
       [tunnel='yes'] {line-dasharray: 6, 4;}
-    }  
+    }
   }
 }
 
@@ -221,7 +221,7 @@
     marker-fill:black;
 //    marker-allow-overlap:true;
 //    marker-ignore-placement:true;
-  }	  
+  }
 }
 
 #runway[zoom>=10] {
@@ -229,46 +229,46 @@
   ::line{
     line-color:@runway;
     line-width: 3;
-    }  
+    }
   ::dash{
     line-color: white;
     line-dasharray: 2, 2;
     line-width: 1;
     }
-  }  
+  }
   [zoom>=12][zoom<13][length>300] {
   ::line{
     line-color:@runway;
     line-width: 5;
-    }  
+    }
   ::dash{
     line-color: white;
     line-dasharray: 4, 4;
     line-width: 1.5;
     }
-  }  
+  }
   [zoom>=13][zoom<14][length>100] {
   ::line{
     line-color:@runway;
     line-width: 8;
-    }  
+    }
   ::dash{
     line-color: white;
     line-dasharray: 6, 6;
     line-width: 1.8;
     }
-  }  
+  }
   [zoom>=14]{
   ::line{
     line-color:@runway;
     line-width: 14;
-    }  
+    }
   ::dash{
     line-color: white;
     line-dasharray: 10, 10;
     line-width: 2;
     }
-  }  
+  }
 }
 
 #pier[zoom>=14] {
@@ -282,13 +282,13 @@
   line-color:@runway;
   [zoom>=12][zoom<13]{
     line-width:2;
-  }  
+  }
   [zoom>=13][zoom<14]{
     line-width:3;
-  }  
+  }
   [zoom>=14]{
     line-width:6;
-  }  
+  }
 }
 
 
@@ -301,7 +301,7 @@
     line-dasharray: 6, 3;
     [type='goods'][zoom>=14],[type='toboggan'][zoom>=14] {line-width:1; line-dasharray: 4, 2;}
     [type='goods'][zoom<14],[type='toboggan'][zoom<14] {line-width:0;}
-  } 
+  }
   ::text[type!='goods'][zoom>=14] {
     text-size: 9;
     text-character-spacing: 0.8;
@@ -312,12 +312,12 @@
     text-spacing: 100;
     text-fill:@peak_text;
     text-halo-fill: @text_halo_strong;
-    text-halo-radius:1.5;      
-  }  
+    text-halo-radius:1.5;
+  }
 }
 
 #fence[zoom>=14] {
-  line-join: round;  
+  line-join: round;
   line-cap: round;
   line-color: @darkgrey;
   line-width: 1.5;
@@ -326,9 +326,8 @@
 
 #weir[zoom>=14]{
   line-dasharray: 1,1;
-  line-join: round;  
-  line-width: 4;  
+  line-join: round;
+  line-width: 4;
   [zoom>=15] {line-width: 6; line-dasharray: 1.5,1.5;}
   line-color:@water_text;
 }
-

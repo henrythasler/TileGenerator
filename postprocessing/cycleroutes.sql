@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS planet_osm_roads;
-
 DROP TABLE IF EXISTS cycleroutes;
 CREATE TABLE cycleroutes
 (
