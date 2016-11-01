@@ -196,6 +196,19 @@
     {
       "geometry": "linestring",
       "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "id": "global_rivers",
+      "name": "global_rivers",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/ne_10m_rivers_lake_centerlines.shp",
+        "type": "shape"
+      },
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs",
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
         "table": "(\nSELECT way, waterway AS type\n  FROM planet_osm_line\n  WHERE waterway IN ('riverbank', 'river', 'canal', 'stream', 'ditch') AND tunnel IS NULL AND (layer NOT IN ('-2') OR layer IS NULL)\n  UNION\n  SELECT way, waterway AS type\n  FROM planet_osm_polygon\n  WHERE waterway IN ('riverbank')\n) as DATA\n",
@@ -213,6 +226,19 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
+    },
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "id": "global_lakes",
+      "name": "global_lakes",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/ne_10m_lakes.shp",
+	      "type": "shape"
+      },
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
     },
     {
       "geometry": "polygon",
@@ -362,6 +388,21 @@
       "advanced": {},
     },
     {
+      "geometry": "raster",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "id": "hillshading",
+      "name": "hillshading",
+      "class": "",
+      "Datasource": {
+        "file": "data/hillshade/eu/eudem-3785-hs.vrt",
+        "type": "gdal"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "status": "on"
+    },
+    {
       "geometry": "polygon",
       "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "admin_claim",
@@ -416,6 +457,72 @@
       },
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n  WHERE (ele%50) = 0\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "contours",
+        "user": "postgres"
+      },
+      "id": "contours_low",
+      "name": "contours_low",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "status": "on"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n  WHERE (ele%20) = 0\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "contours",
+        "user": "postgres"
+      },
+      "id": "contours_med",
+      "name": "contours_med",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "status": "on"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, ele\n  FROM planet_osm_line\n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "contours",
+        "user": "postgres"
+      },
+      "id": "contours_high",
+      "name": "contours_high",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "status": "on"
     },
     {
       "geometry": "linestring",
@@ -563,6 +670,34 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
+      "status": "off"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "id": "global_roads",
+      "name": "global_roads",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/ne_10m_roads.shp",
+	      "type": "shape"
+
+      },
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "id": "countries",
+      "name": "countries",
+      "class": "",
+      "Datasource": {
+        "file": "data/shp/ne_10m_admin_0_countries.shp",
+	      "type": "shape"
+      },
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
     },
     {
       "geometry": "linestring",
@@ -736,6 +871,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
+      "status": "off"
     },
     {
       "geometry": "linestring",

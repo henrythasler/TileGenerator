@@ -1,7 +1,7 @@
 #residental[zoom>=11] {
   polygon-fill:@grey;
   polygon-opacity: 0;
-  [zoom>=11][zoom<15] { polygon-opacity:1; }  
+  [zoom>=11][zoom<15] { polygon-opacity:1; }
   [zoom>=15] { polygon-opacity:0.5; }
 }
 
@@ -19,7 +19,7 @@
   polygon-pattern-opacity: 0.2;
   line-width: 0.4;
   line-color: red;
-}  
+}
 
 #nature_reserve[zoom>=9][zoom<11][area>=80000000],
 #nature_reserve[zoom>=11][zoom<13][area>=20000000],
@@ -32,7 +32,7 @@
     line-opacity: 0.6;
     line-color: green;
     line-cap: round;
-    line-join: round;  
+    line-join: round;
     [zoom<=10] {
       line-width: 2;
       }
@@ -43,7 +43,7 @@
     line-opacity: 0.3;
     line-color: green;
     line-cap: round;
-    line-join: round;  
+    line-join: round;
     [zoom<=10] {
       line-width: 8;
       line-offset: -2;
@@ -53,17 +53,17 @@
       line-offset: -4;
       }
     }
-}  
+}
 
 #admin_claim[zoom>=6][zoom<10]{
   line-width: 2;
   line-color: @admin;
-  line-dasharray: 4, 4;  
+  line-dasharray: 4, 4;
 }
 
 #admin_global[zoom>=2][zoom<8],
 #admin_local[zoom>=8]{
-  line-join: round;  
+  line-join: round;
   line-cap: round;
   line-width: 1;
   line-opacity: 0.6;
@@ -74,7 +74,7 @@
   [zoom>=7][zoom<9] {line-width: 4;}
   [zoom>=9] {line-width: 6;}
 }
-
+/*
 #countries[zoom<8]{
   [MAPCOLOR7=1]{polygon-fill:@mapcolor1;}
   [MAPCOLOR7=2]{polygon-fill:@mapcolor2;}
@@ -85,11 +85,12 @@
   [MAPCOLOR7=7]{polygon-fill:@mapcolor7;}
   polygon-opacity: 1;
 }
+*/
 
 #ne10mgeographiclines[zoom>=2][zoom<9] {
   line-width:1.6;
   line-color:@darkgrey;
-  line-dasharray: 16, 16;  
+  line-dasharray: 16, 16;
 
   text-size: 22;
   [zoom>=2][zoom<3] {text-size: 14;}

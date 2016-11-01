@@ -32,6 +32,31 @@
   polygon-fill:@beach;
 }
 
+#global_rivers[zoom>=3][zoom<=9] {
+  line-width: 0;
+  line-color:@river;
+  [zoom=3][scalerank<4] {line-width: 1;}
+  [zoom=4][scalerank<4] {line-width: 0.8;}
+  [zoom=5] {
+    [scalerank<4] {line-width: 2;}
+    [scalerank>=4][scalerank<7] {line-width: 1.6;}
+  }
+  [zoom=6]{
+    [scalerank<4] {line-width: 2.4;}
+    [scalerank>=4][scalerank<7] {line-width: 2;}
+  }
+  [zoom=7]{
+    [scalerank<4] {line-width: 3.6;}
+    [scalerank>=4][scalerank<7] {line-width: 2.8;}
+    [scalerank>=7] {line-width: 2;}
+  }
+  [zoom>=8][zoom<10]{
+    [scalerank<4] { line-width: 4; }
+    [scalerank>=4][scalerank<7] { line-width: 3; }
+    [scalerank>=7] {line-width: 2;}
+  }
+}
+
 #waterway[zoom>=10]{
   ::line{
     line-cap: round;
@@ -92,6 +117,16 @@
     line-width: 1;
     line-color:@river;
   }
+}
+
+#global_lakes[scalerank<5][zoom=3],
+#global_lakes[scalerank<6][zoom=4],
+#global_lakes[scalerank<7][zoom=5],
+#global_lakes[scalerank<8][zoom=6],
+#global_lakes[zoom>=7][zoom<9]{
+  polygon-fill:@water_global;
+  line-width: 1;
+  line-color:@river;
 }
 
 #lakes[zoom>=6][zoom<7][area>=200000000],

@@ -1,41 +1,3 @@
-#countries[zoom>=4][zoom<8] {
-  text-face-name: @sans_bold;
-  text-fill:@darkgrey;
-  text-size: 16;
-  text-transform:uppercase;
-  text-halo-fill:@text_halo_strong;
-  text-halo-radius: 3;
-  text-line-spacing: 2;
-  text-wrap-width: 40;
-  text-name:"''"; /* hackish? */
-
-  [scalerank<3][zoom=4] {
-    text-name: "[ABBREV]";
-    text-size:18;
-  }
-  [scalerank<4][zoom=5] {
-    text-name: "[NAME]";
-    text-size:20;
-  }
-  [scalerank<5][zoom=6] {
-    text-name: "[NAME]";
-    text-size: 22;
-    text-character-spacing: 2;
-    text-line-spacing: 2;
-  }
-  [scalerank<9][zoom>=7] {
-    text-name: "[NAME]";
-    text-size: 24;
-    text-character-spacing: 4;
-    text-line-spacing: 4;
-  }
-  text-placement: interior;
-  text-placement-type: simple;
-  text-placements: "S,N,E,W,NE,SE,NW,SW";
-  [zoom<6] {text-dy: 20; text-dx: 20;}
-  [zoom>=6] {text-dy: 40; text-dx: 40;}
-}
-
 #peaks::label[zoom>=15] {
     text-size: 18;
     text-character-spacing: 1.6;
@@ -134,16 +96,6 @@
   text-placement: interior;
 }
 
-#global_rivers[zoom>=8][zoom<10][scalerank<7]{
-    text-size: 18;
-    text-name:'[name]';
-    text-face-name:@sans_bold_italic;
-    text-placement:line;
-    text-fill:@water_text;
-    text-halo-fill: fadeout(white, 60%);
-    text-halo-radius: 3;
-}
-
 #waterway_label[zoom>=13][length>200][type='river'],
 #waterway_label[zoom>=13][length>200][type='canal'],
 #waterway_label[zoom>=15][length>200][type='stream'],
@@ -156,8 +108,6 @@
   text-halo-fill: fadeout(white, 60%);
   text-halo-radius: 3;
 }
-
-
 
 #glacier_label[zoom=11][area>=100000000],
 #glacier_label[zoom=12][area>=10000000],

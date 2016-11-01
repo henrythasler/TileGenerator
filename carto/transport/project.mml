@@ -1,0 +1,67 @@
+{
+  "bounds": [
+    10.676,
+    48.0694,
+    11.261,
+    48.4105
+  ],
+  "center": [
+    10.9678,
+    48.2603,
+    13
+  ],
+  "format": "png8",
+  "minzoom": 0,
+  "maxzoom": 18,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "defines.mss",
+    "routes.mss",
+    "labels.mss",
+    "poi.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, colour, ref FROM subway) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "subway",
+      "name": "subway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM tram) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "tram",
+      "name": "tram",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+  ]
+}
