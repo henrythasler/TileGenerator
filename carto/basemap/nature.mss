@@ -59,6 +59,7 @@
 
 #waterway[zoom>=10]{
   ::line{
+    line-smooth: 1;
     line-cap: round;
     line-join: round;
     line-color:@river;

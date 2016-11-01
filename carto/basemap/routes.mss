@@ -9,6 +9,7 @@
 }
 
 #piste[zoom>=16] {
+  line-smooth: 1;
   line-width:6;
   line-opacity: 0.5;
   line-cap: round;

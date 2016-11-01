@@ -48,6 +48,7 @@
 
 .path[zoom>=14] {
   ::outer[zoom>=15] {
+    line-smooth: 1;
     line-cap: round;
     line-join: round;
     line-color: fadeout(white, 60%);
@@ -57,6 +58,7 @@
   }
 
   ::inner {
+    line-smooth: 1;
     line-cap: round;
     line-join: round;
     line-width:1.5;
