@@ -83,46 +83,72 @@
   polygon-gamma: 0.5;
 }
 
-#railway[zoom>=11][type!='tram'][type!='subway'] {
+#railway_tunnel[zoom>=11]{
+  ::outer{
+    line-width: 5.4;
+    line-color: fadeout(white, 60%);
+    line-dasharray: 4, 8;
+    line-cap: round;
+    [zoom>=13][zoom<14] {
+      line-dasharray: 8, 12;
+    }
+    [zoom>=14][zoom<16] {
+      line-width: 10.5;
+      line-dasharray: 12, 16;
+    }
+    [zoom>=16] {
+      line-width: 14.5;
+      line-dasharray: 20, 24;
+    }
+  }
   ::line{
     line-width: 3.6;
     line-color: @runway;
-    [tunnel='yes'] {line-dasharray: 4, 8; line-cap: round;}
-    [type='tram'],[type='subway'] {line-width: 0;}
+    line-dasharray: 4, 8;
+    line-cap: round;
     [zoom>=13][zoom<14] {
-      line-width: 5;
-      [type='tram'],[type='subway'] {line-width: 0;}
-      [tunnel='yes'] {line-dasharray: 8, 12;}
+      line-dasharray: 8, 12;
     }
     [zoom>=14][zoom<16] {
       line-color: @darkgrey;
       line-width: 7;
-      [type='tram'],[type='subway'] {line-width: 4;}
-      [tunnel='yes'] {line-dasharray: 12, 16;}
+      line-dasharray: 12, 16;
     }
     [zoom>=16] {
       line-color: @darkgrey;
       line-width: 9;
-      [tunnel='yes'] {line-dasharray: 20, 24;}
-      [type='tram'] {line-width: 4;}
+      line-dasharray: 20, 24;
     }
   }
-  ::dash[zoom>=14][tunnel!='yes'][type!='tram'][type!='subway'] {
+}
+
+#railway[zoom>=11]{
+  ::line{
+    line-width: 3.6;
+    line-color: @runway;
+    [zoom>=13][zoom<14] {
+      line-width: 5;
+    }
+    [zoom>=14][zoom<16] {
+      line-color: @darkgrey;
+      line-width: 7;
+    }
+    [zoom>=16] {
+      line-color: @darkgrey;
+      line-width: 9;
+    }
+  }
+  ::dash[zoom>=14]{
     line-color: white;
     line-width: 2.4;
     line-dasharray: 18, 18;
-    [tunnel='yes'] {line-dasharray: 12, 8;}
-    [type='tram'],[type='subway'] {line-width: 0;}
     [zoom>=14][zoom<16] {
       line-width: 4;
       line-dasharray: 26, 26;
-      [tunnel='yes'] {line-dasharray: 12, 8;}
-      [type='tram'],[type='subway'] {line-width: 0;}
     }
     [zoom>=16] {
       line-width: 5;
       line-dasharray: 36, 32;
-      [tunnel='yes'] {line-dasharray: 12, 8;}
     }
   }
 }

@@ -55,25 +55,49 @@
     }
 }
 
-#admin_claim[zoom>=6][zoom<10]{
+#admin_claim[zoom>=6][zoom<8]{
   line-width: 2;
   line-color: @admin;
   line-dasharray: 4, 4;
 }
 
 #admin_global[zoom>=2][zoom<8],
-#admin_local[zoom>=8]{
+#admin2[zoom>=8]{
   line-join: round;
   line-cap: round;
   line-width: 1;
   line-opacity: 0.6;
-  #admin_local{line-opacity: 0.3;}
+  #admin2{line-opacity: 0.3;}
   line-color:@admin;
   [zoom>=3][zoom<5] {line-width: 2;}
   [zoom>=5][zoom<7] {line-width: 3;}
   [zoom>=7][zoom<9] {line-width: 4;}
   [zoom>=9] {line-width: 6;}
 }
+
+
+#admin4[zoom>=6]{
+  line-join: round;
+  line-cap: round;
+  line-width: 2;
+  [zoom>=9][zoom<11] {line-width: 4;}
+  [zoom>=11] {line-width: 6;}
+  line-opacity: 0.3;
+  line-color:@admin;
+/*
+  text-size: 18;
+  text-character-spacing: 1.6;
+  text-name:'[name]';
+  text-face-name:@sans_italic;
+  text-placement:line;
+  text-fill:@peak_text;
+  text-halo-fill: @text_halo_weak;
+  text-halo-radius:3;
+  text-dy: 0;
+*/
+}
+
+
 /*
 #countries[zoom<8]{
   [MAPCOLOR7=1]{polygon-fill:@mapcolor1;}

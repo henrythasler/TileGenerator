@@ -34,6 +34,7 @@
 
 #global_rivers[zoom>=3][zoom<=9] {
   line-width: 0;
+  line-smooth: 1;
   line-color:@river;
   [zoom=3][scalerank<4] {line-width: 1;}
   [zoom=4][scalerank<4] {line-width: 0.8;}

@@ -36,16 +36,6 @@
   line-width: 1.6; line-color:@darkgrey;
 }
 
-// Ferries
-#global_roads["type"='Ferry Route'][scalerank<=8][zoom>=6][zoom<9],
-#global_roads["type"='Ferry Route'][zoom>=9]{
-  line-color:@shiproute;
-  line-width:1.6;
-  line-dasharray: 10,10;
-  [zoom>=7]{line-width:2;line-dasharray: 12,12;}
-}
-
-
 .path[zoom>=14] {
   ::outer[zoom>=15] {
     line-smooth: 1;
@@ -69,12 +59,14 @@
   }
 
   ::marker-glow[zoom>=15][length>100][mtbscale>=0] {
+    marker-smooth: 1;
     marker-line-width: 0;
     marker-width: 16;
     marker-fill: fadeout(white, 60%);
   }
 
   ::marker[zoom>=15][length>100][mtbscale>=0] {
+    marker-smooth: 1;
     marker-line-width: 0;
     marker-width: 12;
     marker-allow-overlap:true;

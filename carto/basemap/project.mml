@@ -433,16 +433,44 @@
     {
       "geometry": "linestring",
       "extent": [-180,-85.05112877980659,180,85.05112877980659],
-      "id": "admin_local",
-      "name": "admin_local",
-      "class": "",
       "Datasource": {
-        "file": "data/shp/borders_land.shp",
-	      "type": "shape"
-
+        "type": "postgis",
+        "table": "(SELECT name, geom FROM admin4) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "world",
+        "user": "postgres"
       },
-      "srs-name": "900913",
+      "id": "admin4",
+      "name": "admin4",
+      "class": "",
+      "srs-name": "3785",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT int_name as name, geom FROM admin2) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "world",
+        "user": "postgres"
+      },
+      "id": "admin2",
+      "name": "admin2",
+      "class": "",
+      "srs-name": "3785",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
     },
     {
       "geometry": "linestring",
@@ -478,7 +506,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "status": "on"
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -500,7 +528,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "status": "on"
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -522,7 +550,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "status": "on"
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -540,48 +568,6 @@
       },
       "id": "pier",
       "name": "pier",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-    },
-    {
-      "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE aeroway IN ('taxiway') \n) as DATA",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "host" : "postgis",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "taxiway",
-      "name": "taxiway",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-    },
-    {
-      "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, st_length(st_transform(way,4326)::geography)::integer as length\n  FROM planet_osm_line\n  WHERE aeroway IN ('runway') \n) as DATA",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "host" : "postgis",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "runway",
-      "name": "runway",
       "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
@@ -653,28 +639,6 @@
     {
       "geometry": "linestring",
       "extent": [-180,-85.05112877980659,180,85.05112877980659],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, ref FROM subway) as DATA",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "host" : "postgis",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "subway",
-      "name": "subway",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "status": "off"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "global_roads",
       "name": "global_roads",
       "class": "",
@@ -742,6 +706,78 @@
       "id": "tunnels",
       "name": "tunnels",
       "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT
+                    way,
+                    railway as type
+                  FROM planet_osm_line
+                  WHERE
+                    (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed'))
+                    AND (service IS NULL OR service NOT IN('yard'))
+                    AND attraction IS NULL
+                    AND tunnel = 'yes'
+                  ) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "railway_tunnel",
+      "name": "railway_tunnel",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way\n  FROM planet_osm_line\n  WHERE aeroway IN ('taxiway') \n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "taxiway",
+      "name": "taxiway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, st_length(st_transform(way,4326)::geography)::integer as length\n  FROM planet_osm_line\n  WHERE aeroway IN ('runway') \n) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "runway",
+      "name": "runway",
+      "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
@@ -856,29 +892,16 @@
       "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM tram) as DATA",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "host" : "postgis",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "tram",
-      "name": "tram",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "status": "off"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(\nSELECT way, tunnel, railway as type\n  FROM planet_osm_line\n  WHERE (railway NOT IN ('abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND (service IS NULL OR service NOT IN('yard')) AND attraction IS NULL\n) as DATA",
+        "table": "(SELECT
+                    way,
+                    railway as type
+                  FROM planet_osm_line
+                  WHERE
+                    (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed'))
+                    AND (service IS NULL OR service NOT IN('yard'))
+                    AND attraction IS NULL
+                    AND tunnel IS NULL
+                  ) as DATA",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "dynamic",
@@ -1021,6 +1044,48 @@
       "id": "bridges_layer2",
       "name": "bridges_layer2",
       "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, ref FROM subway) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "subway",
+      "name": "subway",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "linestring",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM tram) as DATA",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "tram",
+      "name": "tram",
+      "class": "",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
@@ -1189,6 +1254,27 @@
       "id": "restaurant_low",
       "name": "restaurant_low",
       "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "point",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(\nSELECT way, shop as type\n  FROM planet_osm_polygon\n  WHERE shop IN ('bicycle', 'supermarket')\nUNION\nSELECT way, shop as type\n  FROM planet_osm_point\n  WHERE shop IN ('bicycle', 'supermarket')\n) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "shop",
+      "name": "shop",
+      "class": "poi",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
@@ -1558,27 +1644,6 @@
       "id": "landmark",
       "name": "landmark",
       "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-    },
-    {
-      "geometry": "point",
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(\nSELECT way, shop as type\n  FROM planet_osm_polygon\n  WHERE shop IN ('bicycle', 'supermarket')\nUNION\nSELECT way, shop as type\n  FROM planet_osm_point\n  WHERE shop IN ('bicycle', 'supermarket')\n) as data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "dynamic",
-        "extent": "",
-        "host" : "postgis",
-        "dbname": "mering",
-        "user": "postgres"
-      },
-      "id": "shop",
-      "name": "shop",
-      "class": "poi",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},

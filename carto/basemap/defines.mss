@@ -16,7 +16,7 @@
 @track_light:       #885b03;
 @track_dark:        #753701;
 @beach:             #ffe88b;
-@subway:            blue;
+@subway:            #005699;
 
 @shiproute:         #1111aa;
 @admin:             #838;

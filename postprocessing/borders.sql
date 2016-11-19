@@ -1,11 +1,8 @@
-DROP TABLE IF EXISTS borders;
-CREATE TABLE borders
+DROP TABLE IF EXISTS "admin-2";
+CREATE TABLE "admin-2"
 (
-  way geometry(MultiLineString,900913)
+  way geometry(MultiLineString,3785)
 );  
 
-INSERT INTO borders (way)
-SELECT ST_LineMerge(ST_Collect(way)) as way
-FROM planet_osm_line 
-WHERE boundary = 'administrative' 
-AND admin_level = '2'; 
+INSERT INTO "admin-2" (way)
+select ST_LineMerge(ST_Collect(geom)) as way from "admin-2-raw";

@@ -395,3 +395,17 @@
     }
   }
 }
+
+#admin4[zoom>=14]{
+  text-size: 16;
+  text-character-spacing: 1.6;
+  text-min-distance: 10000;
+  text-spacing: 10000;
+  text-name:'[name]';
+  text-face-name:@sans_italic;
+  text-placement:line;
+  text-fill:@admin;
+  text-halo-fill: @text_halo_strong;
+  text-halo-radius:3;
+  text-dy: 7;
+}
