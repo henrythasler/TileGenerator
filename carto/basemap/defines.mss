@@ -28,6 +28,7 @@
 @text_halo_weak:    fadeout(white, 80%);
 @text_halo:         fadeout(white, 50%);
 @text_halo_strong:  fadeout(white, 20%);
+@admin_halo:        fadeout(#838, 80%);
 
 @forest_text:       fadeout(darken(#669966, 15%),20%);
 @water_text:        fadeout(darken(#666699, 15%),20%);
@@ -35,6 +36,7 @@
 @military_text:     #996666;
 @contour_text:      fadeout(darken(#7f3300, 15%),20%);
 @restaurant_text:   fadeout(darken(brown, 20%),20%);
+@hospital_text:   fadeout(darken(red, 15%),20%);
 @peak_text:         fadeout(black,20%);
 @station_text:      #000080;
 

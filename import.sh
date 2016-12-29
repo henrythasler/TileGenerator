@@ -10,11 +10,11 @@
 
 #src="/media/ramdisk/germany-south.osm.pbf"
 #dbname="south"
-#param="-C 12000 -G -v --number-processes 2"
+#param="-C 12000 -G -v --number-processes 4 --slim"
 
 #src="/media/ramdisk/germany-north.osm.pbf"
 #dbname="north"
-#param="-C 12000 -G -v --number-processes 2"
+#param="-C 12000 -G -v --number-processes 4 --slim"
 
 #src="/media/ramdisk/germany-middle.osm.pbf"
 #dbname="middle"
@@ -40,15 +40,15 @@ param="-C 10000 -G -v --number-processes 4 --slim"
 #dbname="china"
 #param="-C 10000 -G -v --number-processes 2"
 
-#src="/media/henry/Tools/map/data/planet-161031-natural.osm.pbf"
-#dbname="world"
+#src="/media/henry/Tools/map/data/europe-latest-admin_4-6.osm.pbf"
+#dbname="temp"
 #param="-C 10000 -v --number-processes 4 -G"
 
 
 style="styles/osm2pgsql.style"
 #style="styles/borders.style"
 
-##param="--slim --drop -C 12000 -G -v --number-processes 2"
+#param="--slim --drop -C 12000 -G -v --number-processes 2"
 
 
 psql -U postgres -c "DROP DATABASE IF EXISTS $dbname;"

@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS tram;
 CREATE TABLE tram
 (
   ref text,
-  way geometry(MultiLineString,900913)
+  way geometry
 );  
 
 INSERT INTO tram (ref, way)
@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS tram_raw;
 CREATE TABLE tram_raw
 (
   ref text,
-  way geometry(Polygon,900913)
+  way geometry
 );  
 
 INSERT INTO tram_raw (ref, way)

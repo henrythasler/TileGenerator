@@ -1,4 +1,4 @@
-#countries[zoom>=4][zoom<8] {
+#global_countries[zoom>=4][zoom<8] {
   text-face-name: @sans_bold;
   text-fill:@darkgrey;
   text-size: 16;
@@ -9,21 +9,21 @@
   text-wrap-width: 40;
   text-name:"''"; /* hackish? */
 
-  [scalerank<3][zoom=4] {
+  [LABELRANK<4][zoom=4] {
     text-name: "[ABBREV]";
     text-size:18;
   }
-  [scalerank<4][zoom=5] {
+  [LABELRANK<5][zoom=5] {
     text-name: "[NAME]";
     text-size:20;
   }
-  [scalerank<5][zoom=6] {
+  [LABELRANK<6][zoom=6] {
     text-name: "[NAME]";
     text-size: 22;
     text-character-spacing: 2;
     text-line-spacing: 2;
   }
-  [scalerank<9][zoom>=7] {
+  [LABELRANK<9][zoom>=7] {
     text-name: "[NAME]";
     text-size: 24;
     text-character-spacing: 4;
@@ -34,6 +34,66 @@
   text-placements: "S,N,E,W,NE,SE,NW,SW";
   [zoom<6] {text-dy: 20; text-dx: 20;}
   [zoom>=6] {text-dy: 40; text-dx: 40;}
+}
+
+#global_states[zoom=6][scalerank<=2],
+#global_states[zoom>=7][zoom<8][scalerank<=3],
+#global_states[zoom>=8][zoom<9][scalerank<6],
+#global_states[zoom>=9][zoom<11][scalerank>3][scalerank<7]
+{
+  text-name:'[name]';
+  [zoom=6] {text-name:'[abbrev]';}
+  text-face-name: @sans_bold;
+  text-fill:@darkgrey;
+  text-size: 16;
+  [zoom>=7][zoom<10] {text-size: 20;}
+  [zoom>=10] {text-size: 24;}
+  text-transform:uppercase;
+  text-halo-fill:@text_halo_strong;
+  text-halo-radius: 3;
+  text-line-spacing: 2;
+  text-wrap-width: 40;
+  text-placement: interior;
+  text-placement-type: simple;
+  text-placements: "S,N,E,W,NE,SE,NW,SW";
+  text-dy: 40; text-dx: 40;
+  [zoom<10] {text-dy: 20; text-dx: 20;}
+}
+
+#admin2[zoom>=8]{
+  text-size: 18;
+  text-character-spacing: 1.6;
+  text-name:'[name]';
+  text-face-name:@sans_italic;
+  text-placement:line;
+  text-fill:@peak_text;
+  text-halo-fill: @admin_halo;
+  text-halo-radius:3;
+  text-dy: 7;
+}
+
+#admin4[zoom>=12]{
+  text-size: 18;
+  text-character-spacing: 1.6;
+  text-name:'[name]';
+  text-face-name:@sans_italic;
+  text-placement:line;
+  text-fill:@peak_text;
+  text-halo-fill: @admin_halo;
+  text-halo-radius:3;
+  text-dy: 7;
+}
+
+#admin6_de_label[zoom>=14]{
+  text-size: 18;
+  text-character-spacing: 1.6;
+  text-name:'[name]';
+  text-face-name:@sans_italic;
+  text-placement:line;
+  text-fill:@peak_text;
+  text-halo-fill: @admin_halo;
+  text-halo-radius:3;
+  text-dy: 7;
 }
 
 #peaks::label[zoom>=15] {
@@ -63,6 +123,24 @@
     text-dy: 20;
     text-dx: 20;
     text-fill:@restaurant_text;
+    text-wrap-width: 200;
+    text-wrap-before: true;
+    text-halo-fill: @text_halo_strong;
+    text-halo-radius:3;
+  }
+}
+
+#hospital[zoom>=16]{
+  ::label{ 
+    text-size: 18;
+    text-character-spacing: 1.6;
+    text-name:[name];
+    text-face-name:@sans_bold_italic;
+    text-placement-type: simple;
+    text-placements: "S,N,E,W,NE,SE,NW,SW";
+    text-dy: 20;
+    text-dx: 20;
+    text-fill:@hospital_text ;
     text-wrap-width: 200;
     text-wrap-before: true;
     text-halo-fill: @text_halo_strong;
@@ -305,7 +383,7 @@
 
 #cities[zoom<9]{
   ::capitals[ADM0CAP=1] {
-    [zoom=4][SCALERANK<=2],
+    [zoom=4][SCALERANK<=1],
     [zoom=5][SCALERANK<=3],
     [zoom=6][SCALERANK<=4],
     [zoom=7][SCALERANK<=5],
@@ -394,18 +472,4 @@
       text-wrap-before: true;
     }
   }
-}
-
-#admin4[zoom>=14]{
-  text-size: 16;
-  text-character-spacing: 1.6;
-  text-min-distance: 10000;
-  text-spacing: 10000;
-  text-name:'[name]';
-  text-face-name:@sans_italic;
-  text-placement:line;
-  text-fill:@admin;
-  text-halo-fill: @text_halo_strong;
-  text-halo-radius:3;
-  text-dy: 7;
 }

@@ -34,7 +34,7 @@ database=${dbarray[$(cat $tempfile)-1]}
 cd /media/mapdata/henry/TileGenerator
 
 # prepare xml-file
-cp mycyclemap.xml $database.xml
+cp map.xml $database.xml
 sed -i 's/mering/'$database'/g' $database.xml
 
 #time python render.py \
@@ -50,8 +50,8 @@ time python render.py \
       --bbox $left $bottom $right $top \
       --zooms $5 $6 \
       --mapfile $database.xml \
-      --scale 2.0 \
-      --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD" \
+      --scale 1.0 \
+      --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD2" \
       --threads 4 \
       --debug 0
 

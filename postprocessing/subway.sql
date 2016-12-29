@@ -3,7 +3,7 @@ CREATE TABLE subway
 (
   ref text,
   colour text,
-  way geometry(MultiLineString,900913)
+  way geometry
 );
 
 INSERT INTO subway (ref, colour, way)

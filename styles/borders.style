@@ -31,6 +31,7 @@ node,way   land_area    text         linear
 node,way   ISO3166-1:alpha3    text         linear
 node,way   is_in:continent    text         linear
 node,way   ISO3166-1    text         linear
+node,way   wikipedia    text         linear
 node       capital      text         linear
 node,way   ele          text         linear
 node,way   int_name     text         linear

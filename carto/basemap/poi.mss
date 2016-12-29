@@ -26,7 +26,7 @@
 
 #station[zoom>=12] {
   ::marker {
-    [type='tram_stop'][zoom>=15] {
+    [type='tram_stop'][zoom>=16] {
       marker-file: url(img/station.red.svg);
       marker-width:10;
       marker-allow-overlap:true;
@@ -166,7 +166,7 @@
 }
 
 #landmark[zoom>=15]{
-  marker-width: 10;
+  marker-width: 13;
   [type='tower'] {
     marker-file: url(img/tower.svg);
     marker-allow-overlap:true;
@@ -187,6 +187,16 @@
     marker-file: url(img/bike.svg);
     marker-width: 18;
     marker-clip: false;
+    [zoom>=15] {marker-width: 28;}
+  }
+}
+
+#hospital[zoom>=13]{
+  ::marker {
+    marker-file: url(img/hospital.svg);
+    marker-width: 12;
+    marker-clip: false; 
+    [zoom>=14][zoom<15] {marker-width: 18;}
     [zoom>=15] {marker-width: 28;}
   }
 }

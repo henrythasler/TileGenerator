@@ -163,6 +163,8 @@
 
 #glacier[zoom>=9]{
   line-color: @lightblue;
+//  line-smooth: 1;
+//  polygon-smooth: 1;
   polygon-fill: @white;
   line-width: 0;
   polygon-opacity: 0;
