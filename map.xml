@@ -1780,7 +1780,7 @@ SELECT way
   </Rule>
 </Style>
 <Layer name="hillshading"
-  status="on"
+  status="off"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshading</StyleName>
     <Datasource>
@@ -2400,83 +2400,6 @@ SELECT way, ST_Perimeter(way)::integer as boundary
     <Datasource>
        <Parameter name="file"><![CDATA[data/shp/ne_10m_roads.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
-    </Datasource>
-  </Layer>
-
-<Style name="global_states" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 6)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 6)</Filter>
-    <TextSymbolizer size="24" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="40" dx="40" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 6)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 7)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 7)</Filter>
-    <TextSymbolizer size="24" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="40" dx="40" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 2)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 2)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 2)</Filter>
-    <TextSymbolizer dy="20" dx="20" fontset-name="fontset-3" fill="#444444" size="16" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[abbrev]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>3000000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 3)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt;= 3)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>3000000</MaxScaleDenominator>
-    <MinScaleDenominator>1500000</MinScaleDenominator>
-    <Filter>([scalerank] &lt; 6)</Filter>
-    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-</Style>
-<Layer name="global_states"
-  srs="+proj=longlat +datum=WGS84 +no_defs">
-    <StyleName>global_states</StyleName>
-    <Datasource>
-       <Parameter name="type"><![CDATA[shape]]></Parameter>
-       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_1_states_provinces.shp]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -6297,7 +6220,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
     <StyleName>railway_tunnel-line</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT way, railway as type FROM planet_osm_line WHERE (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND (service IS NULL OR service NOT IN('yard')) AND attraction IS NULL AND tunnel = 'yes' ) as DATA]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, railway as type FROM planet_osm_line WHERE (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND (usage IS NULL OR usage IN('main', 'branch', 'tourism')) AND service IS NULL AND attraction IS NULL AND tunnel = 'yes' ) as DATA]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
@@ -10363,24 +10286,14 @@ SELECT way, ST_Perimeter(way)::integer as boundary
 
 <Style name="railway_service-dash" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
-    <LineSymbolizer stroke-width="2.4" stroke-dasharray="18, 18" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <LineSymbolizer stroke-width="5" stroke-dasharray="36, 36" stroke="#ffffff" />
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#ffffff" stroke-width="2.4" stroke-dasharray="18, 18" />
   </Rule>
 </Style>
 <Style name="railway_service-line" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
     <LineSymbolizer stroke="#888888" stroke-width="5" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <LineSymbolizer stroke="#444444" stroke-width="9" />
   </Rule>
 </Style>
 <Layer name="railway_service"
@@ -10389,7 +10302,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
     <StyleName>railway_service-dash</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT way, railway as type, 'other' as service FROM planet_osm_line WHERE (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND attraction IS NULL AND (service IS NOT NULL OR (usage <> 'main')) AND tunnel IS NULL ) as DATA]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, railway as type, 'other' as service FROM planet_osm_line WHERE (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND attraction IS NULL AND (service IS NOT NULL OR (usage NOT IN('main', 'branch', 'tourism'))) AND tunnel IS NULL ) as DATA]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
@@ -10404,17 +10317,6 @@ SELECT way, ST_Perimeter(way)::integer as boundary
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-dasharray="26, 26" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
-    <LineSymbolizer stroke-width="2.4" stroke-dasharray="18, 18" stroke="#ffffff" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
     <LineSymbolizer stroke-width="4" stroke-dasharray="26, 26" stroke="#ffffff" />
   </Rule>
   <Rule>
@@ -10423,29 +10325,6 @@ SELECT way, ST_Perimeter(way)::integer as boundary
   </Rule>
 </Style>
 <Style name="railway-line" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
-    <LineSymbolizer stroke="#444444" stroke-width="7" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#666666" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
-    <LineSymbolizer stroke="#888888" stroke-width="5" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([service] = 'other')</Filter>
-    <LineSymbolizer stroke-width="3.6" stroke="#666666" />
-  </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
@@ -10472,7 +10351,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
     <StyleName>railway-dash</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT way, railway as type, 'main' as service FROM planet_osm_line WHERE (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND attraction IS NULL AND (usage IS NULL OR usage='main') AND service IS NULL AND tunnel IS NULL ) as DATA]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, railway as type, 'main' as service FROM planet_osm_line WHERE (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed')) AND attraction IS NULL AND (usage IS NULL OR usage IN('main', 'branch', 'tourism')) AND service IS NULL AND tunnel IS NULL ) as DATA]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[dynamic]]></Parameter>
@@ -18014,23 +17893,23 @@ SELECT way, ST_Perimeter(way)::integer as boundary
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'goods')</Filter>
+    <Filter>([type] = 'toboggan')</Filter>
     <LineSymbolizer stroke-width="0" stroke="#000000" stroke-dasharray="12, 6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'goods')</Filter>
+    <Filter>([type] = 'toboggan')</Filter>
     <LineSymbolizer stroke-width="2" stroke-dasharray="8, 4" stroke="#000000" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'toboggan')</Filter>
+    <Filter>([type] = 'goods')</Filter>
     <LineSymbolizer stroke-width="0" stroke="#000000" stroke-dasharray="12, 6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <Filter>([type] = 'toboggan')</Filter>
+    <Filter>([type] = 'goods')</Filter>
     <LineSymbolizer stroke-width="2" stroke-dasharray="8, 4" stroke="#000000" />
   </Rule>
   <Rule>
@@ -20132,6 +20011,83 @@ OR "man_made" IN ('mast', 'tower', 'communications_tower', 'antenna')
     <Datasource>
        <Parameter name="file"><![CDATA[data/shp/ne_10m_populated_places.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="global_states" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 6)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 6)</Filter>
+    <TextSymbolizer size="24" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="40" dx="40" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 6)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 7)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([scalerank] &gt; 3) and ([scalerank] &lt; 7)</Filter>
+    <TextSymbolizer size="24" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" dy="40" dx="40" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 2)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 2)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 2)</Filter>
+    <TextSymbolizer dy="20" dx="20" fontset-name="fontset-3" fill="#444444" size="16" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[abbrev]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt;= 3)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <Filter>([scalerank] &lt; 6)</Filter>
+    <TextSymbolizer size="20" dy="20" dx="20" fontset-name="fontset-3" fill="#444444" text-transform="uppercase" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" line-spacing="2" wrap-width="40" placement="interior" placement-type="simple" placements="S,N,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="global_states"
+  srs="+proj=longlat +datum=WGS84 +no_defs">
+    <StyleName>global_states</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+       <Parameter name="file"><![CDATA[data/shp/ne_10m_admin_1_states_provinces.shp]]></Parameter>
     </Datasource>
   </Layer>
 

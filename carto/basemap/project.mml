@@ -400,7 +400,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "status": "on"
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -695,21 +695,6 @@
       "srs": "+proj=longlat +datum=WGS84 +no_defs"
     },
     {
-      "geometry": "linestring",
-      "id": "global_states",
-      "name": "global_states",
-      "class": "",
-      "Datasource": {
-        "type": "shape",
-        "file": "data/shp/ne_10m_admin_1_states_provinces.shp"
-      },
-      "extent": [-180,-85.05112877980659,180,85.05112877980659],
-      "layer": null,
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +datum=WGS84 +no_defs",
-      "advanced": {},
-    },
-    {
       "geometry": "polygon",
       "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "id": "global_countries",
@@ -780,7 +765,8 @@
                   FROM planet_osm_line
                   WHERE
                     (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed'))
-                    AND (service IS NULL OR service NOT IN('yard'))
+                    AND (usage IS NULL OR usage IN('main', 'branch', 'tourism'))
+                    AND service IS NULL
                     AND attraction IS NULL
                     AND tunnel = 'yes'
                   ) as DATA",
@@ -960,7 +946,7 @@
                   WHERE
                     (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed'))
                     AND attraction IS NULL
-                    AND (service IS NOT NULL OR (usage <> 'main'))
+                    AND (service IS NOT NULL OR (usage NOT IN('main', 'branch', 'tourism')))
                     AND tunnel IS NULL
                   ) as DATA",
         "key_field": "",
@@ -991,7 +977,7 @@
                   WHERE
                     (railway NOT IN ('subway', 'tram', 'abandoned', 'disused', 'razed', 'platform', 'construction', 'funicular', 'proposed'))
                     AND attraction IS NULL
-                    AND (usage IS NULL OR usage='main')
+                    AND (usage IS NULL OR usage IN('main', 'branch', 'tourism'))
                     AND service IS NULL
                     AND tunnel IS NULL
                   ) as DATA",
@@ -1854,6 +1840,21 @@
       "srs": "+proj=longlat +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "cities"
+    },
+    {
+      "geometry": "linestring",
+      "id": "global_states",
+      "name": "global_states",
+      "class": "",
+      "Datasource": {
+        "type": "shape",
+        "file": "data/shp/ne_10m_admin_1_states_provinces.shp"
+      },
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "layer": null,
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +datum=WGS84 +no_defs",
+      "advanced": {},
     },
   ]
 }

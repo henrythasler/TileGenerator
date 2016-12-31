@@ -122,9 +122,7 @@
   }
 }
 
-#railway[zoom>=11][zoom<16],
-#railway[zoom>=16],
-#railway_service[zoom>=16]{
+#railway[zoom>=11]{
   ::line{
     line-width: 3.6;
     line-color: @runway;
@@ -138,10 +136,6 @@
     [zoom>=16] {
       line-color: @darkgrey;
       line-width: 9;
-      [service = 'other'] {
-        line-color: #888;
-        line-width: 5;
-      }
     }
   }
   ::dash[zoom>=14]{
@@ -155,11 +149,19 @@
     [zoom>=16] {
       line-width: 5;
       line-dasharray: 36, 36;
-      [service = 'other'] {
-        line-width: 2.4;
-        line-dasharray: 18, 18;
-      }
     }
+  }
+}
+
+#railway_service[zoom>=15]{
+  ::line{
+    line-color: #888;
+    line-width: 5;
+  }
+  ::dash[zoom>=14]{
+    line-color: white;
+    line-width: 2.4;
+    line-dasharray: 18, 18;
   }
 }
 

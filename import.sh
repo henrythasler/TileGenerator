@@ -18,7 +18,7 @@
 
 #src="/media/ramdisk/germany-middle.osm.pbf"
 #dbname="middle"
-#param="-C 12000 -G -v --number-processes 2"
+#param="-C 12000 -G -v --number-processes 4 --slim"
 
 #src="/media/henry/Tools/map/data/austria-east.osm.pbf"
 #dbname="austria"
