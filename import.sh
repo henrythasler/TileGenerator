@@ -26,7 +26,7 @@
 
 #src="/media/ramdisk/alps.osm.pbf"
 #dbname="alps"
-#param="-C 12000 -G -v --number-processes 2"
+#param="-C 12000 -G -v --number-processes 4 --slim"
 
 #src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
 #dbname="testset"

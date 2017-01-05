@@ -131,7 +131,7 @@
 }
 
 #hospital[zoom>=16]{
-  ::label{ 
+  ::label{
     text-size: 18;
     text-character-spacing: 1.6;
     text-name:[name];
@@ -152,6 +152,7 @@
   shield-name: "[ref]";
   shield-size: 18;
   shield-face-name: @sans;
+  shield-character-spacing: -1.6;
   shield-fill: white;
   shield-avoid-edges: true;
   shield-clip: false;
@@ -337,7 +338,7 @@
       [zoom>=12][zoom<13] {text-size: 18; text-dy: 60; text-dx: 60;}
       [zoom>=13][zoom<14] {text-size: 20; text-dy: 40; text-dx: 40;}
       [zoom>=14][zoom<15] {text-size: 24; text-dy: 120; text-dx: 120;}
-      text-character-spacing: 1.6;
+      text-character-spacing: 0;
       text-halo-radius:3;
       text-wrap-width: 200;
       text-wrap-before: true;
@@ -354,7 +355,7 @@
       [zoom>=13][zoom<14] {text-size: 18; text-dy: 20; text-dx: 20;}
       [zoom>=14][zoom<15] {text-size: 20; text-dy: 40; text-dx: 40;}
       [zoom>=15]{text-size: 24; text-dy: 60; text-dx: 60;}
-      text-character-spacing: 1.6;
+      text-character-spacing: 0;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:3;
       text-wrap-width: 200;
@@ -370,7 +371,7 @@
       text-size: 0;
       [zoom>=14][zoom<15] {text-size: 18; text-dy: 20; text-dx: 20;}
       [zoom>=15] {text-size: 20; text-dy: 40; text-dx: 40;}
-      text-character-spacing: 1.6;
+      text-character-spacing: -0.5;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:3;
       text-wrap-width: 200;

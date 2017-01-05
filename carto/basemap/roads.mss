@@ -433,7 +433,7 @@
 
 .roads::label[zoom>=16]{
   text-size: 18;
-  text-character-spacing: 1.6;
+  text-character-spacing: 0;
   text-name:'[name]';
   text-face-name:@sans;
   text-placement:line;

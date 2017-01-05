@@ -1780,7 +1780,7 @@ SELECT way
   </Rule>
 </Style>
 <Layer name="hillshading"
-  status="off"
+  status="on"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshading</StyleName>
     <Datasource>
@@ -2511,7 +2511,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
 <Style name="tunnels-label" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <TextSymbolizer size="18" character-spacing="1.6" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" character-spacing="0" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Style name="tunnels-inner" filter-mode="first">
@@ -6486,7 +6486,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
 <Style name="roads-label" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <TextSymbolizer size="18" character-spacing="1.6" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" character-spacing="0" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Style name="roads-inner" filter-mode="first">
@@ -10443,7 +10443,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
 <Style name="bridges_layer1-label" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <TextSymbolizer size="18" character-spacing="1.6" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" character-spacing="0" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Style name="bridges_layer1-inner" filter-mode="first">
@@ -14107,7 +14107,7 @@ SELECT way, ST_Perimeter(way)::integer as boundary
 <Style name="bridges_layer2-label" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <TextSymbolizer size="18" character-spacing="1.6" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" character-spacing="0" fontset-name="fontset-2" placement="line" horizontal-alignment="middle" spacing="200" fill="rgba(0, 0, 0, 0.8)" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="2" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Style name="bridges_layer2-inner" filter-mode="first">
@@ -18537,154 +18537,154 @@ WHERE amenity='shelter'
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'trunk') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'trunk') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'trunk') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'primary') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'primary') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'primary') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'trunk') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([type] = 'trunk') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'trunk') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'primary') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="400" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([type] = 'primary') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'primary') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.yellow.svg" minimum-distance="300" fill="#000000" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'motorway') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="400" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="400" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'motorway') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'motorway') and ([reflen] &gt;= 5)</Filter>
-    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-5.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([type] = 'motorway') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="400" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="400" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([type] = 'motorway') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'motorway') and ([reflen] &gt;= 4) and ([reflen] &lt; 5)</Filter>
-    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer file="img/shield-4.blue.svg" minimum-distance="300" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'trunk')</Filter>
-    <ShieldSymbolizer minimum-distance="400" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="400" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'trunk')</Filter>
-    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'trunk')</Filter>
-    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'primary')</Filter>
-    <ShieldSymbolizer minimum-distance="400" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="400" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'primary')</Filter>
-    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5) and ([type] = 'primary')</Filter>
-    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="300" fill="#000000" file="img/shield-3.yellow.svg" size="18" fontset-name="fontset-2" character-spacing="-2" avoid-edges="true" clip="false" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5)</Filter>
-    <ShieldSymbolizer minimum-distance="400" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="400" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([reflen] &lt;= 5)</Filter>
-    <ShieldSymbolizer minimum-distance="300" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="300" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([reflen] &lt;= 5)</Filter>
-    <ShieldSymbolizer minimum-distance="300" size="18" fontset-name="fontset-2" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
+    <ShieldSymbolizer minimum-distance="300" size="18" fontset-name="fontset-2" character-spacing="-2" fill="#ffffff" avoid-edges="true" clip="false" file="img/shield-3.blue.svg" transform="scale(2)" ><![CDATA[[ref]]]></ShieldSymbolizer>
   </Rule>
 </Style>
 <Layer name="road_shields"
@@ -19720,85 +19720,85 @@ OR "man_made" IN ('mast', 'tower', 'communications_tower', 'antenna')
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([place] = 'hamlet') and ([area] &gt;= 50000)</Filter>
-    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-2" character-spacing="-0.5" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="18" dy="20" dx="20" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" dy="20" dx="20" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="16" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="16" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([place] = 'village')</Filter>
-    <TextSymbolizer size="24" dy="60" dx="60" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="24" dy="60" dx="60" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="18" dy="20" dx="20" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" dy="20" dx="20" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="16" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="16" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([place] = 'suburb')</Filter>
-    <TextSymbolizer size="24" dy="60" dx="60" fontset-name="fontset-2" character-spacing="1.6" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="24" dy="60" dx="60" fontset-name="fontset-2" character-spacing="0" halo-fill="rgba(255, 255, 255, 0.8)" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="24" dy="120" dx="120" fontset-name="fontset-3" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="1.6" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="24" dy="120" dx="120" fontset-name="fontset-3" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-3" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="1.6" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="20" dy="40" dx="40" fontset-name="fontset-3" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="18" dy="60" dx="60" fontset-name="fontset-3" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="1.6" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" dy="60" dx="60" fontset-name="fontset-3" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="18" dy="20" dx="20" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="1.6" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="18" dy="20" dx="20" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
     <MinScaleDenominator>400000</MinScaleDenominator>
     <Filter>([place] = 'town')</Filter>
-    <TextSymbolizer size="16" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="1.6" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="16" fontset-name="fontset-2" halo-fill="rgba(255, 255, 255, 0.8)" character-spacing="0" halo-radius="3" wrap-width="200" wrap-before="true" placement-type="simple" placements="N,S,E,W,NE,SE,NW,SW" ><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
