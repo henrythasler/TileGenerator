@@ -2,9 +2,14 @@ data/
 tiles/
 tilesHD/
 img/sjjb/
-tilemill/cache/
-tilemill/layers/
+tilemill/
 blog/
+mycyclemap/data
+mycyclemap/fonts
+mycyclemap/img
+testmap/data
+testmap/fonts
+testmap/img
 /fonts/DroidSans-Bold.ttf
 /fonts/DroidSans.ttf
 /fonts/LICENSE.txt

@@ -98,7 +98,6 @@
 
 #peaks::label[zoom>=15] {
     text-size: 18;
-    text-character-spacing: 1.6;
     text-name:[name] + '\n' + [ele];
     text-face-name:@sans_bold_italic;
     text-placement-type: simple;
@@ -115,7 +114,6 @@
 #restaurant_high[zoom>=15]{
   ::label [zoom>=15]{
     text-size: 18;
-    text-character-spacing: 1.6;
     text-name:[name] + '\n' + [ele];
     text-face-name:@sans_bold_italic;
     text-placement-type: simple;
@@ -133,7 +131,6 @@
 #hospital[zoom>=16]{
   ::label{
     text-size: 18;
-    text-character-spacing: 1.6;
     text-name:[name];
     text-face-name:@sans_bold_italic;
     text-placement-type: simple;
@@ -257,7 +254,6 @@
 
 #cycleroute_labels[zoom>=15] {
   text-size: 18;
-  text-character-spacing: 1.6;
   text-min-distance: 1000;
   text-spacing: 1000;
   text-name:'[route_name]';
@@ -278,7 +274,6 @@
 #military_label[zoom>=16][area>=10000]
 {
   text-size: 18;
-  text-character-spacing: 1.6;
   text-name:[name];
   text-face-name:@sans_bold_italic;
   text-fill:@industry_text;
@@ -296,7 +291,6 @@
 #nature_reserve_label[zoom>=15][area>=10000][area<6000000]
 {
   text-size: 18;
-  text-character-spacing: 1.6;
   text-name: [name];
   text-face-name:@sans_bold_italic;
   text-fill:green;
@@ -338,7 +332,6 @@
       [zoom>=12][zoom<13] {text-size: 18; text-dy: 60; text-dx: 60;}
       [zoom>=13][zoom<14] {text-size: 20; text-dy: 40; text-dx: 40;}
       [zoom>=14][zoom<15] {text-size: 24; text-dy: 120; text-dx: 120;}
-      text-character-spacing: 0;
       text-halo-radius:3;
       text-wrap-width: 200;
       text-wrap-before: true;
@@ -355,7 +348,6 @@
       [zoom>=13][zoom<14] {text-size: 18; text-dy: 20; text-dx: 20;}
       [zoom>=14][zoom<15] {text-size: 20; text-dy: 40; text-dx: 40;}
       [zoom>=15]{text-size: 24; text-dy: 60; text-dx: 60;}
-      text-character-spacing: 0;
       text-halo-fill: @text_halo_strong;
       text-halo-radius:3;
       text-wrap-width: 200;
@@ -426,7 +418,6 @@
       text-halo-radius: 3;
       text-wrap-width: 200;
       text-wrap-before: true;
-      text-character-spacing: 1.6;
       text-placement-type: simple;
       text-placements: "N,S,E,W,NE,SE,NW,SW";
       text-dy: 12;
@@ -439,7 +430,6 @@
   ::label[name != null][zoom>=13] {
     [type='tram_stop'][zoom>=16],[type='station'][subway='yes'][zoom>=16]{
       text-size:16;
-      text-character-spacing: 1.6;
       text-name:[name];
       text-face-name:@sans_italic;
       text-placement-type: simple;
@@ -457,7 +447,6 @@
       text-size: 16;
       [zoom>=14][zoom<15] { text-size:18; }
       [zoom>=15] {text-size:20;}
-      text-character-spacing: 1.6;
       text-name:[name];
       text-face-name:@sans_italic;
 //      [zoom>=13] {text-face-name:@sans_bold_italic;}
