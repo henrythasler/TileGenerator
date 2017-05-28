@@ -39,6 +39,7 @@
 @hospital_text:   fadeout(darken(red, 15%),20%);
 @peak_text:         fadeout(black,20%);
 @station_text:      #000080;
+@camping_text:      #666699;
 
 @mapcolor1:         #d3e56f;
 @mapcolor2:         #cdb5ce;

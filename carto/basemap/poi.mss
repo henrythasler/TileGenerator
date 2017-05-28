@@ -165,6 +165,25 @@
     }
 }
 
+
+#camping[zoom>=13] {
+  [type='caravan_site'] {
+    marker-file: url(img/caravan_site.svg);
+    marker-width: 12;
+    [zoom>=14] {marker-width: 18;}
+    marker-clip: false;
+    marker-allow-overlap:true;
+  }
+  [type='camp_site'][zoom>=14] {
+    marker-file: url(img/camping_site.svg);
+    marker-width: 12;
+    [zoom>=14] {marker-width: 18;}
+    marker-clip: false;
+    marker-allow-overlap:true;
+  }
+}
+
+
 #landmark[zoom>=15]{
   marker-width: 13;
   [type='tower'] {
@@ -195,7 +214,7 @@
   ::marker {
     marker-file: url(img/hospital.svg);
     marker-width: 12;
-    marker-clip: false; 
+    marker-clip: false;
     [zoom>=14][zoom<15] {marker-width: 18;}
     [zoom>=15] {marker-width: 28;}
   }

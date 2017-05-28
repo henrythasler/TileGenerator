@@ -16,9 +16,9 @@
 #dbname="north"
 #param="-C 12000 -G -v --number-processes 4 --slim"
 
-#src="/media/ramdisk/germany-middle.osm.pbf"
-#dbname="middle"
-#param="-C 12000 -G -v --number-processes 4 --slim"
+src="/media/ramdisk/germany-middle.osm.pbf"
+dbname="middle"
+param="-C 12000 -G -v --number-processes 4 --slim"
 
 #src="/media/henry/Tools/map/data/austria-east.osm.pbf"
 #dbname="austria"
@@ -31,10 +31,10 @@
 #src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
 #dbname="testset"
 
-src="/media/henry/Tools/map/data/slice.osm.pbf"
-dbname="mering"
+#src="/media/henry/Tools/map/data/slice.osm.pbf"
+#dbname="mering"
 #dbname="empty"
-param="-C 10000 -G -v --number-processes 4 --slim"
+#param="-C 10000 -G -v --number-processes 4 --slim"
 
 #src="/media/ramdisk/china-latest.osm.pbf"
 #dbname="china"
@@ -62,8 +62,8 @@ psql -U postgres -d $dbname -c "CREATE EXTENSION postgis_sfcgal;"
 osm2pgsql $param -U postgres -d $dbname -c -S $style $src
 psql -U postgres -d $dbname -f postprocessing/cycleroutes.sql
 psql -U postgres -d $dbname -f postprocessing/drop_roads.sql
-psql -U postgres -d $dbname -f postprocessing/subway.sql
-psql -U postgres -d $dbname -f postprocessing/tram.sql
+#psql -U postgres -d $dbname -f postprocessing/subway.sql
+#psql -U postgres -d $dbname -f postprocessing/tram.sql
 
 
 

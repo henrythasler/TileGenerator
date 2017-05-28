@@ -1771,6 +1771,39 @@
       "extent": [-180,-85.05112877980659,180,85.05112877980659],
       "Datasource": {
         "type": "postgis",
+        "table": "(SELECT
+                  DISTINCT ON(snapped) way, tourism as type, name
+                  FROM
+                    (
+                      SELECT ST_SnapToGrid(way, 200) as snapped, way, tourism, name
+                      FROM planet_osm_point
+                      WHERE tourism IN ('camp_site', 'caravan_site')
+                    UNION
+                      SELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way, tourism, name
+                      FROM planet_osm_polygon
+                      WHERE tourism IN ('camp_site', 'caravan_site')
+                    ) as tmp
+                  ) as data",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "dynamic",
+        "extent": "",
+        "host" : "postgis",
+        "dbname": "mering",
+        "user": "postgres"
+      },
+      "id": "camping",
+      "name": "camping",
+      "class": "poi",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+    },
+    {
+      "geometry": "point",
+      "extent": [-180,-85.05112877980659,180,85.05112877980659],
+      "Datasource": {
+        "type": "postgis",
         "table": "(\nSELECT\nDISTINCT ON(snapped)\nway, type\nFROM\n(\nSELECT ST_SnapToGrid(way, 200) as snapped, way,\n  CASE \n WHEN \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian') THEN 'church'\n WHEN \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna') THEN 'tower'\n  END as type\nFROM planet_osm_point\nWHERE \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian') \nOR \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna')\nUNION\nSELECT ST_SnapToGrid(ST_Centroid(way), 200) as snapped, ST_Centroid(way) as way,\n  CASE \n WHEN \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian') THEN 'church'\n WHEN \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna') THEN 'tower'\n  END as type\nFROM planet_osm_polygon\nWHERE \"amenity\" IN ('place_of_worship') AND \"religion\" IN ('christian')\nOR \"man_made\" IN ('mast', 'tower', 'communications_tower', 'antenna')\n) as tmp\n) as data",
         "key_field": "",
         "geometry_field": "",

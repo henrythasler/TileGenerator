@@ -264,6 +264,21 @@
   text-halo-radius: 3;
 }
 
+#camping[zoom>=16]{
+  text-size: 18;
+  text-name:'[name]';
+  text-face-name:@sans_bold_italic;
+  text-placement-type: simple;
+  text-placements: "S,N,E,W,NE,SE,NW,SW";
+  text-dy: 20;
+  text-dx: 20;
+  text-fill:@camping_text;
+  text-wrap-width: 200;
+  text-wrap-before: true;
+  text-halo-fill: @text_halo_strong;
+  text-halo-radius:3;
+}
+
 #industrial_label[zoom=13][area>=1500000],
 #industrial_label[zoom=14][area>=700000],
 #industrial_label[zoom=15][area>=200000],
