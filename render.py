@@ -39,10 +39,11 @@ BUF_SIZE = 1024
 # Default number of rendering threads to spawn, should be roughly equal to number of CPU cores available
 NUM_THREADS = 1
 
-
-def minmax (a,b,c):
-    a = max(a,b)
-    a = min(a,c)
+def limit (a)
+    if a < -0.9999:
+	return -0.9999
+    if a > 0.9999:
+	return 0.9999
     return a
 
 class GoogleProjection:
@@ -63,7 +64,7 @@ class GoogleProjection:
     def fromLLtoPixel(self,ll,zoom):
          d = self.zc[zoom]
          e = round(d[0] + ll[0] * self.Bc[zoom])
-         f = minmax(sin(DEG_TO_RAD * ll[1]),-0.9999,0.9999)
+         f = limit(sin(DEG_TO_RAD * ll[1]))
          g = round(d[1] + 0.5*log((1+f)/(1-f))*-self.Cc[zoom])
          return (e,g)
      
