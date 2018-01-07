@@ -39,7 +39,7 @@ BUF_SIZE = 1024
 # Default number of rendering threads to spawn, should be roughly equal to number of CPU cores available
 NUM_THREADS = 4
 
-def limit (a)
+def limit (a):
     if a < -0.9999:
 	return -0.9999
     if a > 0.9999:
@@ -53,7 +53,7 @@ class GoogleProjection:
         self.zc = []
         self.Ac = []
         c = 256
-        for d in range(0,levels):
+        for d in range(0,levels + 1):
             e = c/2;
             self.Bc.append(c/360.0)
             self.Cc.append(c/(2 * pi))
@@ -243,7 +243,7 @@ class WriterThread:
 
 
 class RenderThread:
-    def __init__(self, writer, mapfile, q, lock):
+    def __init__(self, writer, mapfile, q, lock, maxZoom):
         self.writer = writer
         self.q = q
         self.mapfile = mapfile
@@ -256,7 +256,7 @@ class RenderThread:
         # Obtain <Map> projection
         self.prj = mapnik.Projection(self.m.srs)
         # Projects between tile pixel co-ordinates and LatLong (EPSG:4326)
-        self.tileproj = GoogleProjection()
+        self.tileproj = GoogleProjection(maxZoom)
         
 
     def render_tile(self, z, scale, p0, p1, metawidth, metaheight, debug):
@@ -332,7 +332,7 @@ def render_tiles(bbox, zooms, mapfile, writer, lock, num_threads=NUM_THREADS, sc
     # Launch render processes
     renderers = {}
     for i in range(num_threads):
-        renderer = RenderThread(writer, mapfile, renderQueue, lock)
+        renderer = RenderThread(writer, mapfile, renderQueue, lock, zooms[1])
         if MULTIPROCESSING:
           render_thread = multiprocessing.Process(target=renderer.loop)
         else:
