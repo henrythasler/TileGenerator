@@ -22,10 +22,10 @@ import argparse
 
 import mapnik
 
-MULTIPROCESSING = False # True=multiprocessing; False=treading
+MULTIPROCESSING = False # True = multiprocessing; False = treading
 
-DEG_TO_RAD = pi / 180
-RAD_TO_DEG = 180 / pi
+DEG_TO_RAD = pi / 180.0
+RAD_TO_DEG = 180.0 / pi
 
 # Map defines
 TILE_SIZE = 256
@@ -44,7 +44,7 @@ def limit (a):
     return a
 
 class GoogleProjection:
-    def __init__(self, levels=18):
+    def __init__(self, levels = 18):
         self.Bc = []
         self.Cc = []
         self.zc = []
@@ -53,7 +53,7 @@ class GoogleProjection:
         for d in range(0, levels + 1):
             e = c / 2;
             self.Bc.append(c / 360.0)
-            self.Cc.append(c / (2 * pi))
+            self.Cc.append(0.5 * c / pi)
             self.zc.append((e, e))
             self.Ac.append(c)
             c *= 2
@@ -62,18 +62,18 @@ class GoogleProjection:
          d = self.zc[zoom]
          e = round(d[0] + ll[0] * self.Bc[zoom])
          f = limit(sin(DEG_TO_RAD * ll[1]))
-         g = round(d[1] + 0.5 * log((1 + f) / (1 - f)) * -self.Cc[zoom])
+         g = round(d[1] + 0.5 * log((1.0 + f) / (1.0 - f)) * -self.Cc[zoom])
          return (e, g)
 
     def fromPixelToLL(self, px, zoom):
          e = self.zc[zoom]
          f = (px[0] - e[0]) / self.Bc[zoom]
          g = (px[1] - e[1]) / -self.Cc[zoom]
-         h = RAD_TO_DEG * ( 2 * atan(exp(g)) - 0.5 * pi)
+         h = RAD_TO_DEG * (2.0 * atan(exp(g)) - 0.5 * pi)
          return (f, h)
 
 class MinimalProgressBar:
-    def __init__(self, maxValue, width=50):
+    def __init__(self, maxValue, width = 50):
       self.maxValue = maxValue
       self.width = width
       self.startTime = datetime.now()
@@ -86,9 +86,9 @@ class MinimalProgressBar:
       dots = '.' * int(percentage * self.width)
       spaces = ' ' * (self.width - len(dots))
       delta = datetime.now() - self.startTime
-      elapsed = float(delta.microseconds + delta.seconds * 1000000 + delta.days * 24 * 60 * 60 * 1000000) / 1000000
+      elapsed = float(delta.microseconds + delta.seconds * 1000000 + delta.days * 24 * 60 * 60 * 1000000) / 1000000.0
       eta = int(elapsed / max(percentage, 0.01) - elapsed)
-      hms = "{:02}:{:02}:{:02}".format(eta / 3600, (eta / 60) % 60, eta % 60)
+      hms = "{:02}:{:02}:{:02}".format(eta // 3600, (eta // 60) % 60, eta % 60)
       sys.stdout.write("\r[{}] {:6.2%} eta {}".format(dots + spaces, percentage, hms))
       sys.stdout.flush()
 
@@ -161,7 +161,7 @@ class SQLiteDBWriter:
     def delete(self, x, y, z):
         if self.db:
           try:
-            self.cur.execute("DELETE FROM tiles WHERE x=? AND y=? AND z=?", (x, y, 17 - z))
+            self.cur.execute("DELETE FROM tiles WHERE x = ? AND y = ? AND z = ?", (x, y, 17 - z))
           except sqlite.Error, e:
             print "SQLiteDBWriter Error %s:" % e.args[0]
 
@@ -188,7 +188,7 @@ class WriterThread:
         self.q = q
         self.lock = lock
         self.options = options
-        self.tilecounter = {'sum':0, 'count':0}
+        self.tilecounter = {'sum': 0, 'count': 0}
 
     def loop(self):
         if self.options.tiledir:
@@ -272,7 +272,7 @@ class RenderThread:
         self.m.zoom_to_box(bbox)
         self.m.buffer_size = BUF_SIZE
 
-        if debug>=2:
+        if debug >= 2:
           self.lock.acquire()
           print z, bbox, metawidth, metaheight
           self.lock.release()
@@ -287,7 +287,7 @@ class RenderThread:
         for my in range(0, metaheight):
           for mx in range(0, metawidth):
 #            tile = metaimage.view(mx * TILE_SIZE, my * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-            if debug>=3:
+            if debug >= 3:
               self.lock.acquire()
               print "Tile: x=", p0[0]/TILE_SIZE + mx, "y=", p1[1] / TILE_SIZE + my, "z=", z
               self.lock.release()
@@ -312,7 +312,7 @@ class RenderThread:
             self.render_tile(z, scale, p0, p1, metawidth, metaheight, debug)
             self.q.task_done()
 
-def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads=NUM_THREADS, scale=1, debug=0):
+def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads = NUM_THREADS, scale = 1, debug = 0):
     # setup queue to be used as a transfer pipeline to the render processes
     renderQueue = multiprocessing.JoinableQueue(32)
 
@@ -323,9 +323,9 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads=NUM_T
     for i in range(num_threads):
         renderer = RenderThread(writer, mapfile, renderQueue, lock, zooms[1])
         if MULTIPROCESSING:
-          render_thread = multiprocessing.Process(target=renderer.loop)
+          render_thread = multiprocessing.Process(target = renderer.loop)
         else:
-          render_thread = threading.Thread(target=renderer.loop)
+          render_thread = threading.Thread(target = renderer.loop)
         render_thread.start()
         renderers[i] = render_thread
 
@@ -341,14 +341,14 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads=NUM_T
     px = [[LLtoPx(ll0, z), LLtoPx(ll1, z)] for z in xrange(0, zooms[1] + 1)]
 
     # setup tile and metadata dictionarys (https://docs.python.org/2/tutorial/datastructures.html#dictionaries)
-    tileData = {'sum':0};  # holds information of all tiles
+    tileData = {'sum': 0};  # holds information of all tiles
     metaData = {};         # holds information of all metatiles
 
     # iterate over all requested zoom levels
     for z in range(zooms[0], zooms[1] + 1):
       # setup nested dictionaries for this zoom level
-      tileData[z]={}
-      metaData[z]={}
+      tileData[z] = {}
+      metaData[z] = {}
 
       # compute how many tiles need to be rendered at current zoom level
       tileData[z]['cols'] = int(ceil(px[z][1][0] / TILE_SIZE - px[z][0][0] / TILE_SIZE))
@@ -376,7 +376,7 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads=NUM_T
       # amount of metatiles for this zoom level
       metaData[z]['sum'] = int(ceil(float(tileData[z]['sum']) / float(metaData[z]['width'] * metaData[z]['height'])))
 
-      if debug>=2:
+      if debug >= 2:
         print "px at z=", z, ": ", px[z]
         print "tileData at z=", z, ": ", tileData[z]
         print "metaData at z=", z, ": ", metaData[z]
@@ -424,7 +424,7 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads=NUM_T
           # create set of current metatile for the render queue
           metatile = (z, scale, (left, bottom), (right, top), metawidth, metaheight, debug)
 
-          if debug>=3:
+          if debug >= 3:
             print "x=", x, " y=", y, " metawidth=", metawidth, "metaheight=", metaheight, " metatile=", metatile
 
           # add metatile to rendering queue
@@ -441,20 +441,20 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads=NUM_T
 if __name__ == "__main__":
     mapfile = "mycyclemap.xml"
 
-    parser = argparse.ArgumentParser(description='TileGenerator by Henry Thasler')
+    parser = argparse.ArgumentParser(description = 'TileGenerator by Henry Thasler')
     apg_input = parser.add_argument_group('Input')
-    apg_input.add_argument("-b", "--bbox", nargs=4, type=float, metavar=('left', 'bottom', 'right', 'top'), help="generate tiles inside a bounding box")
+    apg_input.add_argument("-b", "--bbox", nargs = 4, type = float, metavar = ('left', 'bottom', 'right', 'top'), help = "generate tiles inside a bounding box")
 
     apg_output = parser.add_argument_group('Output')
-    apg_output.add_argument('-z', '--zooms', type=int, nargs=2, metavar=('zmin', 'zmax'), help='range of zoom levels to render (default: 6 12)', default=(6, 12))
-    apg_output.add_argument("--tiledir", help="tile output directory")
-    apg_output.add_argument("--sqlitedb", help="tile database", default="tiles.sqlitedb")
-    apg_output.add_argument("--sqlitetype", help="type of sqlite-database", default="osmand")
+    apg_output.add_argument('-z', '--zooms', type = int, nargs = 2, metavar = ('zmin', 'zmax'), help = 'range of zoom levels to render (default: 6 12)', default = (6, 12))
+    apg_output.add_argument("--tiledir", help = "tile output directory")
+    apg_output.add_argument("--sqlitedb", help = "tile database", default = "tiles.sqlitedb")
+    apg_output.add_argument("--sqlitetype", help = "type of sqlite-database", default = "osmand")
 
     apg_other = parser.add_argument_group('Settings')
-    apg_other.add_argument('--metasize', type=int, help='metatile size (default: 16)', default=16)
-    apg_other.add_argument('--threads', type=int, metavar='N', help='number of threads (default: 2)', default=2)
-    apg_other.add_argument('--debug', type=int, help='print debug information; 0=off, 1=info, 2=debug, 3=details (default: 0)', default=0)
+    apg_other.add_argument('--metasize', type = int, help = 'metatile size (default: 16)', default = 16)
+    apg_other.add_argument('--threads', type = int, metavar = 'N', help = 'number of threads (default: 2)', default = 2)
+    apg_other.add_argument('--debug', type = int, help = 'print debug information; 0 = off, 1 = info, 2 = debug, 3 = details (default: 0)', default = 0)
 
     options = parser.parse_args()
 
@@ -478,12 +478,12 @@ if __name__ == "__main__":
 
     writer = WriterThread(options, writerQueue, lock)
     if MULTIPROCESSING:
-      writer_thread = multiprocessing.Process(target=writer.loop) # multiprocessing
+      writer_thread = multiprocessing.Process(target = writer.loop) # multiprocessing
     else:
-      writer_thread = threading.Thread(target=writer.loop)        # threading
+      writer_thread = threading.Thread(target = writer.loop)        # threading
     writer_thread.start()
 
-    render_tiles(options.bbox, options.zooms, mapfile, options.metasize, writerQueue, lock, num_threads=options.threads, scale=1.0, debug=options.debug)
+    render_tiles(options.bbox, options.zooms, mapfile, options.metasize, writerQueue, lock, num_threads = options.threads, scale = 1.0, debug = options.debug)
 
     writerQueue.put(None)
     # wait for pending rendering jobs to complete
