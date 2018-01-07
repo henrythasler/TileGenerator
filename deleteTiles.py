@@ -282,14 +282,14 @@ class RenderThread:
 #        mapnik.render(self.m, metaimage, scale)
 
         # save metatile for debug purposes only
-#        metaimage.save("/media/henry/Tools/map/tiles/MyCycleMapHD/" + "%s"%z + "-" + "%s" % (p0[0]/TILE_SIZE) + "-" + "%s" % (p1[1]/TILE_SIZE) + ".png", 'png256')
+#        metaimage.save("/media/henry/Tools/map/tiles/MyCycleMapHD/" + "%s"%z + "-" + "%s" % (p0[0] / TILE_SIZE) + "-" + "%s" % (p1[1] / TILE_SIZE) + ".png", 'png256')
 
         for my in range(0, metaheight):
           for mx in range(0, metawidth):
 #            tile = metaimage.view(mx * TILE_SIZE, my * TILE_SIZE, TILE_SIZE, TILE_SIZE)
             if debug >= 3:
               self.lock.acquire()
-              print "Tile: x=", p0[0]/TILE_SIZE + mx, "y=", p1[1] / TILE_SIZE + my, "z=", z
+              print "Tile: x=", p0[0] / TILE_SIZE + mx, "y=", p1[1] / TILE_SIZE + my, "z=", z
               self.lock.release()
 
             item = (Command.delete, p0[0] / TILE_SIZE + mx, p1[1] / TILE_SIZE + my, z, None)
@@ -342,7 +342,7 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads = NUM
 
     # setup tile and metadata dictionarys (https://docs.python.org/2/tutorial/datastructures.html#dictionaries)
     tileData = {'sum': 0};  # holds information of all tiles
-    metaData = {};         # holds information of all metatiles
+    metaData = {};          # holds information of all metatiles
 
     # iterate over all requested zoom levels
     for z in range(zooms[0], zooms[1] + 1):
@@ -351,8 +351,8 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads = NUM
       metaData[z] = {}
 
       # compute how many tiles need to be rendered at current zoom level
-      tileData[z]['cols'] = int(ceil(px[z][1][0] / TILE_SIZE - px[z][0][0] / TILE_SIZE))
-      tileData[z]['rows'] = int(ceil(px[z][1][1] / TILE_SIZE - px[z][0][1] / TILE_SIZE))
+      tileData[z]['cols'] = int(ceil((px[z][1][0] - px[z][0][0]) / TILE_SIZE))
+      tileData[z]['rows'] = int(ceil((px[z][1][1] - px[z][0][1]) / TILE_SIZE))
 
       # number of tiles for this zoom level
       tileData[z]['sum'] = tileData[z]['cols'] * tileData[z]['rows']
@@ -415,11 +415,10 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads = NUM
             metawidth = metaData[z]['width']
 
           # calculate dimensions of current metatile in pixels
-          left   = int(px[z][0][0] / TILE_SIZE) * TILE_SIZE +  x * metaData[z]['width'] * TILE_SIZE
-          right  = int(px[z][0][0] / TILE_SIZE) * TILE_SIZE + (x * metaData[z]['width'] + metawidth) * TILE_SIZE
-
-          top    = int(px[z][0][1] / TILE_SIZE) * TILE_SIZE +  y * metaData[z]['height'] * TILE_SIZE
-          bottom = int(px[z][0][1] / TILE_SIZE) * TILE_SIZE +  (y * metaData[z]['height'] + metaheight) * TILE_SIZE
+          left   = TILESIZE * (int(px[z][0][0] / TILE_SIZE) +  x * metaData[z]['width'])
+          top    = TILESIZE * (int(px[z][0][1] / TILE_SIZE) +  y * metaData[z]['height'])
+          right  = left + TILESIZE * metawidth
+          bottom = top + TILE_SIZE * metaheight
 
           # create set of current metatile for the render queue
           metatile = (z, scale, (left, bottom), (right, top), metawidth, metaheight, debug)

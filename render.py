@@ -348,7 +348,7 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads = NUM
 
     # setup tile and metadata dictionarys (https://docs.python.org/2/tutorial/datastructures.html#dictionaries)
     tileData = {'sum': 0};  # holds information of all tiles
-    metaData = {};         # holds information of all metatiles
+    metaData = {};          # holds information of all metatiles
 
     # iterate over all requested zoom levels
     for z in range(zooms[0], zooms[1] + 1):
@@ -421,11 +421,10 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads = NUM
             metawidth = metaData[z]['width']
 
           # calculate dimensions of current metatile in pixels
-          left   = int(px[z][0][0] / TILE_SIZE) * TILE_SIZE +  x * metaData[z]['width'] * TILE_SIZE
-          right  = int(px[z][0][0] / TILE_SIZE) * TILE_SIZE + (x * metaData[z]['width'] + metawidth) * TILE_SIZE
-
-          top    = int(px[z][0][1] / TILE_SIZE) * TILE_SIZE +  y * metaData[z]['height'] * TILE_SIZE
-          bottom = int(px[z][0][1] / TILE_SIZE) * TILE_SIZE +  (y * metaData[z]['height'] + metaheight) * TILE_SIZE
+          left   = (int(px[z][0][0] / TILE_SIZE) +  x * metaData[z]['width']) * TILE_SIZE
+          top    = (int(px[z][0][1] / TILE_SIZE) + y * metaData[z]['height']) * TILE_SIZE
+          right  = left + metawidth * TILE_SIZE
+          bottom = top + metaheight * TILE_SIZE
 
           # create set of current metatile for the render queue
           metatile = (z, scale, (left, bottom), (right, top), metawidth, metaheight, debug)
@@ -503,11 +502,3 @@ if __name__ == "__main__":
     # wait for pending rendering jobs to complete
     writerQueue.join()
     writer_thread.join()
-
-
-
-
-
-
-
-
