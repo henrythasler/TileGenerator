@@ -5,6 +5,6 @@ CREATE TABLE cycleroutes
 );  
 
 INSERT INTO cycleroutes (way)
-SELECT ST_LineMerge(ST_Collect(way)) as way
+SELECT ST_SetSRID(ST_LineMerge(ST_Collect(way)), 900913) as way
 FROM planet_osm_line 
 WHERE route='bicycle'; 
