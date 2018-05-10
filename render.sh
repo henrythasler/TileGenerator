@@ -3,6 +3,8 @@
 #/usr/share/tilemill/node_modules/carto/bin/carto -l tilemill/project.mml > mycyclemap.xml
 
 #echo $1 $2 $3 $4 $5 $6
+USERID=$UID
+GROUPID=$(id -g)
 
 tempfile=/tmp/dialog_1_$$
 
@@ -17,7 +19,7 @@ printf -v top "%.8f" "$1"
 menulist=""
 dbarray=()
 n=1
-for item in $(psql -U postgres -d postgres --tuples-only -P format=unaligned -c "SELECT datname FROM pg_database")
+for item in $(psql -U postgres -h localhost -d postgres --tuples-only -P format=unaligned -c "SELECT datname FROM pg_database order by datname asc")
 do
 	menulist="$menulist $n $item"
 	dbarray=(${dbarray[@]} $item)
@@ -46,15 +48,30 @@ sed -i 's/mering/'$database'/g' $database.xml
 #      --threads 4 \
 #      --debug 0
 
-time python render.py \
-      --bbox $left $bottom $right $top \
-      --zooms $5 $6 \
-      --mapfile $database.xml \
-      --scale 1.0 \
-      --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD2" \
-      --threads 4 \
-      --debug 0
+# time python render.py \
+#       --bbox $left $bottom $right $top \
+#       --zooms $5 $6 \
+#       --mapfile $database.xml \
+#       --scale 1.0 \
+#       --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD2" \
+#       --threads 4 \
+#       --debug 0
 
+docker run --name mapnik -ti --rm \
+    --link postgis:postgis \
+    -v /media/mapdata/henry:/media/mapdata/henry \
+    -e HOST_USER_ID=$(id -u) -e HOST_USER_GID=$(id -g) \
+    -v /media/henry/Tools/map/tiles:/media/henry/Tools/map/tiles \
+    --entrypoint=bash \
+    img-mapnik:0.15 -c "cd /media/mapdata/henry/TileGenerator; python3 py3_render.py \
+            --bbox $left $bottom $right $top \
+            --zooms $5 $6 \
+            --mapfile $database.xml \
+            --scale 1.0 \
+            --tiledir \"/media/henry/Tools/map/tiles/MyCycleMapHD2\" \
+            --threads 4 \
+            --debug 1"
+      
 # wait for user input after completion
 rm $database.xml
 echo -e "\nPress <Enter> to exit."

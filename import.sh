@@ -16,9 +16,9 @@
 #dbname="north"
 #param="-C 12000 -G -v --number-processes 4 --slim"
 
-src="/media/ramdisk/germany-middle.osm.pbf"
-dbname="middle"
-param="-C 12000 -G -v --number-processes 4 --slim"
+#src="/media/ramdisk/germany-middle.osm.pbf"
+#dbname="middle"
+#param="-C 12000 -G -v --number-processes 4 --slim"
 
 #src="/media/henry/Tools/map/data/austria-east.osm.pbf"
 #dbname="austria"
@@ -31,14 +31,14 @@ param="-C 12000 -G -v --number-processes 4 --slim"
 #src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
 #dbname="testset"
 
-#src="/media/henry/Tools/map/data/slice.osm.pbf"
-#dbname="mering"
+src="/media/henry/Tools/map/data/slice.osm.pbf"
+dbname="mering"
 #dbname="empty"
-#param="-C 10000 -G -v --number-processes 4 --slim"
+param="-C 10000 -G -v --number-processes 4 --slim"
 
 #src="/media/ramdisk/china-latest.osm.pbf"
 #dbname="china"
-#param="-C 10000 -G -v --number-processes 2"
+#param="-C 10000 -G -v --number-processes 4 --slim"
 
 #src="/media/henry/Tools/map/data/europe-latest-admin_4-6.osm.pbf"
 #dbname="temp"
@@ -51,19 +51,20 @@ style="styles/osm2pgsql.style"
 #param="--slim --drop -C 12000 -G -v --number-processes 2"
 
 
-psql -U postgres -c "DROP DATABASE IF EXISTS $dbname;"
-psql -U postgres -c "COMMIT;"
-psql -U postgres -c "CREATE DATABASE $dbname;"
+psql -U postgres -h localhost -c "DROP DATABASE IF EXISTS $dbname;"
+psql -U postgres -h localhost -c "COMMIT;"
+psql -U postgres -h localhost -c "CREATE DATABASE $dbname;"
 
-psql -U postgres -d $dbname -c "CREATE EXTENSION postgis;"
-psql -U postgres -d $dbname -c "CREATE EXTENSION postgis_topology;"
-psql -U postgres -d $dbname -c "CREATE EXTENSION postgis_sfcgal;"
+psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis;"
+psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis_topology;"
+psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis_sfcgal;"
+psql -U postgres -h localhost -d $dbname -c "ALTER DATABASE $dbname SET postgis.backend = sfcgal;"
 
-osm2pgsql $param -U postgres -d $dbname -c -S $style $src
-psql -U postgres -d $dbname -f postprocessing/cycleroutes.sql
-psql -U postgres -d $dbname -f postprocessing/drop_roads.sql
-#psql -U postgres -d $dbname -f postprocessing/subway.sql
-#psql -U postgres -d $dbname -f postprocessing/tram.sql
+osm2pgsql $param -U postgres -H localhost -d $dbname -c -S $style $src
+psql -U postgres -h localhost -d $dbname -f postprocessing/cycleroutes.sql
+psql -U postgres -h localhost -d $dbname -f postprocessing/drop_roads.sql
+psql -U postgres -h localhost -d $dbname -f postprocessing/subway.sql
+psql -U postgres -h localhost -d $dbname -f postprocessing/tram.sql
 
 
 
