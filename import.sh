@@ -8,9 +8,9 @@
 # -C   cache size
 # -S   style-file
 
-#src="/media/ramdisk/germany-south.osm.pbf"
-#dbname="south"
-#param="-C 12000 -G -v --number-processes 4 --slim"
+src="/media/ramdisk/germany-south.osm.pbf"
+dbname="south"
+param="-C 12000 -G -v --number-processes 4 --slim"
 
 #src="/media/ramdisk/germany-north.osm.pbf"
 #dbname="north"
@@ -31,10 +31,9 @@
 #src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
 #dbname="testset"
 
-src="/media/henry/Tools/map/data/slice.osm.pbf"
-dbname="mering"
-#dbname="empty"
-param="-C 10000 -G -v --number-processes 4 --slim"
+#src="/media/henry/Tools/map/data/slice.osm.pbf"
+#dbname="mering"
+#param="-C 10000 -G -v --number-processes 4 --slim"
 
 #src="/media/ramdisk/china-latest.osm.pbf"
 #dbname="china"
@@ -53,7 +52,7 @@ style="styles/osm2pgsql.style"
 
 psql -U postgres -h localhost -c "DROP DATABASE IF EXISTS $dbname;"
 psql -U postgres -h localhost -c "COMMIT;"
-psql -U postgres -h localhost -c "CREATE DATABASE $dbname;"
+psql -U postgres -h localhost -c "CREATE DATABASE $dbname WITH ENCODING='UTF8' CONNECTION LIMIT=-1;"
 
 psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis;"
 psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis_topology;"

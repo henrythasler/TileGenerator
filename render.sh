@@ -60,17 +60,15 @@ sed -i 's/mering/'$database'/g' $database.xml
 docker run --name mapnik -ti --rm \
     --link postgis:postgis \
     -v /media/mapdata/henry:/media/mapdata/henry \
-    -e HOST_USER_ID=$(id -u) -e HOST_USER_GID=$(id -g) \
     -v /media/henry/Tools/map/tiles:/media/henry/Tools/map/tiles \
-    --entrypoint=bash \
-    img-mapnik:0.15 -c "cd /media/mapdata/henry/TileGenerator; python3 py3_render.py \
+    img-mapnik:1.0 -c "cd /media/mapdata/henry/TileGenerator; time python3 py3_render.py \
             --bbox $left $bottom $right $top \
             --zooms $5 $6 \
             --mapfile $database.xml \
             --scale 1.0 \
             --tiledir \"/media/henry/Tools/map/tiles/MyCycleMapHD2\" \
             --threads 4 \
-            --debug 1"
+            --debug 0"
       
 # wait for user input after completion
 rm $database.xml

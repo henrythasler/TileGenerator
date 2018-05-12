@@ -38,9 +38,9 @@ NUM_THREADS = 1
 
 def limit (a):
     if a < -0.9999:
-	return -0.9999
+        return -0.9999
     if a > 0.9999:
-	return 0.9999
+        return 0.9999
     return a
 
 class GoogleProjection:

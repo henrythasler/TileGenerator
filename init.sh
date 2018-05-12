@@ -8,7 +8,7 @@
 # -C   cache size
 # -S   style-file
 
-src="/media/henry/Tools/map/data/planet_130422-filter.osm.pbf"
+src="/media/henry/Tools/map/data/dummy.osm.pbf"
 dbname="world"
 param="-C 10000 -G -v --number-processes 4 --slim"
 
@@ -17,11 +17,12 @@ style="styles/osm2pgsql.style"
 
 psql -U postgres -h localhost -c "DROP DATABASE IF EXISTS $dbname;"
 psql -U postgres -h localhost -c "COMMIT;"
-psql -U postgres -h localhost -c "CREATE DATABASE $dbname;"
+psql -U postgres -h localhost -c "CREATE DATABASE $dbname WITH ENCODING='UTF8' CONNECTION LIMIT=-1;"
 
 psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis;"
 psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis_topology;"
 psql -U postgres -h localhost -d $dbname -c "CREATE EXTENSION postgis_sfcgal;"
+psql -U postgres -h localhost -d $dbname -c "ALTER DATABASE $dbname SET postgis.backend = sfcgal;"
 
 osm2pgsql $param -U postgres -H localhost -d $dbname -c -S $style $src
 
