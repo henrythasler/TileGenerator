@@ -16,6 +16,27 @@ printf -v top "%.8f" "$1"
 
 #echo $left $bottom $right $top
 
+if [ ! "$(docker ps -q -f name=postgis)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=postgis)" ]; then
+        echo "removing old postgis container"
+        docker rm postgis
+    fi
+    # run your container
+    echo "starting postgis container"
+    docker run -d \
+    --name postgis \
+    -p 5432:5432 \
+    --user "$(id -u):$(id -g)" \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /media/mapdata/pgdata_henry:/media/mapdata/pgdata_henry \
+    -v /home/henry/dev/docker/postgis/postgis-osm-1.conf:/etc/postgresql/postgresql.conf \
+    -e PGDATA=/media/mapdata/pgdata_henry \
+    img-postgis:0.8 -c 'config_file=/etc/postgresql/postgresql.conf'
+else echo "postgis container already running"
+fi
+
+sleep 3s
+
 menulist=""
 dbarray=()
 n=1
@@ -56,6 +77,7 @@ sed -i 's/mering/'$database'/g' $database.xml
 #       --tiledir "/media/henry/Tools/map/tiles/MyCycleMapHD2" \
 #       --threads 4 \
 #       --debug 0
+
 
 docker run --name mapnik -ti --rm \
     --link postgis:postgis \
