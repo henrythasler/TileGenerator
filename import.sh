@@ -8,36 +8,61 @@
 # -C   cache size
 # -S   style-file
 
-src="/media/ramdisk/germany-south.osm.pbf"
-dbname="south"
-param="-C 12000 -G -v --number-processes 4 --slim"
+if [ ! "$(docker ps -q -f name=postgis)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=postgis)" ]; then
+        echo "removing old postgis container"
+        docker rm postgis
+    fi
+    # run your container
+    echo "starting postgis container"
+    docker run -d \
+    --name postgis \
+    -p 5432:5432 \
+    --user "$(id -u):$(id -g)" \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /media/mapdata/pgdata_henry:/media/mapdata/pgdata_henry \
+    -v $(pwd)/pg-config/postgis-import.conf:/etc/postgresql/postgresql.conf \
+    -e PGDATA=/media/mapdata/pgdata_henry \
+    img-postgis:0.8 -c 'config_file=/etc/postgresql/postgresql.conf'
+else echo "postgis container already running"
+fi
+
+while ! pg_isready -h localhost -p 5432 > /dev/null 2> /dev/null; do
+    echo "waiting for database"
+    sleep 1
+  done
+
+
+#src="/media/ramdisk/germany-south.osm.pbf"
+#dbname="south"
+#param="-C 12000 -G -v --number-processes 8 --slim"
 
 #src="/media/ramdisk/germany-north.osm.pbf"
 #dbname="north"
-#param="-C 12000 -G -v --number-processes 4 --slim"
+#param="-C 12000 -G -v --number-processes 8 --slim"
 
 #src="/media/ramdisk/germany-middle.osm.pbf"
 #dbname="middle"
-#param="-C 12000 -G -v --number-processes 4 --slim"
+#param="-C 12000 -G -v --number-processes 8 --slim"
 
 #src="/media/henry/Tools/map/data/austria-east.osm.pbf"
 #dbname="austria"
 #param="-C 12000 -G -v --number-processes 2"
 
-#src="/media/ramdisk/alps.osm.pbf"
-#dbname="alps"
-#param="-C 12000 -G -v --number-processes 4 --slim"
+#src="/media/ramdisk/alps-west.osm.pbf"
+#dbname="alps_west"
+#param="-C 12000 -G -v --number-processes 8 --slim"
 
 #src="/media/henry/Tools/map/data/testset_munich.osm.pbf"
 #dbname="testset"
 
 #src="/media/henry/Tools/map/data/slice.osm.pbf"
 #dbname="mering"
-#param="-C 10000 -G -v --number-processes 4 --slim"
+#param="-C 10000 -G -v --number-processes 8 --slim"
 
-#src="/media/ramdisk/china-latest.osm.pbf"
-#dbname="china"
-#param="-C 10000 -G -v --number-processes 4 --slim"
+src="/media/ramdisk/slice.osm.pbf"
+dbname="china"
+param="-C 12000 -G -v --number-processes 8 --slim"
 
 #src="/media/henry/Tools/map/data/europe-latest-admin_4-6.osm.pbf"
 #dbname="temp"

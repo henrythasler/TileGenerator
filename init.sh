@@ -8,6 +8,31 @@
 # -C   cache size
 # -S   style-file
 
+if [ ! "$(docker ps -q -f name=postgis)" ]; then
+    if [ "$(docker ps -aq -f status=exited -f name=postgis)" ]; then
+        echo "removing old postgis container"
+        docker rm postgis
+    fi
+    # run your container
+    echo "starting postgis container"
+    docker run -d \
+    --name postgis \
+    -p 5432:5432 \
+    --user "$(id -u):$(id -g)" \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /media/mapdata/pgdata_henry:/media/mapdata/pgdata_henry \
+    -v $(pwd)/pg-config/postgis-import.conf:/etc/postgresql/postgresql.conf \
+    -e PGDATA=/media/mapdata/pgdata_henry \
+    img-postgis:0.8 -c 'config_file=/etc/postgresql/postgresql.conf'
+else echo "postgis container already running"
+fi
+
+while ! pg_isready -h localhost -p 5432 > /dev/null 2> /dev/null; do
+    echo "waiting for database"
+    sleep 1
+  done
+
+
 src="/media/henry/Tools/map/data/dummy.osm.pbf"
 dbname="world"
 param="-C 10000 -G -v --number-processes 4 --slim"
@@ -58,10 +83,10 @@ do
     echo "importing" $base.pbf
     if (($cnt == 0)) ; then
       echo "creating"
-      osm2pgsql -s -C 12000 --verbose --number-processes 4 -U postgres -H localhost -d $dbname --create -S $style $file
+      time osm2pgsql -s -C 12000 --verbose --number-processes 8 -U postgres -H localhost -d $dbname --create -S $style $file
     else 
       echo "appending"
-      osm2pgsql -s -C 12000 --verbose --number-processes 4 -U postgres -H localhost -d $dbname --append -S $style $file
+      time osm2pgsql -s -C 12000 --verbose --number-processes 8 -U postgres -H localhost -d $dbname --append -S $style $file
     fi
     echo ""
     cnt=$(($cnt+1))

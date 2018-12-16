@@ -51,7 +51,7 @@ class GoogleProjection:
         self.Ac = []
         c = 256
         for d in range(0, levels + 1):
-            e = c / 2;
+            e = c / 2
             self.Bc.append(c / 360.0)
             self.Cc.append(0.5 * c / pi)
             self.zc.append((e, e))
@@ -261,8 +261,8 @@ class RenderThread:
 #        p1 = ((x + 1) * 256, y * 256)
 
         # Convert to LatLong (EPSG:4326)
-        l0 = self.tileproj.fromPixelToLL(p0, z);
-        l1 = self.tileproj.fromPixelToLL(p1, z);
+        l0 = self.tileproj.fromPixelToLL(p0, z)
+        l1 = self.tileproj.fromPixelToLL(p1, z)
 
         # Convert to map projection (e.g. mercator co-ords EPSG:900913)
         c0 = self.prj.forward(mapnik.Coord(l0[0], l0[1]))
@@ -348,8 +348,8 @@ def render_tiles(bbox, zooms, mapfile, metasize, writer, lock, num_threads = NUM
     px = [[LLtoPx(ll0, z), LLtoPx(ll1, z)] for z in range(0, zooms[1] + 1)]
 
     # setup tile and metadata dictionarys (https://docs.python.org/2/tutorial/datastructures.html#dictionaries)
-    tileData = {'sum': 0};  # holds information of all tiles
-    metaData = {};          # holds information of all metatiles
+    tileData = {'sum': 0}  # holds information of all tiles
+    metaData = {}          # holds information of all metatiles
 
     # iterate over all requested zoom levels
     for z in range(zooms[0], zooms[1] + 1):

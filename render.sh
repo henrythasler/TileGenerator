@@ -29,7 +29,7 @@ if [ ! "$(docker ps -q -f name=postgis)" ]; then
     --user "$(id -u):$(id -g)" \
     -v /etc/passwd:/etc/passwd:ro \
     -v /media/mapdata/pgdata_henry:/media/mapdata/pgdata_henry \
-    -v /home/henry/dev/docker/postgis/postgis-osm-1.conf:/etc/postgresql/postgresql.conf \
+    -v $(pwd)/pg-config/postgis-import.conf:/etc/postgresql/postgresql.conf \
     -e PGDATA=/media/mapdata/pgdata_henry \
     img-postgis:0.8 -c 'config_file=/etc/postgresql/postgresql.conf'
 else echo "postgis container already running"
@@ -83,7 +83,7 @@ docker run --name mapnik -ti --rm \
     --link postgis:postgis \
     -v /media/mapdata/henry:/media/mapdata/henry \
     -v /media/henry/Tools/map/tiles:/media/henry/Tools/map/tiles \
-    img-mapnik:1.0 -c "cd /media/mapdata/henry/TileGenerator; time python3 py3_render.py \
+    img-mapnik:2.0 -c "cd /media/mapdata/henry/TileGenerator; time python3 py3_render.py \
             --bbox $left $bottom $right $top \
             --zooms $5 $6 \
             --mapfile $database.xml \

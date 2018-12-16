@@ -25,7 +25,7 @@ printf -v top "%.8f" "$1"
 docker run --name mapnik -ti --rm \
     -v /media/mapdata/henry:/media/mapdata/henry \
     -v /media/henry/Tools/map/tiles:/media/henry/Tools/map/tiles \
-    img-mapnik:1.0 -c "cd /media/mapdata/henry/TileGenerator; time python3 py3_deleteTiles.py \
+    img-mapnik:2.0 -c "cd /media/mapdata/henry/TileGenerator; time python3 py3_deleteTiles.py \
             --bbox $left $bottom $right $top \
             --zooms $5 $6 \
             --tiledir \"/media/henry/Tools/map/tiles/MyCycleMapHD2\" \
